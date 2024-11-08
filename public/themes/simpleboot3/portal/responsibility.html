@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://www.hnks.com/news/33/ -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>{$category.name}_{$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_name|default=''}">
+    <meta name="description" content="{$category.name}-{$site_info.site_name|default=''}">
+    <meta name="viewport" content="width=1440">
+    <include file="public@head"/>
+    <link href="__TMPL__/public/assets/css/page_impt_gsjj11.css" rel="stylesheet" type="text/css">
+</head>
+<body data-pageid="7612b226-6f37-44fa-9066-b7e4909ff010" data-layout="flow"
+      data-tmplid="87b39d0f-a99c-4a72-9ee6-4af7c0f251ef">
+<div class="main pagebox">
+    <include file="public@nav"/>
+    <div id="w_grid-1573265972119" class="w_grid-000">
+        <div class="w_grid signal">
+            <div class="e_box e_box-000 p_gridbox">
+                <div id="content_box-1573265972119-0" class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                    <div id="w_grid-1585814936008" class="w_grid-000" data-tmpleditable="editable">
+                        <div class="w_grid signal">
+                            <div class="e_box e_box-000 p_gridbox">
+                                <div id="content_box-1585814936008-0"
+                                     class="e_box e_box-000 d_gridCell_0 p_gridCell ND_empty"
+                                     data-editablecontent="1585814936008">
+                                    <include file="public@banner"/>
+                                    <div id="w_grid-1675674752467" class="w_grid-000">
+                                        <div class="w_grid signal">
+                                            <div class="e_box e_box-000 p_gridbox">
+                                                <div id="content_box-1675674752467-0"
+                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                                    <div id="w_grid-1675674752477" class="w_grid-001">
+                                                        <div class="w_grid ">
+                                                            <div class="e_box e_box-000 p_gridbox">
+                                                                <div id="content_box-1675674752477-0"
+                                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                                                    <div id="c_portalResIntro_category-1675674752502"
+                                                                         class="c_portalResIntro_category-01001001"
+                                                                         loaded="true" style="overflow: visible;">
+                                                                        <script type="text/javascript"
+                                                                                src="__TMPL__/public/assets/js/rBQBHVzP2YGEOOgyAAAAAJLRU3c3828.js"></script>
+                                                                        <script type="text/javascript">
+                                                                            $(function () {
+                                                                                $('.NavList_a1').attr('id', 'NavList_a1').menu({
+                                                                                    a_type: 'slide',
+                                                                                    p_type: false,
+                                                                                    f_type: 'mob_js'
+                                                                                });
+                                                                            });
+                                                                        </script>
+                                                                        <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
+                                                                             id="NavList_a1">
+                                                                            <ul class="clearfix swiper-wrapper">
+                                                                                <foreach name="responsibility_category_list" item="vo">
+                                                                                <li class="swiper-slide swiper-no-swiping swiper-slide-active">
+                                                                                    <a href="/responsibility/{$vo.id}"
+                                                                                       title="{$vo.name}" class="more">{$vo.name}</a>
+                                                                                </li>
+                                                                                </foreach>
+                                                                            </ul>
+                                                                            <div id="NavList_a1_menu-slide"
+                                                                                 class="menu-slide"
+                                                                                 style="width: 60px; height: 84px; left: 92px; top: 0px;">
+                                                                                <i></i></div>
+                                                                            <span class="swiper-notification"
+                                                                                  aria-live="assertive"
+                                                                                  aria-atomic="true"></span></div>
+                                                                        <script>$("div[id^='c_']").attr("loaded", "true")</script>
+                                                                        <script>
+                                                                            var urlName = window.location.pathname;  //获取地址栏中文件名或路径。
+                                                                            $('.NavList_a1 li a').each(function () {        //遍历当前网页导航或分类
+                                                                                var urlHref = $(this).attr('href');  //获取导航链接地址href值
+                                                                                if (urlName.indexOf(urlHref) >= 0) {   //检测文件名或路径中是否包含当前链接值
+                                                                                    $(this).addClass('active');
+                                                                                }
+                                                                            });
+                                                                        </script>
+                                                                    </div>
+                                                                    <div id="c_portalResNews_list-16756748703037930"
+                                                                         class="c_portalResNews_list-01001007"
+                                                                         loaded="true" style="overflow: visible;">
+                                                                        <div class="e_stylebox e_ContentOrdinaryStyleBox-001 p_stylebox"
+                                                                             id="">
+                                                                            <div class="stylebox_top">
+                                                                                <div class="stylebox_title">
+                                                                                    <h2 class="title_main">{$category.name}</h2>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="stylebox_top_line"></div>
+                                                                            <div class="stylebox_content">
+                                                                                <div>
+                                                                                    <!-- 新闻资讯 -->
+                                                                                    <div class="newBox">
+                                                                                        <div class="newUl  p_news newContainer"
+                                                                                             isserverpaging="true">
+                                                                                            <php>
+                                                                                                $where= function($query){
+                                                                                                $query->where('post.post_type','=',1);
+                                                                                                };
+                                                                                                $page=[
+                                                                                                'list_rows'=>1,
+                                                                                                'next'=>'>',
+                                                                                                'prev'=>'<'
+                                                                                                ];
+                                                                                            </php>
+                                                                                            <portal:articles item="vo" where="$where" order="post.create_time DESC" page="$page"
+                                                                                                             relation="categories"
+                                                                                                             categoryIds="$category.id"
+                                                                                                             returnVarName="articles_data">
+                                                                                            <div class="p_articles newLi">
+
+                                                                                                <div class="porTbox">
+                                                                                                    <img src="{:cmf_get_image_url($vo.thumbnail)}"
+                                                                                                         title="{$vo.post_title}"
+                                                                                                         class="js_thumb newImg"
+                                                                                                         alt="{$vo.post_title}">
+                                                                                                    <div class="showBox">
+                                                                                                        <a href="/activity_info/{$category.id}/{$vo.id}"
+                                                                                                           target="_self"
+                                                                                                           class="showBoxLink">{$vo.post_title}</a>
+                                                                                                    </div>
+                                                                                                </div>
+
+                                                                                                <div class="porBbox">
+                                                                                                    <div class="leftBox">
+                                                                                                        <!-- 标题 -->
+                                                                                                        <span class="bt">活动纪实</span>
+                                                                                                        <div class="p_title newTitle">
+                                                                                                            {$vo.post_title}
+                                                                                                        </div>
+                                                                                                        <!-- 描述 -->
+                                                                                                        <div class="p_summary newSummry js-fixLed"
+                                                                                                             style="overflow-wrap: break-word; white-space: normal;"></div>
+                                                                                                        <p class="TimeBox en_font_bold">
+                                                                                                            {:date('d/m/y',$vo.create_time)}</p>
+                                                                                                    </div>
+
+                                                                                                </div>
+
+                                                                                            </div>
+                                                                                            </portal:articles>
+                                                                                        </div>
+                                                                                        <!-- 分页 -->
+                                                                                        <div class="e_box e_OccupyBox-001 p_OccupyBox">
+                                                                                            <ul class="pagination">
+                                                                                                <page/>
+                                                                                            </ul>
+
+                                                                                            <div class="e_pagebox e_pagebox-000 p_page">
+                                                                                                <div class="pre pre1">
+                                                                                                    <div class="font">
+                                                                                                        <i class="iconfont"></i><span
+                                                                                                            class="i_pre">上一页</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                <div class="pageNum active">
+                                                                                                    1
+                                                                                                </div>
+
+                                                                                                <div class="pageNum">2
+                                                                                                </div>
+                                                                                                <div class="p_PageInterval">
+                                                                                                    <span class="i_omission">...</span>
+                                                                                                </div>
+
+                                                                                                <div class="pageNum">4
+                                                                                                </div>
+                                                                                                <div class="next">
+                                                                                                    <div class="font">
+                                                                                                        <i class="iconfont"></i><span
+                                                                                                            class="i_next">下一页</span>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <script type="text/javascript">
+                                                                                                pagingVM = window.pagingVM || {};
+                                                                                                pagingVM['portalResNews_list-16756748703037930'] = {
+                                                                                                    totalPage: "4",
+                                                                                                    pageSize: "6",
+                                                                                                    currentPage: "1",
+                                                                                                    turnPageType: 'turnPage',
+
+                                                                                                    style: "e_pagebox-000",
+                                                                                                    type: "true",
+                                                                                                    styleConfig: {
+                                                                                                        style: 'e_MoreBtn-001',
+                                                                                                        zstyle: "p_more"
+                                                                                                    },
+                                                                                                    value: '查看更多',
+                                                                                                    moreGuide: '点击查看更多',
+                                                                                                    loading: {
+                                                                                                        styleConfig: {
+                                                                                                            style: 'e_loading-001',
+                                                                                                            zstyle: "p_loading"
+                                                                                                        },
+                                                                                                        value: '正在加载中，请稍后',
+                                                                                                    },
+
+                                                                                                    CommonInteraction: "false",
+                                                                                                    es_CommonSwitchBtnA: 'e_IconSwitchBtn-002',
+                                                                                                    es_CommonSwitchBtnB: 'e_IconSwitchBtn-002',
+                                                                                                    CommonSummaryBoxA: "false",
+                                                                                                    marquee_position: 'down',
+                                                                                                    marquee_horizontal: 'center',
+                                                                                                    es_CommonSquareNumBtn: 'e_SquareNumBtn-001',
+                                                                                                    SquareNumBtn_size: '0',
+                                                                                                    SquareNumBtn_defWidth: "16",
+                                                                                                    SquareNumBtn_defHeight: "16",
+                                                                                                    marquee_autoPlay: "true",
+                                                                                                    marquee_autoPlayDuration: "3",
+                                                                                                    marquee_speed: "1",
+                                                                                                    scrollDirection: "1",
+                                                                                                    es_scroll: "e_scroll-001",
+                                                                                                    columnNum: "3",
+                                                                                                    lineNum: "2",
+                                                                                                    pre: "上一页",
+                                                                                                    next: "下一页"
+                                                                                                }
+                                                                                            </script>
+
+                                                                                        </div>
+                                                                                        <!-- 分页end -->
+                                                                                    </div>
+
+                                                                                    <script type="text/javascript">
+                                                                                        $comp({
+                                                                                            textParams: {
+                                                                                                isCutOfName: true,//标题是否自动截取超长显示内容
+                                                                                                linesOfCutOfName: 1,//标题超出隐藏的行数设置
+                                                                                                isCutOfSummary: true,//概述是否自动截取超长显示内容
+                                                                                                linesOfCutOfSummary: 3,//概述超出隐藏的行数设置
+                                                                                                categorySummary: true,//分类概述是否自动截取超长显示内容
+                                                                                                categorySummaryMaxLen: 2//分类概述超出隐藏的行数设置
+                                                                                            },
+                                                                                            picParams: {
+                                                                                                isOpenCutMode: true,//是否开启裁剪
+                                                                                                imageWidth: 200,//设置图片的宽度
+                                                                                                imageHeight: 200,//设置图片的高度
+                                                                                                definedDefaultImage: false,//是否设置默认图片
+                                                                                                defaultImage: "",//设置默认图片的值
+                                                                                                appId: 3
+                                                                                            },
+                                                                                            moParams: {
+                                                                                                isOpenCutMode: true,//是否开启裁剪
+                                                                                                imageWidth: 80,//设置图片的宽度
+                                                                                                imageHeight: 80,//设置图片的高度
+                                                                                                definedDefaultImage: false,//是否设置默认图片
+                                                                                                defaultImage: "",//设置默认图片的值
+                                                                                                appId: 3
+                                                                                            },
+                                                                                            params: {
+                                                                                                "url": "/comp/portalResNews/list.do?compId=portalResNews_list-16756748703037930&cid=33",
+                                                                                                "appId": "3",
+                                                                                                turnPageType: "turnPage"
+                                                                                            },
+                                                                                            id: "portalResNews_list-16756748703037930", //实例id 服务器传
+                                                                                            lib: ["js/portalNews/portalResNews_list-01"], //组件js
+                                                                                            noDataFlag: ""
+                                                                                        });
+                                                                                    </script>
+                                                                                    <input type="hidden"
+                                                                                           class="requsetParam"
+                                                                                           value="&amp;cid=33">
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="stylebox_bottom_line"></div>
+                                                                            <div class="stylebox_bottom">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="content_box-1675674752477-1"
+                                                                     class="e_box e_box-000 d_gridCell_1 p_gridCell">
+                                                                    <div id="c_portalResBreadcrumb_nav-1675674752507"
+                                                                         class="c_portalResBreadcrumb_nav-01001003"
+                                                                         loaded="true" style="overflow: visible;">
+                                                                        <!--homePage  首页-->
+                                                                        <div class="e_box e_box-000 p_breadcrumbList"
+                                                                             data-ename="面包屑导航">
+
+                                                                            <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumbFirst">
+                                                                                <span class="weizhi"><i
+                                                                                        class="iconfont"></i>您现在的位置：</span>
+                                                                                <a href="https://www.hnks.com/">
+                                                                                    <div class="font">
+                                                                                        <span><span class="i_homePage">首页</span></span>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                            <!--compositePage 应用综合页对象-->
+                                                                            <!--navBreadcrumb 应用数据集合对象（list集合）-->
+
+                                                                            <div class="e_title e_GuideLabel-001 p_end">
+                                                                                <div class="font"><span
+                                                                                        class="i_separator">/</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumb contentBox">
+                                                                                <a href="https://www.hnks.com/news/34/">
+                                                                                    <div class="font">
+                                                                                        <span>企业文化</span>
+                                                                                    </div>
+                                                                                </a>
+                                                                            </div>
+                                                                            <!--<div class="e_title e_GuideLabel-001 p_end">
+                                                                            <div class="font"><span class="i_separator">/</span></div>
+                                                                            </div>
+                                                                            -->
+                                                                            <!-- currentPage 当前页对象-->
+                                                                            <div class="e_title e_GuideLabel-001 p_end">
+                                                                                <div class="font"><span
+                                                                                        class="i_separator">/</span>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="e_breadcrumb e_breadcrumb-000 p_breadcrumbCurrent">
+                                                                                <div class="font">
+                                                                                    <span>活动纪实</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+
+                                                                        <script type="text/javascript">
+                                                                            $comp({
+                                                                                breadcrumbType: false,
+                                                                                contentFlag: "true",
+                                                                                contentWidth: "350",
+                                                                                ctx: "",
+                                                                                appId: "",
+                                                                                id: "portalResBreadcrumb_nav-1675674752507",
+                                                                                lib: ["js/portalResBreadcrumb/portalResBreadcrumb_nav"]
+                                                                            });
+
+
+                                                                        </script>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="w_grid-1675674752487" class="w_grid-000">
+                                        <div class="w_grid signal">
+                                            <div class="e_box e_box-000 p_gridbox">
+                                                <div id="content_box-1675674752487-0"
+                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="w_grid-1593500490727" class="w_grid-000">
+                        <div class="w_grid signal">
+                            <div class="e_box e_box-000 p_gridbox">
+                                <div id="content_box-1593500490727-0" class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                    <div id="w_common_text-1616831156169" class="reset_style" data-vhide100p="true">
+                                        <div><p style="text-align:center"><span style="line-height:2"><span
+                                                style="font-family:微软雅黑"><span style="font-size:14px"><span
+                                                style="color:#FFFFFF">版权所有©河南省矿山起重机有限公司&nbsp;&nbsp;</span><a
+                                                href="https://beian.miit.gov.cn/" target="_blank"><span
+                                                style="color:#FFFFFF">豫ICP备16003949号-1&nbsp;&nbsp;&nbsp;</span></a><br>
+<a href="http://www.300.cn/" target="_blank"><span style="color:#FFFFFF">网站建设：中企动力</span></a><span
+                                                    style="color:#FFFFFF">&nbsp;</span><a
+                                                    href="http://zhengzhou.300.cn/" target="_blank"><span
+                                                    style="color:#FFFFFF">郑州</span></a></span></span></span></p>
+                                        </div>
+                                    </div>
+                                    <div id="w_grid-1614153078102" class="w_grid-001" data-vhide768="true"
+                                         data-vhide1024="true">
+                                        <div class="w_grid ">
+                                            <div class="e_box e_box-000 p_gridbox">
+                                                <div id="content_box-1614153078102-0"
+                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                                    <div id="c_portalResnav_main-16168298922036759"
+                                                         class="c_portalResnav_main-01001005" loaded="true"
+                                                         style="overflow: visible;">
+
+                                                        <nav class="bnav">
+                                                            <div class="box">
+                                                                <dl class="botUl">
+                                                                    <dt class="botDt">
+                                                                        <a href="https://www.hnks.com/"
+                                                                           class="botLink blink">首页</a>
+                                                                    </dt>
+                                                                </dl>
+                                                                <dl class="botUl">
+                                                                    <dt class="botDt">
+                                                                        <a href="https://www.hnks.com/intro/1.html"
+                                                                           class="botLink blink">关于我们</a>
+                                                                    </dt>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/intro/1.html"
+                                                                           class="botLinkS blink">企业简介</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/intro/2.html"
+                                                                           class="botLinkS blink">领导致辞</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/zzry.html"
+                                                                           class="botLinkS blink">企业荣誉</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/ksfm.html"
+                                                                           class="botLinkS blink">企业风貌</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/intro/13.html"
+                                                                           class="botLinkS blink">先进设备</a>
+                                                                    </dd>
+                                                                </dl>
+                                                                <dl class="botUl">
+                                                                    <dt class="botDt">
+                                                                        <a href="https://www.hnks.com/news/2/"
+                                                                           class="botLink blink">新闻中心</a>
+                                                                    </dt>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/2/"
+                                                                           class="botLinkS blink">企业动态</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/14/"
+                                                                           class="botLinkS blink">企业期刊</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/corpvideo/1/"
+                                                                           class="botLinkS blink">企业宣传片</a>
+                                                                    </dd>
+                                                                </dl>
+                                                                <dl class="botUl">
+                                                                    <dt class="botDt">
+                                                                        <a href="https://www.hnks.com/product/22/"
+                                                                           class="botLink blink">产品中心</a>
+                                                                    </dt>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/product/22/"
+                                                                           class="botLinkS blink">桥式起重机</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/product/23/"
+                                                                           class="botLinkS blink">门式起重机</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/product/24/"
+                                                                           class="botLinkS blink">专用起重机</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/product/25/"
+                                                                           class="botLinkS blink">电动葫芦</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/product/26/"
+                                                                           class="botLinkS blink">典型案例</a>
+                                                                    </dd>
+                                                                </dl>
+                                                                <dl class="botUl">
+                                                                    <dt class="botDt">
+                                                                        <a href="https://www.hnks.com/intro/21.html"
+                                                                           class="botLink blink">企业文化</a>
+                                                                    </dt>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/intro/21.html"
+                                                                           class="botLinkS blink">孝善文化</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/33/"
+                                                                           class="botLinkS blink">活动纪实</a>
+                                                                    </dd>
+                                                                </dl>
+                                                                <dl class="botUl">
+                                                                    <dt class="botDt">
+                                                                        <a href="https://www.hnks.com/news/10/"
+                                                                           class="botLink blink">社会责任</a>
+                                                                    </dt>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/10/"
+                                                                           class="botLinkS blink">助学兴教</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/25/"
+                                                                           class="botLinkS blink">平安建设</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/26/"
+                                                                           class="botLinkS blink">扶贫济困</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/27/"
+                                                                           class="botLinkS blink">乡村振兴</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/28/"
+                                                                           class="botLinkS blink">公共文化服务</a>
+                                                                    </dd>
+                                                                </dl>
+                                                                <dl class="botUl">
+                                                                    <dt class="botDt">
+                                                                        <a href="https://www.hnks.com/intro/20.html"
+                                                                           class="botLink blink">服务中心</a>
+                                                                    </dt>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/intro/20.html"
+                                                                           class="botLinkS blink">联系我们</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/intro/16.html"
+                                                                           class="botLinkS blink">加入我们</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnks.com/news/18/"
+                                                                           class="botLinkS blink">信息公开</a>
+                                                                    </dd>
+                                                                    <dd class="sbotDd">
+                                                                        <a href="https://www.hnksweb.com/hgz"
+                                                                           class="botLinkS blink">防伪查询</a>
+                                                                    </dd>
+                                                                </dl>
+                                                            </div>
+                                                        </nav>
+
+                                                        <script>
+                                                            $("div[id^='c_portalResnav_main']").attr("loaded", "true");
+                                                        </script>
+
+
+                                                    </div>
+                                                </div>
+                                                <div id="content_box-1614153078102-1"
+                                                     class="e_box e_box-000 d_gridCell_1 p_gridCell">
+                                                    <div id="w_common_text-1616830314198" class="reset_style">
+                                                        <div><p><span style="color:#FFFFFF"><span
+                                                                style="font-size:14px"><span
+                                                                style="font-family:微软雅黑">全国免费销售服务热线</span></span></span>
+                                                        </p>
+
+                                                            <p><a href="tel:400-0373-818"><span
+                                                                    style="font-size:26px"><span
+                                                                    style="font-family:arial,helvetica,sans-serif"><span
+                                                                    style="color:#FFFFFF">400-0373-818</span></span></span></a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div id="w_common_text-1616830369921" class="reset_style">
+                                                        <div><p><span style="color:#FFFFFF"><span
+                                                                style="font-size:14px"><span
+                                                                style="font-family:微软雅黑">全国免费售后服务热线</span></span></span>
+                                                        </p>
+
+                                                            <p><a href="tel:400-0373-919"><span
+                                                                    style="font-size:26px"><span
+                                                                    style="font-family:arial,helvetica,sans-serif"><span
+                                                                    style="color:#FFFFFF">400-0373-919</span></span></span></a>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div id="w_common_text-1616830401781" class="reset_style">
+                                                        <div><p><span style="line-height:2"><span
+                                                                style="font-family:微软雅黑"><span
+                                                                style="font-size:14px"><a
+                                                                href="https://beian.miit.gov.cn/" target="_blank"><span
+                                                                style="color:#d9d9d9">豫ICP备16003949号-1&nbsp;</span></a><span
+                                                                style="color:#d9d9d9">&nbsp;&nbsp;</span><br>
+<a href="http://www.300.cn/" target="_blank"><span style="color:#d9d9d9">网站建设：中企动力</span></a><span
+                                                                    style="color:#d9d9d9">&nbsp;</span><a
+                                                                    href="http://zhengzhou.300.cn/"
+                                                                    target="_blank"><span
+                                                                    style="color:#d9d9d9">郑州</span></a><br>
+<span style="color:#d9d9d9">版权所有©河南省矿山起重机有限公司&nbsp;&nbsp;</span></span></span></span></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div id="content_box-1614153078102-2"
+                                                     class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                                                    <div id="w_common_text-1616830503151" class="reset_style">
+                                                        <div><p><strong><font color="#ffffff" face="微软雅黑"><span
+                                                                style="font-size:14px">关注我们</span></font></strong>
+                                                        </p>
+                                                        </div>
+                                                    </div>
+                                                    <div id="w_grid-1616830617301" class="w_grid-001">
+                                                        <div class="w_grid ">
+                                                            <div class="e_box e_box-000 p_gridbox">
+                                                                <div id="content_box-1616830617301-0"
+                                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                                                    <div id="w_fimg-1616830627861" class="w_fimg-001">
+                                                                        <div class="w_img animated  ">
+                                                                            <div class="e_box e_box-000 p_box">
+                                                                                <div class="e_image e_DImage-001 p_dimage">
+                                                                                    <img src="./culture_files/1_29.jpg"
+                                                                                         alt="河南省矿山起重机有限公司"
+                                                                                         title="河南省矿山起重机有限公司"
+                                                                                         width="100%" height="100%">
+                                                                                </div>
+                                                                                <a class="e_link e_link-000 p_link002"
+                                                                                   target="_blank">
+                                                                                    <div class="e_title e_ImgTitle-001 p_title">
+                                                                                        <div class="font"><i
+                                                                                                class="iconfont"></i>微信公众号
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="content_box-1616830617301-1"
+                                                                     class="e_box e_box-000 d_gridCell_1 p_gridCell">
+                                                                    <div id="w_fimg-1617159683507" class="w_fimg-001">
+                                                                        <div class="w_img animated  ">
+                                                                            <div class="e_box e_box-000 p_box">
+                                                                                <div class="e_image e_DImage-001 p_dimage">
+                                                                                    <img src="./culture_files/dyn1.jpg"
+                                                                                         alt="河南省矿山起重机有限公司"
+                                                                                         title="河南省矿山起重机有限公司"
+                                                                                         width="100%" height="100%">
+                                                                                </div>
+                                                                                <a class="e_link e_link-000 p_link002"
+                                                                                   target="_blank">
+                                                                                    <div class="e_title e_ImgTitle-001 p_title">
+                                                                                        <div class="font"><i
+                                                                                                class="iconfont"></i>官方抖音
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div id="content_box-1616830617301-2"
+                                                                     class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                                                                    <div id="w_fimg-1616830641892" class="w_fimg-001">
+                                                                        <div class="w_img animated  ">
+                                                                            <div class="e_box e_box-000 p_box">
+                                                                                <div class="e_image e_DImage-001 p_dimage">
+                                                                                    <img src="./culture_files/qK1wgsT6R_KRn1eO4yrBlg.jpg"
+                                                                                         alt="河南省矿山起重机有限公司"
+                                                                                         title="河南省矿山起重机有限公司"
+                                                                                         width="100%" height="100%">
+                                                                                </div>
+                                                                                <a class="e_link e_link-000 p_link002"
+                                                                                   target="_blank">
+                                                                                    <div class="e_title e_ImgTitle-001 p_title">
+                                                                                        <div class="font"><i
+                                                                                                class="iconfont"></i>官方手机站
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </a></div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("* img").attr({alt: "河南省矿山起重机有限公司", title: "河南省矿山起重机有限公司"});
+        setTimeout("dongtaitianjia()", 1000)
+    });
+
+</script>
+
+
+<script type="text/javascript" src="./culture_files/response.js.下载"></script>
+</body>
+</html>

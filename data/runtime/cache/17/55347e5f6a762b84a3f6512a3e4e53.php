@@ -1,0 +1,4 @@
+<?php
+//000000000000
+ exit();?>
+a:14:{s:20:"portal/Article/index";a:1:{i:0;a:1:{s:4:"vars";a:1:{s:3:"cid";s:1:"8";}}}s:17:"portal/List/index";a:1:{i:0;a:1:{s:4:"vars";a:1:{s:2:"id";s:1:"8";}}}s:18:"portal/index/intro";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:20:"portal/index/culture";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:18:"portal/index/honor";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:20:"portal/index/product";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:25:"portal/index/product_info";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:21:"portal/index/activity";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:26:"portal/index/activity_info";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:27:"portal/index/responsibility";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:32:"portal/index/responsibility_info";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:22:"portal/index/quotation";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:24:"portal/index/reservation";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}s:19:"portal/index/search";a:1:{i:0;a:1:{s:4:"vars";a:0:{}}}}

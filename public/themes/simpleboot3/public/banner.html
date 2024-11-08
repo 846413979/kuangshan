@@ -1,0 +1,59 @@
+<div id="c_portalResEbizads_banner-1614397060581"
+     class="c_portalResEbizads_banner-01001005" data-vhide768="true" loaded="true"
+     style="overflow: visible;">
+    <!-- banner 大盒子开始 -->
+    <div class="bannerBox">
+        <div class="swiper-container portalResEbizads_banner-1614397060581_swiperContainer swiper-container-horizontal">
+            <div class="swiper-wrapper">
+                <slides id="2">
+                    <!-- 单个 盒子循环开始 -->
+                    <div class="swiper-slide swiper-slide-active"
+                         style="width: 1920px;">
+                        <div class="content">
+                            <!-- 图片开始 -->
+                            <div class="picB" data-ename="Banner大图">
+                                <img src="{:cmf_get_image_url($vo['image'])}"
+                                     alt="{$site_info.site_name|default=''}" class="bannerPic"
+                                     title="{$site_info.site_name|default=''}">
+                            </div>
+                            <!-- 图片结束 -->
+                            <!-- 内容开始 -->
+
+                            <!-- 内容结束 -->
+                        </div>
+                    </div>
+                    <!-- 单个 盒子循环结束 -->
+                </slides>
+            </div>
+            <!-- banner 按钮开始 -->
+            <!-- banner 按钮结束 -->
+        </div>
+    </div>
+    <!-- banner 大盒子结束 -->
+    <script>
+        require(['swiper'], function () {
+            var mySwiper = new Swiper('.portalResEbizads_banner-1614397060581_swiperContainer', {
+                //可选选项，自动滑动
+                autoplay: 2000,
+                //操作后继续轮播
+                autoplayDisableOnInteraction: false,
+                // 循环播放
+                loop: false,
+                // 滑出效果
+                //effect: 'fade',
+                // 前按钮
+                prevButton: '#c_portalResEbizads_banner-1614397060581 .swiper-button-prev',
+                // 后按钮
+                nextButton: '#c_portalResEbizads_banner-1614397060581 .swiper-button-next',
+                // slid开始滑动到结束的时间
+                speed: 1200,
+                // 视差效果
+                parallax: true,
+            })
+        });
+        $("div[id^='c_portalResEbizads_banner']").attr("loaded", "true");
+
+    </script>
+    <input class="requsetParam" type="hidden" value="">
+
+</div>
