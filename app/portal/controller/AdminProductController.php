@@ -12,6 +12,8 @@ namespace app\portal\controller;
 
 use app\portal\model\PortalCategoryPostModel;
 use app\portal\model\PortalTagPostModel;
+use app\portal\model\ProductCategoryModel;
+use app\portal\model\ProductModel;
 use app\portal\model\RecycleBinModel;
 use cmf\controller\AdminBaseController;
 use app\portal\model\PortalPostModel;
@@ -21,48 +23,44 @@ use app\admin\model\ThemeModel;
 
 class AdminProductController extends AdminBaseController
 {
-    /**
-     * 文章列表
-     * @adminMenu(
-     *     'name'   => '文章管理',
-     *     'parent' => 'portal/AdminIndex/default',
-     *     'display'=> true,
-     *     'hasView'=> true,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '文章列表',
-     *     'param'  => ''
-     * )
-     * @return mixed
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
     public function index()
     {
-        $content = hook_one('portal_admin_article_index_view');
-
-        if (!empty($content)) {
-            return $content;
-        }
 
         $param = $this->request->param();
-
         $categoryId = $this->request->param('category', 0, 'intval');
 
-        $postService = new PostService();
-        $data        = $postService->adminArticleList($param,3);
+        $where = [];
+        if (!empty($categoryId)) {
+            $where[] = ['category_id', '=', $categoryId];
+        }
+        if (!empty($param['start_time']) && !empty($param['end_time'])) {
+            $where[] = ['create_time', 'between', [strtotime($param['start_time']), strtotime($param['end_time'])]];
+        }else{
+            if (!empty($param['start_time'])) {
+                $where[] = ['create_time', '>=', strtotime($param['start_time'])];
+            }
+            if (!empty($param['end_time'])) {
+                $where[] = ['create_time', '<=', strtotime($param['end_time'])];
+            }
+        }
+
+        if (!empty($param['keyword'])) {
+            $where[] = ['title', 'like', '%' . $param['keyword'] . '%'];
+        }
+
+        $productModel = new ProductModel();
+        $data = $productModel->with('category')->where($where)->order('list_order ASC, id DESC')->paginate(10);
 
         $data->appends($param);
 
-        $portalCategoryModel = new PortalCategoryModel();
-        $categoryTree        = $portalCategoryModel->adminCategoryTree(1, $categoryId);
+        $productCategoryModel = new ProductCategoryModel();
+        $categoryList = $productCategoryModel->select();
 
-        $this->assign('start_time', isset($param['start_time']) ? $param['start_time'] : '');
-        $this->assign('end_time', isset($param['end_time']) ? $param['end_time'] : '');
-        $this->assign('keyword', isset($param['keyword']) ? $param['keyword'] : '');
-        $this->assign('articles', $data->items());
-        $this->assign('category_tree', $categoryTree);
+        $this->assign('start_time', $param['start_time'] ?? '');
+        $this->assign('end_time', $param['end_time'] ?? '');
+        $this->assign('keyword', $param['keyword'] ?? '');
+        $this->assign('products', $data->items());
+        $this->assign('category_list', $categoryList);
         $this->assign('category', $categoryId);
         $this->assign('page', $data->render());
 
@@ -70,338 +68,271 @@ class AdminProductController extends AdminBaseController
         return $this->fetch();
     }
 
-    /**
-     * 添加文章
-     * @adminMenu(
-     *     'name'   => '添加文章',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> true,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '添加文章',
-     *     'param'  => ''
-     * )
-     * @return mixed
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
     public function add()
     {
-        $content = hook_one('portal_admin_article_add_view');
+        $categoryModel = new ProductCategoryModel();
+        $categoryList = $categoryModel->productCategoryTree();
+        $this->assign('category_list', $categoryList);
 
-        if (!empty($content)) {
-            return $content;
-        }
+        $product_setting = cmf_get_option('product_setting');
+        $this->assign($product_setting);
 
-        $themeModel        = new ThemeModel();
-        $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
-        $this->assign('article_theme_files', $articleThemeFiles);
         return $this->fetch();
     }
 
-    /**
-     * 添加文章提交
-     * @adminMenu(
-     *     'name'   => '添加文章提交',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> false,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '添加文章提交',
-     *     'param'  => ''
-     * )
-     */
+    public function select()
+    {
+        $key = $this->request->param('key');
+
+        $product_setting = cmf_get_option('product_setting');
+        if (empty($product_setting[$key])) {
+            $this->error('参数错误');
+        }
+        $this->assign('list', $product_setting[$key]);
+
+        $ids = $this->request->param('ids');
+        $selectedIds = explode(',', $ids);
+//        var_dump($selectedIds);exit();
+        $this->assign('selectedIds', $selectedIds);
+
+        return $this->fetch();
+    }
+
     public function addPost()
     {
-        if ($this->request->isPost()) {
-            $data = $this->request->param();
-
-            //状态只能设置默认值。未发布、未置顶、未推荐
-            $data['post']['post_status'] = 0;
-            $data['post']['is_top']      = 0;
-            $data['post']['recommended'] = 0;
-
-            $post = $data['post'];
-
-            $result = $this->validate($post, 'AdminArticle');
-            if ($result !== true) {
-                $this->error($result);
-            }
-
-            $portalPostModel = new PortalPostModel();
-
-            if (!empty($data['photo_names']) && !empty($data['photo_urls'])) {
-                $data['post']['more']['photos'] = [];
-                foreach ($data['photo_urls'] as $key => $url) {
-                    $photoUrl = cmf_asset_relative_url($url);
-                    array_push($data['post']['more']['photos'], ["url" => $photoUrl, "name" => $data['photo_names'][$key]]);
-                }
-            }
-
-            if (!empty($data['file_names']) && !empty($data['file_urls'])) {
-                $data['post']['more']['files'] = [];
-                foreach ($data['file_urls'] as $key => $url) {
-                    $fileUrl = cmf_asset_relative_url($url);
-                    array_push($data['post']['more']['files'], ["url" => $fileUrl, "name" => $data['file_names'][$key]]);
-                }
-            }
-
-            $data['post']['post_type'] = 3;
-            $portalPostModel->adminAddArticle($data['post'], $data['post']['categories']);
-
-            $data['post']['id'] = $portalPostModel->id;
-            $hookParam          = [
-                'is_add'  => true,
-                'article' => $data['post']
-            ];
-            hook('portal_admin_after_save_article', $hookParam);
-
-
-            $this->success('添加成功!', url('AdminArticle/edit', ['id' => $portalPostModel->id]));
+        if (!$this->request->isPost()) {
+            $this->error('请求错误');
         }
+        $data = $this->request->post();
+
+        $productCategoryModel = new ProductCategoryModel();
+        $category = $productCategoryModel->find($data['category_id']);
+        if (empty($category)) {
+            $this->error('分类不存在');
+        }
+
+        $result = $this->validate($data, 'Product');
+        if ($result !== true) {
+            $this->error($result);
+        }
+
+        if (empty($data['thumbnail'])) {
+            $this->error('缩略图不能为空');
+        }
+
+        if (!empty($data['photo_names']) && !empty($data['photo_urls'])) {
+            $data['photos'] = [];
+            foreach ($data['photo_urls'] as $key => $url) {
+                $photoUrl = cmf_asset_relative_url($url);
+                array_push($data['photos'], ["url" => $photoUrl, "name" => $data['photo_names'][$key]]);
+            }
+        }
+
+        if (!empty($data['case_names']) && !empty($data['case_urls'])) {
+            $data['case'] = [];
+            foreach ($data['case_urls'] as $key => $url) {
+                $photoUrl = cmf_asset_relative_url($url);
+                array_push($data['case'], ["url" => $photoUrl, "name" => $data['case_names'][$key]]);
+            }
+        }
+
+        if (!empty($data['certificate_names']) && !empty($data['certificate_urls'])) {
+            $data['certificate'] = [];
+            foreach ($data['certificate_urls'] as $key => $url) {
+                $photoUrl = cmf_asset_relative_url($url);
+                array_push($data['certificate'], ["url" => $photoUrl, "name" => $data['certificate_names'][$key]]);
+            }
+        }
+
+        if (!empty($data['file_name']) && !empty($data['file_url'])) {
+            $data['file'] = [
+                'url' => cmf_asset_relative_url($data['file_url']),
+                'name' => $data['file_name']
+            ];
+        }
+        $product_setting = cmf_get_option('product_setting');
+
+        if(!empty($data['authentication_mark'])){
+            $authentication_mark = $data['authentication_mark'];
+            $data['authentication_mark'] = [];
+            foreach ($authentication_mark as $key => $value){
+                $data['authentication_mark'][] = ['url'=>$product_setting['authentication_mark'][$value]['url']??'','name'=>$product_setting['authentication_mark'][$value]['name']??''];
+            }
+        }
+        if(!empty($data['sling_available'])){
+            $sling_available = $data['sling_available'];
+            $data['sling_available'] = [];
+            foreach ($sling_available as $key => $value){
+                $data['sling_available'][] = ['url'=>$product_setting['sling_available'][$value]['url']??'','active_url'=>$product_setting['sling_available_active'][$value]['url']??'','name'=>$product_setting['sling_available'][$value]['name']??''];
+            }
+        }
+
+        if(!empty($data['lifting_capacity']) && !$this->checkEmpty($data['lifting_capacity'])){
+            $this->error('起重量不能为空值');
+        }
+        if(!empty($data['job_level']) && !$this->checkEmpty($data['job_level'])){
+            $this->error('工作等级不能为空值');
+        }
+
+//        var_dump($data);exit;
+
+        $model = new ProductModel();
+        $result = $model->save($data);
+
+        if ($result === false) {
+            $this->error('添加失败!');
+        }
+
+        $this->success('添加成功!', url('AdminProduct/index'));
 
     }
 
-    /**
-     * 编辑文章
-     * @adminMenu(
-     *     'name'   => '编辑文章',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> true,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '编辑文章',
-     *     'param'  => ''
-     * )
-     * @return mixed
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     */
+    // 判断数组中是否存在空值
+    public function checkEmpty($data){
+        foreach ($data as $key => $value){
+            if(empty($value)){
+                return false;
+            }
+        }
+        return true;
+    }
+
     public function edit()
     {
-        $content = hook_one('portal_admin_article_edit_view');
-
-        if (!empty($content)) {
-            return $content;
+        $id = $this->request->param('id', 0, 'intval');
+        $productModel = new ProductModel();
+        $product = $productModel->find($id);
+        if (empty($product)) {
+            $this->error('产品不存在!');
         }
 
-        $id = $this->request->param('id', 0, 'intval');
+        $categoryModel = new ProductCategoryModel();
+        $categoryList = $categoryModel->productCategoryTree($product['category_id']);
+        $this->assign('category_list', $categoryList);
 
-        $portalPostModel = new PortalPostModel();
-        $post            = $portalPostModel->where('id', $id)->find();
-        $postCategories  = $post->categories()->alias('a')->column('a.name', 'a.id');
-        $postCategoryIds = implode(',', array_keys($postCategories));
+        $product_setting = cmf_get_option('product_setting');
+        $this->assign($product_setting);
 
-        $themeModel        = new ThemeModel();
-        $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
-        $this->assign('article_theme_files', $articleThemeFiles);
-        $this->assign('post', $post);
-        $this->assign('post_categories', $postCategories);
-        $this->assign('post_category_ids', $postCategoryIds);
+
+        $this->assign('product', $product);
 
         return $this->fetch();
     }
 
-    /**
-     * 编辑文章提交
-     * @adminMenu(
-     *     'name'   => '编辑文章提交',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> false,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '编辑文章提交',
-     *     'param'  => ''
-     * )
-     * @throws \think\Exception
-     */
+
     public function editPost()
     {
 
-        if ($this->request->isPost()) {
-            $data = $this->request->param();
-
-            //需要抹除发布、置顶、推荐的修改。
-            unset($data['post']['post_status']);
-            unset($data['post']['is_top']);
-            unset($data['post']['recommended']);
-
-            $post   = $data['post'];
-            $result = $this->validate($post, 'AdminArticle');
-            if ($result !== true) {
-                $this->error($result);
-            }
-
-            $portalPostModel = new PortalPostModel();
-
-            if (!empty($data['photo_names']) && !empty($data['photo_urls'])) {
-                $data['post']['more']['photos'] = [];
-                foreach ($data['photo_urls'] as $key => $url) {
-                    $photoUrl = cmf_asset_relative_url($url);
-                    array_push($data['post']['more']['photos'], ["url" => $photoUrl, "name" => $data['photo_names'][$key]]);
-                }
-            }
-
-            if (!empty($data['file_names']) && !empty($data['file_urls'])) {
-                $data['post']['more']['files'] = [];
-                foreach ($data['file_urls'] as $key => $url) {
-                    $fileUrl = cmf_asset_relative_url($url);
-                    array_push($data['post']['more']['files'], ["url" => $fileUrl, "name" => $data['file_names'][$key]]);
-                }
-            }
-
-            $portalPostModel->adminEditArticle($data['post'], $data['post']['categories']);
-
-            $hookParam = [
-                'is_add'  => false,
-                'article' => $data['post']
-            ];
-            hook('portal_admin_after_save_article', $hookParam);
-
-            $this->success('保存成功!');
-
+        if (!$this->request->isPost()) {
+            $this->error('请求方式出错!');
         }
+        $data = $this->request->post();
+
+        $productCategoryModel = new ProductCategoryModel();
+        $category = $productCategoryModel->find($data['category_id']);
+        if (empty($category)) {
+            $this->error('分类不存在');
+        }
+
+        $result = $this->validate($data, 'Product');
+        if ($result !== true) {
+            $this->error($result);
+        }
+
+        if (empty($data['thumbnail'])) {
+            $this->error('缩略图不能为空');
+        }
+
+        if (!empty($data['photo_names']) && !empty($data['photo_urls'])) {
+            $data['photos'] = [];
+            foreach ($data['photo_urls'] as $key => $url) {
+                $photoUrl = cmf_asset_relative_url($url);
+                array_push($data['photos'], ["url" => $photoUrl, "name" => $data['photo_names'][$key]]);
+            }
+        }
+
+        if (!empty($data['case_names']) && !empty($data['case_urls'])) {
+            $data['case'] = [];
+            foreach ($data['case_urls'] as $key => $url) {
+                $photoUrl = cmf_asset_relative_url($url);
+                array_push($data['case'], ["url" => $photoUrl, "name" => $data['case_names'][$key]]);
+            }
+        }
+
+        if (!empty($data['certificate_names']) && !empty($data['certificate_urls'])) {
+            $data['certificate'] = [];
+            foreach ($data['certificate_urls'] as $key => $url) {
+                $photoUrl = cmf_asset_relative_url($url);
+                array_push($data['certificate'], ["url" => $photoUrl, "name" => $data['certificate_names'][$key]]);
+            }
+        }
+
+        if (!empty($data['file_name']) && !empty($data['file_url'])) {
+            $data['file'] = [
+                'url' => cmf_asset_relative_url($data['file_url']),
+                'name' => $data['file_name']
+            ];
+        }
+//        var_dump($data['files']);exit();
+
+        $product_setting = cmf_get_option('product_setting');
+
+        if(!empty($data['authentication_mark'])){
+            $authentication_mark = $data['authentication_mark'];
+            $data['authentication_mark'] = [];
+            foreach ($authentication_mark as $key => $value){
+                $data['authentication_mark'][] = ['url'=>$product_setting['authentication_mark'][$value]['url']??'','name'=>$product_setting['authentication_mark'][$value]['name']??''];
+            }
+        }
+        if(!empty($data['sling_available'])){
+            $sling_available = $data['sling_available'];
+            $data['sling_available'] = [];
+            foreach ($sling_available as $key => $value){
+                $data['sling_available'][] = ['url'=>$product_setting['sling_available'][$value]['url']??'','active_url'=>$product_setting['sling_available_active'][$value]['url']??'','name'=>$product_setting['sling_available'][$value]['name']??''];
+            }
+        }
+
+        if(!empty($data['lifting_capacity']) && !$this->checkEmpty($data['lifting_capacity'])){
+            $this->error('起重量不能为空值');
+        }
+        if(!empty($data['job_level']) && !$this->checkEmpty($data['job_level'])){
+            $this->error('工作等级不能为空值');
+        }
+
+//        var_dump($data);exit;
+
+        $model = new ProductModel();
+        $result = $model->exists()->save($data);
+
+        if ($result === false) {
+            $this->error('保存失败!');
+        }
+
+        $this->success('保存成功!');
+
     }
 
-    /**
-     * 文章删除
-     * @adminMenu(
-     *     'name'   => '文章删除',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> false,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '文章删除',
-     *     'param'  => ''
-     * )
-     * @throws \think\Exception
-     * @throws \think\db\exception\DataNotFoundException
-     * @throws \think\db\exception\ModelNotFoundException
-     * @throws \think\exception\DbException
-     * @throws \think\exception\PDOException
-     */
     public function delete()
     {
-        $param           = $this->request->param();
-        $portalPostModel = new PortalPostModel();
+        $param = $this->request->param();
+        $model = new ProductModel();
 
         if (isset($param['id'])) {
-            $id           = $this->request->param('id', 0, 'intval');
-            $result       = $portalPostModel->where('id', $id)->find();
-            $data         = [
-                'object_id'   => $result['id'],
-                'create_time' => time(),
-                'table_name'  => 'portal_post',
-                'name'        => $result['post_title'],
-                'user_id'     => cmf_get_current_admin_id()
-            ];
-            $resultPortal = $portalPostModel
-                ->where('id', $id)
-                ->update(['delete_time' => time()]);
-            if ($resultPortal) {
-                PortalCategoryPostModel::where('post_id', $id)->update(['status' => 0]);
-                PortalTagPostModel::where('post_id', $id)->update(['status' => 0]);
-
-                RecycleBinModel::insert($data);
+            $id = $this->request->param('id', 0, 'intval');
+            $result = $model->destroy($id);
+            if ($result === false) {
+                $this->error('删除失败！');
             }
             $this->success("删除成功！", '');
-
         }
 
         if (isset($param['ids'])) {
-            $ids     = $this->request->param('ids/a');
-            $recycle = $portalPostModel->where('id', 'in', $ids)->select();
-            $result  = $portalPostModel->where('id', 'in', $ids)->update(['delete_time' => time()]);
-            if ($result) {
-                PortalCategoryPostModel::where('post_id', 'in', $ids)->update(['status' => 0]);
-                PortalTagPostModel::where('post_id', 'in', $ids)->update(['status' => 0]);
-                foreach ($recycle as $value) {
-                    $data = [
-                        'object_id'   => $value['id'],
-                        'create_time' => time(),
-                        'table_name'  => 'portal_post',
-                        'name'        => $value['post_title'],
-                        'user_id'     => cmf_get_current_admin_id()
-                    ];
-                    RecycleBinModel::insert($data);
-                }
-                $this->success("删除成功！", '');
+            $ids = $this->request->param('ids/a');
+            $result = $model->destroy($ids);
+            if ($result === false) {
+                $this->error('删除失败！');
             }
-        }
-    }
-
-    /**
-     * 文章发布
-     * @adminMenu(
-     *     'name'   => '文章发布',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> false,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '文章发布',
-     *     'param'  => ''
-     * )
-     */
-    public function publish()
-    {
-        $param           = $this->request->param();
-        $portalPostModel = new PortalPostModel();
-
-        if (isset($param['ids']) && isset($param["yes"])) {
-            $ids = $this->request->param('ids/a');
-            $portalPostModel->where('id', 'in', $ids)->update(['post_status' => 1, 'published_time' => time()]);
-            $this->success("发布成功！", '');
-        }
-
-        if (isset($param['ids']) && isset($param["no"])) {
-            $ids = $this->request->param('ids/a');
-            $portalPostModel->where('id', 'in', $ids)->update(['post_status' => 0]);
-            $this->success("取消发布成功！", '');
-        }
-
-    }
-
-    /**
-     * 文章置顶
-     * @adminMenu(
-     *     'name'   => '文章置顶',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> false,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '文章置顶',
-     *     'param'  => ''
-     * )
-     */
-    public function top()
-    {
-        $param           = $this->request->param();
-        $portalPostModel = new PortalPostModel();
-
-        if (isset($param['ids']) && isset($param["yes"])) {
-            $ids = $this->request->param('ids/a');
-
-            $portalPostModel->where('id', 'in', $ids)->update(['is_top' => 1]);
-
-            $this->success("置顶成功！", '');
-
-        }
-
-        if (isset($_POST['ids']) && isset($param["no"])) {
-            $ids = $this->request->param('ids/a');
-
-            $portalPostModel->where('id', 'in', $ids)->update(['is_top' => 0]);
-
-            $this->success("取消置顶成功！", '');
+            $this->success("删除成功！");
         }
     }
 
@@ -420,13 +351,13 @@ class AdminProductController extends AdminBaseController
      */
     public function recommend()
     {
-        $param           = $this->request->param();
-        $portalPostModel = new PortalPostModel();
+        $param = $this->request->param();
+        $model = new ProductModel();
 
         if (isset($param['ids']) && isset($param["yes"])) {
             $ids = $this->request->param('ids/a');
 
-            $portalPostModel->where('id', 'in', $ids)->update(['recommended' => 1]);
+            $model->where('id', 'in', $ids)->update(['is_recommended' => 1]);
 
             $this->success("推荐成功！", '');
 
@@ -434,29 +365,33 @@ class AdminProductController extends AdminBaseController
         if (isset($param['ids']) && isset($param["no"])) {
             $ids = $this->request->param('ids/a');
 
-            $portalPostModel->where('id', 'in', $ids)->update(['recommended' => 0]);
+            $model->where('id', 'in', $ids)->update(['is_recommended' => 0]);
+
+            $this->success("取消推荐成功！", '');
+
+        }
+
+        if (isset($param['id']) && isset($param["yes"])) {
+            $id = $this->request->param('id/d');
+
+            $model->where('id', $id)->update(['is_recommended' => 1]);
+
+            $this->success("推荐成功！", '');
+
+        }
+        if (isset($param['id']) && isset($param["no"])) {
+            $id = $this->request->param('id/d');
+
+            $model->where('id', 'in', $id)->update(['is_recommended' => 0]);
 
             $this->success("取消推荐成功！", '');
 
         }
     }
 
-    /**
-     * 文章排序
-     * @adminMenu(
-     *     'name'   => '文章排序',
-     *     'parent' => 'index',
-     *     'display'=> false,
-     *     'hasView'=> false,
-     *     'order'  => 10000,
-     *     'icon'   => '',
-     *     'remark' => '文章排序',
-     *     'param'  => ''
-     * )
-     */
     public function listOrder()
     {
-        parent::listOrders('portal_category_post');
+        parent::listOrders('product');
         $this->success("排序更新成功！", '');
     }
 }

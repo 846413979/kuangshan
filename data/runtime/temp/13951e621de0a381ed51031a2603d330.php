@@ -1,4 +1,4 @@
-<?php /*a:5:{s:81:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\product.html";i:1730880352;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730857752;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1730946251;s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\banner.html";i:1730878845;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1730944460;}*/ ?>
+<?php /*a:7:{s:81:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\product.html";i:1731578068;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730952036;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1731576087;s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\banner.html";i:1730878845;s:81:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\feedback.html";i:1731566933;s:80:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\scripts.html";i:1731315123;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1731576423;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0032)https://www.hnks.com/product/22/ -->
 <html>
@@ -97,31 +97,8 @@
                     $("html").css("cssText", "-webkit-filter: grayscale(100%) !important");
                 }
             }
-            // 飘窗
-            require(['/themes/simpleboot3/public/assets/js/common.js'], function () {
-            })
         }
     });
-    if (!(window.tenant.unittype == '100084' || window.tenant.unittype == '100009') && isFrontEnv() && !window.noAuth) {
-        var qxurl = location.href.replace(location.origin, '')
-        if (qxurl != '/') {
-            $.ajax({
-                url: '/comp/authtion.do',
-                method: 'get',
-                data: {
-                    url: qxurl
-                },
-                success: function (res) {
-                    if (res.status == 300 && res.data != '') {
-                        window.location.href = res.data
-                    }
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-    }
 </script>
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -131,8 +108,6 @@
 
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="utils"
         src="/themes/simpleboot3/public/assets/js/utils.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-        data-requiremodule="/public/cjgj/common.js" src="/themes/simpleboot3/public/assets/js/common.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="wgt_util"
         src="/themes/simpleboot3/public/assets/js/wgt_util.min.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="wgt_readyload"
@@ -151,9 +126,6 @@
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
         data-requiremodule="js/portalPublic/portalResPublic_codeContainer-01"
         src="/themes/simpleboot3/public/assets/js/portalResPublic_codeContainer-01.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-        data-requiremodule="/public/cjgj/restival.js"
-        src="/themes/simpleboot3/public/assets/js/restival.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
         data-requiremodule="js/pagination/initPagination"
         src="/themes/simpleboot3/public/assets/js/initPagination.min.js"></script>
@@ -276,9 +248,9 @@
                                                                     <a href="/intro/16.html">ContactUs
                                                                         <div class="nav-arrow icon-up iconfont"></div>
                                                                     </a>
-                                                                    <a href="/intro/17.html">JoinUs
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
+<!--                                                                    <a href="/intro/17.html">JoinUs-->
+<!--                                                                        <div class="nav-arrow icon-up iconfont"></div>-->
+<!--                                                                    </a>-->
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -615,6 +587,18 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
     <input class="requsetParam" type="hidden" value="">
 
 </div>
+<!--                                    <div class="content_container">-->
+<!--                                        <div class="content">-->
+<!--                                            <div class="content_nav">-->
+<!--                                                <div class="content_nav_left">-->
+<!--                                                    All products-->
+<!--                                                </div>-->
+<!--                                                <div class="content_nav_right">-->
+<!--                                                    Home page:  <a href="/">Homepage</a> / Products-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <div id="w_grid-1617010462445" class="w_grid-000">
                                         <div class="w_grid signal">
                                             <div class="e_box e_box-000 p_gridbox">
@@ -628,27 +612,14 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                                     <div id="c_portalResProduct_category-16170106165287235"
                                                                          class="c_portalResProduct_category-01001004"
                                                                          loaded="true" style="overflow: visible;">
-                                                                        <script type="text/javascript"
-                                                                                src="/themes/simpleboot3/public/assets/images/rBQBHVzP2YGEOOgyAAAAAJLRU3c3828.js"></script>
-                                                                        <script type="text/javascript">
-                                                                            $(function () {
-                                                                                $('.NavList_a1').attr('id', 'NavList_a1').menu({
-                                                                                    a_type: 'slide',
-                                                                                    p_type: false,
-                                                                                    f_type: 'mob_js'
-                                                                                });
-                                                                            });
-                                                                        </script>
                                                                         <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
                                                                              id="NavList_a1">
                                                                             <ul class="clearfix swiper-wrapper">
-                                                                                <?php if(is_array($category_list) || $category_list instanceof \think\Collection || $category_list instanceof \think\Paginator): if( count($category_list)==0 ) : echo "" ;else: foreach($category_list as $key=>$vo): ?>
-                                                                                    <li class="swiper-slide swiper-no-swiping swiper-slide-active">
-                                                                                        <a href="/product/<?php echo $vo['id']; ?>"
-                                                                                           title="<?php echo $vo['name']; ?>"
-                                                                                           class="more"><?php echo $vo['name']; ?></a>
-                                                                                    </li>
-                                                                                <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                                                <li class="swiper-slide swiper-no-swiping swiper-slide-active">
+                                                                                    <a href="javascript:"
+                                                                                       title="All products"
+                                                                                       class="more">All products</a>
+                                                                                </li>
                                                                             </ul>
                                                                             <div id="NavList_a1_menu-slide"
                                                                                  class="menu-slide"
@@ -657,16 +628,6 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                                             <span class="swiper-notification"
                                                                                   aria-live="assertive"
                                                                                   aria-atomic="true"></span></div>
-                                                                        <script>$("div[id^='c_']").attr("loaded", "true")</script>
-                                                                        <script>
-                                                                            var urlName = window.location.pathname;  //获取地址栏中文件名或路径。
-                                                                            $('.NavList_a1 li a').each(function () {        //遍历当前网页导航或分类
-                                                                                var urlHref = $(this).attr('href');  //获取导航链接地址href值
-                                                                                if (urlName.indexOf(urlHref) >= 0) {   //检测文件名或路径中是否包含当前链接值
-                                                                                    $(this).addClass('active');
-                                                                                }
-                                                                            });
-                                                                        </script>
                                                                     </div>
                                                                 </div>
                                                                 <div id="content_box-1617010462455-1"
@@ -684,9 +645,9 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
 
                                                                             </div>
                                                                             <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumb contentBox">
-                                                                                <a href="<?php echo $category_list[0]['id']; ?>">
+                                                                                <a href="/">
                                                                                     <div class="font">
-                                                                                        <span>Product Center</span>
+                                                                                        <span>Homepage</span>
                                                                                     </div>
                                                                                 </a>
                                                                             </div>
@@ -697,25 +658,10 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                                             </div>
                                                                             <div class="e_breadcrumb e_breadcrumb-000 p_breadcrumbCurrent">
                                                                                 <div class="font">
-                                                                                    <span><?php echo $category['name']; ?></span>
+                                                                                    <span><?php echo isset($category['name']) ? $category['name'] : 'Products'; ?></span>
                                                                                 </div>
                                                                             </div>
-
                                                                         </div>
-
-                                                                        <script type="text/javascript">
-                                                                            $comp({
-                                                                                breadcrumbType: false,
-                                                                                contentFlag: "true",
-                                                                                contentWidth: "350",
-                                                                                ctx: "",
-                                                                                appId: "",
-                                                                                id: "portalResBreadcrumb_nav-1617010462485",
-                                                                                lib: ["js/portalResBreadcrumb/portalResBreadcrumb_nav"]
-                                                                            });
-
-
-                                                                        </script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -735,12 +681,6 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                          style="overflow: visible;">
                                                         <div class="e_stylebox e_ContentOrdinaryStyleBox-001 p_stylebox"
                                                              id="">
-                                                            <div class="stylebox_top">
-                                                                <div class="stylebox_title">
-                                                                    <i class="title_icon"></i>
-                                                                    <h2 class="title_main"><?php echo $category['name']; ?></h2>
-                                                                </div>
-                                                            </div>
                                                             <div class="stylebox_top_line"></div>
                                                             <div class="stylebox_content">
 
@@ -749,36 +689,49 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                                 <input type="hidden" class="listModifyUrl"
                                                                        value="&amp;proparentId=&amp;appId=">
                                                                 <div class="e_box p_ProductList" data-ename="产品列表">
-                                                                    <!--
-                                                                        -->
                                                                     <div class="proBox" data-ename="产品列表">
+                                                                        <!--分类筛选-->
+                                                                        <div class="proBoxLeft">
+                                                                            <div class="e_box p_ProductCategoryList" data-ename="产品分类列表">
+                                                                                <select class="product_select product_category">
+                                                                                    <option value="">All Products</option>
+                                                                                    <?php if(is_array($category_list) || $category_list instanceof \think\Collection || $category_list instanceof \think\Paginator): if( count($category_list)==0 ) : echo "" ;else: foreach($category_list as $key=>$vo): ?>
+                                                                                        <option value="<?php echo $vo['id']; ?>" <?php echo $vo['id']==$category['id'] ? 'selected'  : ''; ?>><?php echo $vo['name']; ?></option>
+                                                                                    <?php endforeach; endif; else: echo "" ;endif; ?>
+                                                                                </select>
+                                                                                <select class="product_select product_tonnage">
+                                                                                    <option value="">All Tonnage</option>
+                                                                                    <option value="0.2t">0.2t</option>
+                                                                                    <option value="0.5t">0.5t</option>
+                                                                                    <option value="1t">1t</option>
+                                                                                    <option value="2t">2t</option>
+                                                                                    <option value="5t">5t</option>
+                                                                                    <option value="10t">10t</option>
+                                                                                    <option value="20t">20t</option>
+                                                                                    <option value="50t">50t</option>
+                                                                                    <option value="100t">100t</option>
+                                                                                    <option value="150t">150t</option>
+                                                                                    <option value="200t">200t</option>
+                                                                                </select>
+                                                                                <select class="product_select product_span">
+                                                                                    <option value="">All Span</option>
+                                                                                    <option value="5">5m</option>
+                                                                                    <option value="10">10m</option>
+                                                                                    <option value="15">15m</option>
+                                                                                    <option value="20">20m</option>
+                                                                                    <option value="25">25m</option>
+                                                                                    <option value="30">30m</option>
+                                                                                    <option value="35">35m</option>
+                                                                                    <option value="40">40m</option>
+                                                                                    <option value="45">45m</option>
+                                                                                    <option value="50">50m</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
                                                                         <div class="e_box p_products proLists p_productsSet"
                                                                              data-ename="产品列表框架区"
                                                                              isserverpaging="true">
-                                                                            <?php 
-                                                                                $where= function($query){
-                                                                                $query->where('post.post_type','=',3);
-                                                                                };
-                                                                                $page=[
-                                                                                'list_rows'=>12,
-                                                                                'next'=>'>',
-                                                                                'prev'=>'<'
-                                                                                ];
-                                                                             $articles_data = \app\portal\service\ApiService::articles([
-    'field'   => '',
-    'where'   => $where,
-    'limit'   => '',
-    'order'   => 'post.recommended DESC,post.create_time DESC',
-    'page'    => $page,
-    'relation'=> 'categories',
-    'category_ids'=>$category['id']
-]);
-
-$__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
-
- if(is_array($articles_data['articles']) || $articles_data['articles'] instanceof \think\Collection || $articles_data['articles'] instanceof \think\Paginator): $i = 0; $__LIST__ = $articles_data['articles'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-
-
+                                                                             <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$vo): ?>
                                                                                 <div class="e_box p_Product proList"
                                                                                      dataid="<?php echo $vo['id']; ?>"
                                                                                      data-dismoveable=""
@@ -787,196 +740,35 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                                                     <div class="imgBox">
                                                                                         <img class="img"
                                                                                              src="<?php echo cmf_get_image_url($vo['thumbnail']); ?>"
-                                                                                             alt="<?php echo $vo['post_title']; ?>"
-                                                                                             title="<?php echo $vo['post_title']; ?>">
+                                                                                             alt="<?php echo $vo['title']; ?>"
+                                                                                             title="<?php echo $vo['title']; ?>">
                                                                                     </div>
                                                                                     <!-- 图片区结束 -->
 
                                                                                     <!-- 标题开始 -->
                                                                                     <h3 class="titleBox">
-                                                                                        <?php echo $vo['post_title']; ?>
+                                                                                        <?php echo $vo['title']; ?>
 
                                                                                     </h3>
                                                                                     <!-- 标题结束 -->
 
-                                                                                    <!-- 关键字开始 -->
-                                                                                    <div class="e_box d_SummaryBox p_SummaryBox_1"
-                                                                                         data-ename="概要描述容器">
-                                                                                        <div class="e_article description d_summary p_summary_1">
-                                                                                            <?php echo $vo['post_excerpt']; ?>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- 关键字结束 -->
-
                                                                                     <!-- 链接开始 -->
                                                                                     <a class="link"
-                                                                                       href="/product_info/<?php echo $category['id']; ?>/<?php echo $vo['id']; ?>"></a>
+                                                                                       href="/product_info/<?php echo $vo['id']; ?>"></a>
                                                                                     <!-- 链接结束 -->
                                                                                 </div>
-                                                                            
-<?php endforeach; endif; else: echo "" ;endif; ?>
+                                                                             <?php endforeach; endif; else: echo "" ;endif; ?>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="clear_both"></div>
                                                                     <div class="e_box e_OccupyBox-001 p_OccupyBox">
                                                                         <ul class="pagination">
-                                                                            <?php
-     echo empty($__PAGE_VAR_NAME__)?'':$__PAGE_VAR_NAME__;
- ?>
+                                                                            <?php echo $page; ?>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
 
                                                                 <script>$("div[id^='c_']").attr("loaded", "true")</script>
-                                                                <script type="text/javascript">
-                                                                    $comp({
-                                                                        textParams: {
-                                                                            isCutOfName: true, //标题是否自动截取超长显示内容
-                                                                            linesOfCutOfName: 2, //标题超出隐藏的行数设置
-                                                                            isCutOfSummary: true, //概述是否自动截取超长显示内容
-                                                                            linesOfCutOfSummary: 3, //概述超出隐藏的行数设置
-                                                                            categorySummary: true, //分类概述是否自动截取超长显示内容
-                                                                            categorySummaryMaxLen: 2 //分类概述超出隐藏的行数设置
-                                                                        },
-                                                                        picParams: {
-                                                                            isOpenCutMode: true, //是否开启裁剪 不开启false
-                                                                            isRate: true, //是否按比例裁剪
-                                                                            widthOfRate: 1, //宽度的比率
-                                                                            heightOfRate: 1, //高度的比率
-                                                                            definedDefaultImage: false, //是否设置默认图片
-                                                                            defaultImage: "", //设置默认图片的值
-                                                                            appId: 2
-                                                                        },
-                                                                        ctx: "",
-                                                                        appId: "2",
-                                                                        productMode: "",
-                                                                        requestParam: {
-                                                                            "orderType": "",
-                                                                            "xibcommonId": "22",
-                                                                            "appType": "productCateId",
-                                                                            "orderColumn": "",
-                                                                            "productCateId": "22"
-                                                                        },
-                                                                        pageParam: {
-                                                                            url: "/comp/portalResProduct/list.do?compId=portalResProduct_list-16170107375803035",
-                                                                            appId: "2",
-                                                                            turnPageType: "turnPage"
-                                                                        },
-                                                                        id: "portalResProduct_list-16170107375803035",
-                                                                        lib: ["js/portalProduct/portalResProduct_list-01"],
-                                                                        imageOpts: {
-                                                                            "comp_w_size": "", //容器宽
-                                                                            /*大图*/
-                                                                            //列表类传值为空，避免图片外层盒子创建2次
-                                                                            "box_img_style_0": null,
-                                                                            "box_img_style_1": null,
-                                                                            "box_img_style_2": null,
-
-                                                                            "e_img_style_0": "e_image",
-                                                                            "e_img_style_1": "e_image-000",
-                                                                            "e_img_style_2": "p_image",
-                                                                            "e_a_img_style_0": "e_link",
-                                                                            "e_a_img_style_1": "e_link-000",
-                                                                            "e_a_img_style_2": "p_linkB",
-                                                                            "e_a_txt_style_0": "e_link",
-                                                                            "e_a_txt_style_1": "e_link-000",
-                                                                            "e_a_txt_style_2": "p_linkA",
-
-                                                                            //大图宽高比例
-                                                                            "img_scale_x": "4", //宽
-                                                                            "img_scale_y": "3", //高
-                                                                            "img_transition": "fade", //图片动画效果
-                                                                            "img_speed": 1000, //效果显示速度
-                                                                            "img_easing": "easeOutQuart", //动画效果
-
-                                                                            //大图高清裁剪, 普通：normal; 高清： hd; 裁剪: cut; 高清和裁剪： both;
-                                                                            "img_display_type": "cut",
-                                                                            "box_nav_style_1": "e_box-000",
-                                                                            "box_nav_style_0": "e_box",
-                                                                            "box_nav_style_2": "p_ThumbnailBox",
-                                                                            "e_nav_img_style_1": "e_ProductRelationImg-001",
-                                                                            "e_nav_img_style_0": "e_relationimg",
-                                                                            "e_nav_img_style_2": "p_thumbnail",
-                                                                            "nav_display_status": true, //规格图是否显示，true-显示，false-隐藏
-                                                                            "nav_type": "block",
-                                                                            "nav_img_display_type": "cut", // 显示状态， 普通：normal; 高清： hd; 裁剪: cut; 高清和裁剪： both;
-                                                                            //规格图宽高比例
-                                                                            "nav_scale_x": "4", //宽
-                                                                            "nav_scale_y": "3", //高
-                                                                            "nav_display_num": "6", //焦点图显示数量
-                                                                            "nav_position": "center", //焦点小图位置
-                                                                            "nav_display_padding": 10,
-                                                                            "nav_step": 1, //切换个数
-                                                                            "nav_hover": true,
-
-                                                                            /*标记*/
-                                                                            "box_tag_style_0": "e_box",
-                                                                            "box_tag_style_1": "e_box-000",
-                                                                            "box_tag_style_2": "p_TagBox",
-                                                                            "e_img_tag_style_0": "e_image",
-                                                                            "e_img_tag_style_2": "p_tag",
-                                                                            "e_img_tag_style_1": "e_image-000",
-                                                                            "img_tag_display": true, //true 显示标记，false 隐藏标记
-                                                                            "shiftUpAnimSwitch": false, //是否显示轮播图dom true显示，false不显示
-                                                                            "img_tag_display_type": "cut", //产品标记 显示状态， 普通：normal; 高清： hd; 裁剪: cut; 高清和裁剪： both;
-
-                                                                            //移上动画的配置参数
-                                                                            //图片遮罩层
-                                                                            "box_shade_style_0": "e_MatteBox",
-                                                                            "box_shade_style_1": "e_MatteBox-001",
-                                                                            "box_shade_style_2": "p_matteA",
-                                                                            //动画外层
-                                                                            "box_animatOuter_style_0": "e_MatteBox",
-                                                                            "box_animatOuter_style_1": "e_MatteBox-000",
-                                                                            "box_animatOuter_style_2": "p_matte",
-
-                                                                            //动画位置层
-                                                                            "box_Position_style_0": "e_box",
-                                                                            "box_Position_style_1": "e_PositionBox-001",
-                                                                            "box_Position_style_2": "p_Position",
-
-                                                                            "comp_type": "productList", //组件类型
-                                                                        },
-                                                                        sortParams: {
-                                                                            "DEFAULT_SORT": {
-                                                                                "v": "默认",
-                                                                                "title": "默认",
-                                                                                "style": ""
-                                                                            },
-                                                                            "PUBLISH_TIME": {
-                                                                                "show": true,
-                                                                                "v": "发布时间",
-                                                                                "title": "按产品的发布时间进行排序",
-                                                                                "style": ""
-                                                                            },
-                                                                            "PRODUCT_NAME": {
-                                                                                "show": true,
-                                                                                "v": " 产品名称",
-                                                                                "title": "按照产品的名称进行排序",
-                                                                                "style": ""
-                                                                            },
-                                                                            "PVS": {
-                                                                                "show": false,
-                                                                                "v": "浏览量",
-                                                                                "title": "按产品的浏览量进行排序",
-                                                                                "style": ""
-                                                                            },
-                                                                            "comment": {
-                                                                                "show": false,
-                                                                                "v": "评论数量",
-                                                                                "title": "按照产品的评论数量进行排序",
-                                                                                "style": ""
-                                                                            },
-                                                                            "PRODUCT_CODE": {
-                                                                                "show": true,
-                                                                                "v": "产品编号",
-                                                                                "title": "按产品的编号进行排序",
-                                                                                "style": ""
-                                                                            }
-                                                                        },
-                                                                        styleId: "c_portalResProduct_list-01001001"
-                                                                    });
-                                                                </script>
-
                                                             </div>
                                                             <div class="stylebox_bottom_line"></div>
                                                             <div class="stylebox_bottom">
@@ -991,6 +783,885 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                             </div>
                         </div>
                     </div>
+                    <div class="feedback_wrap">
+    <div class="feedback_container">
+        <div class="feedback_content">
+            <div class="feedback_title">
+                <h2>Develop your lifting solution</h2>
+                <p class="feedback_title_description">Contact us today by email at :<a href="javascript:"><?php echo $site_info['email']; ?></a>, or fill out the form below.</p>
+            </div>
+            <div class="feedback_form">
+                <form action="" method="post">
+                    <div class="feedback_form_name">
+                        <input type="text" id="feedback-name" name="name" placeholder="Name:" >
+                    </div>
+                    <div class="feedback_form_phone">
+                      <input type="text" id="feedback-phone" name="phone" placeholder="Phone / WhatsApp:" >
+                    </div>
+                    <div class="feedback_form_email">
+                      <input type="text" id="feedback-email" name="email" placeholder="E-mail:" >
+                    </div>
+                    <div class="feedback_form_content">
+                      <textarea name="content" id="feedback-content" placeholder="Message:" ></textarea>
+                    </div>
+                    <div class="feedback_form_submit">
+                        <button id="feedback-submit" type="button">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //全局变量
+    var GV = {
+        ROOT: "/",
+        WEB_ROOT: "/",
+        JS_ROOT: "static/js/",
+    };
+</script>
+<script src="/static/js/wind.js"></script>
+<!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/themes/simpleboot3/public/assets/js/bootstrap.min.js"></script>
+    <script src="/static/js/frontend.js"></script>
+    <script src="/static/js/wind.js"></script>
+	<script>
+	$(function(){
+        ;(function () {
+            //全局ajax处理
+            $.ajaxSetup({
+                complete: function (jqXHR) {
+                },
+                data: {},
+                error: function (jqXHR, textStatus, errorThrown) {
+                    //请求失败处理
+                }
+            });
+
+            if ($.browser && $.browser.msie) {
+                //ie 都不缓存
+                $.ajaxSetup({
+                    cache: false
+                });
+            }
+
+            //不支持placeholder浏览器下对placeholder进行处理
+            if (document.createElement('input').placeholder !== '') {
+                $('[placeholder]').focus(function () {
+                    var input = $(this);
+                    if (input.val() == input.attr('placeholder')) {
+                        input.val('');
+                        input.removeClass('placeholder');
+                    }
+                }).blur(function () {
+                    var input = $(this);
+                    if (input.val() == '' || input.val() == input.attr('placeholder')) {
+                        input.addClass('placeholder');
+                        input.val(input.attr('placeholder'));
+                    }
+                }).blur().parents('form').submit(function () {
+                    $(this).find('[placeholder]').each(function () {
+                        var input = $(this);
+                        if (input.val() == input.attr('placeholder')) {
+                            input.val('');
+                        }
+                    });
+                });
+            }
+
+            // 所有加了dialog类名的a链接，自动弹出它的href
+            if ($('a.js-dialog').length) {
+                Wind.css('artDialog');
+                Wind.use('artDialog', 'iframeTools', function () {
+                    $('.js-dialog').on('click', function (e) {
+                        e.preventDefault();
+                        var $this = $(this);
+                        art.dialog.open($(this).prop('href'), {
+                            close: function () {
+                                $this.focus(); // 关闭时让触发弹窗的元素获取焦点
+                                return true;
+                            },
+                            title: $this.prop('title')
+                        });
+                    }).attr('role', 'button');
+
+                });
+            }
+
+            // 所有的ajax form提交,由于大多业务逻辑都是一样的，故统一处理
+            var ajaxForm_list = $('form.js-ajax-form');
+            if (ajaxForm_list.length) {
+                Wind.css('artDialog');
+                Wind.use('ajaxForm', 'artDialog', 'noty', 'validate', function () {
+                    var $btn;
+                    $('button.js-ajax-submit').on('click', function (e) {
+                        var btn = $(this), form = btn.parents('form.js-ajax-form');
+                        $btn = btn;
+                        if (btn.data("loading")) {
+                            return;
+                        }
+                        //批量操作 判断选项
+                        if (btn.data('subcheck')) {
+                            btn.parent().find('span').remove();
+                            if (form.find('input.js-check:checked').length) {
+                                btn.data('subcheck', false);
+                            } else {
+                                $('<span class="tips_error">请至少选择一项</span>').appendTo(btn.parent()).fadeIn('fast');
+                                return false;
+                            }
+                        }
+
+
+                        var msg = btn.data('msg');
+                        if (msg) {
+                            art.dialog({
+                                id: 'warning',
+                                icon: 'warning',
+                                content: msg,
+                                cancelVal: '关闭',
+                                cancel: function () {
+                                    //btn.data('subcheck', false);
+                                    //btn.click();
+                                },
+                                ok: function () {
+                                    btn.data('msg', false);
+                                    btn.click();
+                                    btn.data('msg', msg);
+                                }
+                            });
+
+                            return false;
+                        }
+
+                        //ie处理placeholder提交问题
+                        if ($.browser && $.browser.msie) {
+                            form.find('[placeholder]').each(function () {
+                                var input = $(this);
+                                if (input.val() == input.attr('placeholder')) {
+                                    input.val('');
+                                }
+                            });
+                        }
+                    });
+
+                    ajaxForm_list.each(function () {
+                        $(this).validate({
+                            //是否在获取焦点时验证
+                            //onfocusout : false,
+                            //是否在敲击键盘时验证
+                            //onkeyup : false,
+                            //当鼠标点击时验证
+                            //onclick : false,
+                            //给未通过验证的元素加效果,闪烁等
+                            highlight: function (element, errorClass, validClass) {
+                                if (element.type === "radio") {
+                                    this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+                                } else {
+                                    var $element = $(element);
+                                    $element.addClass(errorClass).removeClass(validClass);
+                                    $element.parent().addClass("has-error");//bootstrap3表单
+                                    $element.parents('.control-group').addClass("error");//bootstrap2表单
+
+                                }
+                            },
+                            unhighlight: function (element, errorClass, validClass) {
+                                if (element.type === "radio") {
+                                    this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+                                } else {
+                                    var $element = $(element);
+                                    $element.removeClass(errorClass).addClass(validClass);
+                                    $element.parent().removeClass("has-error");//bootstrap3表单
+                                    $element.parents('.control-group').removeClass("error");//bootstrap2表单
+                                }
+                            },
+                            showErrors: function (errorMap, errorArr) {
+                                var i, elements, error;
+                                for (i = 0; this.errorList[i]; i++) {
+                                    error = this.errorList[i];
+                                    if (this.settings.highlight) {
+                                        this.settings.highlight.call(this, error.element, this.settings.errorClass, this.settings.validClass);
+                                    }
+                                    //this.showLabel( error.element, error.message );
+                                }
+                                if (this.errorList.length) {
+                                    //this.toShow = this.toShow.add( this.containers );
+                                }
+                                if (this.settings.success) {
+                                    for (i = 0; this.successList[i]; i++) {
+                                        //this.showLabel( this.successList[ i ] );
+                                    }
+                                }
+                                if (this.settings.unhighlight) {
+                                    for (i = 0, elements = this.validElements(); elements[i]; i++) {
+                                        this.settings.unhighlight.call(this, elements[i], this.settings.errorClass, this.settings.validClass);
+                                    }
+                                }
+                                this.toHide = this.toHide.not(this.toShow);
+                                this.hideErrors();
+                                this.addWrapper(this.toShow).show();
+                            },
+                            submitHandler: function (form) {
+                                var $form = $(form);
+                                $form.ajaxSubmit({
+                                    url: $btn.data('action') ? $btn.data('action') : $form.attr('action'), //按钮上是否自定义提交地址(多按钮情况)
+                                    dataType: 'json',
+                                    beforeSubmit: function (arr, $form, options) {
+
+                                        $btn.data("loading", true);
+                                        var text = $btn.text();
+
+                                        //按钮文案、状态修改
+                                        $btn.text(text + '...').prop('disabled', true).addClass('disabled');
+                                    },
+                                    success: function (data, statusText, xhr, $form) {
+
+                                        function _refresh() {
+                                            if (data.url) {
+                                                //返回带跳转地址
+                                                window.location.href = data.url;
+                                            } else {
+                                                if (data.code == 1) {
+                                                    //刷新当前页
+                                                    reloadPage(window);
+                                                }
+                                            }
+                                        }
+
+                                        var text = $btn.text();
+
+                                        //按钮文案、状态修改
+                                        $btn.removeClass('disabled').prop('disabled', false).text(text.replace('...', '')).parent().find('span').remove();
+                                        if (data.code == 1) {
+                                            if ($btn.data('success')) {
+                                                var successCallback = $btn.data('success');
+                                                window[successCallback](data, statusText, xhr, $form);
+                                                return;
+                                            }
+                                            noty({
+                                                text: data.msg,
+                                                type: 'success',
+                                                layout: 'topCenter',
+                                                modal: true,
+                                                // animation: {
+                                                //     open: 'animated bounceInDown', // Animate.css class names
+                                                //     close: 'animated bounceOutUp', // Animate.css class names
+                                                // },
+                                                timeout: 800,
+                                                callback: {
+                                                    afterClose: function () {
+                                                        if ($btn.data('refresh') == undefined || $btn.data('refresh')) {
+
+                                                            if ($btn.data('success_refresh')) {
+                                                                var successRefreshCallback = $btn.data('success_refresh');
+                                                                window[successRefreshCallback](data, statusText, xhr, $form);
+                                                                return;
+                                                            } else {
+                                                                _refresh();
+                                                            }
+
+                                                        }
+                                                    }
+                                                }
+                                            }).show();
+                                            $(window).focus();
+                                        } else if (data.code == 0) {
+                                            var $verify_img = $form.find(".verify_img");
+                                            if ($verify_img.length) {
+                                                $verify_img.attr("src", $verify_img.attr("src") + "&refresh=" + Math.random());
+                                            }
+
+                                            var $verify_input = $form.find("[name='verify']");
+                                            $verify_input.val("");
+
+                                            //$('<span class="tips_error">' + data.msg + '</span>').appendTo($btn.parent()).fadeIn('fast');
+                                            $btn.removeProp('disabled').removeClass('disabled');
+
+                                            noty({
+                                                text: data.msg,
+                                                type: 'error',
+                                                layout: 'topCenter',
+                                                modal: true,
+                                                // animation: {
+                                                //     open: 'animated bounceInDown', // Animate.css class names
+                                                //     close: 'animated bounceOutUp', // Animate.css class names
+                                                // },
+                                                timeout: 800,
+                                                callback: {
+                                                    afterClose: function () {
+                                                        _refresh();
+                                                    }
+                                                }
+                                            }).show();
+                                            $(window).focus();
+                                        }
+
+
+                                    },
+                                    error: function (xhr, e, statusText) {
+                                        art.dialog({
+                                            id: 'warning',
+                                            icon: 'warning',
+                                            content: statusText,
+                                            cancelVal: '关闭',
+                                            cancel: function () {
+                                                reloadPage(window);
+                                            },
+                                            ok: function () {
+                                                reloadPage(window);
+                                            }
+                                        });
+
+                                    },
+                                    complete: function () {
+                                        $btn.data("loading", false);
+                                    }
+                                });
+                            }
+                        });
+                    });
+
+                });
+            }
+
+            //dialog弹窗内的关闭方法
+            $('#js-dialog-close').on('click', function (e) {
+                e.preventDefault();
+                try {
+                    art.dialog.close();
+                } catch (err) {
+                    Wind.css('artDialog');
+                    Wind.use('artDialog', 'iframeTools', function () {
+                        art.dialog.close();
+                    });
+                }
+                ;
+            });
+
+            //所有的删除操作，删除数据后刷新页面
+            if ($('a.js-ajax-delete').length) {
+                Wind.css('artDialog');
+                Wind.use('artDialog', 'noty', function () {
+                    $('body').on('click', '.js-ajax-delete', function (e) {
+                        e.preventDefault();
+                        var $_this = this,
+                            $this = $($_this),
+                            href = $this.data('href'),
+                            refresh = $this.data('refresh'),
+                            msg = $this.data('msg');
+                        href = href ? href : $this.attr('href');
+
+                        art.dialog({
+                            title: false,
+                            icon: 'question',
+                            content: msg ? msg : '确定要删除吗？',
+                            follow: $_this,
+                            close: function () {
+                                $_this.focus(); //关闭时让触发弹窗的元素获取焦点
+                                return true;
+                            },
+                            okVal: "确定",
+                            ok: function () {
+                                $.ajax({
+                                    url: href,
+                                    type: 'post',
+                                    dataType: 'JSON',
+                                    success: function (data) {
+                                        if (data.code == '1') {
+                                            noty({
+                                                text: data.msg,
+                                                type: 'success',
+                                                layout: 'topCenter',
+                                                modal: true,
+                                                // animation: {
+                                                //     open: 'animated bounceInDown', // Animate.css class names
+                                                //     close: 'animated bounceOutUp', // Animate.css class names
+                                                // },
+                                                timeout: 800,
+                                                callback: {
+                                                    afterClose: function () {
+                                                        if (refresh == undefined || refresh) {
+                                                            if (data.url) {
+                                                                //返回带跳转地址
+                                                                window.location.href = data.url;
+                                                            } else {
+                                                                //刷新当前页
+                                                                reloadPage(window);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }).show();
+
+                                        } else if (data.code == '0') {
+                                            //art.dialog.alert(data.info);
+                                            //alert(data.info);//暂时处理方案
+                                            art.dialog({
+                                                content: data.msg,
+                                                icon: 'warning',
+                                                ok: function () {
+                                                    this.title(data.msg);
+                                                    return true;
+                                                }
+                                            });
+                                        }
+                                    }
+                                })
+                            },
+                            cancelVal: '关闭',
+                            cancel: true
+                        });
+                    });
+
+                });
+            }
+
+
+            Wind.use('artDialog', 'noty', function () {
+                $('body').on('click', '.js-ajax-dialog-btn', function (e) {
+                    e.preventDefault();
+                    var $_this = this,
+                        $this = $($_this),
+                        href = $this.data('href'),
+                        refresh = $this.data('refresh'),
+                        msg = $this.data('msg'),
+                        waitMsg = $this.data('wait-msg');
+                    href = href ? href : $this.attr('href');
+                    if (!msg) {
+                        msg = "您确定要进行此操作吗？";
+                    }
+                    art.dialog({
+                        title: false,
+                        icon: 'question',
+                        content: msg,
+                        follow: $_this,
+                        close: function () {
+                            $_this.focus(); //关闭时让触发弹窗的元素获取焦点
+                            return true;
+                        },
+                        ok: function () {
+                            var waitNoty;
+                            if (waitMsg) {
+                                waitNoty = noty({
+                                    text: waitMsg,
+                                    type: 'information',
+                                    layout: 'topCenter',
+                                    modal: true,
+                                    // animation: {
+                                    //     open: 'animated bounceInDown', // Animate.css class names
+                                    //     close: 'animated bounceOutUp', // Animate.css class names
+                                    // },
+                                    timeout: false
+                                });
+                            }
+                            $.ajax({
+                                url: href,
+                                type: 'post',
+                                dataType: 'JSON',
+                                success: function (data) {
+                                    if (waitNoty) {
+                                        waitNoty.close();
+                                    }
+                                    if (data.code == 1) {
+                                        noty({
+                                            text: data.msg,
+                                            type: 'success',
+                                            layout: 'topCenter',
+                                            modal: true,
+                                            // animation: {
+                                            //     open: 'animated bounceInDown', // Animate.css class names
+                                            //     close: 'animated bounceOutUp', // Animate.css class names
+                                            // },
+                                            timeout: 800,
+                                            callback: {
+                                                afterClose: function () {
+                                                    if (refresh == undefined || refresh) {
+                                                        if (data.url) {
+                                                            //返回带跳转地址
+                                                            window.location.href = data.url;
+                                                        } else {
+                                                            //刷新当前页
+                                                            reloadPage(window);
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        });
+
+                                    } else if (data.code == 0) {
+                                        //art.dialog.alert(data.info);
+                                        art.dialog({
+                                            content: data.msg,
+                                            icon: 'warning',
+                                            ok: function () {
+                                                this.title(data.msg);
+                                                return true;
+                                            }
+                                        });
+                                    }
+                                },
+                                error: function () {
+                                    if (waitNoty) {
+                                        waitNoty.close();
+                                    }
+                                }
+
+                            })
+                        },
+                        cancelVal: '关闭',
+                        cancel: true
+                    });
+                });
+
+            });
+
+            if ($('a.js-ajax-btn').length) {
+                Wind.use('noty', function () {
+                    $('.js-ajax-btn').on('click', function (e) {
+                        e.preventDefault();
+                        var $_this = this,
+                            $this = $($_this),
+                            href = $this.data('href'),
+                            msg = $this.data('msg');
+                        refresh = $this.data('refresh');
+                        href = href ? href : $this.attr('href');
+                        refresh = refresh == undefined ? 1 : refresh;
+
+
+                        $.ajax({
+                            url: href,
+                            type: 'post',
+                            dataType: 'JSON',
+                            success: function (data) {
+                                if (data.code == 1) {
+                                    noty({
+                                        text: data.msg,
+                                        type: 'success',
+                                        layout: 'center',
+                                        callback: {
+                                            afterClose: function () {
+                                                if (data.url) {
+                                                    location.href = data.url;
+                                                    return;
+                                                }
+
+                                                if (refresh || refresh == undefined) {
+                                                    reloadPage(window);
+                                                }
+                                            }
+                                        }
+                                    });
+                                } else if (data.code == 0) {
+                                    noty({
+                                        text: data.msg,
+                                        type: 'error',
+                                        layout: 'center',
+                                        callback: {
+                                            afterClose: function () {
+                                                if (data.url) {
+                                                    location.href = data.url;
+                                                }
+                                            }
+                                        }
+                                    });
+                                }
+                            }
+                        });
+
+                    });
+
+                });
+            }
+
+
+            /*复选框全选(支持多个，纵横双控全选)。
+             *实例：版块编辑-权限相关（双控），验证机制-验证策略（单控）
+             *说明：
+             *	"js-check"的"data-xid"对应其左侧"js-check-all"的"data-checklist"；
+             *	"js-check"的"data-yid"对应其上方"js-check-all"的"data-checklist"；
+             *	全选框的"data-direction"代表其控制的全选方向(x或y)；
+             *	"js-check-wrap"同一块全选操作区域的父标签class，多个调用考虑
+             */
+
+            if ($('.js-check-wrap').length) {
+                var total_check_all = $('input.js-check-all');
+
+                //遍历所有全选框
+                $.each(total_check_all, function () {
+                    var check_all = $(this),
+                        check_items;
+
+                    //分组各纵横项
+                    var check_all_direction = check_all.data('direction');
+                    check_items = $('input.js-check[data-' + check_all_direction + 'id="' + check_all.data('checklist') + '"]').not(":disabled");
+                    if ($('.js-check-all').is(':checked')) {
+                        check_items.prop('checked', true);
+                    }
+                    //点击全选框
+                    check_all.change(function (e) {
+                        var check_wrap = check_all.parents('.js-check-wrap'); //当前操作区域所有复选框的父标签（重用考虑）
+
+                        if ($(this).prop('checked')) {
+                            //全选状态
+                            check_items.prop('checked', true);
+
+                            //所有项都被选中
+                            if (check_wrap.find('input.js-check').length === check_wrap.find('input.js-check:checked').length) {
+                                check_wrap.find(total_check_all).prop('checked', true);
+                            }
+
+                        } else {
+                            //非全选状态
+                            check_items.removeProp('checked');
+
+                            check_wrap.find(total_check_all).removeProp('checked');
+
+                            //另一方向的全选框取消全选状态
+                            var direction_invert = check_all_direction === 'x' ? 'y' : 'x';
+                            check_wrap.find($('input.js-check-all[data-direction="' + direction_invert + '"]')).removeProp('checked');
+                        }
+
+                    });
+
+                    //点击非全选时判断是否全部勾选
+                    check_items.change(function () {
+
+                        if ($(this).prop('checked')) {
+
+                            if (check_items.filter(':checked').length === check_items.length) {
+                                //已选择和未选择的复选框数相等
+                                check_all.prop('checked', true);
+                            }
+
+                        } else {
+                            check_all.removeProp('checked');
+                        }
+
+                    });
+
+
+                });
+
+            }
+
+            //日期选择器
+            var dateInput = $("input.js-date");
+            if (dateInput.length) {
+                Wind.use('datePicker', function () {
+                    dateInput.datePicker();
+                });
+            }
+
+            //日期+时间选择器
+            var dateTimeInput = $("input.js-datetime");
+            if (dateTimeInput.length) {
+                Wind.use('datePicker', function () {
+                    dateTimeInput.datePicker({
+                        time: true
+                    });
+                });
+            }
+
+            var yearInput = $("input.js-year");
+            if (yearInput.length) {
+                Wind.use('datePicker', function () {
+                    yearInput.datePicker({
+                        startView: 'decade',
+                        minView: 'decade',
+                        format: 'yyyy',
+                        autoclose: true
+                    });
+                });
+            }
+
+            // bootstrap年选择器
+            var bootstrapYearInput = $("input.js-bootstrap-year")
+            if (bootstrapYearInput.length) {
+                Wind.css('bootstrapDatetimePicker');
+                Wind.use('bootstrapDatetimePicker', function () {
+                    bootstrapYearInput.datetimepicker({
+                        language: 'zh-CN',
+                        format: 'yyyy',
+                        minView: 'decade',
+                        startView: 'decade',
+                        todayBtn: 1,
+                        autoclose: true
+                    });
+                });
+            }
+
+            // bootstrap日期选择器
+            var bootstrapDateInput = $("input.js-bootstrap-date")
+            if (bootstrapDateInput.length) {
+                Wind.css('bootstrapDatetimePicker');
+                Wind.use('bootstrapDatetimePicker', function () {
+                    bootstrapDateInput.datetimepicker({
+                        language: 'zh-CN',
+                        format: 'yyyy-mm-dd',
+                        minView: 'month',
+                        todayBtn: 1,
+                        autoclose: true
+                    });
+                });
+            }
+
+            // bootstrap年月份选择器
+            var bootstrapYearMonthInput = $("input.js-bootstrap-year-month");
+            if (bootstrapYearMonthInput.length) {
+                Wind.css('bootstrapDatetimePicker');
+                Wind.use('bootstrapDatetimePicker', function () {
+                    bootstrapYearMonthInput.datetimepicker({
+                        language: 'zh-CN',
+                        format: 'yyyy-mm',
+                        minView: 'year',
+                        startView: 'decade',
+                        todayBtn: 1,
+                        autoclose: true
+                    });
+                });
+            }
+
+            // bootstrap日期选择器日期+时间选择器
+            var bootstrapDateTimeInput = $("input.js-bootstrap-datetime");
+            if (bootstrapDateTimeInput.length) {
+                Wind.css('bootstrapDatetimePicker');
+                Wind.use('bootstrapDatetimePicker', function () {
+                    bootstrapDateTimeInput.datetimepicker({
+                        language: 'zh-CN',
+                        format: 'yyyy-mm-dd hh:ii',
+                        todayBtn: 1,
+                        autoclose: true
+                    });
+                });
+            }
+
+            //tab
+            var tabs_nav = $('ul.js-tabs-nav');
+            if (tabs_nav.length) {
+                Wind.use('tabs', function () {
+                    tabs_nav.tabs('.js-tabs-content > div');
+                });
+            }
+
+            //地址联动
+            var $js_address_select = $('.js-address-select');
+            if ($js_address_select.length > 0) {
+                $('.js-address-country-select,.js-address-province-select,.js-address-city-select,.js-address-district-select').change(function () {
+                    var $this = $(this);
+                    var id = $this.val();
+                    var $child_area_select;
+                    var $this_js_address_select = $this.parents('.js-address-select');
+                    if ($this.is('.js-address-country-select')) {
+                        $child_area_select = $this_js_address_select.find('.js-address-province-select');
+                        $this_js_address_select.find('.js-address-city-select').hide();
+                    } else if ($this.is('.js-address-province-select')) {
+                        $child_area_select = $this_js_address_select.find('.js-address-city-select');
+                        $this_js_address_select.find('.js-address-district-select').hide();
+                    } else if ($this.is('.js-address-city-select')) {
+                        $child_area_select = $this_js_address_select.find('.js-address-district-select');
+                        $this_js_address_select.find('.js-address-town-select').hide();
+                    } else {
+                        $child_area_select = $this_js_address_select.find('.js-address-town-select');
+                    }
+
+                    var empty_option = '<option class="js-address-empty-option" value="">' + $child_area_select.find('.js-address-empty-option').text() + '</option>';
+                    $child_area_select.html(empty_option);
+
+                    var child_area_html = $this.data('childarea' + id);
+                    if (child_area_html) {
+                        $child_area_select.show();
+                        $child_area_select.html(child_area_html);
+                        return;
+                    }
+
+                    var isCountry = 0;
+                    if ($this.is('.js-address-country-select')) {
+                        isCountry = 1;
+                    }
+
+                    $.ajax({
+                        url: $this_js_address_select.data('url'),
+                        type: 'POST',
+                        dataType: 'JSON',
+                        data: {id: id, is_country: isCountry},
+                        success: function (data) {
+                            if (data.code == 1) {
+                                if (data.data.areas.length > 0) {
+                                    var html = [empty_option];
+
+                                    $.each(data.data.areas, function (i, area) {
+                                        var area_html = '<option value="[id]">[name]</option>';
+                                        area_html     = area_html.replace('[name]', area.name);
+                                        area_html     = area_html.replace('[id]', area.id);
+                                        html.push(area_html);
+                                    });
+                                    html = html.join('', html);
+                                    $this.data('childarea' + id, html);
+                                    $child_area_select.html(html);
+                                    $child_area_select.show();
+                                } else {
+                                    $child_area_select.hide();
+
+                                }
+                            }
+                        },
+                        error: function () {
+
+                        },
+                        complete: function () {
+
+                        }
+                    });
+                });
+
+            }
+            //地址联动end
+            Wind.css('artDialog');
+            Wind.use('artDialog', 'noty', function () {
+                $('body').on('click', '.js-click2call-btn', function (e) {
+                    e.preventDefault();
+                    var $_this = this,
+                        $this = $($_this),
+                        title = $this.data('title');
+                    title = title ? title:'点击下面链接,直接拨打电话';
+                    art.dialog({
+                        title: title,
+                        icon: 'question',
+                        content: $this.next('.js-click2call-mobiles').html(),
+                        follow: $_this,
+                        close: function () {
+                            $_this.focus(); //关闭时让触发弹窗的元素获取焦点
+                            return true;
+                        },
+                        cancelVal: '关闭',
+                        cancel: true
+                    });
+                });
+            });
+
+        })();
+
+//重新刷新页面，使用location.reload()有可能导致重新提交
+        function reloadPage(win) {
+            var location = win.location;
+            location.href = location.pathname + location.search;
+        }
+
+        /**
+         * 页面跳转
+         * @param url 要打开的页面地址
+         */
+        function redirect(url) {
+            location.href = url;
+        }
+
+
+
+    });
+	</script>
+
+
                     <div id="w_grid-1593500490727" class="w_grid-000">
     <div class="w_grid signal">
         <div class="e_box e_box-000 p_gridbox">
@@ -1070,32 +1741,6 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                             </dl>
                                             <dl class="botUl">
                                                 <dt class="botDt">
-                                                    <a href="/culture/11.html"
-                                                       class="botLink blink">CorporateCulture</a>
-                                                </dt>
-                                                <dd class="sbotDd">
-                                                    <a href="/culture/11.html"
-                                                       class="botLinkS blink">FilialPietyCultur</a>
-                                                </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="/activity/10.html"
-                                                       class="botLinkS blink">ActivityRecord</a>
-                                                </dd>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
-                                                    <a href="/responsibility/<?php echo $responsibility_category_list[0]['id']; ?>"
-                                                       class="botLink blink">SocialResponsibility</a>
-                                                </dt>
-                                                <?php if(is_array($responsibility_category_list) || $responsibility_category_list instanceof \think\Collection || $responsibility_category_list instanceof \think\Paginator): if( count($responsibility_category_list)==0 ) : echo "" ;else: foreach($responsibility_category_list as $key=>$vo): ?>
-                                                    <dd class="sbotDd">
-                                                        <a href="/responsibility/<?php echo $vo['id']; ?>"
-                                                           class="botLinkS blink"><?php echo $vo['name']; ?></a>
-                                                    </dd>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
                                                     <a href="/intro/16.html"
                                                        class="botLink blink">ServiceCenter</a>
                                                 </dt>
@@ -1123,10 +1768,10 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                 <div id="w_common_text-1616830314198" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">Hotline</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-818"><span
+                                        <p><a href="tel:<?php echo $site_info['sale_tel']; ?>"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
                                                 style="color:#FFFFFF"><?php echo $site_info['sale_tel']; ?></span></span></span></a>
@@ -1136,13 +1781,13 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                 <div id="w_common_text-1616830369921" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free after-sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">E-mail</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-919"><span
+                                        <p><a href="javascript:"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF"><?php echo $site_info['after_sale_tel']; ?></span></span></span></a>
+                                                style="color:#FFFFFF"><?php echo $site_info['email']; ?></span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -1182,19 +1827,12 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/1_29.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/ins.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
-                                                                     width="100%" height="100%">
+                                                                     width="40px" height="40px">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>微信公众号
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1204,19 +1842,12 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/dyn1.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/facebook.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方抖音
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1226,19 +1857,27 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/qK1wgsT6R_KRn1eO4yrBlg.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/youtubi.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方手机站
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="content_box-1616830617301-3"
+                                                 class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                                                <div id="w_fimg-1616830641893" class="w_fimg-001">
+                                                    <div class="w_img animated  ">
+                                                        <div class="e_box e_box-000 p_box">
+                                                            <div class="e_image e_DImage-001 p_dimage">
+                                                                <img src="/themes/simpleboot3/public/assets/images/twitter.png"
+                                                                     alt="<?php echo $site_info['site_gwa']; ?>"
+                                                                     title="<?php echo $site_info['site_gwa']; ?>"
+                                                                     width="100%" height="100%">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1259,6 +1898,7 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
     </div>
 </div>
 
+<script type="text/javascript" src="/themes/simpleboot3/public/assets/js/product.js"></script>
 <script type="text/javascript" src="/themes/simpleboot3/public/assets/js/response.js"></script>
 </body>
 </html>

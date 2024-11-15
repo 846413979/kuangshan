@@ -1,4 +1,4 @@
-<?php /*a:1:{s:89:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/admin\index\index.html";i:1730961854;}*/ ?>
+<?php /*a:1:{s:89:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/admin\index\index.html";i:1731027582;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh_CN" style="overflow: hidden;">
 <head>
@@ -175,7 +175,9 @@
 <div class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a href="<?php echo url('admin/Index/index'); ?>" class="navbar-brand" style="min-width: 200px;text-align: center;"></a>
+            <a href="<?php echo url('admin/Index/index'); ?>" class="navbar-brand" style="min-width: 200px;text-align: center;padding-top: 0;">
+                <img src="/themes/admin_simpleboot3/public/assets/images/logo-white.png" style="height: 48px;">
+            </a>
             <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

@@ -4,9 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>{$article.post_title}_{$site_info.site_name|default=''}</title>
-    <meta name="keywords" content="{$article.post_title},{$site_info.site_name|default=''}">
-    <meta name="description" content="{$article.post_title}-{$site_info.site_name|default=''}-{$article.post_excerpt}">
+    <title>{$product.title}_{$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$product.title},{$site_info.site_name|default=''}">
+    <meta name="description" content="{$product.title}-{$site_info.site_name|default=''}">
     <include file="public@head"/>
     <link href="__TMPL__/public/assets/css/page_impt_products_detail.css" rel="stylesheet" type="text/css">
 </head>
@@ -52,13 +52,11 @@
                                                                         <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
                                                                              id="NavList_a1">
                                                                             <ul class="clearfix swiper-wrapper">
-                                                                                <foreach name="category_list" item="vo">
-                                                                                    <li class="swiper-slide swiper-no-swiping swiper-slide-active">
-                                                                                        <a href="/product/{$vo.id}"
-                                                                                           title="{$vo.name}"
-                                                                                           class="more">{$vo.name}</a>
-                                                                                    </li>
-                                                                                </foreach>
+                                                                                <li class="swiper-slide swiper-no-swiping swiper-slide-active">
+                                                                                    <a href="/product"
+                                                                                       title=""
+                                                                                       class="more">All Products</a>
+                                                                                </li>
                                                                             </ul>
                                                                             <div id="NavList_a1_menu-slide"
                                                                                  class="menu-slide"
@@ -90,18 +88,13 @@
 
                                                                             <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumbFirst">
                                                                                 <span class="weizhi"><i
-                                                                                        class="iconfont"></i>Your Location: </span>
+                                                                                        class="iconfont"></i>Home Page: &nbsp;&nbsp;</span>
 
                                                                             </div>
-                                                                            <div class="e_title e_GuideLabel-001 p_end">
-                                                                                <div class="font"><span
-                                                                                        class="i_separator">/</span>
-                                                                                </div>
-                                                                            </div>
                                                                             <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumb contentBox">
-                                                                                <a href="{$category_list[0]['id']}">
+                                                                                <a href="/">
                                                                                     <div class="font">
-                                                                                        <span>Product Center</span>
+                                                                                        <span>HomePage</span>
                                                                                     </div>
                                                                                 </a>
                                                                             </div>
@@ -115,21 +108,11 @@
                                                                                 </div>
                                                                             </div>
                                                                             <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumb contentBox">
-                                                                                <a href="/product/{$category.id}">
+                                                                                <a href="/product">
                                                                                     <div class="font">
-                                                                                        <span>{$category.name}</span>
+                                                                                        <span>Products</span>
                                                                                     </div>
                                                                                 </a>
-                                                                            </div>
-                                                                            <div class="e_title e_GuideLabel-001 p_end">
-                                                                                <div class="font"><span
-                                                                                        class="i_separator">/</span>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="e_breadcrumb e_breadcrumb-000 p_breadcrumbCurrent">
-                                                                                <div class="font">
-                                                                                    <span>{$article.post_title}</span>
-                                                                                </div>
                                                                             </div>
 
                                                                         </div>
@@ -158,238 +141,343 @@
 
                                                         <div class="e_stylebox e_ContentOrdinaryStyleBox-001 p_stylebox"
                                                              id="">
-                                                            <div class="stylebox_top">
-                                                                <div class="stylebox_title">
-                                                                    <h2 class="title_main">{$article.post_title}</h2>
-                                                                </div>
-                                                            </div>
-                                                            <div class="stylebox_top_line"></div>
 
                                                             <div class="stylebox_content">
 
                                                                 <!-- 商品名称属性项 -->
-                                                                <div class="e_box d_ProductDetail p_ProductDetail"
+                                                                <div class="e_box d_ProductDetail p_Pr oductDetail"
                                                                      data-ename="产品详情框架">
 
                                                                     <div class="product_info">
                                                                         <!--左边结构-->
-                                                                        <div class="e_box p_imagesA c_portalResProduct_detail-16170120991416298-js"
-                                                                             data-ename="产品详情容器">
-                                                                            <div class="c_portalResProduct_detail-16170120991416298-imgjs"
-                                                                                 data-innerdismoveable="">
-                                                                                <div class="e_box e_box-000 p_images cut picture widther"
-                                                                                     style="height: 400px; width: 600px;">
-                                                                                    <a class="e_link e_link-000 p_linkB zoom"
-                                                                                       imghref="{:cmf_get_image_url($article.thumbnail)}"
-                                                                                       style="cursor: move;">
-                                                                                        <div class="e_image e_RImages-001 p_image visible">
-                                                                                            <img src="{:cmf_get_image_url($article.thumbnail)}"
-                                                                                                 alt="{$article.post_title}"
-                                                                                                 putphotocls="widther">
-                                                                                            <div class="e_box e_box-003 p_zoom item_hide"
-                                                                                                 style="top: 16.0312px; left: 0px; width: 36.353px; height: 36.3657px;"></div>
-                                                                                        </div>
-                                                                                    </a>
+
+                                                                        <div class="info_left_box">
+                                                                            <div class="info_left_title">
+                                                                                <h2>{$product.title}</h2>
+                                                                            </div>
+                                                                            <div class="info_left_photos">
+                                                                                <div class="main-image">
+                                                                                    <img id="main-img" src="{:cmf_get_image_url($product.photos[0]['url'])}" alt="$product.photos[0]['name']">
                                                                                 </div>
-                                                                                <div class="e_box e_box-000 p_ThumbnailBox"
-                                                                                     style="width: 100%; left: 0px;">
-                                                                                    <div class="e_relationimg e_NumBtn-001 p_ProRelationImg j-nav active cut higher picture"
-                                                                                         data-slider="1"
-                                                                                         style="width: calc(25% - 5px); padding-bottom: calc(25% - 3.75px); height: 0px;">
-                                                                                        <div class="shape"></div>
-                                                                                        <div class="AtlasRelationImgBoxA second">
-                                                                                            <img src="{:cmf_get_image_url($article.thumbnail)}"
-                                                                                                 alt="{$article.post_title}"
-                                                                                                 img-width="38"
-                                                                                                 img-height="30"></div>
+                                                                                <div class="thumbnail-gallery">
+                                                                                    <ul class="thumbnail-gallery-list">
+                                                                                        <foreach name="product.photos" item="vo">
+                                                                                            <li class="thumbnail-gallery-item {$key==0 ? 'active' : ''}" data-main-src="{:cmf_get_image_url($vo.url)}">
+                                                                                                <img src="{:cmf_get_image_url($vo.url)}" alt="{$vo.name}">
+                                                                                            </li>
+                                                                                        </foreach>
+                                                                                    </ul>
+                                                                                    <div class="proto-btn prev-btn">
+                                                                                        <img class="prev-img" src="__TMPL__/public/assets/images/prev.png" alt="prev">
+                                                                                        <img class="prev-img-active" style="display: none" src="__TMPL__/public/assets/images/prev-active.png" alt="prev">
                                                                                     </div>
-                                                                                    <div class="e_switchbtn e_IconSwitchBtn-002 p_SwitchBtnC j-nav-previous">
-                                                                                        <div class="font"><i
-                                                                                                class="iconfont"></i>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="e_switchbtn e_IconSwitchBtn-002 p_SwitchBtnD j-nav-next">
-                                                                                        <div class="font"><i
-                                                                                                class="iconfont"></i>
-                                                                                        </div>
+                                                                                    <div class="proto-btn next-btn">
+                                                                                        <img class="next-img" src="__TMPL__/public/assets/images/next.png" alt="next">
+                                                                                        <img class="next-img-active" style="display: none" src="__TMPL__/public/assets/images/next-active.png" alt="next">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
                                                                         <!--右边结构-->
-                                                                        <div class="e_box p_ProInfo"
-                                                                             data-ename="主要信息区">
-                                                                            <div class="e_box p_content borderB_dividers"
-                                                                                 data-ename="重要信息区">
-                                                                                <!--产品名称名称和标题开始-->
-                                                                                <div class="e_box d_ProName p_ProName"
-                                                                                     data-ename="标题区">
-                                                                                    <h1 class="e_title d_Title p_Title h2"
-                                                                                        data-ename="名称">
-                                                                                        <div class="font"><i
-                                                                                                class="iconfont"></i>{$article.post_title}
-                                                                                        </div>
-                                                                                    </h1>
+                                                                        <div class="info_right_box">
+                                                                            <div class="info_right_mark">
+                                                                                <span class="info_right_mark_title">
+                                                                                    Authentication mark:
+                                                                                </span>
+                                                                                <foreach name="product.authentication_mark" item="vo">
+                                                                                <div class="info_right_mark_img">
+                                                                                    <img src="{:cmf_get_image_url($vo.url)}" alt="{$vo.name}">
                                                                                 </div>
-                                                                                <!--产品名称名称和标题结束-->
-                                                                                <!--概要开始-->
-                                                                                <div class="e_box d_ProSummary p_ProSummary"
-                                                                                     data-ename="概要描述区">
-                                                                                    <article
-                                                                                            class="e_article d_summary p_summary"
-                                                                                            data-ename="概要描述">
-                                                                                        {$article.post_excerpt}
-                                                                                    </article>
-                                                                                </div>
-                                                                                <!--概要结束-->
-                                                                            <!--按钮开始-->
-                                                                            <div class="e_box p_interaction"
-                                                                                 data-ename="互动按钮区">
-                                                                                <!-- 询价和产品比较浮动框需要的数据 -->
-                                                                                <input type="hidden"
-                                                                                       class="js_compareFloatData"
-                                                                                       id="110"
-                                                                                       name="320t四梁铸造起重机"
-                                                                                       templateid="1"
-                                                                                       image="/repository/image/17290f0e-3a2c-497e-842c-729efad8c933.jpg">
-                                                                                <a href="/quotation/{$category.id}/{$article.id}"
-                                                                                   target="_self">
-                                                                                    <button type="button"
-                                                                                            class="btn btn-default p_inquiry "
-                                                                                            data-ename="询价按钮">inquiry
-                                                                                    </button>
-                                                                                </a>
-                                                                                <!--所属分类结束-->
-                                                                                <a href="/reservation/{$category.id}/{$article.id}"
-                                                                                   target="_self">
-                                                                                    <button type="button"
-                                                                                            class="btn btn-default p_tmall "
-                                                                                            data-ename="自定义按钮">appointment
-                                                                                    </button>
-                                                                                </a>
-                                                                                <div class="Prodownload hide">
-                                                                                </div>
+                                                                                </foreach>
                                                                             </div>
-                                                                            <!--按钮结束-->
-                                                                            <!--分享结束-->
-
-                                                                        </div>
-                                                                    </div>
-
-                                                                    <div class="e_box d_DescriptionBoxA p_DescriptionBoxA "
-                                                                         data-ename="详情信息区">
-                                                                        <!--产品详情页签容器开始-->
-                                                                        <div class="e_box d_DescriptionBigbox p_DescriptionBigbox borderT_default"
-                                                                             data-ename="页签内容区">
-                                                                            <!--产品描述-->
-                                                                            <div id="contentDiv"
-                                                                                 class="e_box d_DescribeContent p_DescribeContent"
-                                                                                 data-ename="描述内容区">
-                                                                                <!--产品介绍-->
-
-                                                                                <div class="e_HtmlEditor d_description">
-                                                                                    {$article.post_content}
-
-                                                                                </div>
+                                                                            <div class="info_right_apply">
+                                                                                <span class="info_right_apply_title">Apply: </span>
+                                                                                {$product.industry}
                                                                             </div>
-                                                                        </div>
-                                                                        <!--上一页下一页-->
-                                                                        <div class="e_box d_nextBox p_nextBox"
-                                                                             data-ename="翻页容器">
-                                                                            <div class="e_box d_nextpage p_nextpage"
-                                                                                 data-ename="上一篇容器">
-                                                                                <div class="e_title d_nextName p_nextName"
-                                                                                     data-ename="引导标题">
-                                                                                    <div class="font">prev</div>
-                                                                                </div>
-                                                                                <notempty name="prev_article">
-                                                                                    <a href="/product_info/{$category.id}/{$prev_article.id}">
-                                                                                        <div class="e_title d_MinorLink p_MinorLink"
-                                                                                             data-ename="上一篇标题">
-                                                                                            <div class="font">
-                                                                                                {$prev_article.post_title}
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                    <else />
-                                                                                <div class="e_title d_MinorLink p_MinorLink"
-                                                                                     data-ename="上一篇标题">
-                                                                                    <div class="font">None</div>
-                                                                                </div>
-                                                                                </notempty>
+                                                                            <div class="info_right_tips">
+                                                                                The following options can be selected:
                                                                             </div>
-                                                                            <div class="e_box d_nextpageA p_nextpageA"
-                                                                                 data-ename="下一篇容器">
-                                                                                <div class="e_title d_nextNameA p_nextNameA"
-                                                                                     data-ename="引导标题">
-                                                                                    <div class="font">next</div>
+                                                                            <div class="info_right_capacity">
+                                                                                <div class="info_right_capacity_title">
+                                                                                    Lifting capacity:
                                                                                 </div>
-                                                                                <notempty name="next_article">
-                                                                                    <a href="/product_info/{$category.id}/{$next_article.id}">
-                                                                                        <div class="e_title d_MinorLink p_MinorLink"
-                                                                                             data-ename="下一篇标题">
-                                                                                            <div class="font">
-                                                                                                {$next_article.post_title}
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </a>
-                                                                                    <else />
-                                                                                    <div class="e_title d_MinorLink p_MinorLink"
-                                                                                         data-ename="上一篇标题">
-                                                                                        <div class="font">None</div>
+                                                                                <ul class="info_right_capacity_list">
+                                                                                    <foreach name="product.lifting_capacity" item="vo">
+                                                                                        <li class="info_right_capacity_list_item {$key==0 ? 'active' : ''}" data-key="{$key}">
+                                                                                            {$vo}
+                                                                                        </li>
+                                                                                    </foreach>
+                                                                                </ul>
+                                                                                <div class="clear_both"></div>
+
+
+                                                                                <div class="info_right_height">
+                                                                                    <div class="info_right_height_title">
+                                                                                        Lifting height:
                                                                                     </div>
-                                                                                </notempty>
+                                                                                    <div class="slider-container">
+                                                                                        <div class="dual-range-slider">
+                                                                                            <div id="minHandle" class="handle">
+                                                                                                <div class="handle_text minHandle_text">
+                                                                                                    <span id="minValue">{$product.min_lifting_height}</span>m<div class="handle_text_arrow"></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div id="maxHandle" class="handle">
+                                                                                                <div class="handle_text maxHandle_text">
+                                                                                                    <span id="maxValue">{$product.max_lifting_height}</span>m<div class="handle_text_arrow"></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="range-bar"></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="clear_both"></div>
+
+                                                                                <if condition="$product.min_span!=0 && $product.max_span!=0">
+                                                                                <div class="info_right_span">
+                                                                                    <div class="info_right_span_title">
+                                                                                        Span:
+                                                                                    </div>
+                                                                                    <div class="slider-container_span">
+                                                                                        <div class="dual-range-slider_span">
+                                                                                            <div id="minSpanHandle" class="handle_span">
+                                                                                                <div class="handle_span_text minHandle_span_text">
+                                                                                                    <span id="minSpanValue">{$product.min_span}</span>m<div class="handle_span_text_arrow"></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div id="maxSpanHandle" class="handle_span">
+                                                                                                <div class="handle_span_text maxHandle_span_text">
+                                                                                                    <span id="maxSpanValue">{$product.max_span}</span>m<div class="handle_span_text_arrow"></div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="range-bar_span"></div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="clear_both"></div>
+                                                                                </if>
+
+                                                                                <div class="info_voltage">
+                                                                                    <div class="info_voltage_title">
+                                                                                        Voltage:
+                                                                                    </div>
+                                                                                    <div class="info_voltage_content">
+                                                                                        <select class="info_select info_voltage_select">
+                                                                                            <foreach name="product_setting.operating_voltage" item="vo">
+                                                                                                <option value="{$vo}">{$vo}</option>
+                                                                                            </foreach>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="clear_both"></div>
+                                                                                <div class="info_voltage">
+                                                                                    <div class="info_voltage_title">
+                                                                                        Hertz:
+                                                                                    </div>
+                                                                                    <div class="info_voltage_content">
+                                                                                        <select class="info_select info_hertz_select">
+                                                                                            <foreach name="product_setting.operating_hertz" item="vo">
+                                                                                                <option value="{$vo}">{$vo}</option>
+                                                                                            </foreach>
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </div>
+                                                                                <div class="clear_both"></div>
+
+                                                                                <div class="info_right_job">
+                                                                                    <div class="info_right_job_title">
+                                                                                        Job level:
+                                                                                    </div>
+                                                                                    <ul class="info_right_job_list">
+                                                                                        <foreach name="product.job_level" item="vo">
+                                                                                            <li class="info_right_job_list_item {$key==0 ? 'active' : ''}" data-key="{$key}">
+                                                                                                {$vo}
+                                                                                            </li>
+                                                                                        </foreach>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="clear_both"></div>
+
+                                                                                <div class="info_available">
+                                                                                    <div class="info_available_title">
+                                                                                        Sling available:
+                                                                                    </div>
+                                                                                    <ul class="info_available_list">
+                                                                                        <foreach name="product.sling_available" item="vo">
+                                                                                            <li class="info_available_list_item" data-key="{$key}">
+                                                                                                <img src="{:cmf_get_image_url($vo.url)}" class="available_img" alt="">
+                                                                                                <img src="{:cmf_get_image_url($vo.active_url)}" class="available_img_active" alt="">
+                                                                                                <span class="info_available_list_item_title">
+                                                                                                    {$vo.name}
+                                                                                                </span>
+                                                                                            </li>
+                                                                                        </foreach>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="clear_both"></div>
+
+
+                                                                                <div class="info_btn_wrap">
+                                                                                    <div class="info_btn" id="inquiry">
+                                                                                        INQUIRY
+                                                                                    </div>
+                                                                                    <div class="info_btn" onclick="window.location.href='/intro/16.html'">
+                                                                                        CONTACT US
+                                                                                    </div>
+                                                                                    <div class="info_btn" onclick="window.location.href='{:cmf_get_file_download_url($product.file.url)}'">
+                                                                                        DOWNLOAD
+                                                                                    </div>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
+
+                                                                        <!--推荐产品-->
+                                                                        <div class="related_products">
+                                                                            <div class="related_products_title">
+                                                                                Related Products
+                                                                            </div>
+                                                                            <ul class="related_products_list">
+                                                                                <foreach name="recommended_list" item="vo">
+                                                                                    <li class="related_products_list_item" onclick="location.href='/product_info/{$vo.id}.html'">
+                                                                                        <div class="related_products_img_wrap"><img src="{:cmf_get_image_url($vo.thumbnail)}"></div>
+                                                                                        <div class="related_products_list_item_title">{$vo.title}</div>
+                                                                                    </li>
+                                                                                </foreach>
+                                                                            </ul>
+                                                                        </div>
+
+                                                                        <div class="info_content">
+                                                                            <ul class="info_content_title">
+                                                                                <li class="info_content_item active">
+                                                                                    Product overview
+                                                                                </li>
+                                                                                <li class="info_content_item">
+                                                                                    Application scenario
+                                                                                </li>
+                                                                                <li class="info_content_item">
+                                                                                    certificate
+                                                                                </li>
+                                                                                <li class="info_content_item">
+                                                                                    case
+                                                                                </li>
+                                                                            </ul>
+                                                                            <div class="info_content_content">
+                                                                                <div class="info_content_content_item">
+                                                                                    {$product.overview}
+                                                                                </div>
+                                                                                <div class="info_content_content_item" style="display: none;">
+                                                                                    {$product.scenario}
+                                                                                </div>
+                                                                                <div class="info_content_content_item" style="display: none;">
+                                                                                    <ul class="info_content_content_certificate">
+                                                                                        <foreach name="product.certificate" item="vo">
+                                                                                        <li class="info_content_content_certificate_item">
+                                                                                            <div class="certificate_wrap"><img src="{:cmf_get_image_url($vo.url)}" alt=""></div>
+                                                                                            <div class="info_content_content_certificate_item_title">{$vo.name}</div>
+                                                                                        </li>
+                                                                                        </foreach>
+                                                                                        <div class="clear_both"></div>
+                                                                                    </ul>
+                                                                                </div>
+                                                                                <div class="info_content_content_item" style="display: none;">
+                                                                                    <ul class="info_content_content_case">
+                                                                                        <foreach name="product.certificate" item="vo">
+                                                                                            <li class="info_content_content_case_item">
+                                                                                                <div class="case_wrap"><img src="{:cmf_get_image_url($vo.url)}" alt=""></div>
+                                                                                                <div class="info_content_content_case_item_title">{$vo.name}</div>
+                                                                                            </li>
+                                                                                        </foreach>
+                                                                                        <div class="clear_both"></div>
+                                                                                    </ul>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+
+
                                                                     </div>
+                                                                    <script type="text/javascript"
+                                                                            src="__TMPL__/public/assets/js/KeyShotVR.js"></script>
+                                                                    <script>$("div[id^='c_']").attr("loaded", "true")</script>
+                                                                    <script>window._bd_share_config = {
+                                                                        "common": {
+                                                                            "bdSnsKey": {},
+                                                                            "bdText": "",
+                                                                            "bdMini": "2",
+                                                                            "bdMiniList": false,
+                                                                            "bdPic": "",
+                                                                            "bdStyle": "0",
+                                                                            "bdSize": "16"
+                                                                        }, "share": {}
+                                                                    };
+                                                                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
+
+
                                                                 </div>
-                                                                <script type="text/javascript"
-                                                                        src="__TMPL__/public/assets/js/KeyShotVR.js"></script>
-                                                                <script>$("div[id^='c_']").attr("loaded", "true")</script>
-                                                                <script>window._bd_share_config = {
-                                                                    "common": {
-                                                                        "bdSnsKey": {},
-                                                                        "bdText": "",
-                                                                        "bdMini": "2",
-                                                                        "bdMiniList": false,
-                                                                        "bdPic": "",
-                                                                        "bdStyle": "0",
-                                                                        "bdSize": "16"
-                                                                    }, "share": {}
-                                                                };
-                                                                with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
-
-
-                                                            </div>
-                                                            <div class="stylebox_bottom_line"></div>
-                                                            <div class="stylebox_bottom">
+                                                                <div class="stylebox_bottom_line"></div>
+                                                                <div class="stylebox_bottom">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div id="w_grid-1617010986085" class="w_grid-000">
-                                        <div class="w_grid signal">
-                                            <div class="e_box e_box-000 p_gridbox">
-                                                <div id="content_box-1617010986085-0"
-                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell"></div>
+                                        <div id="w_grid-1617010986085" class="w_grid-000">
+                                            <div class="w_grid signal">
+                                                <div class="e_box e_box-000 p_gridbox">
+                                                    <div id="content_box-1617010986085-0"
+                                                         class="e_box e_box-000 d_gridCell_0 p_gridCell"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <include file="public@feedback"/>
+                        <include file="public@foot"/>
                     </div>
-                    <include file="public@foot"/>
                 </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 
+<!--弹窗-->
+<div class="popover_wrap" style="display: none">
+    <div class="popover_container">
+        <div class = popover_close>
+            <img src="__TMPL__/public/assets/images/close.png" alt="">
+        </div>
+        <div class="popover_content">
+            <div class="popover_title">
+                <h2>Develop your lifting solution</h2>
+                <p class="popover_title_description">Contact us today by email at :<a href="javascript:">info@weihuaheavycrane.com</a>, or fill out the form below.</p>
+            </div>
+            <div class="popover_form">
+                <form method="post">
+                    <div class="popover_form_name">
+                        <input id="popover-name" type="text" name="name" placeholder="Name:" >
+                    </div>
+                    <div class="popover_form_phone">
+                        <input id="popover-phone" type="text" name="phone" placeholder="Phone / WhatsApp:" >
+                    </div>
+                    <div class="popover_form_email">
+                        <input id="popover-email" type="text" name="email" placeholder="E-mail:" >
+                    </div>
+                    <div class="popover_form_content">
+                        <textarea id="popover-content" name="content" placeholder="Message:" ></textarea>
+                    </div>
+                    <div class="popover_form_submit">
+                        <input name="product_id" id="product-id" style="display: none" value="{$product.id}">
+                        <button id="popover-submit" type="button">SUBMIT</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="__TMPL__/public/assets/js/product_info.js"></script>
 <script type="text/javascript" src="__TMPL__/public/assets/js/response.js"></script>
 </body>
 </html>

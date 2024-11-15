@@ -1,4 +1,4 @@
-<?php /*a:2:{s:107:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/portal\admin_product_category\index.html";i:1730791208;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
+<?php /*a:2:{s:107:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/portal\admin_product_category\index.html";i:1731288686;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -114,48 +114,38 @@
         <li class="active"><a href="<?php echo url('AdminProductCategory/index'); ?>">产品分类</a></li>
         <li><a href="<?php echo url('AdminProductCategory/add'); ?>">添加分类</a></li>
     </ul>
-    <form class="well form-inline margin-top-20" method="post" action="<?php echo url('AdminProductCategory/index'); ?>">
-        分类名称:
-        <input type="text" class="form-control" name="keyword" style="width: 200px;"
-               value="<?php echo (isset($keyword) && ($keyword !== '')?$keyword:''); ?>" placeholder="请输入分类名称">
-        <input type="submit" class="btn btn-primary" value="搜索"/>
-        <a class="btn btn-danger" href="<?php echo url('AdminProductCategory/index'); ?>">清空</a>
-    </form>
 
     <form method="post" class="js-ajax-form" action="<?php echo url('AdminProductCategory/listOrder'); ?>">
-        <?php if(empty($keyword) || (($keyword instanceof \think\Collection || $keyword instanceof \think\Paginator ) && $keyword->isEmpty())): ?>
-            <table class="table table-hover table-bordered table-list" id="menus-table">
-                <thead>
-                <tr>
-                    <th width="50">ID</th>
-                    <th>分类名称</th>
-                    <th width="210">操作</th>
-                </tr>
-                </thead>
-                <?php echo $category_tree; ?>
-            </table>
-            <?php else: ?>
-            <table class="table table-hover table-bordered table-list">
-                <thead>
-                <tr>
-                    <th>分类名称</th>
-                    <th width="210">操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <?php if(is_array($categories) || $categories instanceof \think\Collection || $categories instanceof \think\Paginator): if( count($categories)==0 ) : echo "" ;else: foreach($categories as $key=>$vo): ?>
-                    <tr>
-                        <td><?php echo $vo['name']; ?></td>
-                        <td>
-                            <a class="btn btn-xs btn-primary" href="<?php echo url('AdminProductCategory/add', ['parent' => $vo['id']]); ?>">添加子分类</a>
-                            <a class="btn btn-xs btn-primary" href="<?php echo url('AdminProductCategory/edit',['id'=>$vo['id']]); ?>">编辑11</a>
-                            <a class="btn btn-xs btn-danger js-ajax-delete" href="<?php echo url('AdminProductCategory/delete',['id'=>$vo['id']]); ?>">删除</a>
-                        </td>
-                    </tr>
-                <?php endforeach; endif; else: echo "" ;endif; ?>
-                </tbody>
-            </table>
-        <?php endif; ?>
+        <button class="btn btn-primary btn-sm js-ajax-submit" type="submit"
+                data-action="<?php echo url('AdminProductCategory/listOrder'); ?>"><?php echo lang('SORT'); ?>
+        </button>
+        <table class="table table-hover table-bordered table-list">
+            <thead>
+            <tr>
+                <th width="80"><?php echo lang('SORT'); ?></th>
+                <th>ID</th>
+                <th>分类名称</th>
+                <th width="210">操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php echo $list; ?>
+<!--            <?php if(is_array($list) || $list instanceof \think\Collection || $list instanceof \think\Paginator): if( count($list)==0 ) : echo "" ;else: foreach($list as $key=>$vo): ?>-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <input name="list_orders[<?php echo $vo['id']; ?>]" class="input-order" type="text"-->
+<!--                               value="<?php echo $vo['list_order']; ?>">-->
+<!--                    </td>-->
+<!--                    <td><?php echo $vo['id']; ?></td>-->
+<!--                    <td><?php echo $vo['name']; ?></td>-->
+<!--                    <td>-->
+<!--                        <a class="btn btn-xs btn-primary" href="<?php echo url('AdminProductCategory/edit',['id'=>$vo['id']]); ?>">编辑</a>-->
+<!--                        <a class="btn btn-xs btn-danger js-ajax-delete" href="<?php echo url('AdminProductCategory/delete',['id'=>$vo['id']]); ?>">删除</a>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--            <?php endforeach; endif; else: echo "" ;endif; ?>-->
+            </tbody>
+        </table>
     </form>
 </div>
 <script src="/static/js/admin.js?v=<?php echo $_static_version; ?>"></script>

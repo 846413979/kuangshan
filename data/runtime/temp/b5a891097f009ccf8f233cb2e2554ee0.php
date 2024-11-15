@@ -1,4 +1,4 @@
-<?php /*a:2:{s:97:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/portal\admin_article\edit.html";i:1730281624;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
+<?php /*a:2:{s:97:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/portal\admin_article\edit.html";i:1731462211;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>

@@ -96,4 +96,15 @@ class MessageController extends AdminBaseController
             $this->error("恢复失败！");
         }
     }
+
+
+    //查看详情
+    public function info()
+    {
+        $id = $this->request->param('id',0,'intval');
+        $MessageModel = new MessageModel();
+        $data = $MessageModel->find($id);
+        $this->assign('data', $data);
+        return $this->fetch();
+    }
 }

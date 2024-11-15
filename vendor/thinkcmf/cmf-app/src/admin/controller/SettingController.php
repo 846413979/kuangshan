@@ -58,6 +58,7 @@ class SettingController extends AdminBaseController
         $cdnSettings    = cmf_get_option('cdn_settings');
         $cmfSettings    = cmf_get_option('cmf_settings');
         $adminSettings  = cmf_get_option('admin_settings');
+        $productSettings  = cmf_get_option('product_setting');
 
         $adminThemes = [];
         $themes      = cmf_scan_dir(WEB_ROOT . config('template.cmf_admin_theme_path') . '/*', GLOB_ONLYDIR);
@@ -81,6 +82,7 @@ class SettingController extends AdminBaseController
         $this->assign("cdn_settings", $cdnSettings);
         $this->assign("admin_settings", $adminSettings);
         $this->assign("cmf_settings", $cmfSettings);
+        $this->assign("product_setting", $productSettings);
 
         return $this->fetch();
     }
@@ -288,6 +290,84 @@ class SettingController extends AdminBaseController
 
         cmf_clear_cache();
         return $this->fetch();
+    }
+
+
+    /**
+     *
+     * 产品配置
+     *
+     * **/
+    public function productSitePost()
+    {
+        $params = $this->request->param();
+
+        $product_site = [];
+        //认证证书
+        if (!empty($params['authentication_mark_urls']) && !empty($params['authentication_mark_names'])) {
+            foreach ($params['authentication_mark_urls'] as $k => $url) {
+                if(empty($params['authentication_mark_names'][$k])){
+                    $this->error('认证名称不能为空');
+                }
+                $product_site['authentication_mark'][] = [
+                    'url' => $url,
+                    'name' => $params['authentication_mark_names'][$k]
+                ];
+            }
+        }
+        //可配吊具
+        if (!empty($params['sling_available_urls']) && !empty($params['sling_available_names'])) {
+            foreach ($params['sling_available_urls'] as $k => $url) {
+                if(empty($params['sling_available_names'][$k])){
+                    $this->error('吊具名称不能为空');
+                }
+                $product_site['sling_available'][] = [
+                    'url' => $url,
+                    'name' => $params['sling_available_names'][$k]
+                ];
+            }
+        }
+        //可配吊具（已选中）
+        if (!empty($params['sling_available_active_urls']) && !empty($params['sling_available_active_names'])) {
+            foreach ($params['sling_available_active_urls'] as $k => $url) {
+                if(empty($params['sling_available_active_names'][$k])){
+                    $this->error('吊具名称不能为空');
+                }
+                $product_site['sling_available_active'][] = [
+                    'url' => $url,
+                    'name' => $params['sling_available_active_names'][$k]
+                ];
+            }
+        }
+        //起重量
+        if(!empty($params['lifting_capacity'])){
+            $product_site['lifting_capacity'] = $params['lifting_capacity'];
+        }
+        //工作电压
+        if(!empty($params['operating_voltage'])){
+            $product_site['operating_voltage'] = $params['operating_voltage'];
+        }
+        //工作赫兹
+        if(!empty($params['operating_hertz'])){
+            $product_site['operating_hertz'] = $params['operating_hertz'];
+        }
+        //工作等级
+        if(!empty($params['job_level'])){
+            $product_site['job_level'] = $params['job_level'];
+        }
+        //产品附件
+        if (!empty($params['file_url']) && !empty($params['file_name'])) {
+            $product_site['product_file'] = [
+                'url' => cmf_asset_relative_url($params['file_url']),
+                'name' => $params['file_name']
+            ];
+        }
+
+        cmf_set_option('product_setting',$product_site);
+
+        //清空缓存
+        cmf_clear_cache();
+        return $this->success('保存成功');
     }
 
 

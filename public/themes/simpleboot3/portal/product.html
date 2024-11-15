@@ -26,6 +26,18 @@
                                      class="e_box e_box-000 d_gridCell_0 p_gridCell ND_empty"
                                      data-editablecontent="1585814936008">
                                     <include file="public@banner"/>
+<!--                                    <div class="content_container">-->
+<!--                                        <div class="content">-->
+<!--                                            <div class="content_nav">-->
+<!--                                                <div class="content_nav_left">-->
+<!--                                                    All products-->
+<!--                                                </div>-->
+<!--                                                <div class="content_nav_right">-->
+<!--                                                    Home page:  <a href="/">Homepage</a> / Products-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
                                     <div id="w_grid-1617010462445" class="w_grid-000">
                                         <div class="w_grid signal">
                                             <div class="e_box e_box-000 p_gridbox">
@@ -39,27 +51,14 @@
                                                                     <div id="c_portalResProduct_category-16170106165287235"
                                                                          class="c_portalResProduct_category-01001004"
                                                                          loaded="true" style="overflow: visible;">
-                                                                        <script type="text/javascript"
-                                                                                src="__TMPL__/public/assets/images/rBQBHVzP2YGEOOgyAAAAAJLRU3c3828.js"></script>
-                                                                        <script type="text/javascript">
-                                                                            $(function () {
-                                                                                $('.NavList_a1').attr('id', 'NavList_a1').menu({
-                                                                                    a_type: 'slide',
-                                                                                    p_type: false,
-                                                                                    f_type: 'mob_js'
-                                                                                });
-                                                                            });
-                                                                        </script>
                                                                         <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
                                                                              id="NavList_a1">
                                                                             <ul class="clearfix swiper-wrapper">
-                                                                                <foreach name="category_list" item="vo">
-                                                                                    <li class="swiper-slide swiper-no-swiping swiper-slide-active">
-                                                                                        <a href="/product/{$vo.id}"
-                                                                                           title="{$vo.name}"
-                                                                                           class="more">{$vo.name}</a>
-                                                                                    </li>
-                                                                                </foreach>
+                                                                                <li class="swiper-slide swiper-no-swiping swiper-slide-active">
+                                                                                    <a href="javascript:"
+                                                                                       title="All products"
+                                                                                       class="more">All products</a>
+                                                                                </li>
                                                                             </ul>
                                                                             <div id="NavList_a1_menu-slide"
                                                                                  class="menu-slide"
@@ -68,16 +67,6 @@
                                                                             <span class="swiper-notification"
                                                                                   aria-live="assertive"
                                                                                   aria-atomic="true"></span></div>
-                                                                        <script>$("div[id^='c_']").attr("loaded", "true")</script>
-                                                                        <script>
-                                                                            var urlName = window.location.pathname;  //获取地址栏中文件名或路径。
-                                                                            $('.NavList_a1 li a').each(function () {        //遍历当前网页导航或分类
-                                                                                var urlHref = $(this).attr('href');  //获取导航链接地址href值
-                                                                                if (urlName.indexOf(urlHref) >= 0) {   //检测文件名或路径中是否包含当前链接值
-                                                                                    $(this).addClass('active');
-                                                                                }
-                                                                            });
-                                                                        </script>
                                                                     </div>
                                                                 </div>
                                                                 <div id="content_box-1617010462455-1"
@@ -95,9 +84,9 @@
 
                                                                             </div>
                                                                             <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumb contentBox">
-                                                                                <a href="{$category_list[0]['id']}">
+                                                                                <a href="/">
                                                                                     <div class="font">
-                                                                                        <span>Product Center</span>
+                                                                                        <span>Homepage</span>
                                                                                     </div>
                                                                                 </a>
                                                                             </div>
@@ -108,25 +97,10 @@
                                                                             </div>
                                                                             <div class="e_breadcrumb e_breadcrumb-000 p_breadcrumbCurrent">
                                                                                 <div class="font">
-                                                                                    <span>{$category.name}</span>
+                                                                                    <span>{$category.name ?? 'Products'}</span>
                                                                                 </div>
                                                                             </div>
-
                                                                         </div>
-
-                                                                        <script type="text/javascript">
-                                                                            $comp({
-                                                                                breadcrumbType: false,
-                                                                                contentFlag: "true",
-                                                                                contentWidth: "350",
-                                                                                ctx: "",
-                                                                                appId: "",
-                                                                                id: "portalResBreadcrumb_nav-1617010462485",
-                                                                                lib: ["js/portalResBreadcrumb/portalResBreadcrumb_nav"]
-                                                                            });
-
-
-                                                                        </script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -146,12 +120,6 @@
                                                          style="overflow: visible;">
                                                         <div class="e_stylebox e_ContentOrdinaryStyleBox-001 p_stylebox"
                                                              id="">
-                                                            <div class="stylebox_top">
-                                                                <div class="stylebox_title">
-                                                                    <i class="title_icon"></i>
-                                                                    <h2 class="title_main">{$category.name}</h2>
-                                                                </div>
-                                                            </div>
                                                             <div class="stylebox_top_line"></div>
                                                             <div class="stylebox_content">
 
@@ -160,29 +128,49 @@
                                                                 <input type="hidden" class="listModifyUrl"
                                                                        value="&amp;proparentId=&amp;appId=">
                                                                 <div class="e_box p_ProductList" data-ename="产品列表">
-                                                                    <!--
-                                                                        -->
                                                                     <div class="proBox" data-ename="产品列表">
+                                                                        <!--分类筛选-->
+                                                                        <div class="proBoxLeft">
+                                                                            <div class="e_box p_ProductCategoryList" data-ename="产品分类列表">
+                                                                                <select class="product_select product_category">
+                                                                                    <option value="">All Products</option>
+                                                                                    <foreach name="category_list" item="vo">
+                                                                                        <option value="{$vo.id}" {$vo.id==$category.id ? 'selected' :''}>{$vo.name}</option>
+                                                                                    </foreach>
+                                                                                </select>
+                                                                                <select class="product_select product_tonnage">
+                                                                                    <option value="">All Tonnage</option>
+                                                                                    <option value="0.2t">0.2t</option>
+                                                                                    <option value="0.5t">0.5t</option>
+                                                                                    <option value="1t">1t</option>
+                                                                                    <option value="2t">2t</option>
+                                                                                    <option value="5t">5t</option>
+                                                                                    <option value="10t">10t</option>
+                                                                                    <option value="20t">20t</option>
+                                                                                    <option value="50t">50t</option>
+                                                                                    <option value="100t">100t</option>
+                                                                                    <option value="150t">150t</option>
+                                                                                    <option value="200t">200t</option>
+                                                                                </select>
+                                                                                <select class="product_select product_span">
+                                                                                    <option value="">All Span</option>
+                                                                                    <option value="5">5m</option>
+                                                                                    <option value="10">10m</option>
+                                                                                    <option value="15">15m</option>
+                                                                                    <option value="20">20m</option>
+                                                                                    <option value="25">25m</option>
+                                                                                    <option value="30">30m</option>
+                                                                                    <option value="35">35m</option>
+                                                                                    <option value="40">40m</option>
+                                                                                    <option value="45">45m</option>
+                                                                                    <option value="50">50m</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
                                                                         <div class="e_box p_products proLists p_productsSet"
                                                                              data-ename="产品列表框架区"
                                                                              isserverpaging="true">
-                                                                            <php>
-                                                                                $where= function($query){
-                                                                                $query->where('post.post_type','=',3);
-                                                                                };
-                                                                                $page=[
-                                                                                'list_rows'=>12,
-                                                                                'next'=>'>',
-                                                                                'prev'=>'<'
-                                                                                ];
-                                                                            </php>
-                                                                            <portal:articles item="vo" where="$where"
-                                                                                             order="post.recommended DESC,post.create_time DESC"
-                                                                                             page="$page"
-                                                                                             relation="categories"
-                                                                                             categoryIds="$category.id"
-                                                                                             returnVarName="articles_data">
-
+                                                                             <foreach name="list" item="vo">
                                                                                 <div class="e_box p_Product proList"
                                                                                      dataid="{$vo.id}"
                                                                                      data-dismoveable=""
@@ -191,38 +179,30 @@
                                                                                     <div class="imgBox">
                                                                                         <img class="img"
                                                                                              src="{:cmf_get_image_url($vo.thumbnail)}"
-                                                                                             alt="{$vo.post_title}"
-                                                                                             title="{$vo.post_title}">
+                                                                                             alt="{$vo.title}"
+                                                                                             title="{$vo.title}">
                                                                                     </div>
                                                                                     <!-- 图片区结束 -->
 
                                                                                     <!-- 标题开始 -->
                                                                                     <h3 class="titleBox">
-                                                                                        {$vo.post_title}
+                                                                                        {$vo.title}
 
                                                                                     </h3>
                                                                                     <!-- 标题结束 -->
 
-                                                                                    <!-- 关键字开始 -->
-                                                                                    <div class="e_box d_SummaryBox p_SummaryBox_1"
-                                                                                         data-ename="概要描述容器">
-                                                                                        <div class="e_article description d_summary p_summary_1">
-                                                                                            {$vo.post_excerpt}
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <!-- 关键字结束 -->
-
                                                                                     <!-- 链接开始 -->
                                                                                     <a class="link"
-                                                                                       href="/product_info/{$category.id}/{$vo.id}"></a>
+                                                                                       href="/product_info/{$vo.id}"></a>
                                                                                     <!-- 链接结束 -->
                                                                                 </div>
-                                                                            </portal:articles>
+                                                                             </foreach>
                                                                         </div>
                                                                     </div>
+                                                                    <div class="clear_both"></div>
                                                                     <div class="e_box e_OccupyBox-001 p_OccupyBox">
                                                                         <ul class="pagination">
-                                                                            <page/>
+                                                                            {$page}
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -242,6 +222,7 @@
                             </div>
                         </div>
                     </div>
+                    <include file="public@feedback"/>
                     <include file="public@foot"/>
                 </div>
             </div>
@@ -249,6 +230,7 @@
     </div>
 </div>
 
+<script type="text/javascript" src="__TMPL__/public/assets/js/product.js"></script>
 <script type="text/javascript" src="__TMPL__/public/assets/js/response.js"></script>
 </body>
 </html>

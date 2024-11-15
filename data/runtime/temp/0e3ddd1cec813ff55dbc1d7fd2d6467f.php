@@ -1,4 +1,4 @@
-<?php /*a:2:{s:90:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/admin\setting\site.html";i:1730344901;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
+<?php /*a:2:{s:90:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/admin\setting\site.html";i:1731566787;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,16 +107,62 @@
         </style>
     <?php endif; ?>
 
+<style type="text/css">
+    .pic-list li {
+        margin-bottom: 5px;
+    }
+
+    .btn-cancel-thumbnail {
+        margin-top: 5px;
+    }
+
+    #photos, #files {
+        margin-bottom: 0;
+    }
+</style>
+<script type="text/html" id="authentication_mark-item-tpl">
+    <li id="saved-authentication_mark{id}">
+        <input id="authentication_mark-{id}" type="hidden" name="authentication_mark_urls[]" value="{filepath}">
+        <input class="form-control" id="authentication_mark-{id}-name" type="text" name="authentication_mark_names[]" value=""
+               style="width: 200px;" title="图片名称">
+        <img id="authentication_mark-{id}-preview" src="{url}" style="height:34px;width: 44px;"
+             onclick="imagePreviewDialog(this.src);">
+        <a class="btn btn-default" href="javascript:uploadOneImage('图片上传','#authentication_mark-{id}');"><i class="fa fa-upload fa-fw"></i></a>
+        <a class="btn btn-danger" href="javascript:(function(){$('#saved-authentication_mark{id}').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+        <a class="btn btn-success" href="javascript:(function(){$('#saved-authentication_mark{id}').before($('#saved-authentication_mark{id}').next());})();"><i class="fa fa-arrow-down fa-fw"></i></a>
+    </li>
+</script>
+<script type="text/html" id="sling_available-item-tpl">
+    <li id="saved-sling_available{id}">
+        <input id="sling_available-{id}" type="hidden" name="sling_available_urls[]" value="{filepath}">
+        <input class="form-control" id="sling_available-{id}-name" type="text" name="sling_available_names[]" value=""
+               style="width: 200px;" title="图片名称">
+        <img id="sling_available-{id}-preview" src="{url}" style="height:34px;width: 44px;"
+             onclick="imagePreviewDialog(this.src);">
+        <a class="btn btn-default" href="javascript:uploadOneImage('图片上传','#sling_available-{id}');"><i class="fa fa-upload fa-fw"></i></a>
+        <a class="btn btn-danger" href="javascript:(function(){$('#saved-sling_available{id}').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+        <a class="btn btn-success" href="javascript:(function(){$('#saved-sling_available{id}').before($('#saved-sling_available{id}').next());})();"><i class="fa fa-arrow-down fa-fw"></i></a>
+    </li>
+</script>
+<script type="text/html" id="sling_available_active-item-tpl">
+    <li id="saved-sling_available_active{id}">
+        <input id="sling_available_active-{id}" type="hidden" name="sling_available_active_urls[]" value="{filepath}">
+        <input class="form-control" id="sling_available_active-{id}-name" type="text" name="sling_available_active_names[]" value=""
+               style="width: 200px;" title="图片名称">
+        <img id="sling_available_active-{id}-preview" src="{url}" style="height:34px;width: 44px;"
+             onclick="imagePreviewDialog(this.src);">
+        <a class="btn btn-default" href="javascript:uploadOneImage('图片上传','#sling_available_active-{id}');"><i class="fa fa-upload fa-fw"></i></a>
+        <a class="btn btn-danger" href="javascript:(function(){$('#saved-sling_available_active{id}').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+        <a class="btn btn-success" href="javascript:(function(){$('#saved-sling_available_active{id}').before($('#saved-sling_available_active{id}').next());})();"><i class="fa fa-arrow-down fa-fw"></i></a>
+    </li>
+</script>
 </head>
 <body>
 <div class="wrap js-check-wrap">
     <ul class="nav nav-tabs">
         <li class="active"><a href="#A" data-toggle="tab"><?php echo lang('WEB_SITE_INFOS'); ?></a></li>
         <li><a href="#B" data-toggle="tab"><?php echo lang('SEO_SETTING'); ?></a></li>
-        <!--<li><a href="#C" data-toggle="tab"><?php echo lang('URL_SETTING'); ?></a></li>-->
-        <!--<li><a href="#E" data-toggle="tab"><?php echo lang('COMMENT_SETTING'); ?></a></li>-->
-<!--        <li><a href="#F" data-toggle="tab"><?php echo lang('User Register Setting'); ?></a></li>-->
-<!--        <li><a href="#G" data-toggle="tab"><?php echo lang('CDN Setting'); ?></a></li>-->
+        <li><a href="#C" data-toggle="tab">产品设置</a></li>
     </ul>
     <form class="form-horizontal js-ajax-form margin-top-20" role="form" action="<?php echo url('Setting/sitePost'); ?>"
           method="post">
@@ -157,73 +203,6 @@
                                 </p>
                             </div>
                         </div>
-                        <!--
-                        <div class="form-group">
-                            <label for="input-mobile_tpl_enabled" class="col-sm-2 control-label"><?php echo lang('ENABLE_MOBILE_THEME'); ?></label>
-                            <div class="col-md-6 col-sm-10">
-                                <?php $mobile_tpl_enabled_checked=empty($mobile_tpl_enabled)?'':'checked'; ?>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="options[mobile_tpl_enabled]" value="1" id="input-mobile_tpl_enabled" <?php echo $mobile_tpl_enabled_checked; ?>></label>
-                                </div>
-                            </div>
-                        </div>
-                        -->
-                       <!-- <div class="form-group">
-                            <label for="input-site_admin_theme" class="col-sm-2 control-label"><?php echo lang('WEBSITE_ADMIN_THEME'); ?></label>
-                            <div class="col-md-6 col-sm-10">
-                                <?php 
-                                    $site_admin_theme=empty($admin_settings['admin_theme'])?'':$admin_settings['admin_theme'];
-                                 ?>
-                                <select class="form-control" name="admin_settings[admin_theme]"
-                                        id="input-site_admin_theme">
-                                    <?php if(is_array($admin_themes) || $admin_themes instanceof \think\Collection || $admin_themes instanceof \think\Paginator): if( count($admin_themes)==0 ) : echo "" ;else: foreach($admin_themes as $key=>$vo): $admin_theme_selected = $site_admin_theme == $vo ? "selected" : ""; ?>
-                                        <option value="<?php echo $vo; ?>" <?php echo $admin_theme_selected; ?>><?php echo $vo; ?></option>
-                                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="input-site_adminstyle" class="col-sm-2 control-label"><?php echo lang('WEBSITE_ADMIN_THEME_STYLE'); ?></label>
-                            <div class="col-md-6 col-sm-10">
-                                <?php 
-                                    $site_admin_style=empty($admin_settings['admin_style'])?cmf_get_admin_style():$admin_settings['admin_style'];
-                                 ?>
-                                <select class="form-control" name="admin_settings[admin_style]"
-                                        id="input-site_adminstyle">
-                                    <?php if(is_array($admin_styles) || $admin_styles instanceof \think\Collection || $admin_styles instanceof \think\Paginator): if( count($admin_styles)==0 ) : echo "" ;else: foreach($admin_styles as $key=>$vo): $admin_style_selected = $site_admin_style == $vo ? "selected" : ""; ?>
-                                        <option value="<?php echo $vo; ?>" <?php echo $admin_style_selected; ?>><?php echo $vo; ?></option>
-                                    <?php endforeach; endif; else: echo "" ;endif; ?>
-                                </select>
-                            </div>
-                        </div>-->
-                        <!--<?php if(APP_DEBUG && false): ?>
-                            <div class="form-group">
-                                <label for="input-default_app" class="col-sm-2 control-label">默认应用</label>
-                                <div class="col-md-6 col-sm-10">
-                                    <?php 
-                                        $site_default_app=empty($cmf_settings['default_app'])?'demo':$cmf_settings['default_app'];
-                                     ?>
-                                    <select class="form-control" name="cmf_settings[default_app]"
-                                            id="input-default_app">
-                                        <?php if(is_array($apps) || $apps instanceof \think\Collection || $apps instanceof \think\Paginator): if( count($apps)==0 ) : echo "" ;else: foreach($apps as $key=>$vo): $default_app_selected = $site_default_app == $vo ? "selected" : "";
-                                             ?>
-                                            <option value="<?php echo $vo; ?>" <?php echo $default_app_selected; ?>><?php echo $vo; ?></option>
-                                        <?php endforeach; endif; else: echo "" ;endif; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        <?php endif; ?>-->
-                        <!--
-                        <div class="form-group">
-                            <label for="input-html_cache_on" class="col-sm-2 control-label"><?php echo lang('HTML_CACHE'); ?></label>
-                            <div class="col-md-6 col-sm-10">
-                                <?php $html_cache_on_checked=empty($html_cache_on)?'':'checked'; ?>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" name="options[mobile_tpl_enabled]" value="1" id="input-html_cache_on" <?php echo $html_cache_on_checked; ?>></label>
-                                </div>
-                            </div>
-                        </div>
-                        -->
                         <div class="form-group">
                             <label for="input-sale_tel" class="col-sm-2 control-label">全国免费销售服务热线</label>
                             <div class="col-md-6 col-sm-10">
@@ -250,6 +229,13 @@
                             <div class="col-md-6 col-sm-10">
                                 <input type="text" class="form-control" id="input-copyright" name="options[copyright]"
                                        value="<?php echo (isset($site_info['copyright']) && ($site_info['copyright'] !== '')?$site_info['copyright']:''); ?>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-email" class="col-sm-2 control-label">邮箱</label>
+                            <div class="col-md-6 col-sm-10">
+                                <input type="text" class="form-control" id="input-email" name="options[email]"
+                                       value="<?php echo (isset($site_info['email']) && ($site_info['email'] !== '')?$site_info['email']:''); ?>">
                             </div>
                         </div>
                         <div class="form-group">
@@ -324,6 +310,230 @@
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="0">
+                                    <?php echo lang('SAVE'); ?>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="C">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                认证证书
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <ul id="authentication_mark" class="pic-list list-unstyled form-inline">
+                                    <?php if(!(empty($product_setting['authentication_mark']) || (($product_setting['authentication_mark'] instanceof \think\Collection || $product_setting['authentication_mark'] instanceof \think\Paginator ) && $product_setting['authentication_mark']->isEmpty()))): if(is_array($product_setting['authentication_mark']) || $product_setting['authentication_mark'] instanceof \think\Collection || $product_setting['authentication_mark'] instanceof \think\Paginator): if( count($product_setting['authentication_mark'])==0 ) : echo "" ;else: foreach($product_setting['authentication_mark'] as $key=>$vo): 
+                                                $img_url=cmf_get_image_preview_url($vo['url']); ?>
+                                            <li id="saved-authentication_mark<?php echo $key; ?>">
+                                                <input id="authentication_mark-<?php echo $key; ?>" type="hidden" name="authentication_mark_urls[]"
+                                                       value="<?php echo $vo['url']; ?>">
+                                                <input class="form-control" id="authentication_mark-<?php echo $key; ?>-name" type="text"
+                                                       name="authentication_mark_names[]"
+                                                       value="<?php echo (isset($vo['name']) && ($vo['name'] !== '')?$vo['name']:''); ?>" style="width: 200px;" title="图片名称">
+                                                <img id="authentication_mark-<?php echo $key; ?>-preview"
+                                                     src="<?php echo cmf_get_image_preview_url($vo['url']); ?>"
+                                                     style="height:34px;width: 44px;"
+                                                     onclick="parent.imagePreviewDialog(this.src);">
+                                                <a class="btn btn-default"  href="javascript:uploadOneImage('图片上传','#authentication_mark-<?php echo $key; ?>');"><i class="fa fa-upload fa-fw"></i></a>
+                                                <a class="btn btn-danger"  href="javascript:(function(){$('#saved-authentication_mark<?php echo $key; ?>').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+                                                <a class="btn btn-success"  href="javascript:(function(){$('#saved-authentication_mark<?php echo $key; ?>').before($('#saved-authentication_mark<?php echo $key; ?>').next());})();"><i class="fa fa-arrow-down fa-fw"></i></a>
+                                            </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    <?php endif; ?>
+                                </ul>
+                                <a href="javascript:uploadMultiImage('图片上传','#authentication_mark','authentication_mark-item-tpl');"
+                                   class="btn btn-default">选择图片</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                可配吊具(未选中)
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <ul id="sling_available" class="pic-list list-unstyled form-inline">
+                                    <?php if(!(empty($product_setting['sling_available']) || (($product_setting['sling_available'] instanceof \think\Collection || $product_setting['sling_available'] instanceof \think\Paginator ) && $product_setting['sling_available']->isEmpty()))): if(is_array($product_setting['sling_available']) || $product_setting['sling_available'] instanceof \think\Collection || $product_setting['sling_available'] instanceof \think\Paginator): if( count($product_setting['sling_available'])==0 ) : echo "" ;else: foreach($product_setting['sling_available'] as $key=>$vo): $img_url=cmf_get_image_preview_url($vo['url']); ?>
+                                            <li id="saved-sling_available<?php echo $key; ?>">
+                                                <input id="sling_available-<?php echo $key; ?>" type="hidden" name="sling_available_urls[]"
+                                                       value="<?php echo $vo['url']; ?>">
+                                                <input class="form-control" id="sling_available-<?php echo $key; ?>-name" type="text"
+                                                       name="sling_available_names[]"
+                                                       value="<?php echo (isset($vo['name']) && ($vo['name'] !== '')?$vo['name']:''); ?>" style="width: 200px;" title="图片名称">
+                                                <img id="sling_available-<?php echo $key; ?>-preview"
+                                                     src="<?php echo cmf_get_image_preview_url($vo['url']); ?>"
+                                                     style="height:34px;width: 44px;"
+                                                     onclick="parent.imagePreviewDialog(this.src);">
+                                                <a class="btn btn-default"  href="javascript:uploadOneImage('图片上传','#sling_available-<?php echo $key; ?>');"><i class="fa fa-upload fa-fw"></i></a>
+                                                <a class="btn btn-danger"  href="javascript:(function(){$('#saved-sling_available<?php echo $key; ?>').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+                                                <a class="btn btn-success"  href="javascript:(function(){$('#saved-sling_available<?php echo $key; ?>').before($('#saved-sling_available<?php echo $key; ?>').next());})();"><i class="fa fa-arrow-down fa-fw"></i></a>
+                                            </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    <?php endif; ?>
+                                </ul>
+                                <a href="javascript:uploadMultiImage('图片上传','#sling_available','sling_available-item-tpl');"
+                                   class="btn btn-default">选择图片</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                可配吊具(选中)
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <ul id="sling_available_active" class="pic-list list-unstyled form-inline">
+                                    <?php if(!(empty($product_setting['sling_available_active']) || (($product_setting['sling_available_active'] instanceof \think\Collection || $product_setting['sling_available_active'] instanceof \think\Paginator ) && $product_setting['sling_available_active']->isEmpty()))): if(is_array($product_setting['sling_available_active']) || $product_setting['sling_available_active'] instanceof \think\Collection || $product_setting['sling_available_active'] instanceof \think\Paginator): if( count($product_setting['sling_available_active'])==0 ) : echo "" ;else: foreach($product_setting['sling_available_active'] as $key=>$vo): $img_url=cmf_get_image_preview_url($vo['url']); ?>
+                                            <li id="saved-sling_available_active<?php echo $key; ?>">
+                                                <input id="sling_available_active-<?php echo $key; ?>" type="hidden" name="sling_available_active_urls[]"
+                                                       value="<?php echo $vo['url']; ?>">
+                                                <input class="form-control" id="sling_available_active-<?php echo $key; ?>-name" type="text"
+                                                       name="sling_available_active_names[]"
+                                                       value="<?php echo (isset($vo['name']) && ($vo['name'] !== '')?$vo['name']:''); ?>" style="width: 200px;" title="图片名称">
+                                                <img id="sling_available_active-<?php echo $key; ?>-preview"
+                                                     src="<?php echo cmf_get_image_preview_url($vo['url']); ?>"
+                                                     style="height:34px;width: 44px;"
+                                                     onclick="parent.imagePreviewDialog(this.src);">
+                                                <a class="btn btn-default"  href="javascript:uploadOneImage('图片上传','#sling_available_active-<?php echo $key; ?>');"><i class="fa fa-upload fa-fw"></i></a>
+                                                <a class="btn btn-danger"  href="javascript:(function(){$('#saved-sling_available_active<?php echo $key; ?>').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+                                                <a class="btn btn-success"  href="javascript:(function(){$('#saved-sling_available_active<?php echo $key; ?>').before($('#saved-sling_available_active<?php echo $key; ?>').next());})();"><i class="fa fa-arrow-down fa-fw"></i></a>
+                                            </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    <?php endif; ?>
+                                </ul>
+                                <a href="javascript:uploadMultiImage('图片上传','#sling_available_active','sling_available_active-item-tpl');"
+                                   class="btn btn-default">选择图片</a>
+                                <p class="help-block" style="color: red;">需与未选中状态数量顺序保持一致</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                起重量
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <ul id="lifting_capacity" class="pic-list list-unstyled form-inline">
+                                    <?php if(!(empty($product_setting['lifting_capacity']) || (($product_setting['lifting_capacity'] instanceof \think\Collection || $product_setting['lifting_capacity'] instanceof \think\Paginator ) && $product_setting['lifting_capacity']->isEmpty()))): if(is_array($product_setting['lifting_capacity']) || $product_setting['lifting_capacity'] instanceof \think\Collection || $product_setting['lifting_capacity'] instanceof \think\Paginator): if( count($product_setting['lifting_capacity'])==0 ) : echo "" ;else: foreach($product_setting['lifting_capacity'] as $key=>$vo): ?>
+                                            <li id="saved-lifting_capacity<?php echo $key; ?>">
+                                                <input class="form-control" type="text"
+                                                       name="lifting_capacity[]"
+                                                       value="<?php echo (isset($vo) && ($vo !== '')?$vo:''); ?>" style="width: 200px;" title="图片名称">
+                                                <a class="btn btn-danger" href="javascript:(function(){$('#saved-lifting_capacity<?php echo $key; ?>').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+                                            </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    <?php endif; ?>
+                                </ul>
+                                <a href="javascript:lifting_capacity_add();" class="btn btn-default">添加起重量</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                工作电压
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <ul id="operating_voltage" class="pic-list list-unstyled form-inline">
+                                    <?php if(!(empty($product_setting['operating_voltage']) || (($product_setting['operating_voltage'] instanceof \think\Collection || $product_setting['operating_voltage'] instanceof \think\Paginator ) && $product_setting['operating_voltage']->isEmpty()))): if(is_array($product_setting['operating_voltage']) || $product_setting['operating_voltage'] instanceof \think\Collection || $product_setting['operating_voltage'] instanceof \think\Paginator): if( count($product_setting['operating_voltage'])==0 ) : echo "" ;else: foreach($product_setting['operating_voltage'] as $key=>$vo): ?>
+                                            <li id="saved-operating_voltage<?php echo $key; ?>">
+                                                <input class="form-control" type="text"
+                                                       name="operating_voltage[]"
+                                                       value="<?php echo (isset($vo) && ($vo !== '')?$vo:''); ?>" style="width: 200px;" >
+                                                <a class="btn btn-danger" href="javascript:(function(){$('#saved-operating_voltage<?php echo $key; ?>').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+                                            </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    <?php endif; ?>
+                                </ul>
+                                <a href="javascript:operating_voltage_add();" class="btn btn-default">添加工作电压</a>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                工作赫兹
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <ul id="operating_hertz" class="pic-list list-unstyled form-inline">
+                                    <?php if(!(empty($product_setting['operating_hertz']) || (($product_setting['operating_hertz'] instanceof \think\Collection || $product_setting['operating_hertz'] instanceof \think\Paginator ) && $product_setting['operating_hertz']->isEmpty()))): if(is_array($product_setting['operating_hertz']) || $product_setting['operating_hertz'] instanceof \think\Collection || $product_setting['operating_hertz'] instanceof \think\Paginator): if( count($product_setting['operating_hertz'])==0 ) : echo "" ;else: foreach($product_setting['operating_hertz'] as $key=>$vo): ?>
+                                            <li id="saved-operating_hertz<?php echo $key; ?>">
+                                                <input class="form-control" type="text"
+                                                       name="operating_hertz[]"
+                                                       value="<?php echo (isset($vo) && ($vo !== '')?$vo:''); ?>" style="width: 200px;" >
+                                                <a class="btn btn-danger" href="javascript:(function(){$('#saved-operating_hertz<?php echo $key; ?>').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+                                            </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    <?php endif; ?>
+                                </ul>
+                                <a href="javascript:operating_hertz_add();" class="btn btn-default">添加工作赫兹</a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                工作等级
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <ul id="job_level" class="pic-list list-unstyled form-inline">
+                                    <?php if(!(empty($product_setting['job_level']) || (($product_setting['job_level'] instanceof \think\Collection || $product_setting['job_level'] instanceof \think\Paginator ) && $product_setting['job_level']->isEmpty()))): if(is_array($product_setting['job_level']) || $product_setting['job_level'] instanceof \think\Collection || $product_setting['job_level'] instanceof \think\Paginator): if( count($product_setting['job_level'])==0 ) : echo "" ;else: foreach($product_setting['job_level'] as $key=>$vo): ?>
+                                            <li id="saved-job_level<?php echo $key; ?>">
+                                                <input class="form-control" type="text"
+                                                       name="job_level[]"
+                                                       value="<?php echo (isset($vo) && ($vo !== '')?$vo:''); ?>" style="width: 200px;">
+                                                <a class="btn btn-danger" href="javascript:(function(){$('#saved-job_level<?php echo $key; ?>').remove();})();"><i class="fa fa-trash fa-fw"></i></a>
+                                            </li>
+                                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                                    <?php endif; ?>
+                                </ul>
+                                <a href="javascript:job_level_add();" class="btn btn-default">添加工作等级</a>
+                            </div>
+                        </div>
+
+                        <script>
+                            function lifting_capacity_add() {
+                                var timestamp = new Date().getTime();
+                                var randomNum = Math.random();
+                                var scaledRandomNum = Math.floor(randomNum * 1000);
+                                var id = timestamp.toString() + scaledRandomNum.toString();
+                                $('#lifting_capacity').append('<li id="saved-lifting_capacity'+id+'"><input class="form-control" type="text" name="lifting_capacity[]" value="" style="width: 200px;"><a class="btn btn-danger" href="javascript:(function(){$(\'#saved-lifting_capacity'+id+'\').remove();})();"><i class="fa fa-trash fa-fw"></i></a></li>');
+                            }
+                            function operating_voltage_add() {
+                                var timestamp = new Date().getTime();
+                                var randomNum = Math.random();
+                                var scaledRandomNum = Math.floor(randomNum * 1000);
+                                var id = timestamp.toString() + scaledRandomNum.toString();
+                                $('#operating_voltage').append('<li id="saved-operating_voltage'+id+'"><input class="form-control" type="text" name="operating_voltage[]" value="" style="width: 200px;"><a class="btn btn-danger" href="javascript:(function(){$(\'#saved-operating_voltage'+id+'\').remove();})();"><i class="fa fa-trash fa-fw"></i></a></li>');
+                            }
+                            function operating_hertz_add() {
+                                var timestamp = new Date().getTime();
+                                var randomNum = Math.random();
+                                var scaledRandomNum = Math.floor(randomNum * 1000);
+                                var id = timestamp.toString() + scaledRandomNum.toString();
+                                $('#operating_hertz').append('<li id="saved-operating_hertz'+id+'"><input class="form-control" type="text" name="operating_hertz[]" value="" style="width: 200px;"><a class="btn btn-danger" href="javascript:(function(){$(\'#saved-operating_hertz'+id+'\').remove();})();"><i class="fa fa-trash fa-fw"></i></a></li>');
+                            }
+                            function job_level_add() {
+                                var timestamp = new Date().getTime();
+                                var randomNum = Math.random();
+                                var scaledRandomNum = Math.floor(randomNum * 1000);
+                                var id = timestamp.toString() + scaledRandomNum.toString();
+                                $('#job_level').append('<li id="saved-job_level'+id+'"><input class="form-control" type="text" name="job_level[]" value="" style="width: 200px;"><a class="btn btn-danger" href="javascript:(function(){$(\'#saved-job_level'+id+'\').remove();})();"><i class="fa fa-trash fa-fw"></i></a></li>');
+                            }
+                        </script>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">
+                                产品附件
+                            </label>
+                            <div class="col-md-6 col-sm-10">
+                                <input id="product_file" type="hidden" name="file_url" value="<?php echo isset($product_setting['product_file']['url']) ? $product_setting['product_file']['url'] : ''; ?>">
+                                <input class="form-control" id="product_file-name" type="text" name="file_name" value="<?php echo isset($product_setting['product_file']['name']) ? $product_setting['product_file']['name'] : ''; ?>"
+                                       style="width: 200px;display: inline-block" title="文件名称">
+                                <?php if(!(empty($product_setting['product_file']['url']) || (($product_setting['product_file']['url'] instanceof \think\Collection || $product_setting['product_file']['url'] instanceof \think\Paginator ) && $product_setting['product_file']['url']->isEmpty()))): ?>
+                                    <a class="btn btn-info" id="file-preview" href="<?php echo cmf_get_image_preview_url($product_setting['product_file']['url']); ?>" target="_blank"><i class="fa fa-download fa-fw"></i></a>
+                                <?php endif; ?>
+                                <a class="btn btn-default" href="javascript:uploadOne('文件上传','#product_file','file');"><i class="fa fa-upload fa-fw"></i></a>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" class="btn btn-primary js-ajax-submit" data-refresh="0" data-action="<?php echo url('productSitePost'); ?>">
                                     <?php echo lang('SAVE'); ?>
                                 </button>
                             </div>

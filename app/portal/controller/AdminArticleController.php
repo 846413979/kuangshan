@@ -117,7 +117,7 @@ class AdminArticleController extends AdminBaseController
     public function addPost()
     {
         if ($this->request->isPost()) {
-            $data = $this->request->param();
+            $data = $this->request->post();
 
             //状态只能设置默认值。未发布、未置顶、未推荐
             $data['post']['post_status'] = 1;
@@ -225,7 +225,7 @@ class AdminArticleController extends AdminBaseController
     {
 
         if ($this->request->isPost()) {
-            $data = $this->request->param();
+            $data = $this->request->post();
 
             //需要抹除发布、置顶、推荐的修改。
             unset($data['post']['post_status']);

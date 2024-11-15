@@ -1,4 +1,4 @@
-<?php /*a:4:{s:80:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\search.html";i:1730949368;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730857752;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1730946251;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1730944460;}*/ ?>
+<?php /*a:4:{s:80:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\search.html";i:1730949368;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730952036;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1731576087;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1731576423;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0158)https://www.hnks.com/sousuo.html?searchCategory=totalSite&searchKey=%25E8%25B5%25B7%25E9%2587%258D%25E6%259C%25BA#c_portalResSearch_result-17283647034581822-1 -->
 <html>
@@ -98,31 +98,8 @@
                     $("html").css("cssText", "-webkit-filter: grayscale(100%) !important");
                 }
             }
-            // 飘窗
-            require(['/themes/simpleboot3/public/assets/js/common.js'], function () {
-            })
         }
     });
-    if (!(window.tenant.unittype == '100084' || window.tenant.unittype == '100009') && isFrontEnv() && !window.noAuth) {
-        var qxurl = location.href.replace(location.origin, '')
-        if (qxurl != '/') {
-            $.ajax({
-                url: '/comp/authtion.do',
-                method: 'get',
-                data: {
-                    url: qxurl
-                },
-                success: function (res) {
-                    if (res.status == 300 && res.data != '') {
-                        window.location.href = res.data
-                    }
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-    }
 </script>
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -132,8 +109,6 @@
 
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="utils"
         src="/themes/simpleboot3/public/assets/js/utils.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-        data-requiremodule="/public/cjgj/common.js" src="/themes/simpleboot3/public/assets/js/common.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="wgt_util"
         src="/themes/simpleboot3/public/assets/js/wgt_util.min.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="wgt_readyload"
@@ -152,9 +127,6 @@
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
         data-requiremodule="js/portalPublic/portalResPublic_codeContainer-01"
         src="/themes/simpleboot3/public/assets/js/portalResPublic_codeContainer-01.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-        data-requiremodule="/public/cjgj/restival.js"
-        src="/themes/simpleboot3/public/assets/js/restival.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
         data-requiremodule="js/pagination/initPagination"
         src="/themes/simpleboot3/public/assets/js/initPagination.min.js"></script>
@@ -277,9 +249,9 @@
                                                                     <a href="/intro/16.html">ContactUs
                                                                         <div class="nav-arrow icon-up iconfont"></div>
                                                                     </a>
-                                                                    <a href="/intro/17.html">JoinUs
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
+<!--                                                                    <a href="/intro/17.html">JoinUs-->
+<!--                                                                        <div class="nav-arrow icon-up iconfont"></div>-->
+<!--                                                                    </a>-->
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -739,32 +711,6 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                             </dl>
                                             <dl class="botUl">
                                                 <dt class="botDt">
-                                                    <a href="/culture/11.html"
-                                                       class="botLink blink">CorporateCulture</a>
-                                                </dt>
-                                                <dd class="sbotDd">
-                                                    <a href="/culture/11.html"
-                                                       class="botLinkS blink">FilialPietyCultur</a>
-                                                </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="/activity/10.html"
-                                                       class="botLinkS blink">ActivityRecord</a>
-                                                </dd>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
-                                                    <a href="/responsibility/<?php echo $responsibility_category_list[0]['id']; ?>"
-                                                       class="botLink blink">SocialResponsibility</a>
-                                                </dt>
-                                                <?php if(is_array($responsibility_category_list) || $responsibility_category_list instanceof \think\Collection || $responsibility_category_list instanceof \think\Paginator): if( count($responsibility_category_list)==0 ) : echo "" ;else: foreach($responsibility_category_list as $key=>$vo): ?>
-                                                    <dd class="sbotDd">
-                                                        <a href="/responsibility/<?php echo $vo['id']; ?>"
-                                                           class="botLinkS blink"><?php echo $vo['name']; ?></a>
-                                                    </dd>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
                                                     <a href="/intro/16.html"
                                                        class="botLink blink">ServiceCenter</a>
                                                 </dt>
@@ -792,10 +738,10 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                 <div id="w_common_text-1616830314198" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">Hotline</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-818"><span
+                                        <p><a href="tel:<?php echo $site_info['sale_tel']; ?>"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
                                                 style="color:#FFFFFF"><?php echo $site_info['sale_tel']; ?></span></span></span></a>
@@ -805,13 +751,13 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                 <div id="w_common_text-1616830369921" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free after-sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">E-mail</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-919"><span
+                                        <p><a href="javascript:"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF"><?php echo $site_info['after_sale_tel']; ?></span></span></span></a>
+                                                style="color:#FFFFFF"><?php echo $site_info['email']; ?></span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -851,19 +797,12 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/1_29.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/ins.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
-                                                                     width="100%" height="100%">
+                                                                     width="40px" height="40px">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>微信公众号
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -873,19 +812,12 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/dyn1.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/facebook.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方抖音
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -895,19 +827,27 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/qK1wgsT6R_KRn1eO4yrBlg.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/youtubi.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方手机站
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="content_box-1616830617301-3"
+                                                 class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                                                <div id="w_fimg-1616830641893" class="w_fimg-001">
+                                                    <div class="w_img animated  ">
+                                                        <div class="e_box e_box-000 p_box">
+                                                            <div class="e_image e_DImage-001 p_dimage">
+                                                                <img src="/themes/simpleboot3/public/assets/images/twitter.png"
+                                                                     alt="<?php echo $site_info['site_gwa']; ?>"
+                                                                     title="<?php echo $site_info['site_gwa']; ?>"
+                                                                     width="100%" height="100%">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

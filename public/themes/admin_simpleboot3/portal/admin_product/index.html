@@ -10,7 +10,9 @@
         分类:
         <select class="form-control" name="category" style="width: 140px;">
             <option value='0'>全部</option>
-            {$category_tree|default=''}
+            <foreach name="category_list" item="vo">
+                <option value="{$vo.id}" <if condition="$vo['id'] eq $category">selected</if>>{$vo.name}</option>
+            </foreach>
         </select> &nbsp;&nbsp;
         时间:
         <input type="text" class="form-control js-bootstrap-datetime" name="start_time"
@@ -38,12 +40,6 @@
             <button class="btn btn-warning btn-sm js-ajax-submit" type="submit"
                     data-action="{:url('AdminProduct/recommend',array('no'=>1))}" data-subcheck="true">取消推荐
             </button>
-            <!--
-            <notempty name="category">
-                <button class="btn btn-primary btn-sm js-articles-move" type="button">批量移动</button>
-            </notempty>
-            <button class="btn btn-primary btn-sm js-articles-copy" type="button">批量复制</button>
-            -->
             <button class="btn btn-danger btn-sm js-ajax-submit" type="submit"
                     data-action="{:url('AdminProduct/delete')}" data-subcheck="true" data-msg="您确定删除吗？">
                 {:lang('DELETE')}
@@ -55,64 +51,112 @@
                 <th width="15">
                     <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
                 </th>
-                <notempty name="category">
-                    <th width="50">{:lang('SORT')}</th>
-                </notempty>
+                <th width="50">{:lang('SORT')}</th>
                 <th>产品名称</th>
                 <th>分类</th>
-                <th width="65">点击量</th>
-                <th width="160">缩略图</th>
-                <th width="160">更新时间</th>
+                <th>相册</th>
+                <th>认证证书</th>
+                <th>起重量</th>
+                <th>起重高度</th>
+                <th>跨度</th>
+                <th>工作等级</th>
+                <th>可配吊具</th>
+                <th width="160">创建时间</th>
                 <th width="70">状态</th>
                 <th width="95">操作</th>
             </tr>
             </thead>
-            <foreach name="articles" item="vo">
+            <foreach name="products" item="vo">
                 <tr>
                     <td>
                         <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
                                value="{$vo.id}" title="ID:{$vo.id}">
                     </td>
-                    <notempty name="category">
                         <td>
-                            <input name="list_orders[{$vo.post_category_id}]" class="input-order" type="text"
+                            <input name="list_orders[{$vo.id}]" class="input-order" type="text"
                                    value="{$vo.list_order}">
                         </td>
-                    </notempty>
                     <td>
-                        {$vo.post_title}
+                        <a href="/product_info/{$vo['id']}" target="_blank">{$vo.title}</a>
                     </td>
                     <td>
-                        <foreach name="vo.categories" item="voo">
-                            {$voo.name}
-                        </foreach>
+                        {$vo.category.name}
                     </td>
-                    <td>{$vo.post_hits|default=0}</td>
                     <td>
-                        <notempty name="vo.more.thumbnail">
-                            <a href="javascript:parent.imagePreviewDialog('{:cmf_get_image_preview_url($vo.more.thumbnail)}');">
-                                <i class="fa fa-photo fa-fw"></i>
-                            </a>
+                        <notempty name="vo.photos">
+                            <foreach name="vo.photos" item="v">
+                                <a href="javascript:parent.imagePreviewDialog('{:cmf_get_image_preview_url($v.url)}');">
+                                    <i class="fa fa-photo fa-fw"></i>
+                                </a>
+                            </foreach>
                             <else/>
                             <i class="fa fa-close fa-fw"></i>
                         </notempty>
                     </td>
                     <td>
-                        <notempty name="vo.update_time">
-                            {:date('Y-m-d H:i',$vo['update_time'])}
+                        <notempty name="vo.authentication_mark">
+                            <foreach name="vo.authentication_mark" item="v">
+                                <span>{$v.name}</span>:<a href="javascript:parent.imagePreviewDialog('{:cmf_get_image_preview_url($v.url)}');">
+                                    <img src="{:cmf_get_image_preview_url($v.url)}" style="width: 18px;height: 18px;">&nbsp;&nbsp;&nbsp;
+                                </a>
+                            </foreach>
+                            <else/>
+                            <i class="fa fa-close fa-fw"></i>
                         </notempty>
                     </td>
                     <td>
-                        <notempty name="vo.recommended">
+                        <notempty name="vo.lifting_capacity">
+                            <foreach name="vo.lifting_capacity" item="v">
+                                {$v}&nbsp;&nbsp;
+                            </foreach>
+                        </notempty>
+                    </td>
+                    <td>
+                        {$vo.min_lifting_height}-{$vo.max_lifting_height}
+                    </td>
+                    <td>
+                        {$vo.min_span}-{$vo.max_span}
+                    </td>
+                    <td>
+                        <notempty name="vo.job_level">
+                            <foreach name="vo.job_level" item="v">
+                                {$v}&nbsp;&nbsp;
+                            </foreach>
+                        </notempty>
+                    </td>
+                    <td>
+                        <notempty name="vo.sling_available">
+                            <foreach name="vo.sling_available" item="v">
+                                <span>{$v.name}</span>:<a href="javascript:parent.imagePreviewDialog('{:cmf_get_image_preview_url($v.url)}');">
+                                <img src="{:cmf_get_image_preview_url($v.url)}" style="width: 18px;height: 18px;">&nbsp;&nbsp;&nbsp;
+                            </a>
+                            </foreach>
+                            <else/>
+                            <i class="fa fa-close fa-fw"></i>
+                        </notempty>
+                    </td>
+                    <td>
+                        <notempty name="vo.create_time">
+                            {:date('Y-m-d H:i',$vo['create_time'])}
+                        </notempty>
+                    </td>
+                    <td>
+                        <notempty name="vo.is_recommended">
                             <a data-toggle="tooltip" title="已推荐"><i class="fa fa-thumbs-up"></i></a>
                             <else/>
                             <a data-toggle="tooltip" title="未推荐"><i class="fa fa-thumbs-down"></i></a>
                         </notempty>
                     </td>
                     <td>
-                        <a class="btn btn-xs btn-primary" href="javascript:;"
-                           onclick="openPortalArticleEditDialog(this)"
-                           data-href="{:url('AdminProduct/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                        <a class="btn btn-xs btn-primary"
+                           href="{:url('AdminProduct/edit',array('id'=>$vo['id']))}">{:lang('EDIT')}</a>
+                        <notempty name="vo.is_recommended">
+                            <a class="btn btn-xs btn-warning js-ajax-delete" data-msg="确定取消推荐吗？"
+                               href="{:url('AdminProduct/recommend',array('no'=>1,'id'=>$vo['id']))}">取消推荐</a>
+                            <else/>
+                            <a class="btn btn-xs btn-success js-ajax-delete" data-msg="确定推荐吗？"
+                               href="{:url('AdminProduct/recommend',array('yes'=>1,'id'=>$vo['id']))}">推荐</a>
+                        </notempty>
                         <a class="btn btn-xs btn-danger js-ajax-delete"
                            href="{:url('AdminProduct/delete',array('id'=>$vo['id']))}">{:lang('DELETE')}</a>
                     </td>
@@ -137,6 +181,7 @@
                 var iframeWin = parent.window[layero.find('iframe')[0]['name']];
                 //iframeWin.confirm();
                 parent.layer.close(index); //如果设定了yes回调，需进行手工关闭
+                parent.window.location.reload();
             },
             end: function () {
             }

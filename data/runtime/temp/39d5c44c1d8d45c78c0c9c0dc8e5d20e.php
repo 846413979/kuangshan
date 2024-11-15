@@ -1,4 +1,4 @@
-<?php /*a:2:{s:98:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/portal\admin_product\index.html";i:1730280475;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
+<?php /*a:2:{s:98:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/portal\admin_product\index.html";i:1731553041;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -118,7 +118,9 @@
         分类:
         <select class="form-control" name="category" style="width: 140px;">
             <option value='0'>全部</option>
-            <?php echo (isset($category_tree) && ($category_tree !== '')?$category_tree:''); ?>
+            <?php if(is_array($category_list) || $category_list instanceof \think\Collection || $category_list instanceof \think\Paginator): if( count($category_list)==0 ) : echo "" ;else: foreach($category_list as $key=>$vo): ?>
+                <option value="<?php echo $vo['id']; ?>" <?php if($vo['id'] == $category): ?>selected<?php endif; ?>><?php echo $vo['name']; ?></option>
+            <?php endforeach; endif; else: echo "" ;endif; ?>
         </select> &nbsp;&nbsp;
         时间:
         <input type="text" class="form-control js-bootstrap-datetime" name="start_time"
@@ -146,12 +148,6 @@
             <button class="btn btn-warning btn-sm js-ajax-submit" type="submit"
                     data-action="<?php echo url('AdminProduct/recommend',array('no'=>1)); ?>" data-subcheck="true">取消推荐
             </button>
-            <!--
-            <?php if(!(empty($category) || (($category instanceof \think\Collection || $category instanceof \think\Paginator ) && $category->isEmpty()))): ?>
-                <button class="btn btn-primary btn-sm js-articles-move" type="button">批量移动</button>
-            <?php endif; ?>
-            <button class="btn btn-primary btn-sm js-articles-copy" type="button">批量复制</button>
-            -->
             <button class="btn btn-danger btn-sm js-ajax-submit" type="submit"
                     data-action="<?php echo url('AdminProduct/delete'); ?>" data-subcheck="true" data-msg="您确定删除吗？">
                 <?php echo lang('DELETE'); ?>
@@ -163,64 +159,104 @@
                 <th width="15">
                     <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
                 </th>
-                <?php if(!(empty($category) || (($category instanceof \think\Collection || $category instanceof \think\Paginator ) && $category->isEmpty()))): ?>
-                    <th width="50"><?php echo lang('SORT'); ?></th>
-                <?php endif; ?>
+                <th width="50"><?php echo lang('SORT'); ?></th>
                 <th>产品名称</th>
                 <th>分类</th>
-                <th width="65">点击量</th>
-                <th width="160">缩略图</th>
-                <th width="160">更新时间</th>
+                <th>相册</th>
+                <th>认证证书</th>
+                <th>起重量</th>
+                <th>起重高度</th>
+                <th>跨度</th>
+                <th>工作等级</th>
+                <th>可配吊具</th>
+                <th width="160">创建时间</th>
                 <th width="70">状态</th>
                 <th width="95">操作</th>
             </tr>
             </thead>
-            <?php if(is_array($articles) || $articles instanceof \think\Collection || $articles instanceof \think\Paginator): if( count($articles)==0 ) : echo "" ;else: foreach($articles as $key=>$vo): ?>
+            <?php if(is_array($products) || $products instanceof \think\Collection || $products instanceof \think\Paginator): if( count($products)==0 ) : echo "" ;else: foreach($products as $key=>$vo): ?>
                 <tr>
                     <td>
                         <input type="checkbox" class="js-check" data-yid="js-check-y" data-xid="js-check-x" name="ids[]"
                                value="<?php echo $vo['id']; ?>" title="ID:<?php echo $vo['id']; ?>">
                     </td>
-                    <?php if(!(empty($category) || (($category instanceof \think\Collection || $category instanceof \think\Paginator ) && $category->isEmpty()))): ?>
                         <td>
-                            <input name="list_orders[<?php echo $vo['post_category_id']; ?>]" class="input-order" type="text"
+                            <input name="list_orders[<?php echo $vo['id']; ?>]" class="input-order" type="text"
                                    value="<?php echo $vo['list_order']; ?>">
                         </td>
-                    <?php endif; ?>
                     <td>
-                        <?php echo $vo['post_title']; ?>
+                        <a href="/product_info/<?php echo $vo['id']; ?>" target="_blank"><?php echo $vo['title']; ?></a>
                     </td>
                     <td>
-                        <?php if(is_array($vo['categories']) || $vo['categories'] instanceof \think\Collection || $vo['categories'] instanceof \think\Paginator): if( count($vo['categories'])==0 ) : echo "" ;else: foreach($vo['categories'] as $key=>$voo): ?>
-                            <?php echo $voo['name']; ?>
-                        <?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php echo $vo['category']['name']; ?>
                     </td>
-                    <td><?php echo (isset($vo['post_hits']) && ($vo['post_hits'] !== '')?$vo['post_hits']:0); ?></td>
                     <td>
-                        <?php if(!(empty($vo['more']['thumbnail']) || (($vo['more']['thumbnail'] instanceof \think\Collection || $vo['more']['thumbnail'] instanceof \think\Paginator ) && $vo['more']['thumbnail']->isEmpty()))): ?>
-                            <a href="javascript:parent.imagePreviewDialog('<?php echo cmf_get_image_preview_url($vo['more']['thumbnail']); ?>');">
-                                <i class="fa fa-photo fa-fw"></i>
-                            </a>
-                            <?php else: ?>
+                        <?php if(!(empty($vo['photos']) || (($vo['photos'] instanceof \think\Collection || $vo['photos'] instanceof \think\Paginator ) && $vo['photos']->isEmpty()))): if(is_array($vo['photos']) || $vo['photos'] instanceof \think\Collection || $vo['photos'] instanceof \think\Paginator): if( count($vo['photos'])==0 ) : echo "" ;else: foreach($vo['photos'] as $key=>$v): ?>
+                                <a href="javascript:parent.imagePreviewDialog('<?php echo cmf_get_image_preview_url($v['url']); ?>');">
+                                    <i class="fa fa-photo fa-fw"></i>
+                                </a>
+                            <?php endforeach; endif; else: echo "" ;endif; else: ?>
                             <i class="fa fa-close fa-fw"></i>
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if(!(empty($vo['update_time']) || (($vo['update_time'] instanceof \think\Collection || $vo['update_time'] instanceof \think\Paginator ) && $vo['update_time']->isEmpty()))): ?>
-                            <?php echo date('Y-m-d H:i',$vo['update_time']); ?>
+                        <?php if(!(empty($vo['authentication_mark']) || (($vo['authentication_mark'] instanceof \think\Collection || $vo['authentication_mark'] instanceof \think\Paginator ) && $vo['authentication_mark']->isEmpty()))): if(is_array($vo['authentication_mark']) || $vo['authentication_mark'] instanceof \think\Collection || $vo['authentication_mark'] instanceof \think\Paginator): if( count($vo['authentication_mark'])==0 ) : echo "" ;else: foreach($vo['authentication_mark'] as $key=>$v): ?>
+                                <span><?php echo $v['name']; ?></span>:<a href="javascript:parent.imagePreviewDialog('<?php echo cmf_get_image_preview_url($v['url']); ?>');">
+                                    <img src="<?php echo cmf_get_image_preview_url($v['url']); ?>" style="width: 18px;height: 18px;">&nbsp;&nbsp;&nbsp;
+                                </a>
+                            <?php endforeach; endif; else: echo "" ;endif; else: ?>
+                            <i class="fa fa-close fa-fw"></i>
                         <?php endif; ?>
                     </td>
                     <td>
-                        <?php if(!(empty($vo['recommended']) || (($vo['recommended'] instanceof \think\Collection || $vo['recommended'] instanceof \think\Paginator ) && $vo['recommended']->isEmpty()))): ?>
+                        <?php if(!(empty($vo['lifting_capacity']) || (($vo['lifting_capacity'] instanceof \think\Collection || $vo['lifting_capacity'] instanceof \think\Paginator ) && $vo['lifting_capacity']->isEmpty()))): if(is_array($vo['lifting_capacity']) || $vo['lifting_capacity'] instanceof \think\Collection || $vo['lifting_capacity'] instanceof \think\Paginator): if( count($vo['lifting_capacity'])==0 ) : echo "" ;else: foreach($vo['lifting_capacity'] as $key=>$v): ?>
+                                <?php echo $v; ?>&nbsp;&nbsp;
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php echo $vo['min_lifting_height']; ?>-<?php echo $vo['max_lifting_height']; ?>
+                    </td>
+                    <td>
+                        <?php echo $vo['min_span']; ?>-<?php echo $vo['max_span']; ?>
+                    </td>
+                    <td>
+                        <?php if(!(empty($vo['job_level']) || (($vo['job_level'] instanceof \think\Collection || $vo['job_level'] instanceof \think\Paginator ) && $vo['job_level']->isEmpty()))): if(is_array($vo['job_level']) || $vo['job_level'] instanceof \think\Collection || $vo['job_level'] instanceof \think\Paginator): if( count($vo['job_level'])==0 ) : echo "" ;else: foreach($vo['job_level'] as $key=>$v): ?>
+                                <?php echo $v; ?>&nbsp;&nbsp;
+                            <?php endforeach; endif; else: echo "" ;endif; ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if(!(empty($vo['sling_available']) || (($vo['sling_available'] instanceof \think\Collection || $vo['sling_available'] instanceof \think\Paginator ) && $vo['sling_available']->isEmpty()))): if(is_array($vo['sling_available']) || $vo['sling_available'] instanceof \think\Collection || $vo['sling_available'] instanceof \think\Paginator): if( count($vo['sling_available'])==0 ) : echo "" ;else: foreach($vo['sling_available'] as $key=>$v): ?>
+                                <span><?php echo $v['name']; ?></span>:<a href="javascript:parent.imagePreviewDialog('<?php echo cmf_get_image_preview_url($v['url']); ?>');">
+                                <img src="<?php echo cmf_get_image_preview_url($v['url']); ?>" style="width: 18px;height: 18px;">&nbsp;&nbsp;&nbsp;
+                            </a>
+                            <?php endforeach; endif; else: echo "" ;endif; else: ?>
+                            <i class="fa fa-close fa-fw"></i>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if(!(empty($vo['create_time']) || (($vo['create_time'] instanceof \think\Collection || $vo['create_time'] instanceof \think\Paginator ) && $vo['create_time']->isEmpty()))): ?>
+                            <?php echo date('Y-m-d H:i',$vo['create_time']); ?>
+                        <?php endif; ?>
+                    </td>
+                    <td>
+                        <?php if(!(empty($vo['is_recommended']) || (($vo['is_recommended'] instanceof \think\Collection || $vo['is_recommended'] instanceof \think\Paginator ) && $vo['is_recommended']->isEmpty()))): ?>
                             <a data-toggle="tooltip" title="已推荐"><i class="fa fa-thumbs-up"></i></a>
                             <?php else: ?>
                             <a data-toggle="tooltip" title="未推荐"><i class="fa fa-thumbs-down"></i></a>
                         <?php endif; ?>
                     </td>
                     <td>
-                        <a class="btn btn-xs btn-primary" href="javascript:;"
-                           onclick="openPortalArticleEditDialog(this)"
-                           data-href="<?php echo url('AdminProduct/edit',array('id'=>$vo['id'])); ?>"><?php echo lang('EDIT'); ?></a>
+                        <a class="btn btn-xs btn-primary"
+                           href="<?php echo url('AdminProduct/edit',array('id'=>$vo['id'])); ?>"><?php echo lang('EDIT'); ?></a>
+                        <?php if(!(empty($vo['is_recommended']) || (($vo['is_recommended'] instanceof \think\Collection || $vo['is_recommended'] instanceof \think\Paginator ) && $vo['is_recommended']->isEmpty()))): ?>
+                            <a class="btn btn-xs btn-warning js-ajax-delete" data-msg="确定取消推荐吗？"
+                               href="<?php echo url('AdminProduct/recommend',array('no'=>1,'id'=>$vo['id'])); ?>">取消推荐</a>
+                            <?php else: ?>
+                            <a class="btn btn-xs btn-success js-ajax-delete" data-msg="确定推荐吗？"
+                               href="<?php echo url('AdminProduct/recommend',array('yes'=>1,'id'=>$vo['id'])); ?>">推荐</a>
+                        <?php endif; ?>
                         <a class="btn btn-xs btn-danger js-ajax-delete"
                            href="<?php echo url('AdminProduct/delete',array('id'=>$vo['id'])); ?>"><?php echo lang('DELETE'); ?></a>
                     </td>
@@ -245,6 +281,7 @@
                 var iframeWin = parent.window[layero.find('iframe')[0]['name']];
                 //iframeWin.confirm();
                 parent.layer.close(index); //如果设定了yes回调，需进行手工关闭
+                parent.window.location.reload();
             },
             end: function () {
             }

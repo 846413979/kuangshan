@@ -1,4 +1,4 @@
-<?php /*a:6:{s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\intro.html";i:1730714772;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730857752;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1730872481;s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\banner.html";i:1730878845;s:81:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\page_nav.html";i:1730878038;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1730880116;}*/ ?>
+<?php /*a:6:{s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\intro.html";i:1730714772;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730952036;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1731576087;s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\banner.html";i:1730878845;s:81:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\page_nav.html";i:1731576111;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1731576423;}*/ ?>
 <!DOCTYPE html>
 <!-- saved from url=(0033)https://www.hnks.com/intro/1.html -->
 <html>
@@ -96,31 +96,8 @@
                     $("html").css("cssText", "-webkit-filter: grayscale(100%) !important");
                 }
             }
-            // 飘窗
-            require(['/themes/simpleboot3/public/assets/js/common.js'], function () {
-            })
         }
     });
-    if (!(window.tenant.unittype == '100084' || window.tenant.unittype == '100009') && isFrontEnv() && !window.noAuth) {
-        var qxurl = location.href.replace(location.origin, '')
-        if (qxurl != '/') {
-            $.ajax({
-                url: '/comp/authtion.do',
-                method: 'get',
-                data: {
-                    url: qxurl
-                },
-                success: function (res) {
-                    if (res.status == 300 && res.data != '') {
-                        window.location.href = res.data
-                    }
-                },
-                error: function (err) {
-                    console.log(err);
-                }
-            });
-        }
-    }
 </script>
 <meta http-equiv="Cache-Control" content="no-transform">
 <meta http-equiv="Cache-Control" content="no-siteapp">
@@ -130,8 +107,6 @@
 
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="utils"
         src="/themes/simpleboot3/public/assets/js/utils.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-        data-requiremodule="/public/cjgj/common.js" src="/themes/simpleboot3/public/assets/js/common.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="wgt_util"
         src="/themes/simpleboot3/public/assets/js/wgt_util.min.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="wgt_readyload"
@@ -150,9 +125,6 @@
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
         data-requiremodule="js/portalPublic/portalResPublic_codeContainer-01"
         src="/themes/simpleboot3/public/assets/js/portalResPublic_codeContainer-01.min.js"></script>
-<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
-        data-requiremodule="/public/cjgj/restival.js"
-        src="/themes/simpleboot3/public/assets/js/restival.js"></script>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_"
         data-requiremodule="js/pagination/initPagination"
         src="/themes/simpleboot3/public/assets/js/initPagination.min.js"></script>
@@ -275,9 +247,9 @@
                                                                     <a href="/intro/16.html">ContactUs
                                                                         <div class="nav-arrow icon-up iconfont"></div>
                                                                     </a>
-                                                                    <a href="/intro/17.html">JoinUs
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
+<!--                                                                    <a href="/intro/17.html">JoinUs-->
+<!--                                                                        <div class="nav-arrow icon-up iconfont"></div>-->
+<!--                                                                    </a>-->
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -293,10 +265,10 @@
                                     <div class="header2">
                                         <div class="main-wrap f-cb">
                                             <h1 class="logo fl">
-                                                <a href="https://www.hnks.com/">
+                                                <a href="/">
                                                     <img src="/themes/simpleboot3/public/assets/images/logox.jpg"
-                                                         alt="河南省矿山起重机有限公司"
-                                                         title="河南省矿山起重机有限公司">
+                                                         alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
+                                                         title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>">
                                                 </a>
                                             </h1>
                                             <div class="nav-btn fr">
@@ -308,117 +280,75 @@
                                         <div class="sub-menu">
                                             <ul>
                                                 <li class="js-m-3 delay01">
-                                                    <a class="tit sub-tit" href="https://www.hnks.com/">首页</a>
+                                                    <a class="tit sub-tit" href="/">首页</a>
                                                 </li>
                                                 <li class="js-m-3 delay02">
-                                                    <a class="tit sub-tit" href="https://www.hnks.com/intro/1.html">关于我们</a>
+                                                    <a class="tit sub-tit" href="/intro/4.html">About us</a>
                                                     <i class="jt"></i>
                                                     <div class="sec-list">
                                                         <p>
-                                                            <a href="https://www.hnks.com/intro/1.html">企业简介</a>
+                                                            <a href="/intro/4.html">CompanyProfile</a>
                                                         </p>
                                                         <p>
-                                                            <a href="https://www.hnks.com/intro/2.html">领导致辞</a>
+                                                            <a href="/intro/7.html">LeadershipSpeech</a>
                                                         </p>
                                                         <p>
-                                                            <a href="https://www.hnks.com/zzry.html">企业荣誉</a>
+                                                            <a href="honor/7.html">EnterpriseHonor</a>
                                                         </p>
                                                         <p>
-                                                            <a href="https://www.hnks.com/ksfm.html">企业风貌</a>
+                                                            <a href="honor/9.html">EnterpriseStyle</a>
                                                         </p>
                                                         <p>
-                                                            <a href="https://www.hnks.com/intro/13.html">先进设备</a>
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li class="js-m-3 delay03">
-                                                    <a class="tit sub-tit"
-                                                       href="https://www.hnks.com/news/2/">新闻中心</a>
-                                                    <i class="jt"></i>
-                                                    <div class="sec-list">
-                                                        <p>
-                                                            <a href="https://www.hnks.com/news/2/">企业动态</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/news/14/">企业期刊</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/corpvideo/1/">企业宣传片</a>
+                                                            <a href="/intro/8.html">AdvancedEquipment</a>
                                                         </p>
                                                     </div>
                                                 </li>
                                                 <li class="js-m-3 delay04">
-                                                    <a class="tit sub-tit" href="https://www.hnks.com/product/22/">产品中心</a>
+                                                    <a class="tit sub-tit" href="/product/1.html">ProductCenter</a>
                                                     <i class="jt"></i>
                                                     <div class="sec-list">
+                                                        <?php if(is_array($category_list) || $category_list instanceof \think\Collection || $category_list instanceof \think\Paginator): if( count($category_list)==0 ) : echo "" ;else: foreach($category_list as $key=>$vo): ?>
                                                         <p>
-                                                            <a href="https://www.hnks.com/product/22/">桥式起重机</a>
+                                                            <a href="/product/<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></a>
                                                         </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/product/23/">门式起重机</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/product/24/">专用起重机</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/product/25/">电动葫芦</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/product/26/">典型案例</a>
-                                                        </p>
+                                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                                     </div>
                                                 </li>
                                                 <li class="js-m-3 delay05">
                                                     <a class="tit sub-tit"
-                                                       href="https://www.hnks.com/intro/21.html">企业文化</a>
+                                                       href="/culture/11.html">CorporateCulture</a>
                                                     <i class="jt"></i>
                                                     <div class="sec-list">
                                                         <p>
-                                                            <a href="https://www.hnks.com/intro/21.html">孝善文化</a>
+                                                            <a href="/culture/11.html">FilialPietyCultur</a>
                                                         </p>
                                                         <p>
-                                                            <a href="https://www.hnks.com/news/33/">活动纪实</a>
+                                                            <a href="/activity/10.html">ActivityRecord</a>
                                                         </p>
                                                     </div>
                                                 </li>
                                                 <li class="js-m-3 delay06">
                                                     <a class="tit sub-tit"
-                                                       href="https://www.hnks.com/news/10/">社会责任</a>
+                                                       href="/responsibility/<?php echo $responsibility_category_list[0]['id']; ?>">SocialResponsibility</a>
                                                     <i class="jt"></i>
                                                     <div class="sec-list">
+                                                        <?php if(is_array($responsibility_category_list) || $responsibility_category_list instanceof \think\Collection || $responsibility_category_list instanceof \think\Paginator): if( count($responsibility_category_list)==0 ) : echo "" ;else: foreach($responsibility_category_list as $key=>$vo): ?>
                                                         <p>
-                                                            <a href="https://www.hnks.com/news/10/">助学兴教</a>
+                                                            <a href="/responsibility/<?php echo $vo['id']; ?>"><?php echo $vo['name']; ?></a>
                                                         </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/news/25/">平安建设</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/news/26/">扶贫济困</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/news/27/">乡村振兴</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/news/28/">公共文化服务</a>
-                                                        </p>
+                                                        <?php endforeach; endif; else: echo "" ;endif; ?>
                                                     </div>
                                                 </li>
                                                 <li class="js-m-3 delay07">
                                                     <a class="tit sub-tit"
-                                                       href="https://www.hnks.com/intro/20.html">服务中心</a>
+                                                       href="/intro/16.html">ServiceCenter</a>
                                                     <i class="jt"></i>
                                                     <div class="sec-list">
                                                         <p>
-                                                            <a href="https://www.hnks.com/intro/20.html">联系我们</a>
+                                                            <a href="/intro/16.html">ContactUs</a>
                                                         </p>
                                                         <p>
-                                                            <a href="https://www.hnks.com/intro/16.html">加入我们</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnks.com/news/18/">信息公开</a>
-                                                        </p>
-                                                        <p>
-                                                            <a href="https://www.hnksweb.com/hgz">防伪查询</a>
+                                                            <a href="/intro/17.html">JoinUs</a>
                                                         </p>
                                                     </div>
                                                 </li>
@@ -427,7 +357,7 @@
                                 </li>-->
                                                 <li class="js-m-3 animate delay08">
 
-                                                    <div class="mo_tel"><i class="iconfont"></i>全国销售热线：400-0373-818
+                                                    <div class="mo_tel"><i class="iconfont"></i>National free sales service hotline:<?php echo $site_info['sale_tel']; ?>
                                                     </div>
                                                 </li>
 
@@ -552,8 +482,8 @@
                                                 <div class="e_input p_input">
 
                                                     <input id="search_keyword" name="search_keyword"
-                                                           class="InputText" type="text" value=""
-                                                           placeholder="请输入搜索内容">
+                                                           class="InputText" type="text" value="<?php echo (isset($keyword) && ($keyword !== '')?$keyword:''); ?>"
+                                                           placeholder="Please enter your search term">
                                                     <i class="iconfont last"></i>
                                                 </div>
                                             </div>
@@ -564,379 +494,14 @@
                                         </div>
                                     </div>
                                     <script type="text/javascript">
-                                        $comp({
-                                            url: '/sousuo.html',
-                                            target: '_self',
-                                            appData: [{
-                                                "isdef": true,
-                                                "name": "totalSite",
-                                                "id": 1,
-                                                "value": "totalSite"
-                                            }, {
-                                                "isdef": false,
-                                                "name": "product",
-                                                "categoryList": [{
-                                                    "id": 21,
-                                                    "useViewType": false,
-                                                    "parentId": 0,
-                                                    "categoryName": "产品中心",
-                                                    "categoryType": "0",
-                                                    "proCount": 0,
-                                                    "leafs": [{
-                                                        "id": 22,
-                                                        "useViewType": false,
-                                                        "parentId": 21,
-                                                        "categoryName": "桥式起重机",
-                                                        "categoryType": "0",
-                                                        "proCount": 0,
-                                                        "leaf": false
-                                                    }, {
-                                                        "id": 23,
-                                                        "useViewType": false,
-                                                        "parentId": 21,
-                                                        "categoryName": "门式起重机",
-                                                        "categoryType": "0",
-                                                        "proCount": 0,
-                                                        "leaf": false
-                                                    }, {
-                                                        "id": 24,
-                                                        "useViewType": false,
-                                                        "parentId": 21,
-                                                        "categoryName": "专用起重机",
-                                                        "categoryType": "0",
-                                                        "proCount": 0,
-                                                        "leaf": false
-                                                    }, {
-                                                        "id": 25,
-                                                        "useViewType": false,
-                                                        "parentId": 21,
-                                                        "categoryName": "电动葫芦",
-                                                        "categoryType": "0",
-                                                        "proCount": 0,
-                                                        "leaf": false
-                                                    }, {
-                                                        "id": 26,
-                                                        "useViewType": false,
-                                                        "parentId": 21,
-                                                        "categoryName": "典型案例",
-                                                        "categoryType": "0",
-                                                        "proCount": 0,
-                                                        "leaf": false
-                                                    }],
-                                                    "leaf": false
-                                                }],
-                                                "id": 2,
-                                                "value": "product"
-                                            }, {
-                                                "isdef": false, "name": "info", "categoryList": [{
-                                                    "id": 1,
-                                                    "appId": 3,
-                                                    "useViewType": false,
-                                                    "name": "新闻中心",
-                                                    "des": "<div class=\"reset_style js-reset_style js-adapMobile \">\n<p>&nbsp;</p>\n\n<p>新闻资讯</p>\n</div>\n",
-                                                    "summary": "新闻资讯",
-                                                    "createDate": "2018-06-28 15:01:42",
-                                                    "type": 1,
-                                                    "showFlag": true,
-                                                    "newOpen": false,
-                                                    "showOrder": 1,
-                                                    "children": [{
-                                                        "id": 2,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 1,
-                                                        "name": "企业动态",
-                                                        "des": "<div class='reset_style js-reset_style js-adapMobile '><p>\r\n\t公司动态</p>\r\n</div>",
-                                                        "summary": "公司动态",
-                                                        "createDate": "2018-06-28 15:01:53",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": false,
-                                                        "showOrder": 1,
-                                                        "hasInfoCount": 531,
-                                                        "mobileNewOpen": false,
-                                                        "mobileShowFlag": true
-                                                    }, {
-                                                        "id": 14,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 1,
-                                                        "name": "企业期刊",
-                                                        "des": "<div class='reset_style js-reset_style js-adapMobile '><p>\r\n\t<span style=\"color: rgb(151, 152, 152); font-family: 微软雅黑; font-size: 13px; background-color: rgb(249, 249, 249);\">公司期刊</span></p>\r\n</div>",
-                                                        "summary": "公司期刊",
-                                                        "createDate": "2018-10-08 09:52:16",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": false,
-                                                        "showOrder": 2,
-                                                        "hasInfoCount": 81,
-                                                        "mobileNewOpen": false,
-                                                        "mobileShowFlag": true
-                                                    }, {
-                                                        "id": 13,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 1,
-                                                        "name": "企业宣传片",
-                                                        "des": "<p>\r\n\t企业宣传</p>\r\n",
-                                                        "summary": "企业宣传",
-                                                        "linkUrl": "{\"text\":\"企业宣传片\",\"id\":\"0eae146b-3f92-4fad-b84a-d665d6d97469\",\"entityTag\":\"page\"}",
-                                                        "createDate": "2018-07-17 11:17:24",
-                                                        "type": 2,
-                                                        "showFlag": true,
-                                                        "newOpen": false,
-                                                        "showOrder": 5,
-                                                        "hasInfoCount": 0,
-                                                        "mobileDes": "\t\t\t\t\t\t\t                        \r\n\t\t\t\t\t\t\t                      ",
-                                                        "mobileLinkUrl": "{\"param\":\"1\",\"text\":\"企业宣传片\",\"id\":\"81e32b0f-f512-4e63-9b70-d8aa0daa18f2\",\"entityTag\":\"page\",\"appTag\":\"22\"}",
-                                                        "mobileNewOpen": false,
-                                                        "mobileShowFlag": true
-                                                    }],
-                                                    "hasInfoCount": 613,
-                                                    "mobileDes": "<div class=\"reset_style js-reset_style js-adapMobile \">\n<p>&nbsp;</p>\n\n<p>新闻资讯</p>\n</div>\n",
-                                                    "mobileNewOpen": false,
-                                                    "mobileShowFlag": true
-                                                }, {
-                                                    "id": 16,
-                                                    "appId": 3,
-                                                    "useViewType": false,
-                                                    "name": "关于我们",
-                                                    "des": "<div class='reset_style js-reset_style js-adapMobile '><p>\r\n\t关于我们</p>\r\n</div>",
-                                                    "createDate": "2020-12-10 11:30:05",
-                                                    "type": 1,
-                                                    "showFlag": true,
-                                                    "newOpen": false,
-                                                    "showOrder": 2,
-                                                    "children": [{
-                                                        "id": 6,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 16,
-                                                        "name": "企业荣誉",
-                                                        "des": "<div class='reset_style js-reset_style js-adapMobile '><p>\r\n\t企业荣誉</p>\r\n</div>",
-                                                        "summary": "企业荣誉",
-                                                        "createDate": "2018-07-16 18:11:10",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": false,
-                                                        "showOrder": 1,
-                                                        "hasInfoCount": 24,
-                                                        "mobileNewOpen": false,
-                                                        "mobileShowFlag": true
-                                                    }, {
-                                                        "id": 7,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 16,
-                                                        "name": "企业风貌",
-                                                        "des": "<div class='reset_style js-reset_style js-adapMobile '><p>\r\n\t矿山风貌</p>\r\n</div>",
-                                                        "summary": "图说矿山",
-                                                        "createDate": "2018-07-16 18:18:59",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": false,
-                                                        "showOrder": 3,
-                                                        "hasInfoCount": 11,
-                                                        "mobileNewOpen": false,
-                                                        "mobileShowFlag": true
-                                                    }],
-                                                    "hasInfoCount": 35,
-                                                    "mobileNewOpen": false,
-                                                    "mobileShowFlag": true
-                                                }, {
-                                                    "id": 17,
-                                                    "appId": 3,
-                                                    "useViewType": false,
-                                                    "name": "信息公开",
-                                                    "createDate": "2021-04-13 10:55:14",
-                                                    "type": 1,
-                                                    "showFlag": true,
-                                                    "newOpen": true,
-                                                    "showOrder": 3,
-                                                    "children": [{
-                                                        "id": 18,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 17,
-                                                        "name": "信息公开",
-                                                        "createDate": "2021-04-13 10:55:26",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": true,
-                                                        "showOrder": 1,
-                                                        "hasInfoCount": 28,
-                                                        "mobileNewOpen": true,
-                                                        "mobileShowFlag": true
-                                                    }],
-                                                    "hasInfoCount": 28,
-                                                    "mobileNewOpen": true,
-                                                    "mobileShowFlag": true
-                                                }, {
-                                                    "id": 34,
-                                                    "appId": 3,
-                                                    "useViewType": false,
-                                                    "name": "企业文化",
-                                                    "des": "<p>企业文化</p>\n",
-                                                    "createDate": "2023-02-07 08:44:35",
-                                                    "type": 1,
-                                                    "showFlag": true,
-                                                    "newOpen": true,
-                                                    "showOrder": 4,
-                                                    "children": [{
-                                                        "id": 33,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 34,
-                                                        "name": "活动纪实",
-                                                        "des": "<p>活动纪实</p>\n",
-                                                        "createDate": "2023-02-06 17:08:48",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": true,
-                                                        "showOrder": 1,
-                                                        "hasInfoCount": 19,
-                                                        "mobileDes": "<p>活动纪实</p>\n",
-                                                        "mobileNewOpen": true,
-                                                        "mobileShowFlag": true
-                                                    }],
-                                                    "hasInfoCount": 19,
-                                                    "mobileDes": "<p>企业文化</p>\n",
-                                                    "mobileNewOpen": true,
-                                                    "mobileShowFlag": true
-                                                }, {
-                                                    "id": 8,
-                                                    "appId": 3,
-                                                    "useViewType": false,
-                                                    "name": "社会责任",
-                                                    "des": "<div class='reset_style js-reset_style js-adapMobile '><p>\r\n\t社会责任</p>\r\n</div>",
-                                                    "summary": "社会责任",
-                                                    "createDate": "2018-07-17 08:54:26",
-                                                    "type": 1,
-                                                    "showFlag": true,
-                                                    "newOpen": false,
-                                                    "showOrder": 9,
-                                                    "children": [{
-                                                        "id": 10,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 8,
-                                                        "name": "助学兴教",
-                                                        "des": "<div class=\"reset_style js-reset_style js-adapMobile \">\n<p>捐资助学</p>\n</div>\n",
-                                                        "summary": "捐资助学",
-                                                        "createDate": "2018-07-17 08:53:24",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": false,
-                                                        "showOrder": 5,
-                                                        "hasInfoCount": 23,
-                                                        "mobileDes": "<div class=\"reset_style js-reset_style js-adapMobile \">\n<p>捐资助学</p>\n</div>\n",
-                                                        "mobileNewOpen": false,
-                                                        "mobileShowFlag": true
-                                                    }, {
-                                                        "id": 25,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 8,
-                                                        "name": "平安建设",
-                                                        "des": "<p>平安建设</p>\n",
-                                                        "createDate": "2023-02-03 17:48:42",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": true,
-                                                        "showOrder": 6,
-                                                        "hasInfoCount": 2,
-                                                        "mobileDes": "<p>平安建设</p>\n",
-                                                        "mobileNewOpen": true,
-                                                        "mobileShowFlag": true
-                                                    }, {
-                                                        "id": 26,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 8,
-                                                        "name": "扶贫济困",
-                                                        "des": "<p>扶贫济困</p>\n",
-                                                        "createDate": "2023-02-03 17:48:54",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": true,
-                                                        "showOrder": 7,
-                                                        "hasInfoCount": 10,
-                                                        "mobileDes": "<p>救灾解难</p>\n",
-                                                        "mobileNewOpen": true,
-                                                        "mobileShowFlag": true
-                                                    }, {
-                                                        "id": 27,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 8,
-                                                        "name": "乡村振兴",
-                                                        "des": "<p>乡村振兴</p>\n",
-                                                        "createDate": "2023-02-03 17:49:09",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": true,
-                                                        "showOrder": 8,
-                                                        "hasInfoCount": 8,
-                                                        "mobileDes": "<p>乡村振兴</p>\n",
-                                                        "mobileNewOpen": true,
-                                                        "mobileShowFlag": true
-                                                    }, {
-                                                        "id": 28,
-                                                        "appId": 3,
-                                                        "useViewType": false,
-                                                        "parentId": 8,
-                                                        "name": "公共文化服务",
-                                                        "des": "<p>公共文化服务</p>\n",
-                                                        "createDate": "2023-02-04 11:14:14",
-                                                        "type": 1,
-                                                        "showFlag": true,
-                                                        "newOpen": true,
-                                                        "showOrder": 9,
-                                                        "hasInfoCount": 11,
-                                                        "mobileDes": "<p>公共文化服务</p>\n",
-                                                        "mobileNewOpen": true,
-                                                        "mobileShowFlag": true
-                                                    }],
-                                                    "hasInfoCount": 54,
-                                                    "mobileNewOpen": false,
-                                                    "mobileShowFlag": true
-                                                }], "id": 3, "value": "info"
-                                            }, {
-                                                "isdef": false,
-                                                "name": "recruit",
-                                                "categoryList": [{
-                                                    "id": 2,
-                                                    "useViewType": false,
-                                                    "name": "技术部",
-                                                    "showFlag": true,
-                                                    "des": "<p>技术部</p>\n",
-                                                    "mobileDes": "<p>技术部</p>\n",
-                                                    "showOrder": 1,
-                                                    "createTime": "2022-04-20 14:52:28",
-                                                    "contentNum": 0
-                                                }],
-                                                "id": 4,
-                                                "value": "recruit"
-                                            }, {
-                                                "isdef": false,
-                                                "name": "atlas",
-                                                "categoryList": [],
-                                                "id": 5,
-                                                "value": "atlas"
-                                            }],
-                                            id: "portalResSearch_total-16318624742069041",
-                                            lib: ["js/portalSearch/portalResSearch_total-02"],
-                                            totalSite: "全站",
-                                            product: "商品",
-                                            info: "资讯",
-                                            companyfile: "下载",
-                                            recruit: "招聘",
-                                            productMachine: "机械",
-                                            productParts: "配件",
-                                            course: "课程",
-                                            teacher: "教师",
-                                            atlas: "企业图册"
-                                        });
+                                        $('.p_searchBtn').click(function (){
+                                            var keyword = $("#search_keyword").val();
+                                            if (!keyword){
+                                                console.log("请输入关键字")
+                                                return
+                                            }
+                                            window.location.href = "/search.html?keyword=" + keyword;
+                                        })
 
                                     </script>
                                 </div>
@@ -1049,7 +614,7 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                     <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
                                          id="NavList_a1">
                                         <ul class="clearfix swiper-wrapper">
-                                            <?php switch(input('id')): case "4":case "7":case "8": ?>
+                                            <?php switch(input('id')): case "4":case "7":case "8":case "9": ?>
                                                     <li class="swiper-slide swiper-no-swiping">
                                                         <a href="/intro/4.html"
                                                            title="CompanyProfile"
@@ -1079,11 +644,11 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                            title="ContactUs"
                                                            class="more">ContactUs</a>
                                                     </li>
-                                                    <li class="swiper-slide swiper-no-swiping">
-                                                        <a href="/intro/17.html"
-                                                           title="JoinUs"
-                                                           class="more">JoinUs</a>
-                                                    </li>
+<!--                                                    <li class="swiper-slide swiper-no-swiping">-->
+<!--                                                        <a href="/intro/17.html"-->
+<!--                                                           title="JoinUs"-->
+<!--                                                           class="more">JoinUs</a>-->
+<!--                                                    </li>-->
                                                 <?php break; ?>
                                             <?php endswitch; ?>
 
@@ -1331,32 +896,6 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                             </dl>
                                             <dl class="botUl">
                                                 <dt class="botDt">
-                                                    <a href="/culture/11.html"
-                                                       class="botLink blink">CorporateCulture</a>
-                                                </dt>
-                                                <dd class="sbotDd">
-                                                    <a href="/culture/11.html"
-                                                       class="botLinkS blink">FilialPietyCultur</a>
-                                                </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="/activity/10.html"
-                                                       class="botLinkS blink">ActivityRecord</a>
-                                                </dd>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
-                                                    <a href="/responsibility/<?php echo $responsibility_category_list[0]['id']; ?>"
-                                                       class="botLink blink">SocialResponsibility</a>
-                                                </dt>
-                                                <?php if(is_array($responsibility_category_list) || $responsibility_category_list instanceof \think\Collection || $responsibility_category_list instanceof \think\Paginator): if( count($responsibility_category_list)==0 ) : echo "" ;else: foreach($responsibility_category_list as $key=>$vo): ?>
-                                                    <dd class="sbotDd">
-                                                        <a href="/responsibility/<?php echo $vo['id']; ?>"
-                                                           class="botLinkS blink"><?php echo $vo['name']; ?></a>
-                                                    </dd>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
                                                     <a href="/intro/16.html"
                                                        class="botLink blink">ServiceCenter</a>
                                                 </dt>
@@ -1384,10 +923,10 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                 <div id="w_common_text-1616830314198" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">Hotline</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-818"><span
+                                        <p><a href="tel:<?php echo $site_info['sale_tel']; ?>"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
                                                 style="color:#FFFFFF"><?php echo $site_info['sale_tel']; ?></span></span></span></a>
@@ -1397,13 +936,13 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                 <div id="w_common_text-1616830369921" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free after-sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">E-mail</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-919"><span
+                                        <p><a href="javascript:"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF"><?php echo $site_info['after_sale_tel']; ?></span></span></span></a>
+                                                style="color:#FFFFFF"><?php echo $site_info['email']; ?></span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -1443,19 +982,12 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/1_29.jpg"
-                                                                     alt="河南省矿山起重机有限公司"
-                                                                     title="河南省矿山起重机有限公司"
-                                                                     width="100%" height="100%">
+                                                                <img src="/themes/simpleboot3/public/assets/images/ins.png"
+                                                                     alt="<?php echo $site_info['site_gwa']; ?>"
+                                                                     title="<?php echo $site_info['site_gwa']; ?>"
+                                                                     width="40px" height="40px">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>微信公众号
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1465,19 +997,12 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/dyn1.jpg"
-                                                                     alt="河南省矿山起重机有限公司"
-                                                                     title="河南省矿山起重机有限公司"
+                                                                <img src="/themes/simpleboot3/public/assets/images/facebook.png"
+                                                                     alt="<?php echo $site_info['site_gwa']; ?>"
+                                                                     title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方抖音
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1487,19 +1012,27 @@ if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection |
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/qK1wgsT6R_KRn1eO4yrBlg.jpg"
-                                                                     alt="河南省矿山起重机有限公司"
-                                                                     title="河南省矿山起重机有限公司"
+                                                                <img src="/themes/simpleboot3/public/assets/images/youtubi.png"
+                                                                     alt="<?php echo $site_info['site_gwa']; ?>"
+                                                                     title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方手机站
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="content_box-1616830617301-3"
+                                                 class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                                                <div id="w_fimg-1616830641893" class="w_fimg-001">
+                                                    <div class="w_img animated  ">
+                                                        <div class="e_box e_box-000 p_box">
+                                                            <div class="e_image e_DImage-001 p_dimage">
+                                                                <img src="/themes/simpleboot3/public/assets/images/twitter.png"
+                                                                     alt="<?php echo $site_info['site_gwa']; ?>"
+                                                                     title="<?php echo $site_info['site_gwa']; ?>"
+                                                                     width="100%" height="100%">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

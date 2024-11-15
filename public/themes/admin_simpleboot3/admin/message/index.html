@@ -28,9 +28,10 @@
                     <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
                 </th>
                 <th>IP</th>
-                <th>联系人</th>
+                <th>姓名</th>
                 <th>手机号</th>
                 <th>留言内容</th>
+                <th>产品内容</th>
                 <th>留言时间</th>
                 <th width="160">{:lang('ACTIONS')}</th>
             </tr>
@@ -46,6 +47,15 @@
                     <td>{$vo.name}</td>
                     <td>{$vo.phone}</td>
                     <td>{$vo.content}</td>
+                    <td>
+                        <notempty name="vo.product_id">
+                            <a class="btn btn-xs btn-primary" href="javascript:;"
+                               onclick="openPortalArticleEditDialog(this)"
+                               data-href="{:url('Message/info',array('id'=>$vo['id']))}">查看</a>
+                            <else />
+                            无
+                        </notempty>
+                    </td>
                     <td>{$vo.create_time}</td>
                     <td>
                         <a class="btn btn-xs btn-danger js-ajax-delete" href="{:url('Message/delete',array('id'=>$vo['id']))}">{:lang('DELETE')}</a>
@@ -58,5 +68,24 @@
     </form>
 </div>
 <script src="__STATIC__/js/admin.js?v={$_static_version}"></script>
+<script>
+    function openPortalArticleEditDialog(obj) {
+        var $obj = $(obj);
+        var href = $obj.data('href');
+        parent.openIframeLayer(href, '查看详情', {
+            area: GV.IS_MOBILE ? ['100%', '100%'] : ['95%', '95%'],
+            offset: GV.IS_MOBILE ? ['0px', '0px'] : 'auto',
+            // btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                console.log(layero);
+                var iframeWin = parent.window[layero.find('iframe')[0]['name']];
+                //iframeWin.confirm();
+                parent.layer.close(index); //如果设定了yes回调，需进行手工关闭
+            },
+            end: function () {
+            }
+        });
+    }
+</script>
 </body>
 </html>

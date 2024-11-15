@@ -1,4 +1,4 @@
-<?php /*a:4:{s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\index.html";i:1730864521;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730952036;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1730946251;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1730944460;}*/ ?>
+<?php /*a:4:{s:79:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/portal\\index.html";i:1731574677;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\head.html";i:1730952036;s:76:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\nav.html";i:1731576087;s:77:"E:\product\kuangshan\kuangshan-cmf\public/themes/simpleboot3/public\foot.html";i:1731576423;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -247,9 +247,9 @@
                                                                     <a href="/intro/16.html">ContactUs
                                                                         <div class="nav-arrow icon-up iconfont"></div>
                                                                     </a>
-                                                                    <a href="/intro/17.html">JoinUs
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
+<!--                                                                    <a href="/intro/17.html">JoinUs-->
+<!--                                                                        <div class="nav-arrow icon-up iconfont"></div>-->
+<!--                                                                    </a>-->
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -536,242 +536,24 @@
                                                             <div class="swiper-container wyz-banner-container swiper-container-horizontal">
                                                                 <div class="swiper-wrapper"
                                                                      style="transform: translate3d(-3822px, 0px, 0px); transition-duration: 0ms;">
-                                                                    <div class="swiper-slide swiper-slide-duplicate"
-                                                                         data-swiper-slide-index="7"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/" target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/S20TGRC7TYKu9Esq0S6BQg.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                     alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/S20TGRC7TYKu9Esq0S6BQg.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                     alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                     style="">
 
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide swiper-slide-prev"
-                                                                         data-swiper-slide-index="0"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/news/605.html"
-                                                                           target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/55e1adee-5cdd-46ca-ad9a-bf5f7422ae4f.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/55e1adee-5cdd-46ca-ad9a-bf5f7422ae4f.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide swiper-slide-active"
-                                                                         data-swiper-slide-index="1"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/product/112.html"
-                                                                           target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/1692d402-3b01-4599-85b4-3b71e96d6c08.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/1692d402-3b01-4599-85b4-3b71e96d6c08.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司"
-                                                                                     style="">
+                                                                    <?php
+     $__SLIDE_ITEMS__ = \app\admin\service\ApiService::slides(1);
+if(is_array($__SLIDE_ITEMS__) || $__SLIDE_ITEMS__ instanceof \think\Collection || $__SLIDE_ITEMS__ instanceof \think\Paginator): $i = 0; $__LIST__ = $__SLIDE_ITEMS__;if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
 
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide swiper-slide-next"
-                                                                         data-swiper-slide-index="2"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/product/110.html"
-                                                                           target="_blank">
+                                                                        <div class="swiper-slide swiper-slide-active"
+                                                                             data-swiper-slide-index="<?php echo $key; ?>"
+                                                                             style="width: 1911px;">
                                                                             <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/719ff417-75a3-4e85-bc85-fe9ddc4b1f44.jpg"
+                                                                                <img src="<?php echo cmf_get_image_url($vo['image']); ?>"
                                                                                      class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/719ff417-75a3-4e85-bc85-fe9ddc4b1f44.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司"
-                                                                                     style="">
-
+                                                                                     title="<?php echo $vo['title']; ?>|default=''}"
+                                                                                     alt="<?php echo $vo['title']; ?>|default=''}">
                                                                             </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide"
-                                                                         data-swiper-slide-index="3"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/news/629.html"
-                                                                           target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/69b179d3-4a77-4035-bb77-569a8c4b9b96.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/69b179d3-4a77-4035-bb77-569a8c4b9b96.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司"
-                                                                                     style="">
-
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide"
-                                                                         data-swiper-slide-index="4"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/product/108.html"
-                                                                           target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/933b0381-9243-4189-a9c9-d90890ade0b4.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/933b0381-9243-4189-a9c9-d90890ade0b4.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司"
-                                                                                     style="">
-
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide"
-                                                                         data-swiper-slide-index="5"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/news/601.html"
-                                                                           target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/f2a82f16-9d92-4156-80b4-d498d9f385b2.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/f2a82f16-9d92-4156-80b4-d498d9f385b2.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司"
-                                                                                     style="">
-
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide"
-                                                                         data-swiper-slide-index="6"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/product/106.html"
-                                                                           target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/d64fa89b-1941-4c9a-a303-df66b05baac1.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/d64fa89b-1941-4c9a-a303-df66b05baac1.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司"
-                                                                                     style="">
-
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide"
-                                                                         data-swiper-slide-index="7"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/" target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/S20TGRC7TYKu9Esq0S6BQg.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/S20TGRC7TYKu9Esq0S6BQg.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司"
-                                                                                     style="">
-
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="swiper-slide swiper-slide-duplicate"
-                                                                         data-swiper-slide-index="0"
-                                                                         style="width: 1911px;">
-                                                                        <a href="https://www.hnks.com/news/605.html"
-                                                                           target="_blank">
-                                                                            <div class="content">
-                                                                                <!-- Pc端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/55e1adee-5cdd-46ca-ad9a-bf5f7422ae4f.jpg"
-                                                                                     class="pc_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                                <!-- Mo端 -->
-                                                                                <img src="/themes/simpleboot3/public/assets/images/55e1adee-5cdd-46ca-ad9a-bf5f7422ae4f.jpg"
-                                                                                     class="mo_pic scalePic"
-                                                                                     title="河南省矿山起重机有限公司"
-                                                                                     alt="河南省矿山起重机有限公司">
-                                                                            </div>
-                                                                        </a>
-                                                                    </div>
+                                                                        </div>
+                                                                    
+<?php endforeach; endif; else: echo "" ;endif; ?>
                                                                 </div>
-                                                                <div class="swiper-pagination banner-pagination swiper-pagination-clickable swiper-pagination-bullets">
-                                                                    <span class="swiper-pagination-bullet" tabindex="0"
-                                                                          role="button"
-                                                                          aria-label="Go to slide 1"></span><span
-                                                                        class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0"
-                                                                        role="button" aria-label="Go to slide 2"></span><span
-                                                                        class="swiper-pagination-bullet" tabindex="0"
-                                                                        role="button" aria-label="Go to slide 3"></span><span
-                                                                        class="swiper-pagination-bullet" tabindex="0"
-                                                                        role="button" aria-label="Go to slide 4"></span><span
-                                                                        class="swiper-pagination-bullet" tabindex="0"
-                                                                        role="button" aria-label="Go to slide 5"></span><span
-                                                                        class="swiper-pagination-bullet"
-                                                                        tabindex="0" role="button"
-                                                                        aria-label="Go to slide 6"></span><span
-                                                                        class="swiper-pagination-bullet" tabindex="0"
-                                                                        role="button" aria-label="Go to slide 7"></span><span
-                                                                        class="swiper-pagination-bullet" tabindex="0"
-                                                                        role="button" aria-label="Go to slide 8"></span>
-                                                                </div>
-                                                                <span class="swiper-notification" aria-live="assertive"
-                                                                      aria-atomic="true"></span></div>
-                                                            <!-- 切换按钮 -->
-                                                            <div class="swiper-button btn-prev" tabindex="0"
-                                                                 role="button" aria-label="Previous slide">
-                                                                <i class="iconfont"></i>
-                                                            </div>
-                                                            <div class="swiper-button btn-next" tabindex="0"
-                                                                 role="button" aria-label="Next slide">
-                                                                <i class="iconfont"></i>
-                                                            </div>
                                                         </div>
 
                                                         <script>
@@ -866,278 +648,33 @@
                                                                     <div id="w_grid-1616831570977" class="w_grid-003">
                                                                         <div class="w_grid ">
                                                                             <div class="e_box e_box-000 p_gridbox">
-                                                                                <div id="content_box-1616831570977-0"
-                                                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
-                                                                                    <div id="c_portalResNews_list-16168335428219936"
-                                                                                         class="c_portalResNews_list-01001015"
-                                                                                         data-animation="once"
-                                                                                         loaded="true" animated="true"
-                                                                                         style="overflow: visible;">
-
-                                                                                        <div>
-                                                                                            <div id="NewsList_a3"
-                                                                                                 class="NewsList_a3 e_box p_Newslist"
-                                                                                                 data-ename="资讯整体框架">
-                                                                                                <!-- 内容开始 -->
-                                                                                                <div class="e_box e_OccupyBox-001 p_OccupyBox">
-
-                                                                                                    <script type="text/javascript">
-                                                                                                        pagingVM = window.pagingVM || {};
-                                                                                                        pagingVM['portalResNews_list-16168335428219936'] = {
-                                                                                                            totalPage: "130",
-                                                                                                            pageSize: "4",
-                                                                                                            currentPage: "1",
-                                                                                                            turnPageType: 'hidden',
-
-                                                                                                            style: "e_pagebox-000",
-                                                                                                            type: "true",
-                                                                                                            styleConfig: {
-                                                                                                                style: 'e_MoreBtn-001',
-                                                                                                                zstyle: "p_more"
-                                                                                                            },
-                                                                                                            value: '查看更多',
-                                                                                                            moreGuide: '点击查看更多',
-                                                                                                            loading: {
-                                                                                                                styleConfig: {
-                                                                                                                    style: 'e_loading-001',
-                                                                                                                    zstyle: "p_loading"
-                                                                                                                },
-                                                                                                                value: '正在加载中，请稍后',
-                                                                                                            },
-
-                                                                                                            CommonInteraction: "true",
-                                                                                                            es_CommonSwitchBtnA: 'e_IconSwitchBtn-002',
-                                                                                                            es_CommonSwitchBtnB: 'e_IconSwitchBtn-002',
-                                                                                                            CommonSummaryBoxA: "true",
-                                                                                                            marquee_position: 'down',
-                                                                                                            marquee_horizontal: 'center',
-                                                                                                            es_CommonSquareNumBtn: 'e_SquareNumBtn-001',
-                                                                                                            SquareNumBtn_size: '0',
-                                                                                                            SquareNumBtn_defWidth: "16",
-                                                                                                            SquareNumBtn_defHeight: "16",
-                                                                                                            marquee_autoPlay: "false",
-                                                                                                            marquee_autoPlayDuration: "3",
-                                                                                                            marquee_speed: "1",
-                                                                                                            scrollDirection: "1",
-                                                                                                            es_scroll: "e_scroll-001",
-                                                                                                            columnNum: "4",
-                                                                                                            lineNum: "1",
-                                                                                                            pre: "上一页",
-                                                                                                            next: "下一页"
-                                                                                                        }
-                                                                                                    </script>
-
-                                                                                                </div>
-                                                                                                <!-- 内容结束 -->
-                                                                                                <!-- 分页开始 -->
-                                                                                                <ul class="e_box p_news dialog"
-                                                                                                    isserverpaging="true">
-
-                                                                                                    <?php
-$articles_data = \app\portal\service\ApiService::articles([
-    'field'   => '',
-    'where'   => "",
-    'limit'   => '4',
-    'order'   => 'post.create_time DESC',
-    'page'    => '',
-    'relation'=> 'categories',
-    'category_ids'=>$category['id']
-]);
-
-$__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
-
- if(is_array($articles_data['articles']) || $articles_data['articles'] instanceof \think\Collection || $articles_data['articles'] instanceof \think\Paginator): $i = 0; $__LIST__ = $articles_data['articles'];if( count($__LIST__)==0 ) : echo "" ;else: foreach($__LIST__ as $key=>$vo): $mod = ($i % 2 );++$i;?>
-
-                                                                                                        <!-- 单个列表开始 -->
-                                                                                                        <li>
-                                                                                                            <a href="<?php echo cmf_url('portal/Article/index',array('id'=>$vo['id'],'cid'=>$category['id'])); ?>"
-                                                                                                               target="_self">
-
-                                                                                                                <div class="newimg">
-                                                                                                                    <img src="<?php echo cmf_get_image_url($vo['more']['thumbnail']); ?>"
-                                                                                                                         alt="<?php echo $vo['post_title']; ?>"
-                                                                                                                         title="<?php echo $vo['post_title']; ?>">
-                                                                                                                </div>
-                                                                                                                <div class="newnr">
-                                                                                                                    <b data-ename="title"><?php echo $vo['post_title']; ?>”</b>
-                                                                                                                    <div class="data">
-                                                                                                                        <span class="i_timer">Time of issue</span>
-                                                                                                                        :
-                                                                                                                        <?php echo date('Y-m-d',$vo['create_time']); ?>
-                                                                                                                    </div>
-                                                                                                                </div>
-                                                                                                            </a>
-                                                                                                        </li>
-                                                                                                        <!-- 单个列表结束 -->
-                                                                                                    
-<?php endforeach; endif; else: echo "" ;endif; ?>
-                                                                                                </ul>
-                                                                                                <!-- 分页结束 -->
-                                                                                            </div>
-                                                                                            <script type="text/javascript">
-                                                                                                $comp({
-                                                                                                    textParams: {
-                                                                                                        isCutOfName: true,//标题是否自动截取超长显示内容
-                                                                                                        linesOfCutOfName: 1,//标题超出隐藏的行数设置
-                                                                                                        isCutOfSummary: true,//概述是否自动截取超长显示内容
-                                                                                                        linesOfCutOfSummary: 3,//概述超出隐藏的行数设置
-                                                                                                        categorySummary: true,//分类概述是否自动截取超长显示内容
-                                                                                                        categorySummaryMaxLen: 2//分类概述超出隐藏的行数设置
-                                                                                                    },
-                                                                                                    picParams: {
-                                                                                                        isOpenCutMode: true,//是否开启裁剪
-                                                                                                        imageWidth: 200,//设置图片的宽度
-                                                                                                        imageHeight: 200,//设置图片的高度
-                                                                                                        definedDefaultImage: false,//是否设置默认图片
-                                                                                                        defaultImage: "",//设置默认图片的值
-                                                                                                        appId: 3
-                                                                                                    },
-                                                                                                    moParams: {
-                                                                                                        isOpenCutMode: true,//是否开启裁剪
-                                                                                                        imageWidth: 80,//设置图片的宽度
-                                                                                                        imageHeight: 80,//设置图片的高度
-                                                                                                        definedDefaultImage: false,//是否设置默认图片
-                                                                                                        defaultImage: "",//设置默认图片的值
-                                                                                                        appId: 3
-                                                                                                    },
-                                                                                                    params: {
-                                                                                                        "url": "/comp/portalResNews/list.do?compId=portalResNews_list-16168335428219936&cid=1",
-                                                                                                        "appId": "3",
-                                                                                                        turnPageType: "hidden"
-                                                                                                    },
-                                                                                                    id: "portalResNews_list-16168335428219936", //实例id 服务器传
-                                                                                                    lib: ["/themes/simpleboot3/public/assets/js/portalResNews_list-01"], //组件js
-                                                                                                    noDataFlag: ""
-                                                                                                });
-                                                                                            </script>
-                                                                                            <script>$("div[id^='c_']").attr("loaded", "true")</script>
-                                                                                            <input type="hidden"
-                                                                                                   class="requsetParam"
-                                                                                                   value="&amp;cid=1">
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="content_box-1616831570977-1"
-                                                                                     class="e_box e_box-000 d_gridCell_1 p_gridCell">
-                                                                                    <div id="w_grid-1618281643465"
-                                                                                         class="w_grid-000"
-                                                                                         data-animation="once"
-                                                                                         animated="true">
-                                                                                        <div class="w_grid signal">
-                                                                                            <div class="e_box e_box-000 p_gridbox">
-                                                                                                <div id="content_box-1618281643465-0"
-                                                                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
-                                                                                                    <div id="c_portalResPublic_codeContainer-16168326673423619"
-                                                                                                         class="c_portalResPublic_codeContainer-01001"
-                                                                                                         loaded="true"
-                                                                                                         style="overflow: visible;">
-                                                                                                        <div class="e_box"></div>
-
-                                                                                                        <div class="kl">
-                                                                                                            <div class="kl1">
-                                                                                                                <a href="/intro/4.html"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/ab1.jpg"
-                                                                                                                        class="dq"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/ab2.jpg"
-                                                                                                                        class="hg"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"></a>
-                                                                                                            </div>
-                                                                                                            <div class="kl2">
-                                                                                                                <a href="/intro/11.html"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/cu1.jpg"
-                                                                                                                        class="dq"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/cu2.jpg"
-                                                                                                                        class="hg"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"></a>
-                                                                                                            </div>
-                                                                                                        </div>
-
-                                                                                                        <div class="kl_b">
-                                                                                                            <div class="kl1">
-                                                                                                                <a href="/product/1/"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/pr1.jpg"
-                                                                                                                        class="dq"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/pr2.jpg"
-                                                                                                                        class="hg"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"></a>
-                                                                                                            </div>
-                                                                                                            <div class="kl2">
-                                                                                                                <a href=""
-                                                                                                                   target="_blank"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/se1.jpg"
-                                                                                                                        class="dq"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"><img
-                                                                                                                        src="/themes/simpleboot3/public/assets/images/se2.jpg"
-                                                                                                                        class="hg"
-                                                                                                                        alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                                        title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"></a>
-                                                                                                            </div>
-                                                                                                        </div>
-
-
-                                                                                                        <script>
-                                                                                                            $comp({
-                                                                                                                id: "portalResPublic_codeContainer-16168326673423619",//实例id 服务器传
-                                                                                                                lib: ["/themes/simpleboot3/public/assets/js/portalResPublic_codeContainer-01"] //组件js
-                                                                                                            });
-
-                                                                                                        </script>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div id="content_box-1616831570977-2"
-                                                                                     class="e_box e_box-000 d_gridCell_2 p_gridCell">
-                                                                                    <div id="w_fimg-1616831874596"
-                                                                                         class="w_fimg-000"
-                                                                                         data-animation="once"
-                                                                                         animated="true">
-                                                                                        <div class="w_img animated  ">
-                                                                                            <div class="e_box e_box-000 p_box">
-                                                                                                <a href=""
-                                                                                                   class="e_link e_link-000 p_link001"
-                                                                                                   target="_self">
-                                                                                                    <div class="e_image e_DImage-001 p_dimage">
-                                                                                                        <img src="/themes/simpleboot3/public/assets/images/aa1.jpg"
-                                                                                                             alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                             title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                             width="100%"
-                                                                                                             height="100%">
-                                                                                                    </div>
-                                                                                                </a></div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div id="w_fimg-1616832633012"
-                                                                                         class="w_fimg-000"
-                                                                                         data-animation="once"
-                                                                                         animated="true">
-                                                                                        <div class="w_img animated  ">
-                                                                                            <div class="e_box e_box-000 p_box">
-                                                                                                <a href=""
-                                                                                                   class="e_link e_link-000 p_link001"
-                                                                                                   target="_blank">
-                                                                                                    <div class="e_image e_DImage-001 p_dimage">
-                                                                                                        <img src="/themes/simpleboot3/public/assets/images/bb2.jpg"
-                                                                                                             alt="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                             title="<?php echo (isset($site_info['site_name']) && ($site_info['site_name'] !== '')?$site_info['site_name']:''); ?>"
-                                                                                                             width="100%"
-                                                                                                             height="100%">
-                                                                                                    </div>
-                                                                                                </a></div>
-                                                                                        </div>
-                                                                                    </div>
+                                                                                <div class="index_content">
+                                                                                    <ul class="index_content_ul">
+                                                                                        <li class="index_content_li">
+                                                                                            <a href="/intro/4.html">
+                                                                                                <img class="index_content_img" src="/themes/simpleboot3/public/assets/images/about.png">
+                                                                                                <img class="index_content_img_active" src="/themes/simpleboot3/public/assets/images/about-active.png">
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="index_content_li">
+                                                                                            <a href="/intro/11.html">
+                                                                                                <img class="index_content_img" src="/themes/simpleboot3/public/assets/images/culture.png">
+                                                                                                <img class="index_content_img_active" src="/themes/simpleboot3/public/assets/images/culture-active.png">
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="index_content_li">
+                                                                                            <a href="/product.html">
+                                                                                                <img class="index_content_img" src="/themes/simpleboot3/public/assets/images/products.png">
+                                                                                                <img class="index_content_img_active" src="/themes/simpleboot3/public/assets/images/products-active.png">
+                                                                                            </a>
+                                                                                        </li>
+                                                                                        <li class="index_content_li">
+                                                                                            <a href="/">
+                                                                                                <img class="index_content_img" src="/themes/simpleboot3/public/assets/images/service.png">
+                                                                                                <img class="index_content_img_active" src="/themes/simpleboot3/public/assets/images/service-active.png">
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    </ul>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1233,32 +770,6 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                             </dl>
                                             <dl class="botUl">
                                                 <dt class="botDt">
-                                                    <a href="/culture/11.html"
-                                                       class="botLink blink">CorporateCulture</a>
-                                                </dt>
-                                                <dd class="sbotDd">
-                                                    <a href="/culture/11.html"
-                                                       class="botLinkS blink">FilialPietyCultur</a>
-                                                </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="/activity/10.html"
-                                                       class="botLinkS blink">ActivityRecord</a>
-                                                </dd>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
-                                                    <a href="/responsibility/<?php echo $responsibility_category_list[0]['id']; ?>"
-                                                       class="botLink blink">SocialResponsibility</a>
-                                                </dt>
-                                                <?php if(is_array($responsibility_category_list) || $responsibility_category_list instanceof \think\Collection || $responsibility_category_list instanceof \think\Paginator): if( count($responsibility_category_list)==0 ) : echo "" ;else: foreach($responsibility_category_list as $key=>$vo): ?>
-                                                    <dd class="sbotDd">
-                                                        <a href="/responsibility/<?php echo $vo['id']; ?>"
-                                                           class="botLinkS blink"><?php echo $vo['name']; ?></a>
-                                                    </dd>
-                                                <?php endforeach; endif; else: echo "" ;endif; ?>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
                                                     <a href="/intro/16.html"
                                                        class="botLink blink">ServiceCenter</a>
                                                 </dt>
@@ -1286,10 +797,10 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                 <div id="w_common_text-1616830314198" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">Hotline</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-818"><span
+                                        <p><a href="tel:<?php echo $site_info['sale_tel']; ?>"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
                                                 style="color:#FFFFFF"><?php echo $site_info['sale_tel']; ?></span></span></span></a>
@@ -1299,13 +810,13 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                 <div id="w_common_text-1616830369921" class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">National free after-sales service hotline</span></span></span>
+                                                style="font-family:微软雅黑">E-mail</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:400-0373-919"><span
+                                        <p><a href="javascript:"><span
                                                 style="font-size:26px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF"><?php echo $site_info['after_sale_tel']; ?></span></span></span></a>
+                                                style="color:#FFFFFF"><?php echo $site_info['email']; ?></span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -1345,19 +856,12 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/1_29.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/ins.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
-                                                                     width="100%" height="100%">
+                                                                     width="40px" height="40px">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>微信公众号
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1367,19 +871,12 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/dyn1.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/facebook.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方抖音
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1389,19 +886,27 @@ $__PAGE_VAR_NAME__ = isset($articles_data['page'])?$articles_data['page']:'';
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="/themes/simpleboot3/public/assets/images/qK1wgsT6R_KRn1eO4yrBlg.jpg"
+                                                                <img src="/themes/simpleboot3/public/assets/images/youtubi.png"
                                                                      alt="<?php echo $site_info['site_gwa']; ?>"
                                                                      title="<?php echo $site_info['site_gwa']; ?>"
                                                                      width="100%" height="100%">
                                                             </div>
-                                                            <a class="e_link e_link-000 p_link002"
-                                                               target="_blank">
-                                                                <div class="e_title e_ImgTitle-001 p_title">
-                                                                    <div class="font"><i
-                                                                            class="iconfont"></i>官方手机站
-                                                                    </div>
-                                                                </div>
-                                                            </a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="content_box-1616830617301-3"
+                                                 class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                                                <div id="w_fimg-1616830641893" class="w_fimg-001">
+                                                    <div class="w_img animated  ">
+                                                        <div class="e_box e_box-000 p_box">
+                                                            <div class="e_image e_DImage-001 p_dimage">
+                                                                <img src="/themes/simpleboot3/public/assets/images/twitter.png"
+                                                                     alt="<?php echo $site_info['site_gwa']; ?>"
+                                                                     title="<?php echo $site_info['site_gwa']; ?>"
+                                                                     width="100%" height="100%">
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

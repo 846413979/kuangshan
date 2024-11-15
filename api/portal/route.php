@@ -38,3 +38,6 @@ Route::post('portal/articles/cancelFavorite', 'portal/Articles/cancelFavorite');
 Route::get('portal/tags/:id/articles', 'portal/Tags/articles');
 Route::get('portal/tags', 'portal/Tags/index');
 Route::get('portal/tags/hotTags', 'portal/Tags/hotTags');
+
+
+Route::get('product', 'portal/index/product');

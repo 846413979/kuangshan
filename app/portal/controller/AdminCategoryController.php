@@ -118,7 +118,7 @@ class AdminCategoryController extends AdminBaseController
     {
         $portalCategoryModel = new PortalCategoryModel();
 
-        $data = $this->request->param();
+        $data = $this->request->post();
 
         $result = $this->validate($data, 'PortalCategory');
 
@@ -202,7 +202,7 @@ class AdminCategoryController extends AdminBaseController
      */
     public function editPost()
     {
-        $data = $this->request->param();
+        $data = $this->request->post();
 
         $result = $this->validate($data, 'PortalCategory');
 

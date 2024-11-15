@@ -1,4 +1,4 @@
-<?php /*a:2:{s:91:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/admin\message\index.html";i:1730341822;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
+<?php /*a:2:{s:91:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/admin\message\index.html";i:1731564269;s:85:"E:\product\kuangshan\kuangshan-cmf\public/themes/admin_simpleboot3/public\header.html";i:1730268637;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,9 +136,10 @@
                     <input type="checkbox" class="js-check-all" data-direction="x" data-checklist="js-check-x">
                 </th>
                 <th>IP</th>
-                <th>联系人</th>
+                <th>姓名</th>
                 <th>手机号</th>
                 <th>留言内容</th>
+                <th>产品内容</th>
                 <th>留言时间</th>
                 <th width="160"><?php echo lang('ACTIONS'); ?></th>
             </tr>
@@ -154,6 +155,15 @@
                     <td><?php echo $vo['name']; ?></td>
                     <td><?php echo $vo['phone']; ?></td>
                     <td><?php echo $vo['content']; ?></td>
+                    <td>
+                        <?php if(!(empty($vo['product_id']) || (($vo['product_id'] instanceof \think\Collection || $vo['product_id'] instanceof \think\Paginator ) && $vo['product_id']->isEmpty()))): ?>
+                            <a class="btn btn-xs btn-primary" href="javascript:;"
+                               onclick="openPortalArticleEditDialog(this)"
+                               data-href="<?php echo url('Message/info',array('id'=>$vo['id'])); ?>">查看</a>
+                            <?php else: ?>
+                            无
+                        <?php endif; ?>
+                    </td>
                     <td><?php echo $vo['create_time']; ?></td>
                     <td>
                         <a class="btn btn-xs btn-danger js-ajax-delete" href="<?php echo url('Message/delete',array('id'=>$vo['id'])); ?>"><?php echo lang('DELETE'); ?></a>
@@ -166,5 +176,24 @@
     </form>
 </div>
 <script src="/static/js/admin.js?v=<?php echo $_static_version; ?>"></script>
+<script>
+    function openPortalArticleEditDialog(obj) {
+        var $obj = $(obj);
+        var href = $obj.data('href');
+        parent.openIframeLayer(href, '查看详情', {
+            area: GV.IS_MOBILE ? ['100%', '100%'] : ['95%', '95%'],
+            offset: GV.IS_MOBILE ? ['0px', '0px'] : 'auto',
+            // btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                console.log(layero);
+                var iframeWin = parent.window[layero.find('iframe')[0]['name']];
+                //iframeWin.confirm();
+                parent.layer.close(index); //如果设定了yes回调，需进行手工关闭
+            },
+            end: function () {
+            }
+        });
+    }
+</script>
 </body>
 </html>

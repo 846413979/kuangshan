@@ -19,7 +19,7 @@ Route::get('honor/:id', 'portal/index/honor')
 Route::get('product/:id', 'portal/index/product')
 ->pattern(array('id' => '\d+',));
 
-Route::get('product_info/:cid/:id', 'portal/index/product_info')
+Route::get('product_info/:id', 'portal/index/product_info')
 ->pattern(array('id' => '\d+',));
 
 Route::get('activity/:id', 'portal/index/activity')
@@ -41,6 +41,9 @@ Route::get('reservation/:cid/:id', 'portal/index/reservation')
 ->pattern(array('id' => '\d+',));
 
 Route::get('search', 'portal/index/search')
+->pattern(array('id' => '\d+',));
+
+Route::get('product', 'portal/index/product')
 ->pattern(array('id' => '\d+',));
 
 
