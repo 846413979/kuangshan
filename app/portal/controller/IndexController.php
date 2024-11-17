@@ -19,9 +19,6 @@ use app\portal\model\ProductModel;
 use app\portal\service\PostService;
 use app\portal\validate\InquiryValidate;
 use cmf\controller\HomeBaseController;
-use think\db\exception\DataNotFoundException;
-use think\db\exception\DbException;
-use think\db\exception\ModelNotFoundException;
 
 class IndexController extends HomeBaseController
 {
@@ -48,12 +45,6 @@ class IndexController extends HomeBaseController
         $slides = $SlideItemModel->where('slide_id', $slide_id)->order('list_order asc')->select();
         $this->assign('slides', $slides);
 
-        // 首页新闻
-        $news_category_id = 8;
-        $portalCategoryModel = new PortalCategoryModel();
-
-        $category = $portalCategoryModel->where('id', $news_category_id)->where('status', 1)->find();
-        $this->assign('category', $category);
 
         return $this->fetch(':index');
     }
@@ -282,7 +273,7 @@ class IndexController extends HomeBaseController
                 $item['thumbnail'] = cmf_get_image_url($item['thumbnail']);
             });
 
-            $this->success('查询成功', '', ['list' => $list, 'page' => $list->render()]);
+            $this->success('success', '', ['list' => $list, 'page' => $list->render()]);
         }
         $id = $this->request->param('id', 0, 'intval');
 
@@ -294,7 +285,7 @@ class IndexController extends HomeBaseController
             $productCategoryModel = new ProductCategoryModel();
             $category = $productCategoryModel->where('id', $id)->find();
             if (empty($category)) {
-                return $this->error('分类不存在');
+                $this->error('category not exits');
             }
             $where[] = ['category_id', '=', $id];
         }
@@ -317,11 +308,11 @@ class IndexController extends HomeBaseController
         $productModel = new ProductModel();
         $id = $this->request->param('id', 0, 'intval');
         if (empty($id)) {
-            $this->error('产品不存在');
+            $this->error('product not exits');
         }
         $product = $productModel->where('id', $id)->find();
         if (empty($product)) {
-            $this->error('产品不存在');
+            $this->error('product not exits');
         }
 
         $this->assign('product', $product);
@@ -443,6 +434,13 @@ class IndexController extends HomeBaseController
     {
         $keyword = $this->request->param('keyword');
         $this->assign('keyword', $keyword);
+
+
+        $productModel = new ProductModel();
+        $list = $productModel->where('title|alias', 'like', "%{$keyword}%")->paginate(12);
+
+        $this->assign('list', $list);
+        $this->assign('page', $list->render());
 
 
         return $this->fetch(':search');

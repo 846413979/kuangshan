@@ -95,7 +95,7 @@
                                                              id="">
                                                             <div class="stylebox_top">
                                                                 <div class="stylebox_title">
-                                                                    <h2 class="title_main">资讯详细</h2>
+                                                                    <h2 class="title_main">Detailed information</h2>
                                                                 </div>
                                                             </div>
                                                             <div class="stylebox_top_line"></div>
@@ -125,7 +125,7 @@
                                                                             <li class="source"><span class="i_source">来源：</span>
                                                                             </li>
                                                                             <!--YYYY-MM-DD hh:mm:ss时间格式根据情况自定义-->
-                                                                            <li class="date"><span class="i_pubDate">发布时间：</span>{:date('Y-m-d',$article.create_time)}
+                                                                            <li class="date"><span class="i_pubDate">publish time: </span>{:date('Y-m-d',$article.create_time)}
                                                                             </li>
                                                                         </ul>
                                                                         <!--概要信息-->
@@ -202,7 +202,7 @@
 
                                                                         <div class="e_box p_previewBox">
                                                                             <span class="i_title"><span
-                                                                                    class="i_pageUpTitle">上一个</span><span
+                                                                                    class="i_pageUpTitle">prev</span><span
                                                                                     class="clons">:</span></span>
                                                                             <notempty name="prev_article">
                                                                                 <a href="/activity_info/{$category.id}/{$prev_article.id}"
@@ -211,7 +211,7 @@
                                                                                 </a>
                                                                                 <else />
                                                                                 <span class="p_PreviewTitle"><span
-                                                                                        class="i_non">无</span></span>
+                                                                                        class="i_non">none</span></span>
                                                                             </notempty>
 
 
@@ -219,7 +219,7 @@
                                                                         <!-- 下一篇 -->
                                                                         <div class="e_box p_nextBox">
                                                                             <span class="i_title"><span
-                                                                                    class="i_pageDownTitle">下一个</span><span
+                                                                                    class="i_pageDownTitle">next</span><span
                                                                                     class="clons">:</span></span>
 
                                                                             <notempty name="next_article">
@@ -229,32 +229,8 @@
                                                                                 </a>
                                                                                 <else />
                                                                                 <span class="p_PreviewTitle"><span
-                                                                                        class="i_non">无</span></span>
+                                                                                        class="i_non">none</span></span>
                                                                             </notempty>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--分页end-->
-                                                                    <!--分页-->
-                                                                    <div class="e_box p_PrevAndNextMo p_PrevAndNext borderB_default"
-                                                                         data-ename="上一篇、下一篇信息区">
-                                                                        <div class="e_box p_previewBox">
-                                                                            <span class="i_title"><span
-                                                                                    class="i_pageUpTitle">上一个</span><span
-                                                                                    class="clons">:</span></span>
-                                                                            <span class="p_PreviewTitle"><span
-                                                                                    class="i_non">无</span></span>
-
-                                                                        </div>
-                                                                        <!-- 下一篇 -->
-                                                                        <div class="e_box p_nextBox">
-                                                                            <span class="i_title"><span
-                                                                                    class="i_pageDownTitle">下一个</span><span
-                                                                                    class="clons">:</span></span>
-                                                                            <a href="https://www.hnks.com/news/990.html"
-                                                                               data-ename="下一篇标题">
-                                                                                <span class="p_PreviewTitle">一场慈善接力，延续到了江西革命老区~</span>
-                                                                            </a>
 
                                                                         </div>
                                                                     </div>
@@ -321,15 +297,6 @@
         </div>
     </div>
 </div>
-
-
-<script>
-    $(document).ready(function () {
-        $("* img").attr({alt: "河南省矿山起重机有限公司", title: "河南省矿山起重机有限公司"});
-        setTimeout("dongtaitianjia()", 1000)
-    });
-
-</script>
 
 
 <script type="text/javascript" src="__TMPL__/public/assets/js/response.js"></script>

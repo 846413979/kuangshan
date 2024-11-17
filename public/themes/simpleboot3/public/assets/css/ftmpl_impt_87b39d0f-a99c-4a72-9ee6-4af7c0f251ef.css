@@ -1379,7 +1379,7 @@
     line-height: 90px;
     width: auto;
     position: absolute;
-    right: 115px;
+    right: 50px;
     top: 0;
     margin-left: 0px;
     -webkit-transition: all .3s ease;
@@ -4487,4 +4487,83 @@ body, #-remove--flag {
     line-height: 0px;
     font-style: normal;
     text-transform: none;
+}
+
+
+.right_fix{
+    width: 80px;
+    height: 248px;
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    margin-top: -100px;
+    z-index: 999;
+}
+.right_fix .right_fix_connect{
+    width: 80px;
+}
+.right_fix .right_fix_connect .right_fix_box{
+    width: 80px;
+    height: 80px;
+    margin-top: 4px;
+    background: #BFBFBF;
+    font-family: Microsoft YaHei, Microsoft YaHei;
+    font-weight: 400;
+    font-size: 14px;
+    color: #FFFFFF;
+    line-height: 28px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+    cursor: pointer;
+    position: relative;
+}
+.right_fix .right_fix_connect .right_fix_box img{
+    width: 40px;
+    height: 40px;
+    margin-top: 11px;
+}
+.right_fix .right_fix_connect .right_fix_box .right_fix_box_title{
+    margin-top: 4px;
+}
+.right_fix .right_fix_connect .right_fix_box .right_fix_box_connect{
+    display: none;
+    width: 202px;
+    height: 80px;
+    position: absolute;
+    left: -206px;
+    top: 0;
+    background: #003F9B;
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.16);
+}
+.right_fix .right_fix_connect .right_fix_box .right_fix_box_connect p{
+    font-family: DIN, DIN;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 28px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    margin-left: 10px;
+}
+.right_fix .right_fix_connect .right_fix_box .right_fix_box_connect p:first-child{
+    margin-top: 13px;
+}
+.right_fix .right_fix_connect .right_fix_box .right_fix_box_connect .right_fix_box_connect_arrow{
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #003F9B;
+    position: absolute;
+    right: -11px;
+    width: 0;
+    height: 0;
+    top: 26px;
+}
+.right_fix .right_fix_connect .right_fix_box:hover{
+    background: #003F9B;
+
+}
+.right_fix .right_fix_connect .right_fix_box:hover .right_fix_box_connect{
+    display: block;
 }

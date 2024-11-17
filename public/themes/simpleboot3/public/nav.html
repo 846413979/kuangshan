@@ -54,11 +54,11 @@
                                                         </li>
                                                         <li class="hvr-left subnav2 js-m js-m-2">
                                                             <a class="home-dec"
-                                                               href="/product/{$category_list[0]['id']}">ProductCenter</a>
+                                                               href="/product.html">ProductCenter</a>
                                                             <div class="nav-sub">
                                                                 <div class="n-nav-sub">
                                                                     <foreach name="category_list" item="vo">
-                                                                    <a href="/product/{$vo.id}">{$vo.name}
+                                                                    <a href="/product/{$vo.id}.html">{$vo.name}
                                                                         <div class="nav-arrow icon-up iconfont"></div>
                                                                     </a>
                                                                     </foreach>
@@ -336,7 +336,7 @@
 
                                                     <input id="search_keyword" name="search_keyword"
                                                            class="InputText" type="text" value="{$keyword|default=''}"
-                                                           placeholder="Please enter your search term">
+                                                           placeholder="Enter keywords">
                                                     <i class="iconfont last"></i>
                                                 </div>
                                             </div>

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0158)https://www.hnks.com/sousuo.html?searchCategory=totalSite&searchKey=%25E8%25B5%25B7%25E9%2587%258D%25E6%259C%25BA#c_portalResSearch_result-17283647034581822-1 -->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>搜索结果_河南省矿山起重机有限公司</title>
-    <meta name="keywords" content="搜索结果,河南省矿山起重机有限公司">
+    <title>search_{$site_info.site_name|default=''}</title>
+    <meta name="keywords" content="{$site_info.site_name|default=''}">
     <meta name="description"
-          content="搜索结果-河南省矿山起重机有限公司河南省矿山起重机有限公司始创于2002年，主要从事“矿源”牌电动葫芦、单、双梁桥、门式、抓斗、铸造、防爆、新型单双梁起重机、电动葫芦(欧式)等系列起重机及配件的制造与销售。">
+          content="{$site_info.site_name|default=''}">
     <meta name="viewport" content="width=1440">
     <include file="public@head"/>
     <link href="__TMPL__/public/assets/css/page_impt_sousuo.css" rel="stylesheet" type="text/css">
@@ -55,52 +54,18 @@
                                                     </div>
                                                 </div>
                                                 <div class="e_box e-box-000 p_listBox" isserverpaging="true">
-                                                    <php>
-                                                        $where= function($query) use ($keyword){
-                                                        $query->whereRaw("MATCH(post_excerpt,post_content) AGAINST(:searchTerm IN NATURAL LANGUAGE MODE)",['searchTerm'=>$keyword])->select();
-                                                        };
-                                                        $page=[
-                                                        'list_rows'=>6,
-                                                        'next'=>'>',
-                                                        'prev'=>'<'
-                                                        ];
-                                                    </php>
-                                                    <portal:articles item="vo" where="$where" order="post.recommended DESC,post.create_time DESC"
-                                                                     page="$page"
-                                                                     relation="categories"
-                                                                     returnVarName="articles_data">
-                                                        <php>
-
-                                                            $href = '';
-                                                            if ($vo['post_type']==3){
-                                                                $post_type = 'product';
-                                                                $href = '/product_info/'.$vo['category_id'].'/'.$vo['id'];
-                                                            }else{
-                                                                $post_type = $vo['category_name'];
-                                                                switch ($vo['category_id']) {
-                                                                    case 11|12|13|14|15|16:
-                                                                        $href = '/responsibility_info/'.$vo['category_id'].'/'.$vo['id'];
-                                                                        break;
-                                                                    case 10:
-                                                                        $href = '/activity_info/'.$vo['id'];
-                                                                        break;
-                                                                    default:
-                                                                        $href = '/news_info/'.$vo['id'];
-                                                                        break;
-                                                                }
-                                                            }
-                                                        </php>
+                                                    <foreach name="list" item="vo">
                                                     <div class="e_box e-box-000 p_list">
                                                         <a class="e_link e_link-000 p_linkB"
-                                                           href="{$href}" target="_blank">
+                                                           href="/product_info/{$vo.id}.html" target="_blank">
                                                             <h3 class="e_title e_DecTitle-001 p_titleA">
-                                                                {$vo.post_title}
+                                                                {$vo.title}
                                                             </h3>
                                                         </a>
                                                         <!--搜索类型-->
                                                         <div class="e_title e_AssistName-001 p_AssistNameB">
                                                             <div class="font"><i class="iconfont"></i><span
-                                                                    class="i_searchTypeProduct">{$post_type}</span></div>
+                                                                    class="i_searchTypeProduct">product</span></div>
                                                         </div>
                                                         <div class="e_title e_AssistName-001 p_AssistNameC">
                                                             <div class="font"><i class="iconfont"></i>{:date('Y-m-d H:i',$vo['create_time'])}
@@ -109,14 +74,14 @@
                                                         <div class="e_icon p_searchContentIcon"><i
                                                                 class="iconfont"></i></div>
                                                     </div>
-                                                    </portal:articles>
+                                                    </foreach>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="e_box e_OccupyBox-001 p_OccupyBox">
                                         <ul class="pagination">
-                                            <page/>
+                                            {$page}
                                         </ul>
                                     </div>
                                 </div>
