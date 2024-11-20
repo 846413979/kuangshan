@@ -89,7 +89,7 @@
                                                                 <ul>
                                                                     <foreach name="hot_products" item="vo">
                                                                         <li class="hot_product_item">
-                                                                            <a href="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}">
+                                                                            <a href="{:cmf_url('portal/index/product_info',array('id'=>$vo['id']))}">
                                                                                 <img src="{:cmf_get_image_url($vo.thumbnail)}"
                                                                                      alt="">
                                                                                 <p>{$vo.title}</p>
@@ -117,7 +117,7 @@
                                                                     <span>ABOUT US</span>
                                                                 </div>
                                                                 <div class="about_description">
-                                                                    <p>Henan Mining Crane Co., Ltd. is a professional
+                                                                    <p>HENAN MINE CRANE IM&EX CO.,LTD is a professional
                                                                         crane and material handling products
                                                                         manufacturers and service providers, research
                                                                         and
@@ -143,8 +143,8 @@
                                                                 <div class="about_video">
                                                                     <div class="about_video_source">
                                                                         <video width="1212" height="600" controls
-                                                                               preload="metadata">
-                                                                            <source src="__TMPL__/public/assets/images/mov_bbb.mp4"
+                                                                               preload="metadata" poster="__TMPL__/public/assets/images/about-video.jpg">
+                                                                            <source src="__TMPL__/public/assets/images/about.mp4"
                                                                                     type="video/mp4">
                                                                         </video>
                                                                     </div>
@@ -161,9 +161,9 @@
                                                                             more than 10billion, no loans, no financing,
                                                                             no default.</p>
                                                                         <div class="about_video_btn">
-                                                                            <img src="__TMPL__/public/assets/images/more.png"
+                                                                            <img src="__TMPL__/public/assets/images/more-white.png"
                                                                                  data-active_img="__TMPL__/public/assets/images/more-active.png"
-                                                                                 data-normal_img="__TMPL__/public/assets/images/more.png">
+                                                                                 data-normal_img="__TMPL__/public/assets/images/more-white.png">
                                                                         </div>
                                                                     </div>
                                                                     <div class="about_product_used">
@@ -215,18 +215,18 @@
 
                                                                     <div class="case_content_right">
                                                                         <ul class="case_content_right_list">
-                                                                            <foreach name="case_list" item="vo" offset="1">
-                                                                            <li class="case_content_right_item">
-                                                                                <img src="{:cmf_get_image_url($vo.thumbnail)}">
-                                                                                <p>{$vo.post_title}</p>
-                                                                            </li>
+                                                                            <foreach name="case_list" item="vo"
+                                                                                     offset="1">
+                                                                                <li class="case_content_right_item">
+                                                                                    <img src="{:cmf_get_image_url($vo.thumbnail)}">
+                                                                                    <p>{$vo.post_title}</p>
+                                                                                </li>
                                                                             </foreach>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
                                                                 <div class="clear_both"></div>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -236,14 +236,15 @@
                                 </div>
                             </div>
                         </div>
-                        <include file="public@foot"/>
                     </div>
+                    <include file="public@foot"/>
                 </div>
             </div>
         </div>
     </div>
-    <script src="__TMPL__/public/assets/js/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" src="__TMPL__/public/assets/js/home.js"></script>
-    <script type="text/javascript" src="__TMPL__/public/assets/js/response.js"></script>
+</div>
+<script src="__TMPL__/public/assets/js/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="__TMPL__/public/assets/js/home.js"></script>
+<script type="text/javascript" src="__TMPL__/public/assets/js/response.js"></script>
 </body>
 </html>

@@ -1,6 +1,8 @@
 <?php
 use think\facade\Route;
 
+Route::get('single', 'portal/index/product?id=5')->append(array('id' => '5',));
+
 Route::get('Jib Crane', 'portal/index/product_info?id=45')->append(array('id' => '45',));
 
 Route::get('Electric Hoist', 'portal/index/product_info?id=43')->append(array('id' => '43',));
@@ -33,6 +35,8 @@ Route::get('Hoist Overhead Crane', 'portal/index/product_info?id=8')->append(arr
 
 Route::get('Flexible Crane', 'portal/index/product_info?id=22')->append(array('id' => '22',));
 
+Route::get('Explosion proof Overhead Crane', 'portal/index/product_info?id=7')->append(array('id' => '7',));
+
 Route::get('news/:id', 'portal/Article/index?cid=8')->append(array('cid' => '8',))
 ->pattern(array('id' => '\d+',  'cid' => '\d+',));
 
@@ -64,9 +68,6 @@ Route::get('responsibility/:id', 'portal/index/responsibility')
 ->pattern(array('id' => '\d+',  'cid' => '\d+',));
 
 Route::get('news', 'portal/List/index?id=8')->append(array('id' => '8',))
-->pattern(array('id' => '\d+',));
-
-Route::get('single', 'portal/index/product?id=5')->append(array('id' => '5',))
 ->pattern(array('id' => '\d+',));
 
 Route::get('Double', 'portal/index/product?id=6')->append(array('id' => '6',))

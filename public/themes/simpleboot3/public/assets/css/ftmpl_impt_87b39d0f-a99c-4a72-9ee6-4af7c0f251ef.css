@@ -4554,6 +4554,9 @@ body, #-remove--flag {
     text-transform: none;
     margin-left: 10px;
 }
+.right_fix .right_fix_connect .right_fix_box .right_fix_box_connect p.right_fix_box_connect_text{
+    font-size: 16px;
+}
 .right_fix .right_fix_connect .right_fix_box .right_fix_box_connect p:first-child{
     margin-top: 13px;
 }
