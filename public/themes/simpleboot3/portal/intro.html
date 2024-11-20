@@ -26,7 +26,69 @@
                                      data-editablecontent="1585814936008">
 
                                     <include file="public@banner"/>
-                                    <include file="public@page_nav"/>
+                                    <div id="w_grid-1614397060551" class="w_grid-000">
+                                        <div class="w_grid signal">
+                                            <div class="e_box e_box-000 p_gridbox">
+                                                <div id="content_box-1614397060551-0"
+                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                                    <div id="w_grid-1614397060561" class="w_grid-001">
+                                                        <div class="w_grid ">
+                                                            <div class="e_box e_box-000 p_gridbox">
+                                                                <div id="content_box-1614397060561-0"
+                                                                     class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                                                    <div id="c_portalResIntro_category-1614397060586"
+                                                                         class="c_portalResIntro_category-01001001"
+                                                                         loaded="true" style="overflow: visible;">
+
+                                                                        <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
+                                                                             id="NavList_a1">
+                                                                            <ul class="clearfix swiper-wrapper">
+                                                                                <li class="swiper-slide swiper-no-swiping" data-id="4">
+                                                                                    <a href="{:cmf_url('portal/index/intro',array('id'=>4))}"
+                                                                                       title="CompanyProfile"
+                                                                                       class="more">Company Profile</a>
+                                                                                </li>
+                                                                                <foreach name="about_category" item="vo">
+                                                                                    <li class="swiper-slide swiper-no-swiping">
+                                                                                        <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}"
+                                                                                           title="LeadershipSpeech"
+                                                                                           class="more">{$vo.name}</a>
+                                                                                    </li>
+                                                                                </foreach>
+                                                                            </ul>
+                                                                            <div id="NavList_a1_menu-slide"
+                                                                                 class="menu-slide"
+                                                                                 style="width: 60px; height: 84px; left: 368px; top: 0px;">
+                                                                                <i></i></div>
+                                                                            <span class="swiper-notification"
+                                                                                  aria-live="assertive"
+                                                                                  aria-atomic="true"></span></div>
+                                                                        <script>
+                                                                            function getParameterByName(name) {
+                                                                                name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+                                                                                var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                                                                                    results = regex.exec(location.search);
+                                                                                return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+                                                                            }
+                                                                            var urlName = getParameterByName('id');
+                                                                            console.log(urlName)
+                                                                            $('.NavList_a1 li').each(function () {
+                                                                                var urlId = $(this).data('id');
+                                                                                console.log(urlId)
+                                                                                if (urlName==urlId) {
+                                                                                    $(this).find('a').addClass('active');
+                                                                                }
+                                                                            });
+                                                                        </script>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div id="w_grid-1614397060571" class="w_grid-000">
                                         <div class="w_grid signal">
                                             <div class="e_box e_box-000 p_gridbox">
@@ -35,7 +97,7 @@
                                                     <div id="c_portalResIntro_detail-16143970935380263"
                                                          class="c_portalResIntro_detail-01001" loaded="true"
                                                          style="overflow: visible;">
-                                                        <div class="e_box p_contentBox" loaded="true" data-infoid="1">
+                                                        <div class="e_box p_contentBox" loaded="true">
                                                             <h1 class="e_title p_header h1 borderB_dividers">
                                                                 {$page.post_title}
                                                             </h1>

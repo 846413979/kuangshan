@@ -4111,3 +4111,334 @@ body, #-remove--flag {
 .carousel-control-next-icon{
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath d='M2.75 0l-1.5 1.5L3.75 4l-2.5 2.5L2.75 8l4-4-4-4z'/%3e%3c/svg%3e");
 }
+
+
+.main_content_wrap{
+
+}
+.main_content_wrap .hot_product{
+    width: 1212px;
+    margin: 80px auto;
+}
+.main_content_wrap .hot_product .hot_product_title{
+    height: 50px;
+    width: 336px;
+    font-family: Arial, Arial;
+    font-weight: bold;
+    font-size: 42px;
+    color: #333333;
+    line-height: 50px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+}
+.main_content_wrap .hot_product .hot_product_more{
+    float: right;
+    margin-top: -50px;
+}
+.main_content_wrap .hot_product .hot_product_list{
+    margin-top: 10px;
+    width: 100%;
+    overflow: hidden;
+}
+.main_content_wrap .hot_product .hot_product_list ul{
+    padding: 10px;
+    width: 305%;
+    height: 400px;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_item{
+    width: 387px;
+    height: 375px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.16);
+    float: left;
+    margin-left: 17px;
+    cursor: pointer;
+    overflow: hidden;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_item:first-child {
+    margin-left: 0;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_item img {
+    width: 387px;
+    height: 290px;
+    transition: all 0.5s;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_item p {
+    width: 100%;
+    padding: 20px;
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 20px;
+    color: #333333;
+    line-height: 30px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_item:hover img {
+    transform: scale(1.1);
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_item:hover p {
+    color: #003F9B;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_line{
+    width: 92px;
+    height: 4px;
+    margin: 40px auto 0;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_line .hot_product_line_item{
+    width: 24px;
+    height: 4px;
+    background: #E1E1DF;
+    float: left;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_line .hot_product_line_item:first-child {
+    margin-left: 0;
+}
+.main_content_wrap .hot_product .hot_product_list .hot_product_line .hot_product_line_item.active {
+    background: #003F9B;
+}
+
+
+/* 关于我们 */
+.about_wrap{
+
+}
+.about_wrap .about_content{
+    width: 1212px;
+    margin: 80px auto 60px;
+}
+.about_wrap .about_content .about_title{
+    font-family: Arial, Arial;
+    font-weight: bold;
+    font-size: 42px;
+    color: #333333;
+    line-height: 47px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+}
+.about_wrap .about_content .about_description{
+    margin-top: 40px;
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 20px;
+    color: #333333;
+    line-height: 33px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+}
+.about_wrap .about_content .about_img{
+    margin-top: 60px;
+    width: 100%;
+    height: 292px;
+}
+.about_wrap .about_content .about_img .about_img_item{
+    width: 389px;
+    height: 292px;
+    border: 1px solid #707070;
+    margin-left: 22px;
+    float: left;
+}
+.about_wrap .about_content .about_img .about_img_item:first-child {
+    margin-left: 0;
+}
+
+.about_video_wrap{
+    width: 100%;
+    height: 1000px;
+    background-image: url(../images/about_video_bg.png);;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.about_video{
+    width: 1212px;
+    margin: 0 auto;
+}
+.about_video .about_video_description{
+    margin-top: 40px;
+    width: 676px;
+    float: left;
+}
+.about_video .about_video_description p{
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 33px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+}
+.about_video .about_video_description .about_video_btn{
+    width: 195px;
+    height: 52px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 0px 0px 0px 0px;
+    border: 1px solid #FFFFFF;
+    margin-top: 60px;
+    cursor: pointer;
+}
+
+.about_video .about_product_used{
+    padding: 30px;
+    width: 496px;
+    height: 410px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.16);
+    float: right;
+    margin-top: -70px;
+    position: relative;
+    z-index: 1;
+}
+.about_video .about_product_used h2{
+    font-family: Arial, Arial;
+    font-weight: bold;
+    font-size: 24px;
+    color: #333333;
+    line-height: 30px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+}
+.about_video .about_product_used p {
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 20px;
+    color: #999999;
+    line-height: 33px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    margin-top: 30px;
+}
+.about_video .about_product_used .about_product_used_item{
+    margin-top: 20px;
+}
+.about_video .about_product_used .about_product_used_item img{
+    float: left;
+}
+.about_video .about_product_used .about_product_used_item p{
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 20px;
+    color: #333333;
+    line-height: 20px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    margin-left: 40px;
+}
+.about_video .about_product_used .about_product_used_line{
+    margin: 20px auto 0;
+    width: 436px;
+    height: 1px;
+    background: #DCDCDC;
+}
+
+.case_wrap{
+    width: 1212px;
+    margin: 80px auto;
+}
+.case_wrap .case_title{
+    font-family: Arial, Arial;
+    font-weight: bold;
+    font-size: 42px;
+    color: #333333;
+    line-height: 50px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+}
+.case_wrap .case_title .case_more{
+    float: right;
+}
+.case_wrap .case_content{
+    margin-top: 40px;
+}
+.case_wrap .case_content .case_content_left{
+    width: 594px;
+    height: 594px;
+    border: 1px solid #707070;
+    position: relative;
+    cursor: pointer;
+    float: left;
+}
+.case_wrap .case_content .case_content_left .case_content_left_img{
+    width: 100%;
+    height: 100%;
+}
+.case_wrap .case_content .case_content_left img{
+    width: 100%;
+    height: 100%;
+}
+.case_wrap .case_content .case_content_left p{
+    width: 100%;
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 20px;
+    color: #FEFEFE;
+    line-height: 30px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+}
+.case_wrap .case_content .case_content_left .case_content_more{
+    width: 24px;
+    height: 16px;
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+.case_wrap .case_content .case_content_right{
+    width: 594px;
+    height: 594px;
+    float: right;
+}
+.case_wrap .case_content .case_content_right .case_content_right_item{
+    float: left;
+    width: 296px;
+    height: 296px;
+    border: 1px solid #707070;
+    position: relative;
+    cursor: pointer;
+    margin-right: -1px;
+    margin-bottom: -1px;
+}
+.case_wrap .case_content .case_content_right .case_content_right_item img{
+    width: 100%;
+    height: 100%;
+}
+.case_wrap .case_content .case_content_right .case_content_right_item p{
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 12px;
+    color: #FEFEFE;
+    line-height: 20px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+    position: absolute;
+    left: 14px;
+    bottom: 20px;
+}
+.case_wrap .case_content .case_content_right .case_content_right_item .case_content_more{
+    width: 16px;
+    height: 10px;
+    position: absolute;
+    right: 20px;
+    bottom: 22px;
+}
+
+
+.clear_both{
+    clear: both;
+}

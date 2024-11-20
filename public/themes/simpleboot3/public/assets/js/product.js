@@ -6,20 +6,26 @@ $(document).ready(function() {
     $('.product_tonnage').change(function (){
         change()
     })
-    $('.product_span').change(function (){
+    $('.product_industry .product_industry_list .product_industry_list_item').click(function (){
+        if($(this).hasClass('active')){
+            $(this).removeClass('active')
+        }else {
+            $(this).addClass('active')
+        }
         change()
     })
 
-
     function change(){
+        let industry = [];
+        $('.product_industry .product_industry_list .product_industry_list_item.active').each(function (){
+            industry.push($(this).data('id'))
+        })
+
         const data = {
             weight: $('.product_tonnage').val(),
-            span: $('.product_span').val()
+            profession_ids: industry.join(',')
         };
-        let url = '/product';
-        if ($('.product_category').val() != '') {
-            url = '/product/'+$('.product_category').val()
-        }
+        let url = $('.product_category').find('option:selected').data('url');
         $.ajax({
             url: url,
             type: 'get',
@@ -39,7 +45,7 @@ $(document).ready(function() {
                     html +=     '<h3 class="titleBox">'
                     html +=         list[i].title
                     html +=     '</h3>'
-                    html +=     '<a class="link" href="/product_info/'+list[i].id+'"></a>'
+                    html +=     '<a class="link" href="'+list[i].url+'"></a>'
                     html += '</div>'
                 }
                 $('.p_productsSet').html(html)
@@ -79,4 +85,7 @@ $(document).ready(function() {
             }
         })
     })
+
+
+
 })

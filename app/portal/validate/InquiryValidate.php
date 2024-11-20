@@ -19,7 +19,7 @@ class InquiryValidate extends Validate
         'name' => 'require',
         'phone' => 'require',
         'email' => 'require|email',
-        'type' => 'require|in:1,2',
+        'type' => 'require|in:1,2,3',
         'product_id' => 'requireIf:type,1',
 //        'lifting_capacity' => 'requireIf:type,1',
 //        'lifting_height' => 'requireIf:type,1',

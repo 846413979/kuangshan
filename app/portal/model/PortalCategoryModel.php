@@ -94,11 +94,31 @@ class PortalCategoryModel extends Model
             $item['status_text']    = empty($item['status']) ? '<span class="label label-warning">隐藏</span>' : '<span class="label label-success">显示</span>';
             $item['checked']        = in_array($item['id'], $currentIds) ? "checked" : "";
             $item['url']            = cmf_url('portal/List/index', ['id' => $item['id']]);
-            if($type==2){
-                $controllerName = "AdminCategory";
-            }else{
-                $controllerName = "AdminProductCategory";
+            switch ($type){
+                case 1:
+                    $controllerName = "AdminProductCategory";
+                    break;
+                case 3:
+                    $controllerName = "AdminCaseCategory";
+                    break;
+                case 4:
+                    $controllerName = "AdminServiceCategory";
+                    break;
+                case 5:
+                    $controllerName = "AdminVideoCategory";
+                    break;
+                case 6:
+                    $controllerName = "AdminFileCategory";
+                    break;
+                case 7:
+                    $controllerName = "AdminAboutCategory";
+                    break;
+                case 2:
+                default:
+                    $controllerName = "AdminCategory";
+                    break;
             }
+
             $item['str_action']     = '<a class="btn btn-xs btn-primary" href="' . url($controllerName . "/add", ["parent" => $item['id']]) . '">添加子分类</a>  <a class="btn btn-xs btn-primary" href="' . url($controllerName."/edit", ["id" => $item['id']]) . '">' . lang('EDIT') . '</a>  <a class="btn btn-xs btn-danger js-ajax-delete" href="' . url($controllerName."/delete", ["id" => $item['id']]) . '">' . lang('DELETE') . '</a> ';
 
             array_push($newCategories, $item);

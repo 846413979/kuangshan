@@ -65,12 +65,12 @@
 
                                             <dl class="botUl">
                                                 <dt class="botDt">
-                                                    <a href="https://www.hnks.com/product/22/"
+                                                    <a href="{:cmf_url('portal/index/product')}"
                                                        class="botLink blink">ProductCenter</a>
                                                 </dt>
                                                 <foreach name="category_list" item="vo">
                                                 <dd class="sbotDd">
-                                                    <a href="/product/{$vo.id}"
+                                                    <a href="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}"
                                                        class="botLinkS blink">{$vo.name}</a>
                                                 </dd>
                                                 </foreach>
@@ -252,3 +252,9 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    $('.right_fix_top').click(function (){
+        $('html,body').animate({scrollTop: 0}, 500);
+    })
+</script>

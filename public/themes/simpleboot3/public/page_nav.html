@@ -25,46 +25,18 @@
                                     <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
                                          id="NavList_a1">
                                         <ul class="clearfix swiper-wrapper">
-                                            <switch name=":input('id')">
-                                                <case value="4|7|8|9">
-                                                    <li class="swiper-slide swiper-no-swiping">
-                                                        <a href="/intro/4.html"
-                                                           title="CompanyProfile"
-                                                           class="more">CompanyProfile</a>
-                                                    </li>
-                                                    <li class="swiper-slide swiper-no-swiping">
-                                                        <a href="/intro/7.html"
-                                                           title="LeadershipSpeech"
-                                                           class="more">LeadershipSpeech</a>
-                                                    </li>
-                                                    <li class="swiper-slide swiper-no-swiping">
-                                                        <a href="/honor/7.html"
-                                                           title="EnterpriseHonor" class="more">EnterpriseHonor</a>
-                                                    </li>
-                                                    <li class="swiper-slide swiper-no-swiping">
-                                                        <a href="/honor/9.html"
-                                                           title="EnterpriseStyle" class="more">EnterpriseStyle</a>
-                                                    </li>
-                                                    <li class="swiper-slide swiper-no-swiping">
-                                                        <a href="/intro/8.html"
-                                                           title="AdvancedEquipment"
-                                                           class="more">AdvancedEquipment</a>
-                                                    </li>
-                                                </case>
-                                                <case value="16|17">
-                                                    <li class="swiper-slide swiper-no-swiping">
-                                                        <a href="/intro/16.html"
-                                                           title="ContactUs"
-                                                           class="more">ContactUs</a>
-                                                    </li>
-<!--                                                    <li class="swiper-slide swiper-no-swiping">-->
-<!--                                                        <a href="/intro/17.html"-->
-<!--                                                           title="JoinUs"-->
-<!--                                                           class="more">JoinUs</a>-->
-<!--                                                    </li>-->
-                                                </case>
-                                            </switch>
-
+                                            <li class="swiper-slide swiper-no-swiping">
+                                                <a href="/intro/4.html"
+                                                   title="CompanyProfile"
+                                                   class="more">Company Profile</a>
+                                            </li>
+                                            <foreach name="about_category" item="vo">
+                                                <li class="swiper-slide swiper-no-swiping">
+                                                    <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}"
+                                                       title="LeadershipSpeech"
+                                                       class="more">{$vo.name}</a>
+                                                </li>
+                                            </foreach>
                                         </ul>
                                         <div id="NavList_a1_menu-slide"
                                              class="menu-slide"
@@ -81,96 +53,6 @@
                                                 $(this).addClass('active');
                                             }
                                         });
-                                    </script>
-                                </div>
-                            </div>
-                            <div id="content_box-1614397060561-1"
-                                 class="e_box e_box-000 d_gridCell_1 p_gridCell">
-                                <div id="c_portalResBreadcrumb_nav-1614397060591"
-                                     class="c_portalResBreadcrumb_nav-01001003"
-                                     loaded="true" style="overflow: visible;">
-                                    <!--homePage  首页-->
-                                    <div class="e_box e_box-000 p_breadcrumbList"
-                                         data-ename="面包屑导航">
-
-                                        <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumbFirst">
-                                                                                <span class="weizhi"><i
-                                                                                        class="iconfont"></i>Your Location:</span>
-                                        </div>
-                                        <!--compositePage 应用综合页对象-->
-                                        <!--navBreadcrumb 应用数据集合对象（list集合）-->
-
-
-                                        <div class="e_breadcrumb e_breadcrumb-001 p_breadcrumb contentBox">
-                                            <switch name=":input('id')">
-                                                <case value="4|7|8">
-                                                    <a href="/intro/1.html">
-                                                        <div class="font">
-                                                            <span>
-                                                                AboutUs
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </case>
-                                                <case value="16|17">
-                                                    <a href="/intro/16.html">
-                                                        <div class="font">
-                                                            <span>
-                                                                ServiceCenter
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </case>
-                                            </switch>
-                                        </div>
-                                        <!---->
-                                        <!-- currentPage 当前页对象-->
-                                        <div class="e_title e_GuideLabel-001 p_end">
-                                            <div class="font"><span
-                                                    class="i_separator">/</span>
-                                            </div>
-                                        </div>
-                                        <div class="e_breadcrumb e_breadcrumb-000 p_breadcrumbCurrent">
-                                            <div class="font">
-                                                <span>
-                                                    <switch name=":input('id')">
-                                                        <case value="4">
-                                                            CompanyProfile
-                                                        </case>
-                                                        <case value="7">
-                                                            LeadershipSpeech
-                                                        </case>
-                                                        <case value="8">
-                                                            AdvancedEquipment
-                                                        </case>
-                                                        <case value="16">
-                                                            ContactUs
-                                                        </case>
-                                                        <case value="17">
-                                                            JoinUs
-                                                        </case>
-                                                    </switch>
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <script>
-                                            post_title = $("#NavList_a1 a.active").text();
-                                            $(".p_breadcrumbCurrent .font span").text(post_title);
-                                        </script>
-                                    </div>
-
-                                    <script type="text/javascript">
-                                        $comp({
-                                            breadcrumbType: false,
-                                            contentFlag: "true",
-                                            contentWidth: "350",
-                                            ctx: "",
-                                            appId: "",
-                                            id: "portalResBreadcrumb_nav-1614397060591",
-                                            lib: ["js/portalResBreadcrumb/portalResBreadcrumb_nav"]
-                                        });
-
-
                                     </script>
                                 </div>
                             </div>

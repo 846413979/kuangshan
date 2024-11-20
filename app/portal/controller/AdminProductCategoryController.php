@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 namespace app\portal\controller;
 
+use app\admin\model\RouteModel;
 use app\portal\model\ProductCategoryModel;
 use cmf\controller\AdminBaseController;
 
@@ -72,6 +73,15 @@ class AdminProductCategoryController extends AdminBaseController
         if ($result === false) {
             $this->error('添加失败!');
         }
+        $id = $categoryModel->id;
+
+        //设置别名
+        $routeModel = new RouteModel();
+        if (!empty($data['alias']) && !empty($id)) {
+            $routeModel->setRoute($data['alias'], 'portal/index/product', ['id' => $id], 2, 1);
+            $routeModel->getRoutes(true);
+        }
+
 
         $this->success('添加成功!', url('AdminProductCategory/index'));
     }
@@ -125,6 +135,12 @@ class AdminProductCategoryController extends AdminBaseController
 
         if ($result === false) {
             $this->error('保存失败!');
+        }
+        //设置别名
+        $routeModel = new RouteModel();
+        if (!empty($data['alias'])) {
+            $routeModel->setRoute($data['alias'], 'portal/index/product', ['id' => $data['id']], 2, 1);
+            $routeModel->getRoutes(true);
         }
 
         $this->success('保存成功!',url('AdminProductCategory/index'));

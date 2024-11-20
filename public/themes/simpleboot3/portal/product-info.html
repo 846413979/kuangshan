@@ -67,13 +67,13 @@
                                                                                   aria-atomic="true"></span></div>
                                                                         <script>$("div[id^='c_']").attr("loaded", "true")</script>
                                                                         <script>
-                                                                                var urlName = window.location.pathname;  //获取地址栏中文件名或路径。
-                                                                                $('.NavList_a1 li a').each(function () {        //遍历当前网页导航或分类
-                                                                                    var urlHref = $(this).attr('href');  //获取导航链接地址href值
-                                                                                    if (urlName.indexOf(urlHref) >= 0) {   //检测文件名或路径中是否包含当前链接值
-                                                                                        $(this).addClass('active');
-                                                                                    }
-                                                                                });
+                                                                            var urlName = window.location.pathname;  //获取地址栏中文件名或路径。
+                                                                            $('.NavList_a1 li a').each(function () {        //遍历当前网页导航或分类
+                                                                                var urlHref = $(this).attr('href');  //获取导航链接地址href值
+                                                                                if (urlName.indexOf(urlHref) >= 0) {   //检测文件名或路径中是否包含当前链接值
+                                                                                    $(this).addClass('active');
+                                                                                }
+                                                                            });
                                                                         </script>
                                                                     </div>
                                                                 </div>
@@ -157,23 +157,38 @@
                                                                             </div>
                                                                             <div class="info_left_photos">
                                                                                 <div class="main-image">
-                                                                                    <img id="main-img" src="{:cmf_get_image_url($product.photos[0]['url'])}" alt="$product.photos[0]['name']">
+                                                                                    <img id="main-img"
+                                                                                         src="{:cmf_get_image_url($product.photos[0]['url'])}"
+                                                                                         alt="$product.photos[0]['name']">
                                                                                 </div>
                                                                                 <div class="thumbnail-gallery">
                                                                                     <ul class="thumbnail-gallery-list">
-                                                                                        <foreach name="product.photos" item="vo">
-                                                                                            <li class="thumbnail-gallery-item {$key==0 ? 'active' : ''}" data-main-src="{:cmf_get_image_url($vo.url)}">
-                                                                                                <img src="{:cmf_get_image_url($vo.url)}" alt="{$vo.name}">
+                                                                                        <foreach name="product.photos"
+                                                                                                 item="vo">
+                                                                                            <li class="thumbnail-gallery-item {$key==0 ? 'active' : ''}"
+                                                                                                data-main-src="{:cmf_get_image_url($vo.url)}">
+                                                                                                <img src="{:cmf_get_image_url($vo.url)}"
+                                                                                                     alt="{$vo.name}">
                                                                                             </li>
                                                                                         </foreach>
                                                                                     </ul>
                                                                                     <div class="proto-btn prev-btn">
-                                                                                        <img class="prev-img" src="__TMPL__/public/assets/images/prev.png" alt="prev">
-                                                                                        <img class="prev-img-active" style="display: none" src="__TMPL__/public/assets/images/prev-active.png" alt="prev">
+                                                                                        <img class="prev-img"
+                                                                                             src="__TMPL__/public/assets/images/prev.png"
+                                                                                             alt="prev">
+                                                                                        <img class="prev-img-active"
+                                                                                             style="display: none"
+                                                                                             src="__TMPL__/public/assets/images/prev-active.png"
+                                                                                             alt="prev">
                                                                                     </div>
                                                                                     <div class="proto-btn next-btn">
-                                                                                        <img class="next-img" src="__TMPL__/public/assets/images/next.png" alt="next">
-                                                                                        <img class="next-img-active" style="display: none" src="__TMPL__/public/assets/images/next-active.png" alt="next">
+                                                                                        <img class="next-img"
+                                                                                             src="__TMPL__/public/assets/images/next.png"
+                                                                                             alt="next">
+                                                                                        <img class="next-img-active"
+                                                                                             style="display: none"
+                                                                                             src="__TMPL__/public/assets/images/next-active.png"
+                                                                                             alt="next">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -184,16 +199,16 @@
                                                                                 <span class="info_right_mark_title">
                                                                                     Authentication mark:
                                                                                 </span>
-                                                                                <foreach name="product.authentication_mark" item="vo">
-                                                                                <div class="info_right_mark_img">
-                                                                                    <img src="{:cmf_get_image_url($vo.url)}" alt="{$vo.name}">
-                                                                                </div>
+                                                                                <foreach
+                                                                                        name="product.authentication_mark"
+                                                                                        item="vo">
+                                                                                    <div class="info_right_mark_img">
+                                                                                        <img src="{:cmf_get_image_url($vo.url)}"
+                                                                                             alt="{$vo.name}">
+                                                                                    </div>
                                                                                 </foreach>
                                                                             </div>
-                                                                            <div class="info_right_apply">
-                                                                                <span class="info_right_apply_title">Apply: </span>
-                                                                                {$product.industry}
-                                                                            </div>
+
                                                                             <div class="info_right_tips">
                                                                                 The following options can be selected:
                                                                             </div>
@@ -202,8 +217,11 @@
                                                                                     Lifting capacity:
                                                                                 </div>
                                                                                 <ul class="info_right_capacity_list">
-                                                                                    <foreach name="product.lifting_capacity" item="vo">
-                                                                                        <li class="info_right_capacity_list_item {$key==0 ? 'active' : ''}" data-key="{$key}">
+                                                                                    <foreach
+                                                                                            name="product.lifting_capacity"
+                                                                                            item="vo">
+                                                                                        <li class="info_right_capacity_list_item {$key==0 ? 'active' : ''}"
+                                                                                            data-key="{$key}">
                                                                                             {$vo}
                                                                                         </li>
                                                                                     </foreach>
@@ -217,14 +235,18 @@
                                                                                     </div>
                                                                                     <div class="slider-container">
                                                                                         <div class="dual-range-slider">
-                                                                                            <div id="minHandle" class="handle">
+                                                                                            <div id="minHandle"
+                                                                                                 class="handle">
                                                                                                 <div class="handle_text minHandle_text">
-                                                                                                    <span id="minValue">{$product.min_lifting_height}</span>m<div class="handle_text_arrow"></div>
+                                                                                                    <span id="minValue">{$product.min_lifting_height}</span>m
+                                                                                                    <div class="handle_text_arrow"></div>
                                                                                                 </div>
                                                                                             </div>
-                                                                                            <div id="maxHandle" class="handle">
+                                                                                            <div id="maxHandle"
+                                                                                                 class="handle">
                                                                                                 <div class="handle_text maxHandle_text">
-                                                                                                    <span id="maxValue">{$product.max_lifting_height}</span>m<div class="handle_text_arrow"></div>
+                                                                                                    <span id="maxValue">{$product.max_lifting_height}</span>m
+                                                                                                    <div class="handle_text_arrow"></div>
                                                                                                 </div>
                                                                                             </div>
                                                                                             <div class="range-bar"></div>
@@ -234,50 +256,54 @@
                                                                                 <div class="clear_both"></div>
 
                                                                                 <if condition="$product.min_span!=0 && $product.max_span!=0">
-                                                                                <div class="info_right_span">
-                                                                                    <div class="info_right_span_title">
-                                                                                        Span:
-                                                                                    </div>
-                                                                                    <div class="slider-container_span">
-                                                                                        <div class="dual-range-slider_span">
-                                                                                            <div id="minSpanHandle" class="handle_span">
-                                                                                                <div class="handle_span_text minHandle_span_text">
-                                                                                                    <span id="minSpanValue">{$product.min_span}</span>m<div class="handle_span_text_arrow"></div>
+                                                                                    <div class="info_right_span">
+                                                                                        <div class="info_right_span_title">
+                                                                                            Span:
+                                                                                        </div>
+                                                                                        <div class="slider-container_span">
+                                                                                            <div class="dual-range-slider_span">
+                                                                                                <div id="minSpanHandle"
+                                                                                                     class="handle_span">
+                                                                                                    <div class="handle_span_text minHandle_span_text">
+                                                                                                        <span id="minSpanValue">{$product.min_span}</span>m
+                                                                                                        <div class="handle_span_text_arrow"></div>
+                                                                                                    </div>
                                                                                                 </div>
-                                                                                            </div>
-                                                                                            <div id="maxSpanHandle" class="handle_span">
-                                                                                                <div class="handle_span_text maxHandle_span_text">
-                                                                                                    <span id="maxSpanValue">{$product.max_span}</span>m<div class="handle_span_text_arrow"></div>
+                                                                                                <div id="maxSpanHandle"
+                                                                                                     class="handle_span">
+                                                                                                    <div class="handle_span_text maxHandle_span_text">
+                                                                                                        <span id="maxSpanValue">{$product.max_span}</span>m
+                                                                                                        <div class="handle_span_text_arrow"></div>
+                                                                                                    </div>
                                                                                                 </div>
+                                                                                                <div class="range-bar_span"></div>
                                                                                             </div>
-                                                                                            <div class="range-bar_span"></div>
                                                                                         </div>
                                                                                     </div>
-                                                                                </div>
-                                                                                <div class="clear_both"></div>
+                                                                                    <div class="clear_both"></div>
                                                                                 </if>
 
                                                                                 <div class="info_voltage">
                                                                                     <div class="info_voltage_title">
-                                                                                        Voltage:
+                                                                                        Voltage/Hertz:
                                                                                     </div>
                                                                                     <div class="info_voltage_content">
                                                                                         <select class="info_select info_voltage_select">
-                                                                                            <foreach name="product_setting.operating_voltage" item="vo">
-                                                                                                <option value="{$vo}">{$vo}</option>
+                                                                                            <foreach
+                                                                                                    name="product_setting.operating_voltage"
+                                                                                                    item="vo">
+                                                                                                <option value="{$vo}">
+                                                                                                    {$vo}
+                                                                                                </option>
                                                                                             </foreach>
                                                                                         </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="clear_both"></div>
-                                                                                <div class="info_voltage">
-                                                                                    <div class="info_voltage_title">
-                                                                                        Hertz:
-                                                                                    </div>
-                                                                                    <div class="info_voltage_content">
                                                                                         <select class="info_select info_hertz_select">
-                                                                                            <foreach name="product_setting.operating_hertz" item="vo">
-                                                                                                <option value="{$vo}">{$vo}</option>
+                                                                                            <foreach
+                                                                                                    name="product_setting.operating_hertz"
+                                                                                                    item="vo">
+                                                                                                <option value="{$vo}">
+                                                                                                    {$vo}
+                                                                                                </option>
                                                                                             </foreach>
                                                                                         </select>
                                                                                     </div>
@@ -289,8 +315,11 @@
                                                                                         Job level:
                                                                                     </div>
                                                                                     <ul class="info_right_job_list">
-                                                                                        <foreach name="product.job_level" item="vo">
-                                                                                            <li class="info_right_job_list_item {$key==0 ? 'active' : ''}" data-key="{$key}">
+                                                                                        <foreach
+                                                                                                name="product.job_level"
+                                                                                                item="vo">
+                                                                                            <li class="info_right_job_list_item {$key==0 ? 'active' : ''}"
+                                                                                                data-key="{$key}">
                                                                                                 {$vo}
                                                                                             </li>
                                                                                         </foreach>
@@ -303,10 +332,17 @@
                                                                                         Sling available:
                                                                                     </div>
                                                                                     <ul class="info_available_list">
-                                                                                        <foreach name="product.sling_available" item="vo">
-                                                                                            <li class="info_available_list_item" data-key="{$key}">
-                                                                                                <img src="{:cmf_get_image_url($vo.url)}" class="available_img" alt="">
-                                                                                                <img src="{:cmf_get_image_url($vo.active_url)}" class="available_img_active" alt="">
+                                                                                        <foreach
+                                                                                                name="product.sling_available"
+                                                                                                item="vo">
+                                                                                            <li class="info_available_list_item"
+                                                                                                data-key="{$key}">
+                                                                                                <img src="{:cmf_get_image_url($vo.url)}"
+                                                                                                     class="available_img"
+                                                                                                     alt="">
+                                                                                                <img src="{:cmf_get_image_url($vo.active_url)}"
+                                                                                                     class="available_img_active"
+                                                                                                     alt="">
                                                                                                 <span class="info_available_list_item_title">
                                                                                                     {$vo.name}
                                                                                                 </span>
@@ -315,17 +351,27 @@
                                                                                     </ul>
                                                                                 </div>
                                                                                 <div class="clear_both"></div>
-
+                                                                                <div class="info_right_apply">
+                                                                                    <span class="info_right_apply_title">Apply: </span>
+                                                                                    {$product.industry}
+                                                                                </div>
 
                                                                                 <div class="info_btn_wrap">
                                                                                     <div class="info_btn" id="inquiry">
-                                                                                        INQUIRY
+                                                                                        <img src="__TMPL__/public/assets/images/submit.png"
+                                                                                             data-unactive_img="__TMPL__/public/assets/images/submit.png"
+                                                                                             data-active_img="__TMPL__/public/assets/images/submit-active.png">
                                                                                     </div>
-                                                                                    <div class="info_btn" onclick="window.location.href='/intro/16.html'">
-                                                                                        CONTACT US
+                                                                                    <div class="info_btn">
+                                                                                        <img src="__TMPL__/public/assets/images/consult.png"
+                                                                                             data-unactive_img="__TMPL__/public/assets/images/consult.png"
+                                                                                             data-active_img="__TMPL__/public/assets/images/consult-active.png">
                                                                                     </div>
-                                                                                    <div class="info_btn" onclick="window.location.href='{:cmf_get_file_download_url($product.file.url)}'">
-                                                                                        DOWNLOAD
+                                                                                    <div class="info_btn"
+                                                                                         onclick="window.location.href='{:cmf_get_file_download_url($product.file.url)}'">
+                                                                                        <img src="__TMPL__/public/assets/images/catalogue.png"
+                                                                                             data-unactive_img="__TMPL__/public/assets/images/catalogue.png"
+                                                                                             data-active_img="__TMPL__/public/assets/images/catalogue-active.png">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -337,10 +383,18 @@
                                                                                 Related Products
                                                                             </div>
                                                                             <ul class="related_products_list">
-                                                                                <foreach name="recommended_list" item="vo">
-                                                                                    <li class="related_products_list_item" onclick="location.href='/product_info/{$vo.id}.html'">
-                                                                                        <div class="related_products_img_wrap"><img src="{:cmf_get_image_url($vo.thumbnail)}"></div>
-                                                                                        <div class="related_products_list_item_title">{$vo.title}</div>
+                                                                                <foreach name="recommended_list"
+                                                                                         item="vo">
+                                                                                    <li class="related_products_list_item"
+                                                                                        onclick="location.href='{:cmf_url(\"
+                                                                                        portal
+                                                                                    /index/product_info\",array(\"id\"=>$vo[\"id\"]))}'">
+                                                                                    <div class="related_products_img_wrap">
+                                                                                        <img src="{:cmf_get_image_url($vo.thumbnail)}">
+                                                                                    </div>
+                                                                                    <div class="related_products_list_item_title">
+                                                                                        {$vo.title}
+                                                                                    </div>
                                                                                     </li>
                                                                                 </foreach>
                                                                             </ul>
@@ -365,26 +419,41 @@
                                                                                 <div class="info_content_content_item">
                                                                                     {$product.overview}
                                                                                 </div>
-                                                                                <div class="info_content_content_item" style="display: none;">
+                                                                                <div class="info_content_content_item"
+                                                                                     style="display: none;">
                                                                                     {$product.scenario}
                                                                                 </div>
-                                                                                <div class="info_content_content_item" style="display: none;">
+                                                                                <div class="info_content_content_item"
+                                                                                     style="display: none;">
                                                                                     <ul class="info_content_content_certificate">
-                                                                                        <foreach name="product.certificate" item="vo">
-                                                                                        <li class="info_content_content_certificate_item">
-                                                                                            <div class="certificate_wrap"><img src="{:cmf_get_image_url($vo.url)}" alt=""></div>
-                                                                                            <div class="info_content_content_certificate_item_title">{$vo.name}</div>
-                                                                                        </li>
+                                                                                        <foreach
+                                                                                                name="product.certificate"
+                                                                                                item="vo">
+                                                                                            <li class="info_content_content_certificate_item">
+                                                                                                <div class="certificate_wrap">
+                                                                                                    <img src="{:cmf_get_image_url($vo.url)}"
+                                                                                                         alt=""></div>
+                                                                                                <div class="info_content_content_certificate_item_title">
+                                                                                                    {$vo.name}
+                                                                                                </div>
+                                                                                            </li>
                                                                                         </foreach>
                                                                                         <div class="clear_both"></div>
                                                                                     </ul>
                                                                                 </div>
-                                                                                <div class="info_content_content_item" style="display: none;">
+                                                                                <div class="info_content_content_item"
+                                                                                     style="display: none;">
                                                                                     <ul class="info_content_content_case">
-                                                                                        <foreach name="product.certificate" item="vo">
+                                                                                        <foreach
+                                                                                                name="product.certificate"
+                                                                                                item="vo">
                                                                                             <li class="info_content_content_case_item">
-                                                                                                <div class="case_wrap"><img src="{:cmf_get_image_url($vo.url)}" alt=""></div>
-                                                                                                <div class="info_content_content_case_item_title">{$vo.name}</div>
+                                                                                                <div class="case_wrap">
+                                                                                                    <img src="{:cmf_get_image_url($vo.url)}"
+                                                                                                         alt=""></div>
+                                                                                                <div class="info_content_content_case_item_title">
+                                                                                                    {$vo.name}
+                                                                                                </div>
                                                                                             </li>
                                                                                         </foreach>
                                                                                         <div class="clear_both"></div>
@@ -446,27 +515,28 @@
 <!--弹窗-->
 <div class="popover_wrap" style="display: none">
     <div class="popover_container">
-        <div class = popover_close>
+        <div class=popover_close>
             <img src="__TMPL__/public/assets/images/close.png" alt="">
         </div>
         <div class="popover_content">
             <div class="popover_title">
                 <h2>Develop your lifting solution</h2>
-                <p class="popover_title_description">Contact us today by email at :<a href="javascript:">info@weihuaheavycrane.com</a>, or fill out the form below.</p>
+                <p class="popover_title_description">Contact us today by email at :<a href="javascript:">info@weihuaheavycrane.com</a>,
+                    or fill out the form below.</p>
             </div>
             <div class="popover_form">
                 <form method="post">
                     <div class="popover_form_name">
-                        <input id="popover-name" type="text" name="name" placeholder="Name:" >
+                        <input id="popover-name" type="text" name="name" placeholder="Name:">
                     </div>
                     <div class="popover_form_phone">
-                        <input id="popover-phone" type="text" name="phone" placeholder="Phone / WhatsApp:" >
+                        <input id="popover-phone" type="text" name="phone" placeholder="Phone / WhatsApp:">
                     </div>
                     <div class="popover_form_email">
-                        <input id="popover-email" type="text" name="email" placeholder="E-mail:" >
+                        <input id="popover-email" type="text" name="email" placeholder="E-mail:">
                     </div>
                     <div class="popover_form_content">
-                        <textarea id="popover-content" name="content" placeholder="Message:" ></textarea>
+                        <textarea id="popover-content" name="content" placeholder="Message:"></textarea>
                     </div>
                     <div class="popover_form_submit">
                         <input name="product_id" id="product-id" style="display: none" value="{$product.id}">

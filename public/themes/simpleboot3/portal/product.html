@@ -121,9 +121,9 @@
                                                                         <div class="proBoxLeft">
                                                                             <div class="e_box p_ProductCategoryList" data-ename="产品分类列表">
                                                                                 <select class="product_select product_category">
-                                                                                    <option value="">All Products</option>
+                                                                                    <option value="" data-url="{:cmf_url('portal/index/product')}">All Products</option>
                                                                                     <foreach name="category_list" item="vo">
-                                                                                        <option value="{$vo.id}" {$vo.id==$category.id ? 'selected' :''}>{$vo.name}</option>
+                                                                                        <option value="{$vo.id}" data-url="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}" {$vo.id==$category.id ? 'selected' :''}>{$vo.name}</option>
                                                                                     </foreach>
                                                                                 </select>
                                                                                 <select class="product_select product_tonnage">
@@ -140,19 +140,17 @@
                                                                                     <option value="150t">150t</option>
                                                                                     <option value="200t">200t</option>
                                                                                 </select>
-                                                                                <select class="product_select product_span">
-                                                                                    <option value="">All Span</option>
-                                                                                    <option value="5">5m</option>
-                                                                                    <option value="10">10m</option>
-                                                                                    <option value="15">15m</option>
-                                                                                    <option value="20">20m</option>
-                                                                                    <option value="25">25m</option>
-                                                                                    <option value="30">30m</option>
-                                                                                    <option value="35">35m</option>
-                                                                                    <option value="40">40m</option>
-                                                                                    <option value="45">45m</option>
-                                                                                    <option value="50">50m</option>
-                                                                                </select>
+                                                                                <div class="product_industry">
+                                                                                    <div class="product_industry_title">Industry Application:</div>
+                                                                                    <ul class="product_industry_list">
+                                                                                        <foreach name="profession_list" item="vo">
+                                                                                            <li class="product_industry_list_item" data-id="{$vo.id}">
+                                                                                                {$vo.name}
+                                                                                            </li>
+                                                                                        </foreach>
+                                                                                    </ul>
+
+                                                                                </div>
                                                                             </div>
                                                                         </div>
                                                                         <div class="e_box p_products proLists p_productsSet"
@@ -181,7 +179,7 @@
 
                                                                                     <!-- 链接开始 -->
                                                                                     <a class="link"
-                                                                                       href="/product_info/{$vo.id}"></a>
+                                                                                       href="{:cmf_url('portal/index/product_info',array('id'=>$vo['id']))}"></a>
                                                                                     <!-- 链接结束 -->
                                                                                 </div>
                                                                              </foreach>

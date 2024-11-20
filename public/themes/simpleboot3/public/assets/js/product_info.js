@@ -466,4 +466,12 @@ $(document).ready(function() {
     }
 
 
+    $('.info_btn img').hover(function (){
+        var active_img = $(this).data('active_img');
+        $(this).attr('src',active_img);
+    },function (){
+        var unactive_img = $(this).data('unactive_img');
+        $(this).attr('src',unactive_img);
+    })
+
 });

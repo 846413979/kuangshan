@@ -4960,7 +4960,7 @@
 }
 
 .p_ProductCategoryList{
-    width: 20%;
+    width: 23%;
     height: auto;
     overflow: hidden;
     padding: 0px;
@@ -4979,6 +4979,48 @@
     line-height: 40px;
     padding-left: 10px;
 }
+.product_industry{
+    margin-top: 30px;
+}
+.product_industry_title{
+    font-family: Arial, Arial;
+    font-weight: bold;
+    font-size: 16px;
+    color: #333333;
+    line-height: 28px;
+    text-align: left;
+    font-style: normal;
+    text-transform: none;
+}
+.product_industry_list{
+
+}
+.product_industry_list_item{
+    float: left;
+    width: 45%;
+    height: 32px;
+    background: #FFFFFF;
+    border-radius: 4px 4px 4px 4px;
+    border: 1px solid #DCDCDC;
+    font-family: Arial, Arial;
+    font-weight: 400;
+    font-size: 16px;
+    color: #999999;
+    line-height: 32px;
+    text-align: center;
+    font-style: normal;
+    text-transform: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.product_industry_list_item:nth-child(2n){
+    margin-left: 8%;
+}
+.product_industry_list_item.active{
+    border: 1px solid #003F9B;
+    color: #003F9B;
+}
+
 .p_ProductCategoryList .product_tonnage,.p_ProductCategoryList .product_span{
     margin-top: 10px;
 }
@@ -5050,15 +5092,16 @@
     }
 
     .c_portalResProduct_list-01001001 .titleBox {
+        height: 75px;
         padding: 10px 20px 5px;
         border-top: 0px solid #eee;
         font-size: 15px;
         color: #555;
-        text-align: center;
+        text-align: left;
         line-height: 30px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        /*overflow: hidden;*/
+        /*text-overflow: ellipsis;*/
+        /*white-space: nowrap;*/
     }
 }
 

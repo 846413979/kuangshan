@@ -1518,9 +1518,15 @@
     -webkit-transition: -webkit-transform .3s .2s;
     transition: transform .3s .2s;
 }
-.c_portalResnav_main-01001002 .header1 .subnav2:nth-child(3) .nav-sub{
-    width: 260px;
-    margin-left: -130px;
+.c_portalResnav_main-01001002 .header1 .subnav2:nth-child(1) .nav-sub
+{
+    width: 270px;
+    margin-left: -135px;
+}
+.c_portalResnav_main-01001002 .header1 .subnav2:nth-child(6) .nav-sub,
+.c_portalResnav_main-01001002 .header1 .subnav2:nth-child(2) .nav-sub{
+    width: 200px;
+    margin-left: -100px;
 }
 
 .c_portalResnav_main-01001002 .header1 .nav-sub.active {
@@ -1566,8 +1572,8 @@
     height: 32px;
     line-height: 32px;
     display: block;
-    margin: 0px;
-    text-align: center;
+    padding-left: 10px;
+    text-align: left;
     color: #333;
     font-size: 14px;
     position: relative;
@@ -4468,6 +4474,7 @@ body, #-remove--flag {
     color: #999999;
     line-height: 32px;
     padding: 10px 20px;
+    resize: none;
 }
 .feedback_wrap .feedback_container .feedback_content .feedback_form .feedback_form_submit{
     width: 220px;

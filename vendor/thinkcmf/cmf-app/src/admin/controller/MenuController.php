@@ -164,7 +164,7 @@ class MenuController extends AdminBaseController
             if ($result !== true) {
                 $this->error($result);
             } else {
-                $data = $this->request->param();
+                $data = $this->request->post();
                 AdminMenuModel::strict(false)->field(true)->insert($data);
 
                 $app          = $this->request->param("app");
@@ -252,12 +252,12 @@ class MenuController extends AdminBaseController
             $id      = $this->request->param('id', 0, 'intval');
             $oldMenu = AdminMenuModel::where('id', $id)->find();
 
-            $result = $this->validate($this->request->param(), 'AdminMenu.edit');
+            $result = $this->validate($this->request->post(), 'AdminMenu.edit');
 
             if ($result !== true) {
                 $this->error($result);
             } else {
-                AdminMenuModel::strict(false)->field(true)->update($this->request->param());
+                AdminMenuModel::strict(false)->field(true)->update($this->request->post());
                 $app          = $this->request->param("app");
                 $controller   = $this->request->param("controller");
                 $action       = $this->request->param("action");

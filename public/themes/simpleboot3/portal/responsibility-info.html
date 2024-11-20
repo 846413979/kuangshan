@@ -52,10 +52,16 @@
                                                                         <div class="NavList_a1 default-style slide-menu swiper-container swiper-container-horizontal swiper-container-free-mode"
                                                                              id="NavList_a1">
                                                                             <ul class="clearfix swiper-wrapper">
-                                                                                <foreach name="responsibility_category_list" item="vo">
-                                                                                    <li class="swiper-slide swiper-no-swiping swiper-slide-active">
-                                                                                        <a href="/responsibility/{$vo.id}"
-                                                                                           title="{$vo.name}" class="more">{$vo.name}</a>
+                                                                                <li class="swiper-slide swiper-no-swiping">
+                                                                                    <a href="/intro/4.html"
+                                                                                       title="CompanyProfile"
+                                                                                       class="more">Company Profile</a>
+                                                                                </li>
+                                                                                <foreach name="about_category" item="vo">
+                                                                                    <li class="swiper-slide swiper-no-swiping">
+                                                                                        <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}"
+                                                                                           title="LeadershipSpeech"
+                                                                                           class="more">{$vo.name}</a>
                                                                                     </li>
                                                                                 </foreach>
                                                                             </ul>

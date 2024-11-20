@@ -10,6 +10,7 @@
 // +----------------------------------------------------------------------
 namespace app\portal\controller;
 
+use app\admin\model\RouteModel;
 use app\portal\model\PortalCategoryPostModel;
 use app\portal\model\PortalTagPostModel;
 use app\portal\model\ProductCategoryModel;
@@ -20,6 +21,7 @@ use app\portal\model\PortalPostModel;
 use app\portal\service\PostService;
 use app\portal\model\PortalCategoryModel;
 use app\admin\model\ThemeModel;
+use think\Db;
 
 class AdminProductController extends AdminBaseController
 {
@@ -177,10 +179,21 @@ class AdminProductController extends AdminBaseController
 //        var_dump($data);exit;
 
         $model = new ProductModel();
-        $result = $model->save($data);
+        $model->startTrans();
+        $result = $model->profession()->save($data);
+        $id  = $model->id;
+
 
         if ($result === false) {
+            $model->rollback();
             $this->error('添加失败!');
+        }
+        $model->commit();
+        //设置别名
+        $routeModel = new RouteModel();
+        if (!empty($data['alias'])) {
+            $routeModel->setRoute($data['alias'], 'portal/index/product_info', ['id' => $id], 2, 2);
+            $routeModel->getRoutes(true);
         }
 
         $this->success('添加成功!', url('AdminProduct/index'));
@@ -213,8 +226,12 @@ class AdminProductController extends AdminBaseController
         $product_setting = cmf_get_option('product_setting');
         $this->assign($product_setting);
 
+        $productTags  = $product->profession()->alias('a')->column('a.name', 'a.id');
+        $productTagIds = implode(',', array_keys($productTags));
 
         $this->assign('product', $product);
+        $this->assign('productTags', $productTags);
+        $this->assign('productTagIds', $productTagIds);
 
         return $this->fetch();
     }
@@ -302,10 +319,37 @@ class AdminProductController extends AdminBaseController
 //        var_dump($data);exit;
 
         $model = new ProductModel();
-        $result = $model->exists()->save($data);
+        $model->startTrans();
+        $product = $model->find($data['id']);
+        $result = $product->save($data);
+        if (is_string($data['tags'])) {
+            $tags = explode(',', $data['tags']);
+        }
+
+        $oldTagIds        = $product->profession()->column('tag_id');
+        $sameTagIds       = array_intersect($tags, $oldTagIds);
+        $needDeleteTagIds = array_diff($oldTagIds, $sameTagIds);
+        $newTagIds        = array_diff($tags, $sameTagIds);
+
+        if (!empty($needDeleteTagIds)) {
+            $product->profession()->detach($needDeleteTagIds);
+        }
+
+        if (!empty($newTagIds)) {
+            $product->profession()->attach(array_values($newTagIds));
+        }
 
         if ($result === false) {
+            $model->rollback();
             $this->error('保存失败!');
+        }
+        $model->commit();
+
+        //设置别名
+        $routeModel = new RouteModel();
+        if (!empty($data['alias'])) {
+            $routeModel->setRoute($data['alias'], 'portal/index/product_info', ['id' => $data['id']], 2, 2);
+            $routeModel->getRoutes(true);
         }
 
         $this->success('保存成功!');

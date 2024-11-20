@@ -49,6 +49,13 @@ class ProductModel extends Model
     }
 
 
+    // 关联产品行业标签表
+    public function profession()
+    {
+        return $this->belongsToMany('ProfessionModel', 'product_profession', 'tag_id', 'product_id')->where('status', 1)->field('id,name');
+    }
+
+
     public function getOverviewAttr($value)
     {
         if (empty($value)) {

@@ -28,64 +28,11 @@
                                                 <nav class="fr">
                                                     <ul class="f-cb">
                                                         <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec" href="/">Home</a>
-                                                        </li>
-                                                        <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec" href="/intro/4.html">AboutUs</a>
-                                                            <div class="nav-sub">
-                                                                <div class="n-nav-sub">
-                                                                    <a href="/intro/4.html">CompanyProfile
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                    <a href="/intro/7.html">LeadershipSpeech
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                    <a href="/honor/7.html">EnterpriseHonor
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                    <a href="/honor/9.html">EnterpriseStyle
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                    <a href="/intro/8.html">AdvancedEquipment
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec"
-                                                               href="/product.html">ProductCenter</a>
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/product')}">PRODUCT</a>
                                                             <div class="nav-sub">
                                                                 <div class="n-nav-sub">
                                                                     <foreach name="category_list" item="vo">
-                                                                    <a href="/product/{$vo.id}.html">{$vo.name}
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                    </foreach>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec"
-                                                               href="/culture/11.html">CorporateCulture</a>
-                                                            <div class="nav-sub">
-                                                                <div class="n-nav-sub">
-                                                                    <a href="/culture/11.html">FilialPietyCultur
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                    <a href="/activity/10.html">ActivityRecord
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-                                                        <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec"
-                                                               href="/responsibility/{$responsibility_category_list[0]['id']}">SocialResponsibility</a>
-                                                            <div class="nav-sub">
-                                                                <div class="n-nav-sub">
-                                                                    <foreach name="responsibility_category_list" item="vo">
-                                                                        <a href="/responsibility/{$vo.id}">{$vo.name}
+                                                                        <a href="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}">{:mb_strtoupper($vo.name)}
                                                                             <div class="nav-arrow icon-up iconfont"></div>
                                                                         </a>
                                                                     </foreach>
@@ -93,18 +40,43 @@
                                                             </div>
                                                         </li>
                                                         <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec"
-                                                               href="/intro/16.html">ServiceCenter</a>
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/case')}">CASE</a>
                                                             <div class="nav-sub">
                                                                 <div class="n-nav-sub">
-                                                                    <a href="/intro/16.html">ContactUs
-                                                                        <div class="nav-arrow icon-up iconfont"></div>
-                                                                    </a>
-<!--                                                                    <a href="/intro/17.html">JoinUs-->
-<!--                                                                        <div class="nav-arrow icon-up iconfont"></div>-->
-<!--                                                                    </a>-->
+                                                                    <foreach name="case_category" item="vo">
+                                                                        <a href="{:cmf_url('portal/index/case',array('id'=>$vo['id']))}">{:mb_strtoupper($vo.name)}
+                                                                            <div class="nav-arrow icon-up iconfont"></div>
+                                                                        </a>
+                                                                    </foreach>
                                                                 </div>
                                                             </div>
+                                                        </li>
+                                                        <li class="hvr-left subnav2 js-m js-m-2">
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/service')}">SERVICE</a>
+                                                        </li>
+                                                        <li class="hvr-left subnav2 js-m js-m-2">
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/video')}">VIDEO</a>
+                                                        </li>
+                                                        <li class="hvr-left subnav2 js-m js-m-2">
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/download')}">DOWNLOAD</a>
+                                                        </li>
+                                                        <li class="hvr-left subnav2 js-m js-m-2">
+                                                            <a class="home-dec" href="/intro/4.html">ABOUT US</a>
+                                                            <div class="nav-sub">
+                                                                <div class="n-nav-sub">
+                                                                    <a href="/intro/4.html">COMPANY PROFILE
+                                                                        <div class="nav-arrow icon-up iconfont"></div>
+                                                                    </a>
+                                                                    <foreach name="about_category" item="vo">
+                                                                        <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}">{:mb_strtoupper($vo.name)}
+                                                                            <div class="nav-arrow icon-up iconfont"></div>
+                                                                        </a>
+                                                                    </foreach>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="hvr-left subnav2 js-m js-m-2">
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/contact')}">CONTACT US</a>
                                                         </li>
                                                     </ul>
                                                 </nav>

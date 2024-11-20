@@ -97,9 +97,27 @@
                     <tr>
                         <th>产品别名</th>
                         <td>
-                            <input class="form-control" type="text" name="alias"
-                                   id="alias" value="{$product.alias}" placeholder="请输入产品别名"/>
+                            <input type="text" class="form-control" id="alias" name="alias" value="{$product.alias}" placeholder="请输入产品别名">
+                            <p class="help-block">用于url美化</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>产品其他名称</th>
+                        <td>
+                            <input class="form-control" type="text" name="alias_name"
+                                   id="alias_name" value="{$product.alias_name}" placeholder="请输入产品其他名称"/>
+                            <p class="help-block">用于搜索匹配</p>
                             <p class="help-block">多个别名以英文逗号（,）分割</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>行业标签</th>
+                        <td>
+                            <input class="form-control" type="text" style="width:400px;" value="{:implode(' ',$productTags)}"
+                                   placeholder="请选择行业" onclick="doSelectTags();" id="js-tags-name-input"
+                                   readonly/>
+                            <input class="form-control" type="hidden" value="{$productTagIds}" name="tags"
+                                   id="js-tags-id-input"/>
                         </td>
                     </tr>
                     <tr>
@@ -168,7 +186,11 @@
                                         }
                                     }
                                 </php>
-                                <input class="js-check" type="checkbox" name="authentication_mark[]" value="{$key}" {$checked}>{$vo.name}
+                                <label>
+                                    <input class="js-check" type="checkbox" name="authentication_mark[]" value="{$key}"
+                                           {$checked}>
+                                    {$vo.name}
+                                </label>
                                 <img src="{:cmf_get_image_url($vo.url)}" width="18" height="18" onclick="imagePreviewDialog(this.src);">
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                             </foreach>
@@ -215,27 +237,15 @@
                     <tr>
                         <th>起重高度<span class="form-required">*</span></th>
                         <td>
-                            最小起重高度：<input class="form-control" type="text" name="min_lifting_height" style="width: 200px;display: inline-block"
-                                   id="min_lifting_height" required value="{$product.min_lifting_height}" placeholder="请输入最小起重高度"/>米
-                            <br>
                             最大起重高度：<input class="form-control" type="text" name="max_lifting_height" style="width: 200px;display: inline-block"
                                                id="max_lifting_height" required value="{$product.max_lifting_height}" placeholder="请输入最大起重高度"/>米
-                            <br>
-                            起重高度间隔：<input class="form-control" type="text" name="lifting_height_interval" style="width: 200px;display: inline-block"
-                                                id="lifting_height_interval" required value="{$product.lifting_height_interval}" placeholder="请输入起重高度间隔"/>米
                         </td>
                     </tr>
                     <tr>
                         <th>跨度</th>
                         <td>
-                            最小跨度：<input class="form-control" type="text" name="min_span" style="width: 200px;display: inline-block"
-                                                id="min_span" required value="{$product.min_span}" placeholder="请输入最小跨度"/>米
-                            <br>
                             最大跨度：<input class="form-control" type="text" name="max_span" style="width: 200px;display: inline-block"
                                                 id="max_span" required value="{$product.max_span}" placeholder="请输入最大跨度"/>米
-                            <br>
-                            跨度间隔：<input class="form-control" type="text" name="span_interval" style="width: 200px;display: inline-block"
-                                                id="span_interval" required value="{$product.span_interval}" placeholder="请输入跨度间隔"/>米
                         </td>
                     </tr>
                     <!--<tr>
@@ -330,7 +340,11 @@
                                         }
                                     }
                                 </php>
-                                <input class="js-check" type="checkbox" name="sling_available[]" value="{$key}" {$checked}>{$vo.name}
+                                <label>
+                                    <input class="js-check" type="checkbox" name="sling_available[]" value="{$key}"
+                                           {$checked}>
+                                    {$vo.name}
+                                </label>
                                 <img src="{:cmf_get_image_url($vo.url)}" width="18" height="18" onclick="imagePreviewDialog(this.src);">
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                             </foreach>
@@ -523,7 +537,26 @@
         var id = timestamp.toString() + scaledRandomNum.toString();
         $('#'+domid).append('<li id="saved-'+domid+id+'"><input class="form-control" type="text" name="'+domid+'[]" value="" style="width: 200px;"><a class="btn btn-danger" href="javascript:(function(){$(\'#saved-'+domid+id+'\').remove();})();"><i class="fa fa-trash fa-fw"></i></a></li>');
     }
-                //do something
+
+    function doSelectTags() {
+        var selectedTagsId = $('#js-tags-id-input').val();
+        openIframeLayer("{:url('AdminProfession/select')}?ids=" + selectedTagsId, '请选择分类', {
+            area: ['700px', '400px'],
+            btn: ['确定', '取消'],
+            yes: function (index, layero) {
+                var iframeWin = window[layero.find('iframe')[0]['name']];
+                var selectedTags = iframeWin.confirm();
+                if (selectedTags.selectedTagsId.length == 0) {
+                    layer.msg('请选择分类');
+                    return;
+                }
+                $('#js-tags-id-input').val(selectedTags.selectedTagsId.join(','));
+                $('#js-tags-name-input').val(selectedTags.selectedTagsName.join(' '));
+                //console.log(layer.getFrameIndex(index));
+                layer.close(index); //如果设定了yes回调，需进行手工关闭
+            }
+        });
+    }
 </script>
 </body>
 </html>
