@@ -32,41 +32,25 @@
                                         <div class="box">
                                             <dl class="botUl">
                                                 <dt class="botDt">
-                                                    <a href="/"
-                                                       class="botLink blink">Home</a>
-                                                </dt>
-                                            </dl>
-                                            <dl class="botUl">
-                                                <dt class="botDt">
-                                                    <a href="/intro/4.html"
+                                                    <a href="{:cmf_url('portal/index/intro',array('id'=>4))}"
                                                        class="botLink blink">About us</a>
                                                 </dt>
                                                 <dd class="sbotDd">
-                                                    <a href="/intro/4.html"
+                                                    <a href="{:cmf_url('portal/index/intro',array('id'=>4))}"
                                                        class="botLinkS blink">CompanyProfile</a>
                                                 </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="/intro/7.html"
-                                                       class="botLinkS blink">LeadershipSpeech</a>
-                                                </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="honor/7.html"
-                                                       class="botLinkS blink">EnterpriseHonor</a>
-                                                </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="honor/9.html"
-                                                       class="botLinkS blink">EnterpriseStyle</a>
-                                                </dd>
-                                                <dd class="sbotDd">
-                                                    <a href="/intro/8.html"
-                                                       class="botLinkS blink">AdvancedEquipment</a>
-                                                </dd>
+                                                <foreach name="about_category" item="vo">
+                                                    <dd class="sbotDd">
+                                                        <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}"
+                                                           class="botLinkS blink">{$vo.name}</a>
+                                                    </dd>
+                                                </foreach>
                                             </dl>
 
                                             <dl class="botUl">
                                                 <dt class="botDt">
                                                     <a href="{:cmf_url('portal/index/product')}"
-                                                       class="botLink blink">ProductCenter</a>
+                                                       class="botLink blink">Products</a>
                                                 </dt>
                                                 <foreach name="category_list" item="vo">
                                                 <dd class="sbotDd">
@@ -77,13 +61,16 @@
                                             </dl>
                                             <dl class="botUl">
                                                 <dt class="botDt">
-                                                    <a href="/intro/16.html"
-                                                       class="botLink blink">ServiceCenter</a>
+                                                    <a href="{:cmf_url('portal/index/case')}"
+                                                       class="botLink blink">Case</a>
                                                 </dt>
-                                                <dd class="sbotDd">
-                                                    <a href="/intro/16.html"
-                                                       class="botLinkS blink">ContactUs</a>
-                                                </dd>
+                                                <foreach name="case_category" item="vo">
+                                                    <dd class="sbotDd">
+                                                        <a href="{:cmf_url('portal/index/case',array('id'=>$vo['id']))}"
+                                                           class="botLinkS blink">{$vo.name}</a>
+                                                    </dd>
+                                                </foreach>
+
                                             </dl>
                                         </div>
                                     </nav>
@@ -97,47 +84,55 @@
                             </div>
                             <div id="content_box-1614153078102-1"
                                  class="e_box e_box-000 d_gridCell_1 p_gridCell">
-                                <div id="w_common_text-1616830314198" class="reset_style">
+                                <div class="reset_style">
                                     <div>
-                                        <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">Hotline</span></span></span>
+                                        <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
+                                                style="font-family:微软雅黑">E-Mail</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:{$site_info.sale_tel}"><span
-                                                style="font-size:26px"><span
-                                                style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF">{$site_info.sale_tel}</span></span></span></a>
-                                        </p>
-                                    </div>
-                                </div>
-                                <div id="w_common_text-1616830369921" class="reset_style">
-                                    <div>
-                                        <p><span style="color:#FFFFFF"><span style="font-size:14px"><span
-                                                style="font-family:微软雅黑">E-mail</span></span></span>
-                                        </p>
-
-                                        <p><a href="mailto:{$site_info.email}"><span
-                                                style="font-size:26px"><span
+                                        <p><a href="tel:{$site_info.email}"><span
+                                                style="font-size:24px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
                                                 style="color:#FFFFFF">{$site_info.email}</span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
-                                <div id="w_common_text-1616830401781" class="reset_style">
+                                <div class="reset_style">
                                     <div>
-                                        <p>
-                                            <span style="line-height:2">
-                                                <span style="font-family:微软雅黑">
-                                                    <span style="font-size:14px">
-                                                        <a href="https://beian.miit.gov.cn/" target="_blank">
-                                                            <span style="color:#d9d9d9">{$site_info.site_gwa}</span>
-                                                        </a>
-                                                        <span style="color:#d9d9d9">&nbsp;&nbsp;</span>
-                                                        <br>
-                                                        <span style="color:#d9d9d9">{$site_info.copyright}</span>
-                                                    </span>
-                                                </span>
-                                            </span>
+                                        <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
+                                                style="font-family:微软雅黑">TELE</span></span></span>
+                                        </p>
+
+                                        <p><a href="mailto:{$site_info.sale_tel}"><span
+                                                style="font-size:24px"><span
+                                                style="font-family:arial,helvetica,sans-serif"><span
+                                                style="color:#FFFFFF">{$site_info.sale_tel}</span></span></span></a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="reset_style">
+                                    <div>
+                                        <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
+                                                style="font-family:微软雅黑">WHATSAPP</span></span></span>
+                                        </p>
+
+                                        <p><span
+                                                style="font-size:24px"><span
+                                                style="font-family:arial,helvetica,sans-serif"><span
+                                                style="color:#FFFFFF">{$site_info.whatsapp}</span></span></span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="reset_style">
+                                    <div>
+                                        <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
+                                                style="font-family:微软雅黑">WECHAT</span></span></span>
+                                        </p>
+
+                                        <p><span
+                                                style="font-size:24px"><span
+                                                style="font-family:arial,helvetica,sans-serif"><span
+                                                style="color:#FFFFFF">{$site_info.wechat}</span></span></span>
                                         </p>
                                     </div>
                                 </div>
@@ -190,21 +185,6 @@
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
                                                                 <img src="__TMPL__/public/assets/images/youtubi.png"
-                                                                     alt="{$site_info.site_gwa}"
-                                                                     title="{$site_info.site_gwa}"
-                                                                     width="100%" height="100%">
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div id="content_box-1616830617301-3"
-                                                 class="e_box e_box-000 d_gridCell_2 p_gridCell">
-                                                <div id="w_fimg-1616830641893" class="w_fimg-001">
-                                                    <div class="w_img animated  ">
-                                                        <div class="e_box e_box-000 p_box">
-                                                            <div class="e_image e_DImage-001 p_dimage">
-                                                                <img src="__TMPL__/public/assets/images/twitter.png"
                                                                      alt="{$site_info.site_gwa}"
                                                                      title="{$site_info.site_gwa}"
                                                                      width="100%" height="100%">

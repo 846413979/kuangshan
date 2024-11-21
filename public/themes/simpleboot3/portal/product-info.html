@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>{$product.title}_{$site_info.site_name|default=''}</title>
+    <title>{:mb_strtoupper($product.title)}_{$site_info.site_name|default=''}</title>
     <meta name="keywords" content="{$product.title},{$site_info.site_name|default=''}">
     <meta name="description" content="{$product.title}-{$site_info.site_name|default=''}">
     <include file="public@head"/>

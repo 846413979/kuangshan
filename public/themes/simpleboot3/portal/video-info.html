@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>video_{$site_info.site_name|default=''}</title>
+    <title>VIDEO_{$site_info.site_name|default=''}</title>
     <meta name="keywords" content="video,{$site_info.site_name|default=''}">
     <meta name="description" content="video-{$site_info.site_name|default=''}">
     <meta name="viewport" content="width=1440">
@@ -124,19 +124,12 @@
                                         <div class="e_box p_xvideoBoxCon" style="height: auto">
                                             <div class="e_box p_xvideoBox" data-ename="视频内容盒子">
                                                 <div class="e_box p_xvideoImg" style="position: relative">
-                                                    <video width="100%" class="videoBox pause" controls="controls"
+                                                    <video width="100%" controls
                                                            poster="{:cmf_get_image_url($article.more.thumbnail)}"
                                                            autoplay="autoplay">
                                                         <source src="{:cmf_get_image_url($article.more.video)}"
                                                                 type="video/mp4">
                                                     </video>
-                                                    <div class="p_VideoBg" style="display: block">
-                                                        <div class="p_iconCon">
-                                                            <i class="iconfont">
-                                                            </i>
-                                                        </div>
-                                                    </div>
-<!--                                                    <span class="span_time color_horizon border_mr background_shade">00:06:47</span>-->
                                                 </div>
                                             </div>
 

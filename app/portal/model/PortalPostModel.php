@@ -12,6 +12,7 @@ namespace app\portal\model;
 
 use app\admin\model\RouteModel;
 use think\Model;
+use think\model\concern\SoftDelete;
 
 /**
  * @property mixed id
@@ -27,6 +28,10 @@ class PortalPostModel extends Model
     protected $type = [
         'more' => 'array',
     ];
+
+    use SoftDelete;
+    protected $deleteTime = 'delete_time';
+    protected $defaultSoftDelete = 0;
 
     // 开启自动写入时间戳字段
     protected $autoWriteTimestamp = true;

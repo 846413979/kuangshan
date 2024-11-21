@@ -4,9 +4,9 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>{$category.name|default='case'}_{$site_info.site_name|default=''}</title>
+    <title>{:mb_strtoupper($category.name ?? 'case')}_{$site_info.site_name|default=''}</title>
     <meta name="keywords"
-          content="{$category.name|default='case'},{$site_info.site_name|default=''},{$site_info.site_seo_keywords|default=''}">
+          content="{:mb_strtoupper($category.name ?? 'case')},{$site_info.site_name|default=''},{$site_info.site_seo_keywords|default=''}">
     <meta name="description"
           content="{$site_info.site_seo_description|default=''}">
     <include file="public@head"/>
@@ -47,7 +47,7 @@
                                                                                     <li class="swiper-slide swiper-no-swiping" data-id="{$vo.id}">
                                                                                         <a href="{:cmf_url('portal/index/case',array('id'=>$vo['id']))}"
                                                                                            title="{$vo.name}"
-                                                                                           class="more">{$vo.name}</a>
+                                                                                           class="more {:input('id')==$vo['id'] ? 'active' : ''}">{$vo.name}</a>
                                                                                     </li>
                                                                                 </foreach>
                                                                             </ul>
@@ -66,10 +66,10 @@
                                                                                     results = regex.exec(location.search);
                                                                                 return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
                                                                             }
+                                                                            console.log(location.href)
                                                                             var urlName = getParameterByName('id');
                                                                             $('.NavList_a1 li').each(function () {
                                                                                 var urlId = $(this).data('id');
-                                                                                console.log(urlId)
                                                                                 if (urlName==urlId) {
                                                                                     $(this).find('a').addClass('active');
                                                                                 }

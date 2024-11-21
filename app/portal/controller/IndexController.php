@@ -67,6 +67,10 @@ class IndexController extends HomeBaseController
         $case_list = $portalPostModel->alias('p')->join('cmf_portal_category_post c','p.id=c.post_id','left')->where($where)->order('c.list_order asc,p.create_time desc')->field('p.id,p.post_title,p.thumbnail,p.more,c.category_id as cid')->limit(5)->select();
         $this->assign('case_list', $case_list);
 
+        // 首页设置
+        $index_setting = cmf_get_option('index_setting');
+        $this->assign('index_setting', $index_setting);
+
 
         return $this->fetch(':index');
     }
@@ -217,7 +221,7 @@ class IndexController extends HomeBaseController
         return $this->fetch(':responsibility');
     }
 
-    public function responsibility_info()
+    public function about_info()
     {
         $portalPostModel = new PortalPostModel();
 
@@ -375,7 +379,7 @@ class IndexController extends HomeBaseController
     {
         //视频列表
         $portalPostModel = new PortalPostModel();
-        $list = $portalPostModel->field('id,post_title,more')->where('post_type', 5)->order('create_time desc')->paginate(1);
+        $list = $portalPostModel->field('id,post_title,more')->where('post_type', 5)->order('create_time desc')->paginate(12);
         $this->assign('list', $list);
         $this->assign('page', $list->render());
 

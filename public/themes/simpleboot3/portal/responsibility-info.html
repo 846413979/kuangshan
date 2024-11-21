@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>{$article.post_title}_{$site_info.site_name|default=''}</title>
+    <title>{:mb_strtoupper($article.post_title)}_{$site_info.site_name|default=''}</title>
     <meta name="keywords" content="{$article.post_title},{$site_info.site_name|default=''}">
     <meta name="description" content="{$article.post_title}-{$site_info.site_name|default=''}">
     <include file="public@head"/>
@@ -53,7 +53,7 @@
                                                                              id="NavList_a1">
                                                                             <ul class="clearfix swiper-wrapper">
                                                                                 <li class="swiper-slide swiper-no-swiping">
-                                                                                    <a href="/intro/4.html"
+                                                                                    <a href="{:cmf_url('portal/index/intro',array('id'=>4))}"
                                                                                        title="CompanyProfile"
                                                                                        class="more">Company Profile</a>
                                                                                 </li>
@@ -61,7 +61,7 @@
                                                                                     <li class="swiper-slide swiper-no-swiping">
                                                                                         <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}"
                                                                                            title="LeadershipSpeech"
-                                                                                           class="more">{$vo.name}</a>
+                                                                                           class="more {:input('cid')==$vo['id'] ? 'active' : ''}">{$vo.name}</a>
                                                                                     </li>
                                                                                 </foreach>
                                                                             </ul>

@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>{$category.name}_{$site_info.site_name|default=''}</title>
+    <title>{:mb_strtoupper($category.name)}_{$site_info.site_name|default=''}</title>
     <meta name="keywords" content="{$category.name},{$site_info.site_name|default=''}">
     <meta name="description" content="{$category.name}-{$site_info.site_name|default=''}">
     <meta name="viewport" content="width=1440">

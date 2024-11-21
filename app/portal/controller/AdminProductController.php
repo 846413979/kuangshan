@@ -322,8 +322,10 @@ class AdminProductController extends AdminBaseController
         $model->startTrans();
         $product = $model->find($data['id']);
         $result = $product->save($data);
-        if (is_string($data['tags'])) {
+        if (!empty($data['tags'])) {
             $tags = explode(',', $data['tags']);
+        }else{
+            $tags = [];
         }
 
         $oldTagIds        = $product->profession()->column('tag_id');

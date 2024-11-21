@@ -4118,7 +4118,7 @@ body, #-remove--flag {
 }
 .main_content_wrap .hot_product{
     width: 1212px;
-    margin: 40px auto 80px;
+    margin: 80px auto;
 }
 .main_content_wrap .hot_product .hot_product_title{
     height: 50px;
@@ -4137,7 +4137,7 @@ body, #-remove--flag {
     margin-top: -50px;
 }
 .main_content_wrap .hot_product .hot_product_list{
-    margin-top: 10px;
+    margin-top: 40px;
     width: 100%;
     overflow: hidden;
 }
@@ -4150,7 +4150,7 @@ body, #-remove--flag {
     width: 387px;
     height: 375px;
     background: #FFFFFF;
-    box-shadow: 0px 0px 16px 1px rgba(0,0,0,0.16);
+    box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.16);
     float: left;
     margin-left: 17px;
     cursor: pointer;
@@ -4185,7 +4185,7 @@ body, #-remove--flag {
 .main_content_wrap .hot_product .hot_product_list .hot_product_line{
     width: 92px;
     height: 4px;
-    margin: 40px auto 0;
+    margin: 30px auto 0;
 }
 .main_content_wrap .hot_product .hot_product_list .hot_product_line .hot_product_line_item{
     width: 24px;
@@ -4376,7 +4376,6 @@ body, #-remove--flag {
     height: 100%;
 }
 .case_wrap .case_content .case_content_left p{
-    width: 100%;
     font-family: Arial, Arial;
     font-weight: 400;
     font-size: 20px;
@@ -4386,8 +4385,9 @@ body, #-remove--flag {
     font-style: normal;
     text-transform: none;
     position: absolute;
-    left: 30px;
+    padding: 0 30px;
     bottom: 30px;
+    z-index: 1;
 }
 .case_wrap .case_content .case_content_left .case_content_more{
     width: 24px;
@@ -4395,6 +4395,16 @@ body, #-remove--flag {
     position: absolute;
     right: 30px;
     bottom: 30px;
+}
+.case_wrap .case_content .case_content_mask{
+    width: 100%;
+    height: 112px;
+    background: linear-gradient( 180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+    position: absolute;
+    bottom: 0;
+}
+.case_wrap .case_content .case_content_right_mask{
+    height: 74px;
 }
 .case_wrap .case_content .case_content_right{
     width: 594px;
@@ -4424,8 +4434,9 @@ body, #-remove--flag {
     font-style: normal;
     text-transform: none;
     position: absolute;
-    left: 14px;
+    padding: 0 14px;
     bottom: 20px;
+    z-index: 1;
 }
 .case_wrap .case_content .case_content_right .case_content_right_item .case_content_more{
     width: 16px;

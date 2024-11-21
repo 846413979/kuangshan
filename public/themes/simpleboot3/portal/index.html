@@ -117,25 +117,15 @@
                                                                     <span>ABOUT US</span>
                                                                 </div>
                                                                 <div class="about_description">
-                                                                    <p>HENAN MINE CRANE IM&EX CO.,LTD is a professional
-                                                                        crane and material handling products
-                                                                        manufacturers and service providers, research
-                                                                        and
-                                                                        development, design, manufacturing, sales,
-                                                                        service in one, to provide customers with
-                                                                        overall solutions and full life cycl</p>
+                                                                    <p>{$index_setting.about_description}</p>
                                                                 </div>
                                                                 <div class="about_img">
                                                                     <ul class="about_img_list">
-                                                                        <li class="about_img_item">
-                                                                            <img src="__TMPL__/public/assets/images/about1.png">
-                                                                        </li>
-                                                                        <li class="about_img_item">
-                                                                            <img src="__TMPL__/public/assets/images/about2.png">
-                                                                        </li>
-                                                                        <li class="about_img_item">
-                                                                            <img src="__TMPL__/public/assets/images/about3.png">
-                                                                        </li>
+                                                                        <foreach name="index_setting.about_images" item="vo">
+                                                                            <li class="about_img_item">
+                                                                                <img src="{:cmf_get_image_url($vo.url)}">
+                                                                            </li>
+                                                                        </foreach>
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -143,23 +133,13 @@
                                                                 <div class="about_video">
                                                                     <div class="about_video_source">
                                                                         <video width="1212" height="600" controls
-                                                                               preload="metadata" poster="__TMPL__/public/assets/images/about-video.jpg">
-                                                                            <source src="__TMPL__/public/assets/images/about.mp4"
+                                                                               preload="metadata" poster="{:cmf_get_image_url($index_setting.video_image)}">
+                                                                            <source src="{:cmf_get_file_url($index_setting.video)}"
                                                                                     type="video/mp4">
                                                                         </video>
                                                                     </div>
                                                                     <div class="about_video_description">
-                                                                        <p>The company has been committed to the
-                                                                            intelligent, green and
-                                                                            high-qualitydevelopment of the crane
-                                                                            industry, leading the formulation
-                                                                            andimplementation of industry standards, and
-                                                                            providing the highest cost.effective
-                                                                            products and services for tens of thousands
-                                                                            of customers in 122countries around the
-                                                                            world. In the scale of annual revenue of
-                                                                            more than 10billion, no loans, no financing,
-                                                                            no default.</p>
+                                                                        <p>{$index_setting.video_description}</p>
                                                                         <div class="about_video_btn">
                                                                             <img src="__TMPL__/public/assets/images/more-white.png"
                                                                                  data-active_img="__TMPL__/public/assets/images/more-active.png"
@@ -209,6 +189,7 @@
                                                                             <div class="case_content_left_img">
                                                                                 <img src="{:cmf_get_image_url($case_list[0]['thumbnail'])}">
                                                                                 <p>{$case_list[0]['post_title']}</p>
+                                                                                <div class="case_content_mask"></div>
                                                                             </div>
                                                                         </div>
                                                                     </notempty>
@@ -220,6 +201,7 @@
                                                                                 <li class="case_content_right_item">
                                                                                     <img src="{:cmf_get_image_url($vo.thumbnail)}">
                                                                                     <p>{$vo.post_title}</p>
+                                                                                    <div class="case_content_mask case_content_right_mask"></div>
                                                                                 </li>
                                                                             </foreach>
                                                                         </ul>

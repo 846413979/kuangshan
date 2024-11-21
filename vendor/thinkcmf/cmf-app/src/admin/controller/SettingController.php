@@ -59,6 +59,7 @@ class SettingController extends AdminBaseController
         $cmfSettings    = cmf_get_option('cmf_settings');
         $adminSettings  = cmf_get_option('admin_settings');
         $productSettings  = cmf_get_option('product_setting');
+        $indexSettings  = cmf_get_option('index_setting');
 
         $adminThemes = [];
         $themes      = cmf_scan_dir(WEB_ROOT . config('template.cmf_admin_theme_path') . '/*', GLOB_ONLYDIR);
@@ -83,6 +84,7 @@ class SettingController extends AdminBaseController
         $this->assign("admin_settings", $adminSettings);
         $this->assign("cmf_settings", $cmfSettings);
         $this->assign("product_setting", $productSettings);
+        $this->assign("index_setting", $indexSettings);
 
         return $this->fetch();
     }
@@ -300,7 +302,12 @@ class SettingController extends AdminBaseController
      * **/
     public function productSitePost()
     {
-        $params = $this->request->param();
+
+        if (!$this->request->isPost()) {
+            $this->error('请求错误');
+        }
+
+        $params = $this->request->post();
 
         $product_site = [];
         //认证证书
@@ -368,6 +375,48 @@ class SettingController extends AdminBaseController
         //清空缓存
         cmf_clear_cache();
         return $this->success('保存成功');
+    }
+
+    public function indexSitePost()
+    {
+        if (!$this->request->isPost()) {
+            $this->error('请求错误');
+        }
+
+        $params = $this->request->post();
+
+        $index_site = [];
+
+        if (!empty($params['about_description'])){
+            $index_site['about_description'] = $params['about_description'];
+        }
+        if (!empty($params['about_images_urls']) && !empty($params['about_images_names'])) {
+            foreach ($params['about_images_urls'] as $k => $url) {
+                if(empty($params['about_images_names'][$k])){
+                    $this->error('图片名称不能为空');
+                }
+                $index_site['about_images'][] = [
+                    'url' => $url,
+                    'name' => $params['about_images_names'][$k]
+                ];
+            }
+        }
+        if (!empty($params['video'])){
+            $index_site['video'] = $params['video'];
+        }
+        if (!empty($params['video_image'])){
+            $index_site['video_image'] = $params['video_image'];
+        }
+        if (!empty($params['video_description'])){
+            $index_site['video_description'] = $params['video_description'];
+        }
+
+        cmf_set_option('index_setting',$index_site);
+
+        //清空缓存
+        cmf_clear_cache();
+        return $this->success('保存成功');
+
     }
 
 

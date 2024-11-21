@@ -9522,11 +9522,11 @@ body, #-remove--flag {
 
 .info_btn_wrap{
     margin-top: 34px;
-    width: 100%;
+    width: 520px;
     height: 50px;
 }
 .info_btn_wrap .info_btn{
-    width: 140px;
+    width: 160px;
     height: 50px;
     border-radius: 30px 30px 30px 30px;
     font-family: Arial, Arial;

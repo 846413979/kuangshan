@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>{$page.post_title}_{$site_info.site_name|default=''}</title>
+    <title>{:mb_strtoupper($page.post_title)}_{$site_info.site_name|default=''}</title>
     <meta name="keywords" content="{$page.post_title},{$site_info.site_name|default=''}">
     <meta name="description" content="{$page.post_title}-{$site_info.site_name|default=''}">
     <include file="public@head"/>
@@ -46,7 +46,7 @@
                                                                                 <li class="swiper-slide swiper-no-swiping" data-id="4">
                                                                                     <a href="{:cmf_url('portal/index/intro',array('id'=>4))}"
                                                                                        title="CompanyProfile"
-                                                                                       class="more">Company Profile</a>
+                                                                                       class="more active">Company Profile</a>
                                                                                 </li>
                                                                                 <foreach name="about_category" item="vo">
                                                                                     <li class="swiper-slide swiper-no-swiping">

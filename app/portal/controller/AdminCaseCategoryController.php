@@ -133,6 +133,14 @@ class AdminCaseCategoryController extends AdminBaseController
             $this->error('添加失败!');
         }
 
+        //设置别名
+        $routeModel = new RouteModel();
+        if (!empty($data['alias']) && !empty($id)) {
+            $routeModel->setRoute($data['alias'], 'portal/index/case', ['id' => $id], 2, 5000);
+            $routeModel->setRoute($data['alias'] . '/:id', 'portal/index/case_info', ['cid' => $id], 2, 4999);
+        }
+        $routeModel->getRoutes(true);
+
         $this->success('添加成功!', url('AdminCaseCategory/index'));
     }
 
@@ -174,7 +182,7 @@ class AdminCaseCategoryController extends AdminBaseController
             $articleThemeFiles = $themeModel->getActionThemeFiles('portal/Article/index');
 
             $routeModel = new RouteModel();
-            $alias      = $routeModel->getUrl('portal/List/index', ['id' => $id]);
+            $alias      = $routeModel->getUrl('portal/index/case', ['id' => $id]);
 
             $category['alias'] = $alias;
             $this->assign($category);
@@ -218,6 +226,18 @@ class AdminCaseCategoryController extends AdminBaseController
         if ($result === false) {
             $this->error('保存失败!');
         }
+
+
+        $routeModel = new RouteModel();
+        if (!empty($data['alias'])) {
+            $routeModel->setRoute($data['alias'], 'portal/index/case', ['id' => $data['id']], 2, 5000);
+            $routeModel->setRoute($data['alias'] . '/:id', 'portal/index/case_info', ['cid' => $data['id']], 2, 4999);
+        } else {
+            $routeModel->deleteRoute('portal/index/case', ['id' => $data['id']]);
+            $routeModel->deleteRoute('portal/index/case_info', ['cid' => $data['id']]);
+        }
+
+        $routeModel->getRoutes(true);
 
         $this->success('保存成功!');
     }
