@@ -1,11 +1,15 @@
 <?php
 use think\facade\Route;
 
-Route::get('Overhead/Bridge Crane', 'portal/index/product?id=6')->append(array('id' => '6',));
+Route::get('Single Girder Overhead Crane', 'portal/index/product?id=5')->append(array('id' => '5',));
+
+Route::get('Double Girder Bridge Crane ', 'portal/index/product?id=6')->append(array('id' => '6',));
 
 Route::get('New Types/European Cranes', 'portal/index/product?id=7')->append(array('id' => '7',));
 
-Route::get('Gantry Crane', 'portal/index/product?id=9')->append(array('id' => '9',));
+Route::get('Single Girder Gantry Crane', 'portal/index/product?id=8')->append(array('id' => '8',));
+
+Route::get('Double Girder Gantry Crane', 'portal/index/product?id=9')->append(array('id' => '9',));
 
 Route::get('Ladle/Foundry Crane', 'portal/index/product?id=11')->append(array('id' => '11',));
 
@@ -15,7 +19,9 @@ Route::get('Pillar/Wall-Mounted Jib Crane', 'portal/index/product?id=14')->appen
 
 Route::get('Jib Crane', 'portal/index/product_info?id=45')->append(array('id' => '45',));
 
-Route::get('Electric Hoist', 'portal/index/product_info?id=43')->append(array('id' => '43',));
+Route::get('Electric Hoist', 'portal/index/product_info?cid=12&id=43')->append(array('cid' => '12',  'id' => '43',));
+
+Route::get('Wire Rope Hoist', 'portal/index/product_info?id=43')->append(array('id' => '43',));
 
 Route::get('New Types Heavy Duty Overhead Crane', 'portal/index/product_info?id=25')->append(array('id' => '25',));
 
@@ -37,7 +43,7 @@ Route::get('Hang Beam Overhead Crane', 'portal/index/product_info?id=12')->appen
 
 Route::get('Magnet Overhead Crane', 'portal/index/product_info?id=11')->append(array('id' => '11',));
 
-Route::get('Grab Overhead Crane', 'portal/index/product_info?id=5')->append(array('id' => '5',));
+Route::get('Grab Double Girder Overhead Crane', 'portal/index/product_info?id=10')->append(array('id' => '10',));
 
 Route::get('Hook Overhead Crane', 'portal/index/product_info?id=9')->append(array('id' => '9',));
 
@@ -48,6 +54,8 @@ Route::get('Flexible Crane', 'portal/index/product_info?id=22')->append(array('i
 Route::get('Explosion proof Overhead Crane', 'portal/index/product_info?id=7')->append(array('id' => '7',));
 
 Route::get('Suspension Overhead Crane', 'portal/index/product_info?id=6')->append(array('id' => '6',));
+
+Route::get('Grab Overhead Crane', 'portal/index/product_info?id=5')->append(array('id' => '5',));
 
 Route::get('Partial Hang Overhead Crane', 'portal/index/product_info?id=4')->append(array('id' => '4',));
 
@@ -70,6 +78,32 @@ Route::get('Rail Container Gantry Crane', 'portal/index/product_info?id=32')->ap
 Route::get('Rubber Tyre Container Crane', 'portal/index/product_info?id=26')->append(array('id' => '26',));
 
 Route::get('Shipbuild Gantry Crane', 'portal/index/product_info?id=27')->append(array('id' => '27',));
+
+Route::get('Grab Gantry Crane', 'portal/index/product_info?id=28')->append(array('id' => '28',));
+
+Route::get('Double Girder Semi Gantry Crane', 'portal/index/product_info?id=29')->append(array('id' => '29',));
+
+Route::get('A typed Hook Gantry Crane', 'portal/index/product_info?id=30')->append(array('id' => '30',));
+
+Route::get('U typed Hook Gantry Crane', 'portal/index/product_info?id=31')->append(array('id' => '31',));
+
+Route::get('Cast/Ladle/Foundry Crane', 'portal/index/product_info?id=34')->append(array('id' => '34',));
+
+Route::get('Double Girder Heavy Ladle Crane', 'portal/index/product_info?id=36')->append(array('id' => '36',));
+
+Route::get('Cast/ladle/foundry Crane', 'portal/index/product_info?id=40')->append(array('id' => '40',));
+
+Route::get('Four Girder Cast/ladle/foundry Crane', 'portal/index/product_info?id=35')->append(array('id' => '35',));
+
+Route::get('Electric Chain Hoist', 'portal/index/product_info?id=39')->append(array('id' => '39',));
+
+Route::get('Explosion Proof Electric Hoist', 'portal/index/product_info?id=42')->append(array('id' => '42',));
+
+Route::get('Metallurgical/Ladle/Foundry Electric Hoist', 'portal/index/product_info?id=41')->append(array('id' => '41',));
+
+Route::get('New Types/European hoist', 'portal/index/product_info?id=38')->append(array('id' => '38',));
+
+Route::get('Low headroom hoist', 'portal/index/product_info?id=37')->append(array('id' => '37',));
 
 Route::get('news/:id', 'portal/Article/index?cid=8')->append(array('cid' => '8',))
 ->pattern(array('id' => '\d+',  'cid' => '\d+',));

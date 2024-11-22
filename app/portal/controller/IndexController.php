@@ -349,6 +349,7 @@ class IndexController extends HomeBaseController
             $this->error('product not exits');
         }
         $product = $productModel->where('id', $id)->find();
+
         if (empty($product)) {
             $this->error('product not exits');
         }

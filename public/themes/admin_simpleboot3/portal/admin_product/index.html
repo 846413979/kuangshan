@@ -77,14 +77,14 @@
                                    value="{$vo.list_order}">
                         </td>
                     <td>
-                        <a href="/product_info/{$vo['id']}" target="_blank">{$vo.title}</a>
+                        <a href="{:cmf_url('portal/index/product_info',array('id'=>$vo['id']))}" target="_blank">{$vo.title}</a>
                     </td>
                     <td>
                         {$vo.category.name}
                     </td>
                     <td>
                         <a href="javascript:parent.imagePreviewDialog('{:cmf_get_image_preview_url($vo.thumbnail)}');">
-                            <img src="{:cmf_get_image_preview_url($vo.thumbnail)}" style="width: 30px;height: 1830;">
+                            <img src="{:cmf_get_image_preview_url($vo.thumbnail)}" style="width: 30px;height: 30px;">
                         </a>
                     </td>
                     <td>
@@ -106,10 +106,10 @@
                         </notempty>
                     </td>
                     <td>
-                        {$vo.min_lifting_height}-{$vo.max_lifting_height}
+                        {$vo.max_lifting_height}m
                     </td>
                     <td>
-                        {$vo.min_span}-{$vo.max_span}
+                        <if condition="!empty($vo['min_span']) || !empty($vo['max_span'])">{$vo.min_span}-{$vo.max_span}m</if>
                     </td>
                     <td>
                         <notempty name="vo.job_level">
