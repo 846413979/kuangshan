@@ -367,8 +367,7 @@
                                                                                              data-unactive_img="__TMPL__/public/assets/images/consult.png"
                                                                                              data-active_img="__TMPL__/public/assets/images/consult-active.png">
                                                                                     </div>
-                                                                                    <div class="info_btn"
-                                                                                         onclick="window.location.href='{:cmf_get_file_download_url($product.file.url)}'">
+                                                                                    <div class="info_btn" id="download" data-href="{:cmf_get_file_download_url($product.file.url)}">
                                                                                         <img src="__TMPL__/public/assets/images/catalogue.png"
                                                                                              data-unactive_img="__TMPL__/public/assets/images/catalogue.png"
                                                                                              data-active_img="__TMPL__/public/assets/images/catalogue-active.png">
@@ -539,7 +538,8 @@
                         <textarea id="popover-content" name="content" placeholder="Message:"></textarea>
                     </div>
                     <div class="popover_form_submit">
-                        <input name="product_id" id="product-id" style="display: none" value="{$product.id}">
+                        <input name="product_id" id="product-id" type="hidden" value="{$product.id}">
+                        <input name="file" id="file" type="hidden" value="">
                         <button id="popover-submit" type="button">SUBMIT</button>
                     </div>
                 </form>

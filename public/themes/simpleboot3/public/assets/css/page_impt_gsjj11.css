@@ -4898,7 +4898,7 @@ body, #-remove--flag {
     width: 1200px;
     max-width: none;
     min-width: 320px;
-    height: 1017px;
+    /*height: 1017px;*/
     max-height: none;
     min-height: 0px;
     margin-top: 2%;

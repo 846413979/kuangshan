@@ -323,7 +323,13 @@ $(document).ready(function() {
         $('.popover_wrap').show();
     })
 
+    $('#download').click(function (){
+        $('#file').val($(this).data('href'));
+        $('.popover_wrap').show();
+    })
+
     $('.popover_wrap .popover_container .popover_close').click(function (){
+        $('#file').val('');
         $('.popover_wrap').hide();
     })
 
@@ -449,6 +455,7 @@ $(document).ready(function() {
         data.job_level = job_level;
         data.sling_available = sling_available;
         data.type = 1;
+        let file_url = $('#file').val();
         $.ajax({
             url: '/portal/index/inquiry',
             type: 'POST',
@@ -458,6 +465,10 @@ $(document).ready(function() {
                 if (res.code == 1) {
                     alert('submit success');
                     $('.popover_wrap').hide();
+                    if(file_url!==''){
+                        $('#file').val('');
+                        window.location.href=file_url;
+                    }
                 } else {
                     alert('submit failed:'+res.msg);
                 }

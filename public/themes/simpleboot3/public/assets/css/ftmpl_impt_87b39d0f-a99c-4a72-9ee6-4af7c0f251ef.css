@@ -1512,13 +1512,8 @@
 }
 .c_portalResnav_main-01001002 .header1 .subnav2:nth-child(1) .nav-sub
 {
-    width: 270px;
-    margin-left: -135px;
-}
-.c_portalResnav_main-01001002 .header1 .subnav2:nth-child(6) .nav-sub,
-.c_portalResnav_main-01001002 .header1 .subnav2:nth-child(2) .nav-sub{
-    width: 200px;
-    margin-left: -100px;
+    width: 220px;
+    margin-left: -110px;
 }
 
 .c_portalResnav_main-01001002 .header1 .nav-sub.active {

@@ -28,11 +28,11 @@
                                                 <nav class="fr">
                                                     <ul class="f-cb">
                                                         <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec" href="{:cmf_url('portal/index/product')}">PRODUCT</a>
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/product')}">PRODUCTS</a>
                                                             <div class="nav-sub">
                                                                 <div class="n-nav-sub">
                                                                     <foreach name="category_list" item="vo">
-                                                                        <a href="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}">{:mb_strtoupper($vo.name)}
+                                                                        <a href="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}">{:ucwords($vo.name)}
                                                                             <div class="nav-arrow icon-up iconfont"></div>
                                                                         </a>
                                                                     </foreach>
@@ -40,11 +40,11 @@
                                                             </div>
                                                         </li>
                                                         <li class="hvr-left subnav2 js-m js-m-2">
-                                                            <a class="home-dec" href="{:cmf_url('portal/index/case')}">CASE</a>
+                                                            <a class="home-dec" href="{:cmf_url('portal/index/case')}">INDUSTRY CASE</a>
                                                             <div class="nav-sub">
                                                                 <div class="n-nav-sub">
                                                                     <foreach name="case_category" item="vo">
-                                                                        <a href="{:cmf_url('portal/index/case',array('id'=>$vo['id']))}">{:mb_strtoupper($vo.name)}
+                                                                        <a href="{:cmf_url('portal/index/case',array('id'=>$vo['id']))}">{:ucwords($vo.name)}
                                                                             <div class="nav-arrow icon-up iconfont"></div>
                                                                         </a>
                                                                     </foreach>
@@ -64,11 +64,11 @@
                                                             <a class="home-dec" href="{:cmf_url('portal/index/intro',array('id'=>4))}">ABOUT US</a>
                                                             <div class="nav-sub">
                                                                 <div class="n-nav-sub">
-                                                                    <a href="{:cmf_url('portal/index/intro',array('id'=>4))}">COMPANY PROFILE
+                                                                    <a href="{:cmf_url('portal/index/intro',array('id'=>4))}">Company Profile
                                                                         <div class="nav-arrow icon-up iconfont"></div>
                                                                     </a>
                                                                     <foreach name="about_category" item="vo">
-                                                                        <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}">{:mb_strtoupper($vo.name)}
+                                                                        <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}">{:ucwords($vo.name)}
                                                                             <div class="nav-arrow icon-up iconfont"></div>
                                                                         </a>
                                                                     </foreach>
