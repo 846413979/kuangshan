@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0037)https://www.hnks.com/product/110.html -->
-<html>
+<html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
@@ -114,22 +113,7 @@
                                                                                     </div>
                                                                                 </a>
                                                                             </div>
-
                                                                         </div>
-
-                                                                        <script type="text/javascript">
-                                                                            $comp({
-                                                                                breadcrumbType: false,
-                                                                                contentFlag: "true",
-                                                                                contentWidth: "350",
-                                                                                ctx: "",
-                                                                                appId: "",
-                                                                                id: "portalResBreadcrumb_nav-1617010986105",
-                                                                                lib: ["js/portalResBreadcrumb/portalResBreadcrumb_nav"]
-                                                                            });
-
-
-                                                                        </script>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -288,7 +272,7 @@
                                                                                         Voltage/Hertz:
                                                                                     </div>
                                                                                     <div class="info_voltage_content">
-                                                                                        <select class="info_select info_voltage_select">
+                                                                                        <select class="info_select info_voltage_select" aria-label="info_voltage_select">
                                                                                             <foreach
                                                                                                     name="product_setting.operating_voltage"
                                                                                                     item="vo">
@@ -297,7 +281,7 @@
                                                                                                 </option>
                                                                                             </foreach>
                                                                                         </select>
-                                                                                        <select class="info_select info_hertz_select">
+                                                                                        <select class="info_select info_hertz_select" aria-label="info_hertz_select">
                                                                                             <foreach
                                                                                                     name="product_setting.operating_hertz"
                                                                                                     item="vo">
@@ -339,10 +323,10 @@
                                                                                                 data-key="{$key}">
                                                                                                 <img src="{:cmf_get_image_url($vo.url)}"
                                                                                                      class="available_img"
-                                                                                                     alt="">
+                                                                                                     alt="available_img">
                                                                                                 <img src="{:cmf_get_image_url($vo.active_url)}"
                                                                                                      class="available_img_active"
-                                                                                                     alt="">
+                                                                                                     alt="available_img_active">
                                                                                                 <span class="info_available_list_item_title">
                                                                                                     {$vo.name}
                                                                                                 </span>
@@ -360,17 +344,17 @@
                                                                                     <div class="info_btn" id="inquiry">
                                                                                         <img src="__TMPL__/public/assets/images/submit.png"
                                                                                              data-unactive_img="__TMPL__/public/assets/images/submit.png"
-                                                                                             data-active_img="__TMPL__/public/assets/images/submit-active.png">
+                                                                                             data-active_img="__TMPL__/public/assets/images/submit-active.png" alt="submit">
                                                                                     </div>
                                                                                     <div class="info_btn">
                                                                                         <img src="__TMPL__/public/assets/images/consult.png"
                                                                                              data-unactive_img="__TMPL__/public/assets/images/consult.png"
-                                                                                             data-active_img="__TMPL__/public/assets/images/consult-active.png">
+                                                                                             data-active_img="__TMPL__/public/assets/images/consult-active.png" alt="consult">
                                                                                     </div>
                                                                                     <div class="info_btn" id="download" data-href="{:cmf_get_file_download_url($product.file.url)}">
                                                                                         <img src="__TMPL__/public/assets/images/catalogue.png"
                                                                                              data-unactive_img="__TMPL__/public/assets/images/catalogue.png"
-                                                                                             data-active_img="__TMPL__/public/assets/images/catalogue-active.png">
+                                                                                             data-active_img="__TMPL__/public/assets/images/catalogue-active.png" alt="catalogue">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -389,7 +373,7 @@
                                                                                         portal
                                                                                     /index/product_info\",array(\"id\"=>$vo[\"id\"]))}'">
                                                                                     <div class="related_products_img_wrap">
-                                                                                        <img src="{:cmf_get_image_url($vo.thumbnail)}">
+                                                                                        <img src="{:cmf_get_image_url($vo.thumbnail)}" alt="{$vo.title}">
                                                                                     </div>
                                                                                     <div class="related_products_list_item_title">
                                                                                         {$vo.title}
@@ -431,7 +415,7 @@
                                                                                             <li class="info_content_content_certificate_item">
                                                                                                 <div class="certificate_wrap">
                                                                                                     <img src="{:cmf_get_image_url($vo.url)}"
-                                                                                                         alt=""></div>
+                                                                                                         alt="{$vo.name}"></div>
                                                                                                 <div class="info_content_content_certificate_item_title">
                                                                                                     {$vo.name}
                                                                                                 </div>
@@ -449,7 +433,7 @@
                                                                                             <li class="info_content_content_case_item">
                                                                                                 <div class="case_wrap">
                                                                                                     <img src="{:cmf_get_image_url($vo.url)}"
-                                                                                                         alt=""></div>
+                                                                                                         alt="{$vo.name}"></div>
                                                                                                 <div class="info_content_content_case_item_title">
                                                                                                     {$vo.name}
                                                                                                 </div>
@@ -460,26 +444,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-
-
                                                                     </div>
-                                                                    <script type="text/javascript"
-                                                                            src="__TMPL__/public/assets/js/KeyShotVR.js"></script>
-                                                                    <script>$("div[id^='c_']").attr("loaded", "true")</script>
-                                                                    <script>window._bd_share_config = {
-                                                                        "common": {
-                                                                            "bdSnsKey": {},
-                                                                            "bdText": "",
-                                                                            "bdMini": "2",
-                                                                            "bdMiniList": false,
-                                                                            "bdPic": "",
-                                                                            "bdStyle": "0",
-                                                                            "bdSize": "16"
-                                                                        }, "share": {}
-                                                                    };
-                                                                    with (document) 0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
-
-
                                                                 </div>
                                                                 <div class="stylebox_bottom_line"></div>
                                                                 <div class="stylebox_bottom">
@@ -515,7 +480,7 @@
 <div class="popover_wrap" style="display: none">
     <div class="popover_container">
         <div class=popover_close>
-            <img src="__TMPL__/public/assets/images/close.png" alt="">
+            <img src="__TMPL__/public/assets/images/close.png" alt="close">
         </div>
         <div class="popover_content">
             <div class="popover_title">

@@ -1457,7 +1457,6 @@
     box-shadow: 0 0 1px transparent;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    background: url(/img/line1.jpg?tenantId=232120&viewType=1&v=1728370158000) no-repeat right center;
     padding: 0 20px;
     position: relative;
 }
@@ -4433,6 +4432,9 @@ body, #-remove--flag {
     font-style: normal;
     text-transform: none;
     margin-top: 23px;
+}
+.feedback_wrap .feedback_container .feedback_content .feedback_title .feedback_title_description a{
+    color: #003F9B;
 }
 .feedback_wrap .feedback_container .feedback_content .feedback_form{
     width: 100%;
