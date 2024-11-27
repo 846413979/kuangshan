@@ -39,7 +39,7 @@ class MessageModel extends Model
     }
 
 
-    public function saveMessage($data)
+    public function saveMessage($ip, $data)
     {
         if (!empty($data['product_id'])) {
             $productModel = new ProductModel();
@@ -68,15 +68,6 @@ class MessageModel extends Model
                 }
             }
 
-        }
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
-        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
-            // 如果 X_FORWARDED_FOR 包含多个IP地址，只取第一个
-            $ip = explode(',', $ip)[0];
-        } else {
-            $ip = $_SERVER['REMOTE_ADDR'];
         }
         $data['ip'] = $ip;
         return $this->save($data);

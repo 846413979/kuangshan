@@ -27,7 +27,7 @@ class File implements SessionHandlerInterface
 {
     protected $config = [
         'path'           => '',
-        'expire'         => 1440,
+        'expire'         => 7200,
         'prefix'         => '',
         'data_compress'  => false,
         'gc_probability' => 1,

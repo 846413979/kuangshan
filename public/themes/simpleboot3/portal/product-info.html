@@ -369,9 +369,7 @@
                                                                                 <foreach name="recommended_list"
                                                                                          item="vo">
                                                                                     <li class="related_products_list_item"
-                                                                                        onclick="location.href='{:cmf_url(\"
-                                                                                        portal
-                                                                                    /index/product_info\",array(\"id\"=>$vo[\"id\"]))}'">
+                                                                                        onclick="location.href='{:cmf_url(\"portal/index/product_info\",array(\"id\"=>$vo[\"id\"]))}'">
                                                                                     <div class="related_products_img_wrap">
                                                                                         <img src="{:cmf_get_image_url($vo.thumbnail)}" alt="{$vo.title}">
                                                                                     </div>

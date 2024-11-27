@@ -32,6 +32,7 @@
                 <th>手机号</th>
                 <th>留言内容</th>
                 <th>产品内容</th>
+                <th>用户访问记录</th>
                 <th>留言时间</th>
                 <th width="160">{:lang('ACTIONS')}</th>
             </tr>
@@ -55,6 +56,11 @@
                             <else />
                             无
                         </notempty>
+                    </td>
+                    <td>
+                        <a class="btn btn-xs btn-primary" href="javascript:;"
+                           onclick="openPortalArticleEditDialog(this)"
+                           data-href="{:url('Message/user_access_log',array('id'=>$vo['id']))}">查看</a>
                     </td>
                     <td>{$vo.create_time}</td>
                     <td>

@@ -12,14 +12,19 @@ namespace app\portal\controller;
 
 use app\admin\model\MessageModel;
 use app\admin\model\SlideItemModel;
+use app\admin\model\UserAccessLogModel;
 use app\portal\model\PortalCategoryModel;
 use app\portal\model\PortalPostModel;
 use app\portal\model\ProductCategoryModel;
 use app\portal\model\ProductModel;
 use app\portal\model\ProfessionModel;
 use app\portal\service\PostService;
+use app\portal\service\RedisService;
 use app\portal\validate\InquiryValidate;
 use cmf\controller\HomeBaseController;
+use think\cache\driver\Redis;
+use think\facade\Db;
+use think\facade\Cache;
 
 class IndexController extends HomeBaseController
 {
@@ -46,6 +51,15 @@ class IndexController extends HomeBaseController
         $responsibility_category_list = $portalCategoryModel->where('status', 1)->where('type', 2)->where('parent_id', 11)->order('list_order asc')->select();
         $this->assign('responsibility_category_list', $responsibility_category_list);
         parent::initialize();
+
+
+        // 保存访问记录到redis
+        $ip = cmf_client_ip();
+        $url = $this->request->url();
+
+        $redisService = new RedisService();
+        $param = $this->request->param();
+        $redisService::setUrl($ip,$url,$param);
     }
 
     public function index()
@@ -63,8 +77,8 @@ class IndexController extends HomeBaseController
 
         // 首页案例
         $portalPostModel = new PortalPostModel();
-        $where = [['post_type','=',3]];
-        $case_list = $portalPostModel->alias('p')->join('cmf_portal_category_post c','p.id=c.post_id','left')->where($where)->order('c.list_order asc,p.create_time desc')->field('p.id,p.post_title,p.thumbnail,p.more,c.category_id as cid')->limit(5)->select();
+        $where = [['post_type', '=', 3]];
+        $case_list = $portalPostModel->alias('p')->join('cmf_portal_category_post c', 'p.id=c.post_id', 'left')->where($where)->order('c.list_order asc,p.create_time desc')->field('p.id,p.post_title,p.thumbnail,p.more,c.category_id as cid')->limit(5)->select();
         $this->assign('case_list', $case_list);
 
         // 首页设置
@@ -85,11 +99,11 @@ class IndexController extends HomeBaseController
         $this->assign('category', $category);
 
         $portalPostModel = new PortalPostModel();
-        $where = [['post_type','=',7]];
+        $where = [['post_type', '=', 7]];
         if (!empty($news_category_id)) {
             $where[] = ['c.category_id', '=', $news_category_id];
         }
-        $list = $portalPostModel->alias('p')->join('cmf_portal_category_post c','p.id=c.post_id','left')->where($where)->order('c.list_order asc,p.create_time desc')->field('p.id,p.post_title,p.thumbnail,p.more,c.category_id as cid')->paginate(12);
+        $list = $portalPostModel->alias('p')->join('cmf_portal_category_post c', 'p.id=c.post_id', 'left')->where($where)->order('c.list_order asc,p.create_time desc')->field('p.id,p.post_title,p.thumbnail,p.more,c.category_id as cid')->paginate(12);
         $this->assign('list', $list);
         $this->assign('page', $list->render());
 
@@ -313,22 +327,36 @@ class IndexController extends HomeBaseController
         if (!$InquiryValidate->check($data)) {
             $this->error($InquiryValidate->getError());
         }
-        $model = new MessageModel();
-        $res = $model->saveMessage($data);
-        if ($res === false) {
+        Db::startTrans();
+        try {
+            // 保存消息
+            $messageModel = new MessageModel();
+            $ip = cmf_client_ip();
+            $messageModel->saveMessage($ip,$data);
+            $message_id = $messageModel->id;
+
+            $UserAccessLogModel = new UserAccessLogModel();
+            $UserAccessLogModel->saveLog($ip,$message_id);
+
+            Db::commit();
+        }catch (\Exception $e){
+            Db::rollback();
             $this->error('submit failed');
         }
+
         if ($data['type'] == 3) {
             session('user_download', 1);
         }
         $this->success('submit success', '', ['session' => session('user_download')]);
-
     }
 
 
     // 服务页面
     public function service()
     {
+        $postModel = new PortalPostModel();
+        $article = $postModel->field('post_title,post_content')->where('id', 89)->find();
+        $this->assign('article', $article);
         return $this->fetch(':service');
     }
 

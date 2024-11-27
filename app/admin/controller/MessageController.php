@@ -3,6 +3,7 @@
 namespace app\admin\controller;
 
 use app\admin\model\MessageModel;
+use app\admin\model\UserAccessLogModel;
 use cmf\controller\AdminBaseController;
 
 class MessageController extends AdminBaseController
@@ -105,6 +106,16 @@ class MessageController extends AdminBaseController
         $MessageModel = new MessageModel();
         $data = $MessageModel->find($id);
         $this->assign('data', $data);
+        return $this->fetch();
+    }
+
+    // 用户访问列表
+    public function user_access_log(){
+        $message_id = $this->request->param('id',0,'intval');
+        $UserAccessLogModel = new UserAccessLogModel();
+        $list = $UserAccessLogModel->where('message_id',$message_id)->order('id asc')->paginate(['list_rows'=>10,'query'=>['id'=>$message_id]]);
+        $this->assign('list', $list);
+        $this->assign('page', $list->render());
         return $this->fetch();
     }
 }

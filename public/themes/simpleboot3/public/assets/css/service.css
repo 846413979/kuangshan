@@ -20,6 +20,7 @@
 }
 .service_content_main{
     margin-bottom: 60px;
+    margin-top: 30px;
 }
 .service_content_main .service_content_main_list{
     width: 100%;
@@ -48,7 +49,7 @@
 .service_content_main .service_content_main_list .service_content_main_text p:first-child {
     margin-top: 0;
 }
-.service_content_main .service_content_main_list .service_content_main_img{
+.service_content_main .service_content_main_list .service_content_main_img img{
     width: 586px;
     float: left;
 }
