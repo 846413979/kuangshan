@@ -4534,13 +4534,17 @@ body, #-remove--flag {
 }
 .right_fix .right_fix_connect .right_fix_box .right_fix_box_connect{
     display: none;
-    width: 202px;
+    width: 272px;
     height: 80px;
     position: absolute;
-    left: -206px;
+    left: -276px;
     top: 0;
     background: #003F9B;
     box-shadow: 0px 0px 15px 1px rgba(0,0,0,0.16);
+}
+.right_fix .right_fix_connect .right_fix_box:first-child .right_fix_box_connect{
+    width: 202px;
+    left: -206px;
 }
 .right_fix .right_fix_connect .right_fix_box .right_fix_box_connect p{
     font-family: DIN, DIN;
@@ -4558,6 +4562,9 @@ body, #-remove--flag {
 }
 .right_fix .right_fix_connect .right_fix_box .right_fix_box_connect p:first-child{
     margin-top: 13px;
+}
+.right_fix .right_fix_connect .right_fix_box .right_fix_box_connect p a{
+    color: #FFFFFF;
 }
 .right_fix .right_fix_connect .right_fix_box .right_fix_box_connect .right_fix_box_connect_arrow{
     border-top: 15px solid transparent;

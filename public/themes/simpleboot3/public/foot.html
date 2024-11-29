@@ -2,22 +2,6 @@
     <div class="w_grid signal">
         <div class="e_box e_box-000 p_gridbox">
             <div id="content_box-1593500490727-0" class="e_box e_box-000 d_gridCell_0 p_gridCell">
-                <div id="w_common_text-1616831156169" class="reset_style" data-vhide100p="true">
-                    <div>
-                        <p style="text-align:center">
-                            <span style="line-height:2">
-                                <span style="font-family:微软雅黑">
-                                    <span style="font-size:14px">
-                                        <span style="color:#FFFFFF">{$site_info.copyright}</span>
-                                        <a href="https://beian.miit.gov.cn/" target="_blank">
-                                            <span style="color:#FFFFFF">{$site_info.site_gwa}</span>
-                                        </a>
-                                    </span>
-                                </span>
-                            </span>
-                        </p>
-                    </div>
-                </div>
                 <div id="w_grid-1614153078102" class="w_grid-001" data-vhide768="true"
                      data-vhide1024="true">
                     <div class="w_grid ">
@@ -90,7 +74,7 @@
                                                 style="font-family:微软雅黑">E-Mail</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:{$site_info.email}"><span
+                                        <p><a href="mailto:{$site_info.email}"><span
                                                 style="font-size:24px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
                                                 style="color:#FFFFFF">{$site_info.email}</span></span></span></a>
@@ -103,7 +87,7 @@
                                                 style="font-family:微软雅黑">TELE</span></span></span>
                                         </p>
 
-                                        <p><a href="mailto:{$site_info.sale_tel}"><span
+                                        <p><a href="tel:{$site_info.sale_tel}"><span
                                                 style="font-size:24px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
                                                 style="color:#FFFFFF">{$site_info.sale_tel}</span></span></span></a>
@@ -111,15 +95,21 @@
                                     </div>
                                 </div>
                                 <div class="reset_style">
+                                    <php>
+                                        $cleanNumber = preg_replace('/[^0-9]/', '', $site_info['whatsapp']);
+                                        if (strpos($cleanNumber, '0') === 0) {
+                                            $cleanNumber = preg_replace('/^0+/', '', $cleanNumber);
+                                        }
+                                    </php>
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
                                                 style="font-family:微软雅黑">WHATSAPP</span></span></span>
                                         </p>
 
-                                        <p><span
+                                        <p><a href="https://wa.me/{$cleanNumber}"><span
                                                 style="font-size:24px"><span
                                                 style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF">{$site_info.whatsapp}</span></span></span>
+                                                style="color:#FFFFFF">{$site_info.whatsapp}</span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -213,7 +203,7 @@
             <p class="right_fix_box_title">WhatsApp</p>
             <div class="right_fix_box_connect">
                 <p>WhatsApp:</p>
-                <p class="right_fix_box_connect_text">{$site_info.whatsapp}</p>
+                <p class="right_fix_box_connect_text"><a href="https://wa.me/{$cleanNumber}">{$site_info.whatsapp}</a></p>
                 <div class="right_fix_box_connect_arrow"></div>
             </div>
         </div>
@@ -222,7 +212,7 @@
             <p>Send Email</p>
             <div class="right_fix_box_connect">
                 <p>Email:</p>
-                <p class="right_fix_box_connect_text">{$site_info.email}</p>
+                <p class="right_fix_box_connect_text"><a href="mailto:{$site_info.email}">{$site_info.email}</a></p>
                 <div class="right_fix_box_connect_arrow"></div>
             </div>
         </div>
@@ -238,3 +228,5 @@
         $('html,body').animate({scrollTop: 0}, 500);
     })
 </script>
+
+{:htmlspecialchars_decode($site_info.salesiq)}

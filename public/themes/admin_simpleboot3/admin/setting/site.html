@@ -184,12 +184,24 @@
                                        value="{$site_info.site_admin_email|default=''}">
                             </div>
                         </div>-->
-                        <!--<div class="form-group">
-                            <label for="input-site_analytics" class="col-sm-2 control-label">{:lang('WEBSITE_STATISTICAL_CODE')}</label>
+                        <div class="form-group">
+                            <label for="input-salesiq" class="col-sm-2 control-label">SalesIQ代码</label>
                             <div class="col-md-6 col-sm-10">
-                                <textarea class="form-control" id="input-site_analytics" name="options[site_analytics]">{$site_info.site_analytics|default=''}</textarea>
+                                <textarea class="form-control" id="input-salesiq" name="options[salesiq]" style="height: 100px;">{$site_info.salesiq|default=''}</textarea>
                             </div>
-                        </div>-->
+                        </div>
+                        <div class="form-group">
+                            <label for="input-google_analytics" class="col-sm-2 control-label">Google Analytics代码</label>
+                            <div class="col-md-6 col-sm-10">
+                                <textarea class="form-control" id="input-google_analytics" name="options[google_analytics]" style="height: 100px;">{$site_info.google_analytics|default=''}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-microsoft_clarity" class="col-sm-2 control-label">Microsoft Clarity代码</label>
+                            <div class="col-md-6 col-sm-10">
+                                <textarea class="form-control" id="input-microsoft_clarity" name="options[microsoft_clarity]" style="height: 100px;">{$site_info.microsoft_clarity|default=''}</textarea>
+                            </div>
+                        </div>
                         <!--<div class="form-group">-->
                         <!--<label for="input-site_copyright" class="col-sm-2 control-label">{:lang('WEBSITE_COPYRIGHT_INFOMATION')}</label>-->
                         <!--<div class="col-md-6 col-sm-10">-->
