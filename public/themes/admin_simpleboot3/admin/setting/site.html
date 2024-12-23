@@ -224,6 +224,24 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label for="input-google_tag_head" class="col-sm-2 control-label">Google Tag head代码</label>
+                            <div class="col-md-6 col-sm-10">
+                                <textarea class="form-control" id="input-google_tag_head" name="options[google_tag_head]" style="height: 100px;">{$site_info.google_tag_head|default=''}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-google_tag_body" class="col-sm-2 control-label">Google Tag body代码</label>
+                            <div class="col-md-6 col-sm-10">
+                                <textarea class="form-control" id="input-google_tag_body" name="options[google_tag_body]" style="height: 100px;">{$site_info.google_tag_body|default=''}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="input-google_else" class="col-sm-2 control-label">Google其他代码</label>
+                            <div class="col-md-6 col-sm-10">
+                                <textarea class="form-control" id="input-google_else" name="options[google_else]" style="height: 100px;">{$site_info.google_else|default=''}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label for="input-microsoft_clarity" class="col-sm-2 control-label">Microsoft Clarity代码</label>
                             <div class="col-md-6 col-sm-10">
                                 <textarea class="form-control" id="input-microsoft_clarity" name="options[microsoft_clarity]" style="height: 100px;">{$site_info.microsoft_clarity|default=''}</textarea>

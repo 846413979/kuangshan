@@ -1,7 +1,7 @@
 <?php
 use think\facade\Route;
 
-Route::get('Single Girder Overhead Crane', 'portal/index/product?id=5')->append(array('id' => '5',));
+Route::get('SingleGirderOverheadCrane', 'portal/index/product?id=5')->append(array('id' => '5',));
 
 Route::get('Double Girder Bridge Crane ', 'portal/index/product?id=6')->append(array('id' => '6',));
 

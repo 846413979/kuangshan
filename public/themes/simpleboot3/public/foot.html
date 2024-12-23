@@ -2,31 +2,28 @@
     <div class="w_grid signal">
         <div class="e_box e_box-000 p_gridbox">
             <div id="content_box-1593500490727-0" class="e_box e_box-000 d_gridCell_0 p_gridCell">
-                <div id="w_grid-1614153078102" class="w_grid-001" data-vhide768="true"
-                     data-vhide1024="true">
+                <div id="w_grid-1614153078102" class="w_grid-001" data-vhide768="true" data-vhide1024="true">
                     <div class="w_grid ">
                         <div class="e_box e_box-000 p_gridbox">
-                            <div id="content_box-1614153078102-0"
-                                 class="e_box e_box-000 d_gridCell_0 p_gridCell">
-                                <div id="c_portalResnav_main-16168298922036759"
-                                     class="c_portalResnav_main-01001005" loaded="true"
-                                     style="overflow: visible;">
+                            <div id="content_box-1614153078102-0" class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                <div id="c_portalResnav_main-16168298922036759" class="c_portalResnav_main-01001005"
+                                    loaded="true" style="overflow: visible;">
 
                                     <nav class="bnav">
                                         <div class="box">
                                             <dl class="botUl">
                                                 <dt class="botDt">
                                                     <a href="{:cmf_url('portal/index/intro',array('id'=>4))}"
-                                                       class="botLink blink">About us</a>
+                                                        class="botLink blink">About us</a>
                                                 </dt>
                                                 <dd class="sbotDd">
                                                     <a href="{:cmf_url('portal/index/intro',array('id'=>4))}"
-                                                       class="botLinkS blink">CompanyProfile</a>
+                                                        class="botLinkS blink">CompanyProfile</a>
                                                 </dd>
                                                 <foreach name="about_category" item="vo">
                                                     <dd class="sbotDd">
                                                         <a href="{:cmf_url('portal/index/about',array('id'=>$vo['id']))}"
-                                                           class="botLinkS blink">{$vo.name}</a>
+                                                            class="botLinkS blink">{$vo.name}</a>
                                                     </dd>
                                                 </foreach>
                                             </dl>
@@ -34,24 +31,24 @@
                                             <dl class="botUl">
                                                 <dt class="botDt">
                                                     <a href="{:cmf_url('portal/index/product')}"
-                                                       class="botLink blink">Products</a>
+                                                        class="botLink blink">Products</a>
                                                 </dt>
                                                 <foreach name="category_list" item="vo">
-                                                <dd class="sbotDd">
-                                                    <a href="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}"
-                                                       class="botLinkS blink">{$vo.name}</a>
-                                                </dd>
+                                                    <dd class="sbotDd">
+                                                        <a href="{:cmf_url('portal/index/product',array('id'=>$vo['id']))}"
+                                                            class="botLinkS blink">{$vo.name}</a>
+                                                    </dd>
                                                 </foreach>
                                             </dl>
                                             <dl class="botUl">
                                                 <dt class="botDt">
                                                     <a href="{:cmf_url('portal/index/case')}"
-                                                       class="botLink blink">Case</a>
+                                                        class="botLink blink">Case</a>
                                                 </dt>
                                                 <foreach name="case_category" item="vo">
                                                     <dd class="sbotDd">
                                                         <a href="{:cmf_url('portal/index/case',array('id'=>$vo['id']))}"
-                                                           class="botLinkS blink">{$vo.name}</a>
+                                                            class="botLinkS blink">{$vo.name}</a>
                                                     </dd>
                                                 </foreach>
 
@@ -66,31 +63,28 @@
 
                                 </div>
                             </div>
-                            <div id="content_box-1614153078102-1"
-                                 class="e_box e_box-000 d_gridCell_1 p_gridCell">
+                            <div id="content_box-1614153078102-1" class="e_box e_box-000 d_gridCell_1 p_gridCell">
                                 <div class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
-                                                style="font-family:微软雅黑">E-Mail</span></span></span>
+                                                        style="font-family:微软雅黑">E-Mail</span></span></span>
                                         </p>
 
-                                        <p><a href="mailto:{$site_info.email}"><span
-                                                style="font-size:24px"><span
-                                                style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF">{$site_info.email}</span></span></span></a>
+                                        <p><a href="mailto:{$site_info.email}"><span style="font-size:14px"><span
+                                                        style="font-family:arial,helvetica,sans-serif"><span
+                                                            class="contact_info">{$site_info.email}</span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
-                                                style="font-family:微软雅黑">TEL</span></span></span>
+                                                        style="font-family:微软雅黑">TELE</span></span></span>
                                         </p>
 
-                                        <p><a href="tel:{$site_info.sale_tel}"><span
-                                                style="font-size:24px"><span
-                                                style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF">{$site_info.sale_tel}</span></span></span></a>
+                                        <p><a href="tel:{$site_info.sale_tel}"><span style="font-size:14px"><span
+                                                        style="font-family:arial,helvetica,sans-serif"><span
+                                                            class="contact_info">{$site_info.sale_tel}</span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
@@ -98,93 +92,86 @@
                                     <php>
                                         $cleanNumber = preg_replace('/[^0-9]/', '', $site_info['whatsapp']);
                                         if (strpos($cleanNumber, '0') === 0) {
-                                            $cleanNumber = preg_replace('/^0+/', '', $cleanNumber);
+                                        $cleanNumber = preg_replace('/^0+/', '', $cleanNumber);
                                         }
                                     </php>
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
-                                                style="font-family:微软雅黑">WHATSAPP</span></span></span>
+                                                        style="font-family:微软雅黑">WHATSAPP</span></span></span>
                                         </p>
 
-                                        <p><a href="https://api.whatsapp.com/send?phone={$cleanNumber}" target="_blank"><span
-                                                style="font-size:24px"><span
-                                                style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF">{$site_info.whatsapp}</span></span></span></a>
+                                        <p><a href="https://api.whatsapp.com/send?phone={$cleanNumber}" target="_blank"><span style="font-size:14px"><span
+                                                        style="font-family:arial,helvetica,sans-serif"><span
+                                                            class="contact_info">{$site_info.whatsapp}</span></span></span></a>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="reset_style">
                                     <div>
                                         <p><span style="color:#FFFFFF"><span style="font-size:16px"><span
-                                                style="font-family:微软雅黑">WECHAT</span></span></span>
+                                                        style="font-family:微软雅黑">WECHAT</span></span></span>
                                         </p>
 
-                                        <p><span
-                                                style="font-size:24px"><span
-                                                style="font-family:arial,helvetica,sans-serif"><span
-                                                style="color:#FFFFFF">{$site_info.wechat}</span></span></span>
+                                        <p><span style="font-size:14px"><span
+                                                    style="font-family:arial,helvetica,sans-serif"><span
+                                                        class="contact_info">{$site_info.wechat}</span></span></span>
                                         </p>
                                     </div>
                                 </div>
                             </div>
-                            <div id="content_box-1614153078102-2"
-                                 class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                            <div id="content_box-1614153078102-2" class="e_box e_box-000 d_gridCell_2 p_gridCell">
                                 <div id="w_common_text-1616830503151" class="reset_style">
-                                    <div><p><strong><font color="#ffffff" face="微软雅黑"><span
-                                            style="font-size:14px">Follow Us</span></font></strong>
-                                    </p>
+                                    <div>
+                                        <p><strong>
+                                                <font color="#ffffff" face="微软雅黑"><span style="font-size:14px">Follow
+                                                        Us</span></font>
+                                            </strong>
+                                        </p>
                                     </div>
                                 </div>
                                 <div id="w_grid-1616830617301" class="w_grid-001">
                                     <div class="w_grid ">
                                         <div class="e_box e_box-000 p_gridbox">
                                             <div id="content_box-1616830617301-0"
-                                                 class="e_box e_box-000 d_gridCell_0 p_gridCell">
+                                                class="e_box e_box-000 d_gridCell_0 p_gridCell">
                                                 <div id="w_fimg-1616830627861" class="w_fimg-001">
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <a href="{$site_info.linkedin}" target="_blank">
                                                                 <img src="__TMPL__/public/assets/images/ins.png"
-                                                                     alt="{$site_info.site_name}"
-                                                                     title="{$site_info.site_name}"
-                                                                     width="40px" height="40px">
-                                                                </a>
+                                                                    alt="{$site_info.site_name}"
+                                                                    title="{$site_info.site_name}" width="40px"
+                                                                    height="40px">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="content_box-1616830617301-1"
-                                                 class="e_box e_box-000 d_gridCell_1 p_gridCell">
+                                                class="e_box e_box-000 d_gridCell_1 p_gridCell">
                                                 <div id="w_fimg-1617159683507" class="w_fimg-001">
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <a href="{$site_info.facebook}" target="_blank">
-                                                                    <img src="__TMPL__/public/assets/images/facebook.png"
-                                                                         alt="{$site_info.site_name}"
-                                                                         title="{$site_info.site_name}"
-                                                                         width="100%" height="100%">
-                                                                </a>
-
+                                                                <img src="__TMPL__/public/assets/images/facebook.png"
+                                                                    alt="{$site_info.site_name}"
+                                                                    title="{$site_info.site_name}" width="100%"
+                                                                    height="100%">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div id="content_box-1616830617301-2"
-                                                 class="e_box e_box-000 d_gridCell_2 p_gridCell">
+                                                class="e_box e_box-000 d_gridCell_2 p_gridCell">
                                                 <div id="w_fimg-1616830641892" class="w_fimg-001">
                                                     <div class="w_img animated  ">
                                                         <div class="e_box e_box-000 p_box">
                                                             <div class="e_image e_DImage-001 p_dimage">
-                                                                <a href="{$site_info.youtube}" target="_blank">
                                                                 <img src="__TMPL__/public/assets/images/youtubi.png"
-                                                                     alt="{$site_info.site_name}"
-                                                                     title="{$site_info.site_name}"
-                                                                     width="100%" height="100%">
-                                                                </a>
+                                                                    alt="{$site_info.site_name}"
+                                                                    title="{$site_info.site_name}" width="100%"
+                                                                    height="100%">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -196,6 +183,9 @@
                             </div>
                         </div>
                     </div>
+                    <p class="copyright"> © 2018 -
+                        <?php echo date("Y")?> Henan Mine Crane
+                    </p>
                 </div>
             </div>
         </div>
@@ -205,9 +195,17 @@
 
 <div class="right_fix">
     <div class="right_fix_connect">
+        <div class="right_fix_box right_fix_home">
+            <a href="/">
+                <img src="__TMPL__/public/assets/images/home.png" alt="home" title="home">
+                <p>Home</p>
+            </a>
+        </div>
         <div class="right_fix_box right_fix_whatsapp">
-            <img src="__TMPL__/public/assets/images/whatsapp.png" alt="whatsapp" title="whatsapp">
-            <p class="right_fix_box_title">WhatsApp</p>
+            <a href="https://api.whatsapp.com/send?phone={$cleanNumber}" target="_blank">
+                <img src="__TMPL__/public/assets/images/whatsapp.png" alt="whatsapp" title="whatsapp">
+                <p class="right_fix_box_title">WhatsApp</p>
+            </a>
             <div class="right_fix_box_connect">
                 <p>WhatsApp:</p>
                 <p class="right_fix_box_connect_text"><a href="https://api.whatsapp.com/send?phone={$cleanNumber}" target="_blank">{$site_info.whatsapp}</a></p>
@@ -215,8 +213,10 @@
             </div>
         </div>
         <div class="right_fix_box right_fix_email">
-            <img src="__TMPL__/public/assets/images/email.png" alt="email" title="email">
-            <p>Send Email</p>
+            <a href="mailto:{$site_info.email}">
+                <img src="__TMPL__/public/assets/images/email.png" alt="email" title="email">
+                <p>Send Email</p>
+            </a>
             <div class="right_fix_box_connect">
                 <p>Email:</p>
                 <p class="right_fix_box_connect_text"><a href="mailto:{$site_info.email}">{$site_info.email}</a></p>
@@ -231,9 +231,32 @@
 </div>
 
 <script type="text/javascript">
-    $('.right_fix_top').click(function (){
-        $('html,body').animate({scrollTop: 0}, 500);
+    $('.right_fix_top').click(function () {
+        $('html,body').animate({ scrollTop: 0 }, 500);
     })
 </script>
 
+<notempty name="site_info.salesiq">
 {:htmlspecialchars_decode($site_info.salesiq)}
+</notempty>
+
+<notempty name="site_info.google_tag_body">
+    {:htmlspecialchars_decode($site_info.google_tag_body)}
+</notempty>
+
+
+<script type="text/javascript">
+    $(document).ready(function (){
+        $('body').on('click','#zsiq_float',function (){
+            if ($(this).hasClass('zsiq-toggle')){
+                if ($(window).width() > 768) {
+                    $('.right_fix').css('top','100px');
+                }
+            }else{
+                if ($(window).width() > 768) {
+                    $('.right_fix').css('top', '50%');
+                }
+            }
+        })
+    })
+</script>

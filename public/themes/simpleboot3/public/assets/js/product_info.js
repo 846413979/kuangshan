@@ -485,4 +485,11 @@ $(document).ready(function() {
         $(this).attr('src',unactive_img);
     })
 
+    $('#consult').click(function (){
+        $('#zsiq_chat_wrap').addClass('chat-iframe-open');
+        $('#zsiq_float').addClass('zsiq-toggle').find('#zs_fl_close').attr('tabindex',0);
+        $('#zs_fl_logo').hide();
+        $('.right_fix').css('top','100px');
+    })
+
 });
